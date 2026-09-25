@@ -1,23 +1,38 @@
 export default function Hero() {
     return `
-        <section class="hero">
+        <section
+            class="hero"
+            aria-labelledby="hero-title"
+        >
 
             <!-- =====================================================
                  PREMIUM BACKGROUND OVERLAY
                  This stays behind all interactive content
             ====================================================== -->
-            <div class="hero-overlay"></div>
+
+            <div
+                class="hero-overlay"
+                aria-hidden="true"
+            ></div>
 
 
             <!-- =====================================================
                  HERO CONTENT
             ====================================================== -->
+
             <div class="hero-content">
 
-                <!-- Small Premium Label -->
+
+                <!-- =================================================
+                     PLATFORM LABEL
+                ================================================== -->
+
                 <div class="hero-badge">
 
-                    <span class="hero-badge-dot"></span>
+                    <span
+                        class="hero-badge-dot"
+                        aria-hidden="true"
+                    ></span>
 
                     India's Education Discovery Platform
 
@@ -27,7 +42,11 @@ export default function Hero() {
                 <!-- =================================================
                      MAIN HEADING
                 ================================================== -->
-                <h1 class="hero-title">
+
+                <h1
+                    id="hero-title"
+                    class="hero-title"
+                >
 
                     India's Complete
 
@@ -41,84 +60,143 @@ export default function Hero() {
                 <!-- =================================================
                      DESCRIPTION
                 ================================================== -->
+
                 <p class="hero-description">
 
-                    Find Schools, Colleges, Universities, Scholarships,
-                    Study Abroad Programs, Jobs and More —
-                    All in One Place.
+                    Find schools, colleges, universities, courses,
+                    scholarships, study abroad programs, education
+                    news and career opportunities — all in one place.
 
                 </p>
 
 
                 <!-- =================================================
-                     SEARCH BOX
+                     EDUCATION SEARCH
                 ================================================== -->
-                <div class="hero-search">
 
-                    <div class="hero-search-icon">
+                <form
+                    class="hero-search"
+                    role="search"
+                    action="/"
+                    method="get"
+                    aria-label="Search EduConnect"
+                >
+
+                    <div
+                        class="hero-search-icon"
+                        aria-hidden="true"
+                    >
                         🔍
                     </div>
 
+
+                    <label
+                        class="sr-only"
+                        for="hero-search-input"
+                    >
+
+                    </label>
+
+
                     <input
-                        type="text"
+                        id="hero-search-input"
+                        name="q"
+                        type="search"
                         placeholder="Search colleges, universities, courses, scholarships..."
                         aria-label="Search education opportunities"
+                        autocomplete="off"
+                        enterkeyhint="search"
                     />
 
+
                     <button
-                        type="button"
+                        type="submit"
                         class="hero-search-btn"
+                        aria-label="Search EduConnect"
                     >
                         Search
                     </button>
 
-                </div>
+                </form>
 
 
                 <!-- =================================================
                      QUICK SEARCH OPTIONS
                 ================================================== -->
-                <div class="hero-quick-links">
+
+                <nav
+                    class="hero-quick-links"
+                    aria-label="Popular education searches"
+                >
 
                     <span>
                         Popular:
                     </span>
 
-                    <button type="button">
+
+                    <button
+                        type="button"
+                        data-search-query="colleges"
+                        aria-label="Search colleges"
+                    >
                         Colleges
                     </button>
 
-                    <button type="button">
+
+                    <button
+                        type="button"
+                        data-search-query="universities"
+                        aria-label="Search universities"
+                    >
                         Universities
                     </button>
 
-                    <button type="button">
+
+                    <button
+                        type="button"
+                        data-search-query="courses"
+                        aria-label="Search courses"
+                    >
                         Courses
                     </button>
 
-                    <button type="button">
+
+                    <button
+                        type="button"
+                        data-search-query="scholarships"
+                        aria-label="Search scholarships"
+                    >
                         Scholarships
                     </button>
 
-                    <button type="button">
+
+                    <button
+                        type="button"
+                        data-search-query="study abroad"
+                        aria-label="Search study abroad programs"
+                    >
                         Study Abroad
                     </button>
 
-                </div>
+                </nav>
 
 
                 <!-- =================================================
                      MAIN ACTION BUTTONS
                 ================================================== -->
+
                 <div class="hero-buttons">
+
 
                     <button
                         type="button"
                         class="primary-btn hero-primary-btn"
+                        data-action="explore-education"
                     >
+
                         Explore Education
 
-                        <span>
+                        <span aria-hidden="true">
                             →
                         </span>
 
@@ -128,8 +206,11 @@ export default function Hero() {
                     <button
                         type="button"
                         class="secondary-btn hero-secondary-btn"
+                        data-action="compare-colleges"
                     >
+
                         Compare Colleges
+
                     </button>
 
                 </div>
@@ -137,8 +218,15 @@ export default function Hero() {
 
                 <!-- =================================================
                      PLATFORM STATISTICS
+
+                     Keep these values only if they are supported
+                     by actual EDUCONNECT data.
                 ================================================== -->
-                <div class="hero-stats">
+
+                <div
+                    class="hero-stats"
+                    aria-label="EduConnect platform information"
+                >
 
                     <div class="hero-stat">
 
@@ -153,7 +241,10 @@ export default function Hero() {
                     </div>
 
 
-                    <div class="hero-stat-divider"></div>
+                    <div
+                        class="hero-stat-divider"
+                        aria-hidden="true"
+                    ></div>
 
 
                     <div class="hero-stat">
@@ -169,7 +260,10 @@ export default function Hero() {
                     </div>
 
 
-                    <div class="hero-stat-divider"></div>
+                    <div
+                        class="hero-stat-divider"
+                        aria-hidden="true"
+                    ></div>
 
 
                     <div class="hero-stat">
@@ -185,7 +279,10 @@ export default function Hero() {
                     </div>
 
 
-                    <div class="hero-stat-divider"></div>
+                    <div
+                        class="hero-stat-divider"
+                        aria-hidden="true"
+                    ></div>
 
 
                     <div class="hero-stat">
@@ -208,15 +305,26 @@ export default function Hero() {
             <!-- =====================================================
                  DECORATIVE GLOW
             ====================================================== -->
-            <div class="hero-glow hero-glow-one"></div>
 
-            <div class="hero-glow hero-glow-two"></div>
+            <div
+                class="hero-glow hero-glow-one"
+                aria-hidden="true"
+            ></div>
+
+            <div
+                class="hero-glow hero-glow-two"
+                aria-hidden="true"
+            ></div>
 
 
             <!-- =====================================================
                  SCROLL INDICATOR
             ====================================================== -->
-            <div class="hero-scroll-indicator">
+
+            <div
+                class="hero-scroll-indicator"
+                aria-hidden="true"
+            >
 
                 <span>
                     Explore Education

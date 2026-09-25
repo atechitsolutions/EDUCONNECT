@@ -24,10 +24,10 @@ export function PreSchoolSection() {
             score: "9.2",
 
             ranking:
-                "Popular early-learning institution in New Delhi",
+                "Popular early-learning preschool in New Delhi",
 
             highlight:
-                "Activity-based learning & child-friendly environment",
+                "Activity-based learning, early childhood education & child-friendly environment",
 
             image:
                 "https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=1200&q=85"
@@ -48,10 +48,10 @@ export function PreSchoolSection() {
             score: "9.0",
 
             ranking:
-                "Well-known early-learning centre in Mumbai",
+                "Well-known preschool and early-learning centre in Mumbai",
 
             highlight:
-                "Creative learning & strong foundational development",
+                "Creative learning, foundational education & child development",
 
             image:
                 "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=1200&q=85"
@@ -75,7 +75,7 @@ export function PreSchoolSection() {
                 "Popular preschool focused on foundational education",
 
             highlight:
-                "Play-based learning & social development",
+                "Play-based learning, early education & social development",
 
             image:
                 "https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=1200&q=85"
@@ -96,13 +96,13 @@ export function PreSchoolSection() {
             score: "8.7",
 
             ranking:
-                "Growing early-learning network in Pune",
+                "Growing early-learning preschool network in Pune",
 
             highlight:
-                "Child-focused curriculum & engaging activities",
+                "Child-focused curriculum, early learning & engaging activities",
 
-           image:
-               "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=1200&q=85",
+            image:
+                "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=1200&q=85",
         },
 
 
@@ -123,7 +123,7 @@ export function PreSchoolSection() {
                 "Popular preschool option in the NCR region",
 
             highlight:
-                "Early academics, creativity & confidence building",
+                "Early academics, creativity, foundational learning & confidence building",
 
             image:
                 "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=85"
@@ -144,10 +144,10 @@ export function PreSchoolSection() {
             score: "8.6",
 
             ranking:
-                "Child-friendly early education centre in Jaipur",
+                "Child-friendly early education preschool in Jaipur",
 
             highlight:
-                "Foundational learning & all-round development",
+                "Foundational learning, early childhood education & all-round development",
 
             image:
                 "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1200&q=85"
@@ -276,14 +276,14 @@ export function PreSchoolSection() {
 
 
                     <h2>
-                        Top Pre Schools
+                        Top Pre Schools in India
                     </h2>
 
 
                     <p>
-                        Explore leading pre schools offering
-                        foundational education, activity-based
-                        learning, child development and
+                        Explore leading pre schools and preschools offering
+                        early childhood education, foundational learning,
+                        activity-based learning, child development and
                         child-friendly environments.
                     </p>
 
@@ -362,7 +362,7 @@ export function PreSchoolSection() {
 
 
                     <strong>
-                        Explore pre schools across India.
+                        Explore pre schools and early childhood education options across India.
                     </strong>
 
                 </div>

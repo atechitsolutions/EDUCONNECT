@@ -2,7 +2,10 @@ export default function Navbar() {
 
     return `
 
-    <nav class="navbar">
+    <nav
+        class="navbar"
+        aria-label="Education navigation"
+    >
 
         <div class="navbar-container">
 
@@ -14,6 +17,7 @@ export default function Navbar() {
             <a
                 href="#"
                 class="navbar-link"
+                aria-label="Home - ALL IN ONE Education Platform"
             >
                 Home
             </a>
@@ -29,13 +33,17 @@ export default function Navbar() {
                     href="#school"
                     class="navbar-link navbar-dropdown-link"
                     data-auth-required="true"
+                    aria-label="Schools"
                 >
 
                     <span>
-                        School
+                        Schools
                     </span>
 
-                    <span class="navbar-dropdown-arrow">
+                    <span
+                        class="navbar-dropdown-arrow"
+                        aria-hidden="true"
+                    >
                         ▾
                     </span>
 
@@ -49,7 +57,7 @@ export default function Navbar() {
                         class="navbar-dropdown-item"
                         data-auth-required="true"
                     >
-                        Play School
+                        Play Schools
                     </a>
 
 
@@ -58,7 +66,7 @@ export default function Navbar() {
                         class="navbar-dropdown-item"
                         data-auth-required="true"
                     >
-                        Pre School
+                        Pre Schools
                     </a>
 
 
@@ -67,7 +75,7 @@ export default function Navbar() {
                         class="navbar-dropdown-item"
                         data-auth-required="true"
                     >
-                        Boarding School
+                        Boarding Schools
                     </a>
 
                 </div>
@@ -85,13 +93,17 @@ export default function Navbar() {
                     href="#top-lists"
                     class="navbar-link navbar-dropdown-link"
                     data-auth-required="true"
+                    aria-label="Colleges and Universities"
                 >
 
                     <span>
-                        College
+                        Colleges
                     </span>
 
-                    <span class="navbar-dropdown-arrow">
+                    <span
+                        class="navbar-dropdown-arrow"
+                        aria-hidden="true"
+                    >
                         ▾
                     </span>
 
@@ -107,7 +119,7 @@ export default function Navbar() {
                         class="navbar-dropdown-item"
                         data-auth-required="true"
                     >
-                        University
+                        Universities
                     </a>
 
 
@@ -118,7 +130,7 @@ export default function Navbar() {
                         class="navbar-dropdown-item"
                         data-auth-required="true"
                     >
-                        PG
+                        PG Colleges
                     </a>
 
                 </div>
@@ -134,21 +146,23 @@ export default function Navbar() {
                 href="#study-abroad"
                 class="navbar-link"
                 data-auth-required="true"
+                aria-label="Study Abroad Programs"
             >
                 Study Abroad
             </a>
 
 
             <!-- =================================================
-                 SCHOLARSHIP
+                 SCHOLARSHIPS
             ================================================== -->
 
             <a
                 href="#scholarship"
                 class="navbar-link"
                 data-auth-required="true"
+                aria-label="Scholarships and Financial Aid"
             >
-                Scholarship
+                Scholarships
             </a>
 
 
@@ -160,6 +174,7 @@ export default function Navbar() {
                 href="#jobs"
                 class="navbar-link"
                 data-auth-required="true"
+                aria-label="Education Jobs and Career Opportunities"
             >
                 Jobs
             </a>
@@ -173,6 +188,7 @@ export default function Navbar() {
                 href="#community"
                 class="navbar-link"
                 data-auth-required="true"
+                aria-label="Education Community"
             >
                 Community
             </a>
@@ -186,6 +202,7 @@ export default function Navbar() {
                 href="#news"
                 class="navbar-link"
                 data-auth-required="true"
+                aria-label="Latest Education News"
             >
                 News
             </a>
@@ -199,8 +216,9 @@ export default function Navbar() {
                 href="#certificate"
                 class="navbar-link navbar-certificate-link"
                 data-auth-required="true"
+                aria-label="Education Certificates"
             >
-                Certificate
+                Certificates
             </a>
 
 
@@ -212,6 +230,7 @@ export default function Navbar() {
                 href="#online-courses"
                 class="navbar-link navbar-onlinecourses-link"
                 data-auth-required="true"
+                aria-label="Online Courses and Education"
             >
                 Online Courses
             </a>
@@ -225,6 +244,7 @@ export default function Navbar() {
                 type="button"
                 class="navbar-partner-login"
                 data-partner-login
+                aria-label="Partner Login"
             >
                 Partners Login
             </button>

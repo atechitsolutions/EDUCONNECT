@@ -64,150 +64,255 @@ export default function MainLayout() {
     return `
 
         <!-- =====================================================
-             HEADER
+             SITE HEADER
         ====================================================== -->
 
         ${Header()}
 
 
         <!-- =====================================================
-             NAVBAR
+             PRIMARY NAVIGATION
         ====================================================== -->
 
         ${Navbar()}
 
 
         <!-- =====================================================
-             HERO
+             MAIN HOMEPAGE CONTENT
         ====================================================== -->
 
-        ${Hero()}
+        <main id="main-content">
 
 
-        <!-- =====================================================
-             SOCIAL MEDIA PLATFORM - RUNNING LINE
-        ====================================================== -->
+            <!-- =================================================
+                 HERO / PRIMARY EDUCATION SEARCH
+            ================================================== -->
 
-        ${RunningSocial()}
-
-
-        <!-- =====================================================
-             CURRENT AFFAIRS - RUNNING LINE
-        ====================================================== -->
-
-        ${CurrentAffairs()}
+            <section
+                id="hero"
+                aria-label="EduConnect education search"
+            >
+                ${Hero()}
+            </section>
 
 
-        <!-- =====================================================
-             MAIN CATEGORIES
-        ====================================================== -->
+            <!-- =================================================
+                 EDUCATION SOCIAL / DISCOVERY
+            ================================================== -->
 
-        ${Categories()}
-
-
-        <!-- =====================================================
-             PLAY SCHOOL
-        ====================================================== -->
-
-        ${PlaySchoolSection()}
+            <section
+                id="education-social"
+                aria-label="Education updates and social content"
+            >
+                ${RunningSocial()}
+            </section>
 
 
-        <!-- =====================================================
-             PRE SCHOOL
-        ====================================================== -->
+            <!-- =================================================
+                 CURRENT AFFAIRS
+            ================================================== -->
 
-        ${PreSchoolSection()}
-
-
-        <!-- =====================================================
-             SCHOOL
-        ====================================================== -->
-
-        ${SchoolSection()}
+            <section
+                id="current-affairs"
+                aria-label="Current affairs and education updates"
+            >
+                ${CurrentAffairs()}
+            </section>
 
 
-        <!-- =====================================================
-             TOP 10 BOARDING SCHOOLS
-        ====================================================== -->
+            <!-- =================================================
+                 EDUCATION CATEGORIES
+            ================================================== -->
 
-        ${TopBoardingSchoolsSection()}
-
-
-        <!-- =====================================================
-             TOP UG & PG COLLEGES
-        ====================================================== -->
-
-        ${TopUGPGCollegesSection()}
+            <section
+                id="education-categories"
+                aria-label="Education categories"
+            >
+                ${Categories()}
+            </section>
 
 
-        <!-- =====================================================
-             ONLINE & DISTANCE EDUCATION
-        ====================================================== -->
+            <!-- =================================================
+                 PLAY SCHOOL
+            ================================================== -->
 
-        ${OnlineEducationSection()}
-
-
-        <!-- =====================================================
-             LATEST EDUCATION NEWS
-        ====================================================== -->
-
-        ${NewsSection()}
+            <section
+                id="play-school"
+                aria-label="Play school education"
+            >
+                ${PlaySchoolSection()}
+            </section>
 
 
-        <!-- =====================================================
-             STUDY ABROAD
-        ====================================================== -->
+            <!-- =================================================
+                 PRE SCHOOL
+            ================================================== -->
 
-        ${StudyAbroadSection()}
-
-
-        <!-- =====================================================
-             RANKINGS
-        ====================================================== -->
-
-        ${RankingsSection()}
+            <section
+                id="pre-school"
+                aria-label="Pre school education"
+            >
+                ${PreSchoolSection()}
+            </section>
 
 
-        <!-- =====================================================
-             STUDENT REVIEWS
-        ====================================================== -->
+            <!-- =================================================
+                 SCHOOLS
+            ================================================== -->
 
-        ${StudentReviewsSection()}
-
-
-        <!-- =====================================================
-             SCHOLARSHIPS
-        ====================================================== -->
-
-        ${ScholarshipSection()}
+            <section
+                id="schools"
+                aria-label="Schools and school education"
+            >
+                ${SchoolSection()}
+            </section>
 
 
-        <!-- =====================================================
-             EDUCATION LOAN / FINANCE
-        ====================================================== -->
+            <!-- =================================================
+                 TOP BOARDING SCHOOLS
+            ================================================== -->
 
-        ${EducationLoanSection()}
-
-
-        <!-- =====================================================
-             TOP LISTS
-        ====================================================== -->
-
-        ${TopListsSection()}
+            <section
+                id="boarding-schools"
+                aria-label="Top boarding schools"
+            >
+                ${TopBoardingSchoolsSection()}
+            </section>
 
 
-        <!-- =====================================================
-             COMPARE COLLEGE / UNIVERSITY
-        ====================================================== -->
+            <!-- =================================================
+                 UG AND PG COLLEGES
+            ================================================== -->
 
-        ${CompareCollegeSection()}
+            <section
+                id="colleges"
+                aria-label="Undergraduate and postgraduate colleges"
+            >
+                ${TopUGPGCollegesSection()}
+            </section>
 
 
-        <!-- =====================================================
-             TOP 10 COMPANIES TO WORK FOR
-        ====================================================== -->
+            <!-- =================================================
+                 ONLINE EDUCATION
+            ================================================== -->
 
-        ${TopCompaniesSection()}
+            <section
+                id="online-education"
+                aria-label="Online and distance education"
+            >
+                ${OnlineEducationSection()}
+            </section>
+
+
+            <!-- =================================================
+                 EDUCATION NEWS
+            ================================================== -->
+
+            <section
+                id="news"
+                aria-label="Latest education news"
+            >
+                ${NewsSection()}
+            </section>
+
+
+            <!-- =================================================
+                 STUDY ABROAD
+            ================================================== -->
+
+            <section
+                id="study-abroad"
+                aria-label="Study abroad education"
+            >
+                ${StudyAbroadSection()}
+            </section>
+
+
+            <!-- =================================================
+                 EDUCATION RANKINGS
+            ================================================== -->
+
+            <section
+                id="rankings"
+                aria-label="Education rankings"
+            >
+                ${RankingsSection()}
+            </section>
+
+
+            <!-- =================================================
+                 STUDENT REVIEWS
+            ================================================== -->
+
+            <section
+                id="student-reviews"
+                aria-label="Student reviews"
+            >
+                ${StudentReviewsSection()}
+            </section>
+
+
+            <!-- =================================================
+                 SCHOLARSHIPS
+            ================================================== -->
+
+            <section
+                id="scholarships"
+                aria-label="Scholarships and financial aid"
+            >
+                ${ScholarshipSection()}
+            </section>
+
+
+            <!-- =================================================
+                 EDUCATION LOANS
+            ================================================== -->
+
+            <section
+                id="education-loan"
+                aria-label="Education loans and finance"
+            >
+                ${EducationLoanSection()}
+            </section>
+
+
+            <!-- =================================================
+                 EDUCATION TOP LISTS
+            ================================================== -->
+
+            <section
+                id="top-lists"
+                aria-label="Top education lists"
+            >
+                ${TopListsSection()}
+            </section>
+
+
+            <!-- =================================================
+                 COLLEGE COMPARISON
+            ================================================== -->
+
+            <section
+                id="compare-college"
+                aria-label="Compare colleges and universities"
+            >
+                ${CompareCollegeSection()}
+            </section>
+
+
+            <!-- =================================================
+                 COMPANIES
+            ================================================== -->
+
+            <section
+                id="top-companies"
+                aria-label="Top companies and career opportunities"
+            >
+                ${TopCompaniesSection()}
+            </section>
+
+
+        </main>
 
 
         <!-- =====================================================

@@ -17,7 +17,7 @@ export function StudyAbroadSection() {
                 "Study in USA",
 
             category:
-                "Popular Study Destination",
+                "Study in USA",
 
             location:
                 "United States",
@@ -35,10 +35,10 @@ export function StudyAbroadSection() {
                 "9.4",
 
             ranking:
-                "Home to leading universities and globally recognized programs",
+                "Home to leading universities and globally recognized study abroad programs",
 
             highlight:
-                "Top universities, scholarships & career opportunities",
+                "Top universities, study abroad scholarships & career opportunities",
 
             image:
                 "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?auto=format&fit=crop&w=1200&q=85",
@@ -56,7 +56,7 @@ export function StudyAbroadSection() {
                 "Study in UK",
 
             category:
-                "Popular Study Destination",
+                "Study in UK",
 
             location:
                 "United Kingdom",
@@ -74,10 +74,10 @@ export function StudyAbroadSection() {
                 "9.2",
 
             ranking:
-                "Leading universities with globally recognized degrees",
+                "Leading UK universities with globally recognized degrees and programs",
 
             highlight:
-                "World-class education & diverse programs",
+                "World-class UK education, universities & diverse study abroad programs",
 
             image:
                 "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1200&q=85",
@@ -95,7 +95,7 @@ export function StudyAbroadSection() {
                 "Study in Canada",
 
             category:
-                "Popular Study Destination",
+                "Study in Canada",
 
             location:
                 "Canada",
@@ -113,10 +113,10 @@ export function StudyAbroadSection() {
                 "9.1",
 
             ranking:
-                "Popular destination for international students",
+                "Popular study abroad destination for international students",
 
             highlight:
-                "Education, career & post-study opportunities",
+                "Canadian education, career & post-study opportunities",
 
             image:
                 "https://images.unsplash.com/photo-1517935706615-2717063c2225?auto=format&fit=crop&w=1200&q=85",
@@ -142,7 +142,7 @@ export function StudyAbroadSection() {
                 "Study in Australia",
 
             category:
-                "International Education",
+                "Study in Australia",
 
             location:
                 "Australia",
@@ -160,10 +160,10 @@ export function StudyAbroadSection() {
                 "8.9",
 
             ranking:
-                "Strong destination for universities and professional education",
+                "Strong study abroad destination for universities and professional education",
 
             highlight:
-                "Quality education & international student experience",
+                "Quality Australian education & international student experience",
 
             image:
                 "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?auto=format&fit=crop&w=1200&q=85",
@@ -181,7 +181,7 @@ export function StudyAbroadSection() {
                 "Study in Germany",
 
             category:
-                "Affordable Education",
+                "Study in Germany",
 
             location:
                 "Germany",
@@ -199,10 +199,10 @@ export function StudyAbroadSection() {
                 "8.8",
 
             ranking:
-                "Strong option for technical and research-oriented education",
+                "Strong option for technical, engineering and research-oriented education",
 
             highlight:
-                "Affordable education & strong technical programs",
+                "Affordable study in Germany & strong technical programs",
 
             image:
                 "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=1200&q=85",
@@ -220,7 +220,7 @@ export function StudyAbroadSection() {
                 "Study in Europe",
 
             category:
-                "Multiple Countries",
+                "Study in Europe",
 
             location:
                 "Europe",
@@ -238,10 +238,10 @@ export function StudyAbroadSection() {
                 "8.7",
 
             ranking:
-                "Access study opportunities across multiple European countries",
+                "Access study abroad opportunities across multiple European countries",
 
             highlight:
-                "Universities, scholarships & diverse study options",
+                "European universities, scholarships & diverse international study options",
 
             image:
                 "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1200&q=85",
@@ -360,15 +360,15 @@ export function StudyAbroadSection() {
 
 
                     <h2>
-                        Study Abroad
+                        Study Abroad Destinations
                     </h2>
 
 
                     <p>
-                        Explore international study destinations,
-                        universities, programs, scholarships and
-                        career opportunities for students planning
-                        to study abroad.
+                        Explore study abroad destinations,
+                        international universities, degree programs,
+                        scholarships and career opportunities for
+                        students planning to study overseas.
                     </p>
 
                 </div>
@@ -415,7 +415,7 @@ export function StudyAbroadSection() {
                 <button
                     type="button"
                     class="study-abroad-next"
-                    aria-label="Show next study abroad destinations"
+                    aria-label="Show next study abroad destinations and international education options"
                 >
 
                     <span>

@@ -272,15 +272,15 @@ export function PlaySchoolSection() {
 
 
                     <h2>
-                        Top Play Schools
+                        Top Play Schools in India
                     </h2>
 
 
                     <p>
-                        Discover trusted play schools focused on
-                        early learning, creativity, social development,
-                        foundational skills and a joyful learning
-                        environment.
+                        Discover play schools focused on early childhood
+                        education, early learning, creativity, social
+                        development, foundational skills and a joyful
+                        learning environment.
                     </p>
 
                 </div>
@@ -310,6 +310,7 @@ export function PlaySchoolSection() {
 
                 <div
                     class="early-learning-track institution-carousel-track"
+                    aria-label="Featured play schools"
                 >
 
                     ${schoolCards}
@@ -356,7 +357,7 @@ export function PlaySchoolSection() {
 
 
                     <strong>
-                        Explore play schools across India.
+                        Explore play schools across India for early childhood education.
                     </strong>
 
                 </div>
@@ -365,6 +366,7 @@ export function PlaySchoolSection() {
                 <button
                     class="early-learning-explore-btn"
                     type="button"
+                    aria-label="View all play schools"
                 >
 
                     <span class="early-learning-view-all-text">
@@ -372,7 +374,7 @@ export function PlaySchoolSection() {
                     </span>
 
 
-                    <span>
+                    <span aria-hidden="true">
                         →
                     </span>
 

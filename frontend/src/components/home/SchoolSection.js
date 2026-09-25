@@ -27,7 +27,7 @@ export function SchoolSection() {
                 "Among the leading CBSE schools in India",
 
             highlight:
-                "Strong academics, activities & student development",
+                "Strong academics, CBSE school education, activities & student development",
 
             image:
                 "https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=1200&q=85"
@@ -51,7 +51,7 @@ export function SchoolSection() {
                 "One of India's renowned residential schools",
 
             highlight:
-                "Academic excellence, leadership & holistic education",
+                "Academic excellence, ICSE school education, leadership & holistic learning",
 
             image:
                 "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=85"
@@ -72,10 +72,10 @@ export function SchoolSection() {
             score: "9.0",
 
             ranking:
-                "Established school with strong academic reputation",
+                "Established CBSE school with strong academic reputation",
 
             highlight:
-                "Academics, sports & co-curricular activities",
+                "CBSE academics, sports, co-curricular activities & student development",
 
             image:
                 "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1200&q=85"
@@ -99,7 +99,7 @@ export function SchoolSection() {
                 "Established K-12 school network in India",
 
             highlight:
-                "Modern learning, activities & student support",
+                "Modern school education, activities & student support",
 
             image:
                 "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1200&q=85"
@@ -120,10 +120,10 @@ export function SchoolSection() {
             score: "8.9",
 
             ranking:
-                "Well-regarded school for academics and student development",
+                "Well-regarded CBSE school for academics and student development",
 
             highlight:
-                "Academic focus, discipline & co-curricular learning",
+                "Academic focus, discipline, CBSE curriculum & co-curricular learning",
 
             image:
                 "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=1200&q=85"
@@ -147,7 +147,7 @@ export function SchoolSection() {
                 "International curriculum-focused school",
 
             highlight:
-                "Global exposure, modern campus & holistic education",
+                "IB and IGCSE education, global exposure, modern campus & holistic learning",
 
             image:
                 "https://images.unsplash.com/photo-1590012314607-cda9d9b699ae?auto=format&fit=crop&w=1200&q=85"
@@ -274,15 +274,17 @@ export function SchoolSection() {
                         🏫 SCHOOL EDUCATION
                     </span>
 
+
                     <h2>
-                        Top Schools
+                        Top Schools in India
                     </h2>
+
 
                     <p>
                         Explore leading schools across India and
-                        compare boards, classes, locations,
-                        academic environment, ratings and
-                        student opportunities.
+                        compare CBSE, ICSE, IB and IGCSE school boards,
+                        classes, locations, academic environment,
+                        ratings and student opportunities.
                     </p>
 
                 </div>
@@ -358,8 +360,9 @@ export function SchoolSection() {
                         Looking for the right school?
                     </span>
 
+
                     <strong>
-                        Explore schools across India.
+                        Explore schools, school boards and education options across India.
                     </strong>
 
                 </div>
@@ -373,6 +376,7 @@ export function SchoolSection() {
                     <span class="early-learning-view-all-text">
                         View All Schools
                     </span>
+
 
                     <span>
                         →

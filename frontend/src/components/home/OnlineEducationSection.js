@@ -16,13 +16,13 @@ export function OnlineEducationSection() {
             name: "Online MBA",
 
             category:
-                "Online Degree",
+                "Online MBA Degree",
 
             location:
                 "India",
 
             program:
-                "MBA • Management • Business Administration",
+                "Online MBA • Management • Business Administration",
 
             rating:
                 "4.8",
@@ -34,10 +34,10 @@ export function OnlineEducationSection() {
                 "9.2",
 
             ranking:
-                "Popular online management program from leading universities",
+                "Popular online MBA and online management program from leading universities",
 
             highlight:
-                "UGC-approved online learning & flexible study options",
+                "UGC-approved online learning, flexible study options & career-focused management education",
 
             image:
                 "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=85",
@@ -54,13 +54,13 @@ export function OnlineEducationSection() {
             name: "Online BCA",
 
             category:
-                "Online Degree",
+                "Online BCA Degree",
 
             location:
                 "India",
 
             program:
-                "BCA • Computer Applications • IT",
+                "Online BCA • Computer Applications • IT",
 
             rating:
                 "4.7",
@@ -72,10 +72,10 @@ export function OnlineEducationSection() {
                 "9.0",
 
             ranking:
-                "Popular online program for computer applications and IT",
+                "Popular online BCA program for computer applications, information technology and digital careers",
 
             highlight:
-                "Industry-oriented curriculum & flexible learning",
+                "Industry-oriented online curriculum, flexible learning & computer application education",
 
             image:
                 "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=85",
@@ -92,13 +92,13 @@ export function OnlineEducationSection() {
             name: "Certification Courses",
 
             category:
-                "Skill Development",
+                "Online Certification Courses",
 
             location:
                 "Online",
 
             program:
-                "AI • Data Science • Cloud • Digital Skills",
+                "Online Certification Courses • AI • Data Science • Cloud • Digital Skills",
 
             rating:
                 "4.6",
@@ -110,10 +110,10 @@ export function OnlineEducationSection() {
                 "8.8",
 
             ranking:
-                "Short-term programs focused on in-demand professional skills",
+                "Short-term online certification courses focused on in-demand professional skills",
 
             highlight:
-                "Practical projects & career-focused learning",
+                "Practical projects, professional certifications & career-focused online learning",
 
             image:
                 "https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&fit=crop&w=1200&q=85",
@@ -138,13 +138,13 @@ export function OnlineEducationSection() {
             name: "Distance MBA",
 
             category:
-                "Distance Degree",
+                "Distance MBA Degree",
 
             location:
                 "India",
 
             program:
-                "MBA • Management • Business Administration",
+                "Distance MBA • Management • Business Administration",
 
             rating:
                 "4.6",
@@ -156,10 +156,10 @@ export function OnlineEducationSection() {
                 "8.8",
 
             ranking:
-                "Flexible management education for learners and working students",
+                "Flexible distance MBA and management education for learners and working students",
 
             highlight:
-                "Affordable education with flexible schedules",
+                "Affordable distance education, flexible schedules & management learning",
 
             image:
                 "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1200&q=85",
@@ -176,13 +176,13 @@ export function OnlineEducationSection() {
             name: "Distance B.Com",
 
             category:
-                "Distance Degree",
+                "Distance B.Com Degree",
 
             location:
                 "India",
 
             program:
-                "B.Com • Commerce • Accounting • Finance",
+                "Distance B.Com • Commerce • Accounting • Finance",
 
             rating:
                 "4.5",
@@ -194,10 +194,10 @@ export function OnlineEducationSection() {
                 "8.6",
 
             ranking:
-                "Flexible commerce degree for students and working learners",
+                "Flexible distance B.Com degree for students and working learners",
 
             highlight:
-                "Study from home with flexible schedules",
+                "Distance commerce education, flexible schedules & study-from-home learning",
 
             image:
                 "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=85",
@@ -214,13 +214,13 @@ export function OnlineEducationSection() {
             name: "Distance M.A",
 
             category:
-                "Postgraduate Degree",
+                "Distance Postgraduate Degree",
 
             location:
                 "India",
 
             program:
-                "M.A. • Humanities • Social Sciences",
+                "Distance M.A. • Humanities • Social Sciences",
 
             rating:
                 "4.5",
@@ -232,10 +232,10 @@ export function OnlineEducationSection() {
                 "8.5",
 
             ranking:
-                "Flexible postgraduate programs from recognized universities",
+                "Flexible distance postgraduate programs from recognized universities",
 
             highlight:
-                "Flexible schedules & accessible postgraduate education",
+                "Flexible schedules, distance education & accessible postgraduate learning",
 
             image:
                 "https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&w=1200&q=85",
@@ -355,8 +355,8 @@ export function OnlineEducationSection() {
 
 
                     <p>
-                        Explore online degrees, distance programs,
-                        certifications and flexible learning
+                        Explore online degrees, distance education programs,
+                        online certification courses and flexible learning
                         opportunities from recognized institutions.
                     </p>
 
@@ -404,7 +404,7 @@ export function OnlineEducationSection() {
                 <button
                     type="button"
                     class="online-education-next"
-                    aria-label="Show next programs"
+                    aria-label="Show next online and distance education programs"
                 >
 
                     <span>

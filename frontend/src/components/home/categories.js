@@ -13,7 +13,7 @@ export default function Categories() {
                 "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=1200&q=85",
             target: "#play-school",
             category: "Early Learning",
-            description: "Explore play schools for early childhood learning."
+            description: "Explore play schools for early childhood learning and education."
         },
 
 
@@ -28,7 +28,7 @@ export default function Categories() {
                 "https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=1200&q=85",
             target: "#pre-school",
             category: "Early Education",
-            description: "Find child-friendly pre schools and learning programs."
+            description: "Find pre schools, early education programs and child-friendly learning opportunities."
         },
 
 
@@ -43,7 +43,7 @@ export default function Categories() {
                 "https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=1200&q=85",
             target: "#school",
             category: "School Education",
-            description: "Discover schools, boards, classes and opportunities."
+            description: "Discover schools, school boards, classes, admissions and education opportunities."
         },
 
 
@@ -58,7 +58,7 @@ export default function Categories() {
                 "https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=900&q=80",
             category: "Higher Education",
             target: "#top-lists",
-            description: "Explore colleges, courses, campuses and career opportunities."
+            description: "Explore colleges, degree courses, campuses, admissions and career opportunities."
         },
 
 
@@ -73,7 +73,7 @@ export default function Categories() {
                 "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=85",
             target: "#rankings",
             category: "Higher Education",
-            description: "Explore universities, rankings, programs and careers."
+            description: "Explore universities, academic programs, rankings, admissions and career opportunities."
         },
 
 
@@ -88,7 +88,7 @@ export default function Categories() {
                 "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=85",
             target: "#top-ug-pg-colleges",
             category: "Postgraduate",
-            description: "Discover postgraduate programs and leading institutions."
+            description: "Discover postgraduate courses, PG programs and leading higher education institutions."
         },
 
 
@@ -103,7 +103,7 @@ export default function Categories() {
                 "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1200&q=85",
             target: "#study-abroad",
             category: "International Education",
-            description: "Explore countries, universities, courses and scholarships."
+            description: "Explore study abroad destinations, universities, courses, admissions and scholarships."
         },
 
 
@@ -118,7 +118,7 @@ export default function Categories() {
                 "https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=1200&q=85",
             target: "#online-education",
             category: "Flexible Learning",
-            description: "Find online degrees, certifications and distance programs."
+            description: "Find online degrees, online courses, certifications and distance education programs."
         },
 
 
@@ -133,7 +133,7 @@ export default function Categories() {
                 "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1200&q=85",
             target: "#scholarship",
             category: "Financial Support",
-            description: "Find scholarships and financial assistance opportunities."
+            description: "Find scholarships, student financial aid and education assistance opportunities."
         },
 
 
@@ -148,7 +148,7 @@ export default function Categories() {
                 "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1200&q=85",
             target: "#jobs",
             category: "Career Opportunities",
-            description: "Explore internships, training and early career opportunities."
+            description: "Explore internships, training programs and early career opportunities for students."
         },
 
 
@@ -163,7 +163,7 @@ export default function Categories() {
                 "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85",
             target: "#top-companies",
             category: "Career Opportunities",
-            description: "Discover companies, jobs and career opportunities."
+            description: "Discover jobs, companies, career opportunities and employment resources."
         },
 
 
@@ -178,7 +178,7 @@ export default function Categories() {
                 "https://images.unsplash.com/photo-1606761568499-6d2451b23c66?auto=format&fit=crop&w=1200&q=85",
             target: "#certificate",
             category: "Professional Learning",
-            description: "Explore professional certificates and skill-based programs."
+            description: "Explore professional certificates, certification programs and skill-based learning."
         },
 
 
@@ -193,7 +193,7 @@ export default function Categories() {
                 "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=85",
             target: "#online-courses",
             category: "Digital Learning",
-            description: "Learn new skills through flexible online courses and training."
+            description: "Learn new skills through online courses, professional training and flexible digital learning."
         }
 
     ];
@@ -220,14 +220,14 @@ export default function Categories() {
                     </span>
 
                     <h2>
-                        Explore Categories
+                        Explore Education Categories
                     </h2>
 
                     <p>
-                        Quickly explore schools, colleges,
-                        universities, careers, scholarships,
-                        certificates, online courses
-                        and international education.
+                        Quickly explore schools, colleges, universities,
+                        courses, careers, scholarships, certificates,
+                        online education, study abroad and international
+                        education opportunities.
                     </p>
 
                 </div>
@@ -244,7 +244,7 @@ export default function Categories() {
                         <a
                             href="${category.target}"
                             class="compact-category-card"
-                            aria-label="Explore ${category.title}"
+                            aria-label="Explore ${category.title} - ${category.category}"
                             data-category="${category.title}"
                         >
 
@@ -257,15 +257,13 @@ export default function Categories() {
 
                                 <img
                                     src="${category.image}"
-                                    alt="${category.title}"
+                                    alt="${category.title} - ${category.category}"
                                     loading="lazy"
                                     decoding="async"
                                 />
 
-
                                 <div class="compact-category-image-overlay">
                                 </div>
-
 
                                 <span class="compact-category-type">
                                     ${category.category}
@@ -280,7 +278,10 @@ export default function Categories() {
 
                             <div class="compact-category-content">
 
-                                <span class="compact-category-icon">
+                                <span
+                                    class="compact-category-icon"
+                                    aria-hidden="true"
+                                >
                                     ${category.icon}
                                 </span>
 
