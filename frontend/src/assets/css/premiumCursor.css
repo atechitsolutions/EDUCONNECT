@@ -1,0 +1,226 @@
+/* =========================================================
+   EDUCONNECT — PAPER PLANE CURSOR
+   SMALL LEFT-TILTED VERSION
+========================================================= */
+
+.premium-cursor {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 1px;
+    height: 1px;
+
+    pointer-events: none;
+
+    z-index: 999999;
+
+    opacity: 0;
+
+    /*
+        The cursor itself is positioned through transform
+        from JavaScript.
+    */
+}
+
+
+/* =========================================================
+   PAPER PLANE
+========================================================= */
+
+.paper-plane-cursor {
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    /*
+        Small cursor size.
+    */
+    width: 28px;
+    height: 28px;
+
+    /*
+        Left-tilted paper plane.
+    */
+    transform:
+        translate(-3px, -14px)
+        rotate(45deg)
+        scale(0.90);
+
+    transform-origin: 0 50%;
+
+    opacity: 0;
+
+    transition:
+        transform 0.18s cubic-bezier(.2,.8,.2,1),
+        opacity 0.12s ease;
+}
+
+
+/* =========================================================
+   LEFT-POINTING PAPER PLANE
+========================================================= */
+
+.paper-plane-cursor::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 28px;
+    height: 28px;
+
+    background: #0f4c81;
+
+    /*
+        The plane body points toward the left.
+        Rotation above adds the left tilt.
+    */
+    clip-path: polygon(
+        5% 50%,
+        94% 8%,
+        68% 50%,
+        94% 92%,
+        47% 60%,
+        5% 50%
+    );
+}
+
+
+/* =========================================================
+   INNER FOLD
+========================================================= */
+
+.paper-plane-cursor::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 6px;
+    left: 9px;
+
+    width: 17px;
+    height: 16px;
+
+    background: #ffffff;
+
+    /*
+        Inner fold follows the plane direction.
+    */
+    clip-path: polygon(
+        0% 46%,
+        86% 8%,
+        60% 50%,
+        86% 92%,
+        0% 54%,
+        46% 50%
+    );
+
+    opacity: 0.96;
+}
+
+
+/* =========================================================
+   ACTIVE CURSOR
+========================================================= */
+
+.premium-cursor.plane-active {
+
+    opacity: 1;
+}
+
+
+.premium-cursor.plane-active
+.paper-plane-cursor {
+
+    opacity: 1;
+
+    transform:
+        translate(-3px, -14px)
+        rotate(45deg)
+        scale(0.90);
+}
+
+
+/* =========================================================
+   VERY SUBTLE SHADOW
+========================================================= */
+
+.premium-cursor.plane-active
+.paper-plane-cursor {
+
+    filter:
+        drop-shadow(
+            0 2px 3px
+            rgba(0, 0, 0, 0.18)
+        );
+}
+
+
+/* =========================================================
+   HIDE NATIVE CURSOR
+   ONLY WHILE HOVERING INTERACTIVE CONTENT
+========================================================= */
+
+body.plane-cursor-active button,
+body.plane-cursor-active a,
+body.plane-cursor-active
+.premium-card,
+body.plane-cursor-active
+.premium-category-card,
+body.plane-cursor-active
+.video-review-card,
+body.plane-cursor-active
+.news-card,
+body.plane-cursor-active
+.small-card,
+body.plane-cursor-active
+.hero-search,
+body.plane-cursor-active
+.hero-search-btn,
+body.plane-cursor-active
+.hero-primary-btn,
+body.plane-cursor-active
+.hero-secondary-btn,
+body.plane-cursor-active
+.premium-card-link,
+body.plane-cursor-active
+.video-review-link,
+body.plane-cursor-active
+.category-arrow,
+body.plane-cursor-active
+[role="button"] {
+
+    cursor: none !important;
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+input,
+textarea,
+select {
+
+    cursor: text;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (hover: none), (pointer: coarse) {
+
+    .premium-cursor {
+        display: none !important;
+    }
+
+}
