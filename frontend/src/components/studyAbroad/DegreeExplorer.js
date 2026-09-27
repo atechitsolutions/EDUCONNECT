@@ -7,8 +7,10 @@ export default function DegreeExplorer() {
     const degrees = [
 
         {
+            id: "bachelors",
             name: "Bachelor's Degree",
             shortName: "UG",
+            type: "Undergraduate",
             icon: "🎓",
             duration: "3–4 Years",
             suitableFor:
@@ -20,8 +22,10 @@ export default function DegreeExplorer() {
         },
 
         {
+            id: "masters",
             name: "Master's Degree",
             shortName: "PG",
+            type: "Postgraduate",
             icon: "📚",
             duration: "1–2 Years",
             suitableFor:
@@ -33,8 +37,10 @@ export default function DegreeExplorer() {
         },
 
         {
+            id: "mba",
             name: "MBA",
             shortName: "MBA",
+            type: "MBA",
             icon: "📊",
             duration: "1–2 Years",
             suitableFor:
@@ -46,8 +52,10 @@ export default function DegreeExplorer() {
         },
 
         {
+            id: "phd",
             name: "PhD",
             shortName: "PhD",
+            type: "PhD",
             icon: "🔬",
             duration: "3–6 Years",
             suitableFor:
@@ -59,8 +67,10 @@ export default function DegreeExplorer() {
         },
 
         {
+            id: "diploma",
             name: "Diploma & Certificate",
             shortName: "CERT",
+            type: "Diploma",
             icon: "📜",
             duration: "6 Months–2 Years",
             suitableFor:
@@ -72,8 +82,10 @@ export default function DegreeExplorer() {
         },
 
         {
+            id: "postgraduate-diploma",
             name: "Postgraduate Diploma",
             shortName: "PGD",
+            type: "Postgraduate",
             icon: "💼",
             duration: "1–2 Years",
             suitableFor:
@@ -89,61 +101,55 @@ export default function DegreeExplorer() {
 
     return `
 
-        <!-- =====================================================
-             DEGREE EXPLORER
-        ====================================================== -->
-
         <section
+            id="study-abroad-degree-explorer"
             class="study-abroad-degree-explorer"
-            id="degree-explorer"
+            aria-labelledby="degree-explorer-title"
         >
-
 
             <div class="study-abroad-degree-explorer-container">
 
 
-                <!-- =================================================
-                     SECTION HEADER
-                ================================================== -->
-
                 <div class="study-abroad-degree-explorer-header">
 
-
                     <div class="study-abroad-section-eyebrow">
-                        CHOOSE YOUR PATH
+                        CHOOSE YOUR DEGREE
                     </div>
 
-
-                    <h2>
+                    <h2 id="degree-explorer-title">
 
                         Explore
-                        <span>Degrees & Programs</span>
+                        <span>Degrees</span>
 
                     </h2>
 
-
                     <p>
 
-                        Explore international degree options based
-                        on your academic level, career goals and
-                        preferred study destination.
+                        Explore undergraduate, postgraduate,
+                        MBA, PhD, diploma and certificate
+                        study options abroad.
 
                     </p>
-
 
                 </div>
 
 
                 <!-- =================================================
-                     DEGREE FILTERS
+                     FILTERS
                 ================================================== -->
 
-                <div class="study-abroad-degree-filters">
-
+                <div
+                    class="study-abroad-degree-filters"
+                    role="tablist"
+                    aria-label="Degree filters"
+                >
 
                     <button
                         type="button"
                         class="degree-filter active"
+                        data-degree-filter="all"
+                        aria-selected="true"
+                        role="tab"
                     >
                         All Degrees
                     </button>
@@ -152,6 +158,9 @@ export default function DegreeExplorer() {
                     <button
                         type="button"
                         class="degree-filter"
+                        data-degree-filter="Undergraduate"
+                        aria-selected="false"
+                        role="tab"
                     >
                         Undergraduate
                     </button>
@@ -160,6 +169,9 @@ export default function DegreeExplorer() {
                     <button
                         type="button"
                         class="degree-filter"
+                        data-degree-filter="Postgraduate"
+                        aria-selected="false"
+                        role="tab"
                     >
                         Postgraduate
                     </button>
@@ -168,6 +180,9 @@ export default function DegreeExplorer() {
                     <button
                         type="button"
                         class="degree-filter"
+                        data-degree-filter="MBA"
+                        aria-selected="false"
+                        role="tab"
                     >
                         MBA
                     </button>
@@ -176,6 +191,9 @@ export default function DegreeExplorer() {
                     <button
                         type="button"
                         class="degree-filter"
+                        data-degree-filter="PhD"
+                        aria-selected="false"
+                        role="tab"
                     >
                         PhD
                     </button>
@@ -184,10 +202,12 @@ export default function DegreeExplorer() {
                     <button
                         type="button"
                         class="degree-filter"
+                        data-degree-filter="Diploma"
+                        aria-selected="false"
+                        role="tab"
                     >
                         Diploma
                     </button>
-
 
                 </div>
 
@@ -196,22 +216,21 @@ export default function DegreeExplorer() {
                      DEGREE GRID
                 ================================================== -->
 
-                <div class="study-abroad-degree-grid">
-
+                <div
+                    class="study-abroad-degree-grid"
+                    data-degree-grid
+                >
 
                     ${degrees.map((degree) => `
 
                         <article
                             class="study-abroad-degree-card"
+                            data-degree-card
+                            data-degree-type="${degree.type}"
+                            data-degree-id="${degree.id}"
                         >
 
-
-                            <!-- =================================================
-                                 CARD HEADER
-                            ================================================== -->
-
                             <div class="degree-card-header">
-
 
                                 <div
                                     class="degree-card-icon"
@@ -220,41 +239,28 @@ export default function DegreeExplorer() {
                                     ${degree.icon}
                                 </div>
 
-
                                 <span class="degree-card-short-name">
                                     ${degree.shortName}
                                 </span>
 
-
                             </div>
 
 
-                            <!-- =================================================
-                                 CARD CONTENT
-                            ================================================== -->
-
                             <div class="degree-card-content">
-
 
                                 <h3>
                                     ${degree.name}
                                 </h3>
-
 
                                 <p>
                                     ${degree.suitableFor}
                                 </p>
 
 
-                                <!-- =================================================
-                                     DEGREE DETAILS
-                                ================================================== -->
-
                                 <div class="degree-card-details">
 
 
                                     <div class="degree-card-detail">
-
 
                                         <span
                                             class="degree-detail-icon"
@@ -262,7 +268,6 @@ export default function DegreeExplorer() {
                                         >
                                             ⏱
                                         </span>
-
 
                                         <div>
 
@@ -276,12 +281,10 @@ export default function DegreeExplorer() {
 
                                         </div>
 
-
                                     </div>
 
 
                                     <div class="degree-card-detail">
-
 
                                         <span
                                             class="degree-detail-icon"
@@ -289,7 +292,6 @@ export default function DegreeExplorer() {
                                         >
                                             📚
                                         </span>
-
 
                                         <div>
 
@@ -303,12 +305,10 @@ export default function DegreeExplorer() {
 
                                         </div>
 
-
                                     </div>
 
 
                                     <div class="degree-card-detail">
-
 
                                         <span
                                             class="degree-detail-icon"
@@ -316,7 +316,6 @@ export default function DegreeExplorer() {
                                         >
                                             🌎
                                         </span>
-
 
                                         <div>
 
@@ -330,20 +329,15 @@ export default function DegreeExplorer() {
 
                                         </div>
 
-
                                     </div>
-
 
                                 </div>
 
 
-                                <!-- =================================================
-                                     CARD ACTION
-                                ================================================== -->
-
-                                <button
-                                    type="button"
+                                <a
+                                    href="#study-abroad-course-explorer"
                                     class="degree-explore-button"
+                                    data-degree-explore="${degree.id}"
                                 >
 
                                     Explore Programs
@@ -352,29 +346,41 @@ export default function DegreeExplorer() {
                                         →
                                     </span>
 
-                                </button>
-
+                                </a>
 
                             </div>
-
 
                         </article>
 
                     `).join("")}
 
+                </div>
+
+
+                <div
+                    class="study-abroad-degree-empty"
+                    data-degree-empty
+                    hidden
+                >
+
+                    <div aria-hidden="true">
+                        🎓
+                    </div>
+
+                    <h3>
+                        No degree options found
+                    </h3>
+
+                    <p>
+                        Try another degree category.
+                    </p>
 
                 </div>
 
 
-                <!-- =================================================
-                     DEGREE FOOTER
-                ================================================== -->
-
                 <div class="study-abroad-degree-footer">
 
-
                     <div class="study-abroad-degree-footer-content">
-
 
                         <span
                             class="study-abroad-degree-footer-icon"
@@ -382,7 +388,6 @@ export default function DegreeExplorer() {
                         >
                             🎓
                         </span>
-
 
                         <div>
 
@@ -397,29 +402,25 @@ export default function DegreeExplorer() {
 
                         </div>
 
-
                     </div>
 
 
-                    <button
-                        type="button"
+                    <a
+                        href="#study-abroad-course-explorer"
                         class="study-abroad-degree-guide-button"
                     >
 
-                        Explore Degree Guide
+                        Explore Courses
 
                         <span>
                             →
                         </span>
 
-                    </button>
-
+                    </a>
 
                 </div>
 
-
             </div>
-
 
         </section>
 

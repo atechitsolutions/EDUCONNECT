@@ -1,23 +1,25 @@
 /* =========================================================
-   STUDY ABROAD DESTINATIONS
-   PREMIUM DESTINATION EXPLORER
+   STUDY ABROAD — DESTINATIONS
 ========================================================= */
 
 .study-abroad-destinations {
+
     position: relative;
 
-    padding: 90px 0 100px;
+    width: 100%;
+
+    padding: 100px 0 110px;
 
     background:
         radial-gradient(
-            circle at 8% 15%,
+            circle at 8% 12%,
             rgba(73, 163, 255, 0.12),
             transparent 300px
         ),
         radial-gradient(
-            circle at 92% 85%,
+            circle at 92% 82%,
             rgba(29, 116, 201, 0.10),
-            transparent 330px
+            transparent 340px
         ),
         linear-gradient(
             135deg,
@@ -31,10 +33,11 @@
 
 
 /* =========================================================
-   BACKGROUND DECORATION
+   DECORATION
 ========================================================= */
 
 .study-abroad-destinations::before {
+
     content: "";
 
     position: absolute;
@@ -42,16 +45,16 @@
     width: 420px;
     height: 420px;
 
-    top: -240px;
-    right: -120px;
+    top: -220px;
+    right: -100px;
 
     border-radius: 50%;
 
     background:
         radial-gradient(
             circle,
-            rgba(255,255,255,0.95),
-            rgba(214,231,247,0.35),
+            rgba(255, 255, 255, 0.95),
+            rgba(214, 231, 247, 0.35),
             transparent 70%
         );
 
@@ -60,6 +63,7 @@
 
 
 .study-abroad-destinations::after {
+
     content: "";
 
     position: absolute;
@@ -68,15 +72,15 @@
     height: 350px;
 
     bottom: -220px;
-    left: -130px;
+    left: -120px;
 
     border-radius: 50%;
 
     background:
         radial-gradient(
             circle,
-            rgba(255,255,255,0.90),
-            rgba(214,231,247,0.30),
+            rgba(255, 255, 255, 0.90),
+            rgba(214, 231, 247, 0.30),
             transparent 70%
         );
 
@@ -89,25 +93,26 @@
 ========================================================= */
 
 .study-abroad-destinations-container {
+
     position: relative;
 
     z-index: 2;
 
-    width:
-        min(
-            1320px,
-            calc(100% - 40px)
-        );
+    width: min(
+        1320px,
+        calc(100% - 40px)
+    );
 
     margin: 0 auto;
 }
 
 
 /* =========================================================
-   SECTION HEADER
+   HEADER
 ========================================================= */
 
 .study-abroad-destinations-header {
+
     max-width: 820px;
 
     margin: 0 auto 42px;
@@ -116,26 +121,24 @@
 }
 
 
-/* =========================================================
-   EYEBROW
-========================================================= */
-
+.study-abroad-destinations-header
 .study-abroad-section-eyebrow {
+
     display: inline-flex;
 
     align-items: center;
+
+    justify-content: center;
 
     padding: 8px 15px;
 
     margin-bottom: 16px;
 
-    border:
-        1px solid rgba(15,76,129,0.10);
+    border: 1px solid rgba(15, 76, 129, 0.10);
 
     border-radius: 50px;
 
-    background:
-        rgba(255,255,255,0.72);
+    background: rgba(255, 255, 255, 0.72);
 
     color: #0f4c81;
 
@@ -144,27 +147,20 @@
     font-weight: 800;
 
     letter-spacing: 1.4px;
-
-    box-shadow:
-        0 6px 18px rgba(15,76,129,0.06);
 }
 
 
-/* =========================================================
-   HEADER TITLE
-========================================================= */
-
 .study-abroad-destinations-header h2 {
+
     margin: 0;
 
     color: #102f4d;
 
-    font-size:
-        clamp(
-            34px,
-            4.5vw,
-            54px
-        );
+    font-size: clamp(
+        34px,
+        4.5vw,
+        54px
+    );
 
     font-weight: 850;
 
@@ -175,6 +171,7 @@
 
 
 .study-abroad-destinations-header h2 span {
+
     background:
         linear-gradient(
             90deg,
@@ -184,17 +181,15 @@
         );
 
     -webkit-background-clip: text;
+
     background-clip: text;
 
     -webkit-text-fill-color: transparent;
 }
 
 
-/* =========================================================
-   HEADER DESCRIPTION
-========================================================= */
-
 .study-abroad-destinations-header p {
+
     max-width: 720px;
 
     margin: 18px auto 0;
@@ -212,6 +207,7 @@
 ========================================================= */
 
 .study-abroad-destination-filters {
+
     display: flex;
 
     justify-content: center;
@@ -220,70 +216,79 @@
 
     flex-wrap: wrap;
 
-    gap: 9px;
+    gap: 10px;
 
-    margin-bottom: 35px;
+    margin-bottom: 42px;
 }
 
 
 .destination-filter {
-    padding: 10px 18px;
 
-    border:
-        1px solid rgba(15,76,129,0.12);
+    min-height: 44px;
+
+    padding: 0 18px;
+
+    border: 1px solid #d8e4ef;
 
     border-radius: 50px;
 
-    background:
-        rgba(255,255,255,0.72);
+    background: rgba(255, 255, 255, 0.80);
 
-    color: #526f89;
-
-    font-family: inherit;
-
-    font-size: 12px;
-
-    font-weight: 700;
+    color: #456176;
 
     cursor: pointer;
 
-    box-shadow:
-        0 5px 15px rgba(15,76,129,0.05);
+    font-family: inherit;
+
+    font-size: 14px;
+
+    font-weight: 650;
 
     transition:
-        transform 0.25s ease,
-        background 0.25s ease,
-        color 0.25s ease,
-        box-shadow 0.25s ease;
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 
 .destination-filter:hover {
-    transform: translateY(-2px);
+
+    border-color: #8abcf0;
 
     color: #0f4c81;
 
-    background: #ffffff;
-
-    box-shadow:
-        0 8px 20px rgba(15,76,129,0.10);
+    transform: translateY(-1px);
 }
 
 
 .destination-filter.active {
-    background:
-        linear-gradient(
-            135deg,
-            #0f4c81,
-            #1d74c9
-        );
+
+    border-color: #0f4c81;
+
+    background: #0f4c81;
 
     color: #ffffff;
 
-    border-color: transparent;
-
     box-shadow:
-        0 8px 20px rgba(15,76,129,0.20);
+        0 8px 20px rgba(15, 76, 129, 0.18);
+}
+
+
+/* =========================================================
+   ANCHOR TARGETS
+========================================================= */
+
+.study-abroad-destination-anchor {
+
+    position: relative;
+
+    top: -100px;
+
+    height: 0;
+
+    visibility: hidden;
 }
 
 
@@ -292,6 +297,7 @@
 ========================================================= */
 
 .study-abroad-destination-grid {
+
     display: grid;
 
     grid-template-columns:
@@ -302,57 +308,74 @@
 
 
 /* =========================================================
-   DESTINATION CARD
+   CARD
 ========================================================= */
 
 .study-abroad-destination-card {
+
     position: relative;
+
+    min-width: 0;
 
     overflow: hidden;
 
+    border: 1px solid rgba(15, 76, 129, 0.10);
+
+    border-radius: 20px;
+
     background: #ffffff;
 
-    border:
-        1px solid rgba(15,76,129,0.09);
-
-    border-radius: 22px;
-
     box-shadow:
-        0 10px 28px rgba(15,76,129,0.08);
+        0 10px 30px rgba(15, 76, 129, 0.07);
 
     transition:
-        transform 0.35s ease,
-        box-shadow 0.35s ease,
-        border-color 0.35s ease;
+        transform 0.28s ease,
+        box-shadow 0.28s ease,
+        border-color 0.28s ease;
 }
 
 
 .study-abroad-destination-card:hover {
-    transform: translateY(-8px);
 
-    border-color:
-        rgba(29,116,201,0.25);
+    transform: translateY(-7px);
+
+    border-color: rgba(37, 99, 235, 0.22);
 
     box-shadow:
-        0 22px 48px rgba(15,76,129,0.16);
+        0 22px 45px rgba(15, 76, 129, 0.13);
 }
 
 
 /* =========================================================
-   CARD IMAGE
+   HIDDEN FILTER CARD
+========================================================= */
+
+.study-abroad-destination-card.is-hidden {
+
+    display: none;
+}
+
+
+/* =========================================================
+   IMAGE
 ========================================================= */
 
 .destination-card-image {
+
     position: relative;
 
-    height: 205px;
+    height: 215px;
 
     overflow: hidden;
+
+    background: #dcecf8;
 }
 
 
 .destination-card-image img {
+
     width: 100%;
+
     height: 100%;
 
     display: block;
@@ -360,30 +383,28 @@
     object-fit: cover;
 
     transition:
-        transform 0.55s ease;
+        transform 0.45s ease;
 }
 
 
 .study-abroad-destination-card:hover
 .destination-card-image img {
-    transform: scale(1.08);
+
+    transform: scale(1.06);
 }
 
 
-/* =========================================================
-   IMAGE OVERLAY
-========================================================= */
-
 .destination-card-image-overlay {
+
     position: absolute;
 
     inset: 0;
 
     background:
         linear-gradient(
-            180deg,
-            rgba(4,18,31,0.05) 15%,
-            rgba(4,18,31,0.68) 100%
+            to bottom,
+            rgba(0, 0, 0, 0.02),
+            rgba(0, 0, 0, 0.45)
         );
 
     pointer-events: none;
@@ -391,48 +412,58 @@
 
 
 /* =========================================================
-   COUNTRY NAME
+   COUNTRY BADGE
 ========================================================= */
 
 .destination-country {
+
     position: absolute;
 
-    left: 17px;
-    bottom: 16px;
+    left: 14px;
 
-    display: flex;
+    bottom: 14px;
+
+    display: inline-flex;
 
     align-items: center;
 
-    gap: 8px;
+    gap: 7px;
 
-    color: #ffffff;
+    min-height: 36px;
 
-    font-size: 18px;
+    padding: 0 12px;
 
-    font-weight: 800;
+    border-radius: 9px;
 
-    text-shadow:
-        0 3px 10px rgba(0,0,0,0.35);
-}
+    background: rgba(255, 255, 255, 0.94);
 
+    color: #102f4d;
 
-.destination-country span {
-    font-size: 21px;
+    font-size: 13px;
+
+    font-weight: 750;
+
+    box-shadow:
+        0 6px 18px rgba(0, 0, 0, 0.12);
+
+    backdrop-filter: blur(8px);
 }
 
 
 /* =========================================================
-   FAVOURITE BUTTON
+   FAVORITE
 ========================================================= */
 
 .destination-favourite {
+
     position: absolute;
 
-    top: 14px;
-    right: 14px;
+    top: 13px;
+
+    right: 13px;
 
     width: 38px;
+
     height: 38px;
 
     display: flex;
@@ -441,33 +472,45 @@
 
     justify-content: center;
 
-    border:
-        1px solid rgba(255,255,255,0.25);
+    border: 1px solid rgba(255, 255, 255, 0.60);
 
     border-radius: 50%;
 
-    background:
-        rgba(5,25,43,0.38);
+    background: rgba(255, 255, 255, 0.92);
 
-    color: #ffffff;
-
-    font-size: 20px;
+    color: #334155;
 
     cursor: pointer;
 
-    backdrop-filter: blur(8px);
+    font-size: 20px;
+
+    line-height: 1;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.10);
 
     transition:
-        transform 0.25s ease,
-        background 0.25s ease;
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
 }
 
 
 .destination-favourite:hover {
-    transform: scale(1.1);
 
-    background:
-        rgba(15,76,129,0.85);
+    transform: scale(1.07);
+
+    background: #ffffff;
+
+    color: #2563eb;
+}
+
+
+.destination-favourite.is-favourite {
+
+    background: #2563eb;
+
+    color: #ffffff;
 }
 
 
@@ -476,147 +519,102 @@
 ========================================================= */
 
 .destination-card-content {
-    padding: 21px;
+
+    padding: 22px;
 }
 
 
-/* =========================================================
-   CARD TOP
-========================================================= */
-
 .destination-card-top {
+
     display: flex;
 
     align-items: center;
 
     justify-content: space-between;
 
-    margin-bottom: 10px;
+    gap: 10px;
+
+    margin-bottom: 8px;
 }
 
 
 .destination-card-label {
-    color: #1d74c9;
 
-    font-size: 9px;
+    color: #2563eb;
+
+    font-size: 10px;
 
     font-weight: 800;
 
-    letter-spacing: 1px;
+    letter-spacing: 1.2px;
 }
 
 
 .destination-card-arrow {
-    width: 30px;
-    height: 30px;
 
-    display: flex;
+    color: #8ca4b8;
 
-    align-items: center;
-
-    justify-content: center;
-
-    border-radius: 50%;
-
-    background:
-        #eef6fc;
-
-    color: #0f4c81;
-
-    font-size: 16px;
-
-    transition:
-        transform 0.3s ease,
-        background 0.3s ease,
-        color 0.3s ease;
+    font-size: 18px;
 }
 
 
-.study-abroad-destination-card:hover
-.destination-card-arrow {
-    transform: rotate(45deg);
+.destination-card-content h3 {
 
-    background:
-        #0f4c81;
+    margin: 0 0 18px;
 
-    color: #ffffff;
+    color: #102f4d;
+
+    font-size: 22px;
+
+    line-height: 1.2;
+
+    letter-spacing: -0.5px;
 }
 
 
 /* =========================================================
-   CARD TITLE
-========================================================= */
-
-.destination-card-content h3 {
-    margin: 0 0 16px;
-
-    color: #172033;
-
-    font-size: 19px;
-
-    font-weight: 800;
-
-    line-height: 1.3;
-
-    transition:
-        color 0.3s ease;
-}
-
-
-.study-abroad-destination-card:hover
-.destination-card-content h3 {
-    color: #0f4c81;
-}
-
-
-/* =========================================================
-   CARD INFORMATION
+   INFORMATION
 ========================================================= */
 
 .destination-card-info {
+
     display: flex;
 
     flex-direction: column;
 
-    gap: 10px;
+    gap: 12px;
 
-    min-height: 105px;
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid #e8eff5;
 }
 
 
 .destination-card-info > div {
+
     display: flex;
 
     align-items: flex-start;
 
     gap: 9px;
 
-    color: #667b8f;
+    color: #60788d;
 
-    font-size: 11px;
+    font-size: 13px;
 
     line-height: 1.45;
 }
 
 
 .destination-info-icon {
+
+    width: 20px;
+
     flex-shrink: 0;
 
-    width: 24px;
-    height: 24px;
+    font-size: 14px;
 
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    border-radius: 7px;
-
-    background:
-        #edf6fd;
-
-    font-size: 12px;
+    line-height: 1.4;
 }
 
 
@@ -625,9 +623,6 @@
 ========================================================= */
 
 .destination-explore-button {
-    width: 100%;
-
-    min-height: 45px;
 
     display: flex;
 
@@ -635,63 +630,96 @@
 
     justify-content: space-between;
 
+    gap: 10px;
+
     margin-top: 18px;
+
+    min-height: 44px;
 
     padding: 0 15px;
 
-    border:
-        1px solid rgba(15,76,129,0.13);
+    border: 1px solid #d6e5f1;
 
-    border-radius: 11px;
+    border-radius: 9px;
 
-    background:
-        #f8fbfe;
+    background: #f7fbff;
 
     color: #0f4c81;
 
-    font-family: inherit;
+    text-decoration: none;
 
-    font-size: 12px;
+    font-size: 13px;
 
-    font-weight: 800;
-
-    cursor: pointer;
+    font-weight: 750;
 
     transition:
-        background 0.3s ease,
-        color 0.3s ease,
-        border-color 0.3s ease,
-        transform 0.3s ease;
-}
-
-
-.destination-explore-button span {
-    font-size: 18px;
-
-    transition:
-        transform 0.3s ease;
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
 }
 
 
 .destination-explore-button:hover {
-    transform: translateY(-2px);
 
-    border-color:
-        transparent;
+    border-color: #2563eb;
 
-    background:
-        linear-gradient(
-            135deg,
-            #0f4c81,
-            #1d74c9
-        );
+    background: #2563eb;
 
     color: #ffffff;
 }
 
 
-.destination-explore-button:hover span {
-    transform: translateX(5px);
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.study-abroad-destination-empty {
+
+    padding: 60px 20px;
+
+    margin-top: 25px;
+
+    text-align: center;
+
+    border: 1px dashed #b9cede;
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.60);
+}
+
+
+.study-abroad-destination-empty[hidden] {
+
+    display: none;
+}
+
+
+.study-abroad-destination-empty-icon {
+
+    margin-bottom: 12px;
+
+    font-size: 38px;
+}
+
+
+.study-abroad-destination-empty h3 {
+
+    margin: 0 0 7px;
+
+    color: #102f4d;
+
+    font-size: 21px;
+}
+
+
+.study-abroad-destination-empty p {
+
+    margin: 0;
+
+    color: #647b90;
+
+    font-size: 14px;
 }
 
 
@@ -700,6 +728,7 @@
 ========================================================= */
 
 .study-abroad-destinations-footer {
+
     display: flex;
 
     align-items: center;
@@ -710,103 +739,73 @@
 
     margin-top: 42px;
 
-    padding:
-        23px 26px;
+    padding: 24px 26px;
 
-    border:
-        1px solid rgba(15,76,129,0.10);
+    border: 1px solid #dce8f1;
 
-    border-radius: 18px;
+    border-radius: 16px;
 
-    background:
-        rgba(255,255,255,0.68);
-
-    box-shadow:
-        0 8px 25px rgba(15,76,129,0.06);
-
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.76);
 }
 
 
 .study-abroad-destinations-footer p {
+
     margin: 0;
 
-    color: #647b90;
+    color: #60788d;
 
-    font-size: 13px;
+    font-size: 15px;
+
+    line-height: 1.5;
 }
 
 
 .study-abroad-destinations-footer strong {
-    color: #0f4c81;
+
+    color: #102f4d;
 }
 
 
-/* =========================================================
-   COMPARE BUTTON
-========================================================= */
-
 .study-abroad-compare-button {
+
     flex-shrink: 0;
-
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 9px;
 
     min-height: 45px;
 
     padding: 0 18px;
 
-    border: none;
+    display: inline-flex;
 
-    border-radius: 11px;
+    align-items: center;
 
-    background:
-        linear-gradient(
-            135deg,
-            #0f4c81,
-            #1d74c9
-        );
+    justify-content: center;
+
+    gap: 10px;
+
+    border-radius: 9px;
+
+    background: #0f4c81;
 
     color: #ffffff;
 
-    font-family: inherit;
+    text-decoration: none;
 
-    font-size: 12px;
+    font-size: 14px;
 
-    font-weight: 800;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 7px 18px rgba(15,76,129,0.18);
+    font-weight: 700;
 
     transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-
-.study-abroad-compare-button span {
-    font-size: 17px;
-
-    transition:
-        transform 0.3s ease;
+        background 0.2s ease,
+        transform 0.2s ease;
 }
 
 
 .study-abroad-compare-button:hover {
-    transform: translateY(-2px);
 
-    box-shadow:
-        0 12px 25px rgba(15,76,129,0.25);
-}
+    background: #0b3b65;
 
-
-.study-abroad-compare-button:hover span {
-    transform: translateX(4px);
+    transform: translateY(-1px);
 }
 
 
@@ -814,9 +813,10 @@
    TABLET
 ========================================================= */
 
-@media (max-width: 1100px) {
+@media (max-width: 1150px) {
 
     .study-abroad-destination-grid {
+
         grid-template-columns:
             repeat(3, minmax(0, 1fr));
     }
@@ -825,28 +825,31 @@
 
 
 /* =========================================================
-   SMALL TABLET
+   TABLET SMALL
 ========================================================= */
 
 @media (max-width: 850px) {
 
+    .study-abroad-destinations {
+
+        padding: 75px 0 85px;
+    }
+
+
     .study-abroad-destination-grid {
+
         grid-template-columns:
             repeat(2, minmax(0, 1fr));
+
+        gap: 18px;
     }
 
 
     .study-abroad-destinations-footer {
-        flex-direction: column;
 
         align-items: flex-start;
-    }
 
-
-    .study-abroad-compare-button {
-        width: 100%;
-
-        justify-content: center;
+        flex-direction: column;
     }
 
 }
@@ -859,22 +862,33 @@
 @media (max-width: 600px) {
 
     .study-abroad-destinations {
+
         padding: 65px 0 75px;
     }
 
 
     .study-abroad-destinations-container {
-        width:
-            calc(100% - 32px);
+
+        width: calc(100% - 28px);
+    }
+
+
+    .study-abroad-destination-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 16px;
     }
 
 
     .study-abroad-destinations-header {
+
         margin-bottom: 30px;
     }
 
 
     .study-abroad-destinations-header h2 {
+
         font-size: 34px;
 
         letter-spacing: -1px;
@@ -882,80 +896,84 @@
 
 
     .study-abroad-destinations-header p {
-        font-size: 14px;
 
-        line-height: 1.65;
+        font-size: 15px;
     }
 
 
     .study-abroad-destination-filters {
+
         justify-content: flex-start;
 
         overflow-x: auto;
 
         flex-wrap: nowrap;
 
-        padding-bottom: 5px;
+        padding-bottom: 7px;
+
+        margin-right: -14px;
+
+        padding-right: 14px;
 
         scrollbar-width: none;
     }
 
 
     .study-abroad-destination-filters::-webkit-scrollbar {
+
         display: none;
     }
 
 
     .destination-filter {
+
         flex-shrink: 0;
-    }
 
+        padding: 0 15px;
 
-    .study-abroad-destination-grid {
-        grid-template-columns: 1fr;
-
-        gap: 18px;
+        font-size: 13px;
     }
 
 
     .destination-card-image {
-        height: 220px;
+
+        height: 205px;
     }
 
 
     .destination-card-content {
+
         padding: 20px;
     }
 
 
     .study-abroad-destinations-footer {
-        margin-top: 30px;
 
         padding: 20px;
+    }
+
+
+    .study-abroad-compare-button {
+
+        width: 100%;
     }
 
 }
 
 
 /* =========================================================
-   SMALL MOBILE
+   REDUCED MOTION
 ========================================================= */
 
-@media (max-width: 400px) {
+@media (prefers-reduced-motion: reduce) {
 
-    .study-abroad-destinations-container {
-        width:
-            calc(100% - 24px);
-    }
+    .study-abroad-destination-card,
+    .destination-card-image img,
+    .destination-filter,
+    .destination-explore-button,
+    .destination-favourite {
 
-
-    .study-abroad-destinations-header h2 {
-        font-size: 30px;
-    }
-
-
-    .destination-card-image {
-        height: 195px;
+        transition: none;
     }
 
 }

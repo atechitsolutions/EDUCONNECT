@@ -1,57 +1,132 @@
 import initPremiumCursor from "./assets/js/premiumCursor.js";
 import initScrollPlane from "./assets/js/scrollPlane.js";
 
+
+/* =========================================================
+   GLOBAL CSS
+========================================================= */
+
 import "./assets/css/premiumCursor.css";
 import "./assets/css/variables.css";
 import "./assets/css/style.css";
 import "./assets/css/header.css";
 import "./assets/css/navbar.css";
+import "./assets/css/studyAbroadSearch.css";
+import "./assets/css/study-abroad-country-comparison.css";
+import "./assets/css/study-abroad-degree-explorer.css";
+import "./assets/css/study-abroad-course-explorer.css";
+import "./assets/css/study-abroad-top-universities.css";
+import "./assets/css/study-abroad-admission-requirements.css";
+import "./assets/css/study-abroad-application-process.css";
+import "./assets/css/study-abroad-intakes.css";
 import "./assets/css/home.css";
 import "./assets/css/footer.css";
 import "./assets/css/ticker.css";
 import "./assets/css/ui.css";
 import "./assets/css/responsive.css";
+
 import "./assets/css/studyAbroad.css";
 import "./assets/css/study-abroad-destinations.css";
+
+/*
+   STUDY ABROAD NAVBAR
+*/
+import "./assets/css/studyAbroadNavbar.css";
+
 import "./assets/css/earlyLearning.css";
 
+
+/* =========================================================
+   ROUTER
+========================================================= */
+
 import Router from "./router/router.js";
+
+
+/* =========================================================
+   ONLINE EDUCATION CAROUSEL
+========================================================= */
 
 import {
     initOnlineEducationCarousel
 } from "./assets/js/onlineEducation.js";
 
+
+/* =========================================================
+   NEWS CAROUSEL
+========================================================= */
+
 import {
     initNewsCarousel
 } from "./assets/js/newsCarousel.js";
+
+
+/* =========================================================
+   STUDY ABROAD CAROUSEL
+========================================================= */
 
 import {
     initStudyAbroadCarousel
 } from "./assets/js/studyAbroadCarousel.js";
 
+
+/* =========================================================
+   SCHOLARSHIP CAROUSEL
+========================================================= */
+
 import {
     initScholarshipCarousel
 } from "./assets/js/scholarshipCarousel.js";
+
+
+/* =========================================================
+   RANKINGS CAROUSEL
+========================================================= */
 
 import {
     initRankingsCarousel
 } from "./assets/js/rankingsCarousel.js";
 
+
+/* =========================================================
+   STUDENT REVIEWS CAROUSEL
+========================================================= */
+
 import {
     initStudentReviewsCarousel
 } from "./assets/js/studentReviewsCarousel.js";
+
+
+/* =========================================================
+   EDUCATION LOAN CAROUSEL
+========================================================= */
 
 import {
     initEducationLoanCarousel
 } from "./assets/js/educationLoanCarousel.js";
 
+
+/* =========================================================
+   TOP LISTS CAROUSEL
+========================================================= */
+
 import {
     initTopListsCarousel
 } from "./assets/js/topListsCarousel.js";
 
+
+/* =========================================================
+   COMPARE COLLEGE CAROUSEL
+========================================================= */
+
 import {
     initCompareCollegeCarousel
 } from "./assets/js/compareCollegeCarousel.js";
+
+
+/* =========================================================
+   AUTHENTICATION
+========================================================= */
 
 import {
     initAuth
@@ -59,6 +134,10 @@ import {
 
 import "./assets/css/auth.css";
 
+
+/* =========================================================
+   APPLICATION INITIALIZATION
+========================================================= */
 
 document.addEventListener(
     "DOMContentLoaded",
@@ -330,6 +409,7 @@ document.addEventListener(
 
                         }
 
+
                         else {
 
                             if (text) {
@@ -441,6 +521,7 @@ document.addEventListener(
                             });
 
                         }
+
 
                         else {
 
@@ -554,6 +635,7 @@ document.addEventListener(
 
                         }
 
+
                         else {
 
                             if (text) {
@@ -622,6 +704,7 @@ document.addEventListener(
                                     "running";
 
                             }
+
 
                             else {
 

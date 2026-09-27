@@ -1,0 +1,847 @@
+/* =========================================================
+   STUDY ABROAD — INTAKES
+========================================================= */
+
+.study-abroad-intakes {
+    position: relative;
+    width: 100%;
+    padding: 105px 0 115px;
+    background:
+        linear-gradient(
+            145deg,
+            #f8fcff 0%,
+            #eef7fc 48%,
+            #ffffff 100%
+        );
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   BACKGROUND DECORATION
+========================================================= */
+
+.study-abroad-intakes::before {
+    content: "";
+    position: absolute;
+
+    width: 520px;
+    height: 520px;
+
+    top: -280px;
+    right: -180px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(37, 99, 235, 0.12),
+            rgba(37, 99, 235, 0) 70%
+        );
+
+    pointer-events: none;
+}
+
+
+.study-abroad-intakes::after {
+    content: "";
+    position: absolute;
+
+    width: 430px;
+    height: 430px;
+
+    bottom: -250px;
+    left: -180px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(15, 76, 129, 0.08),
+            transparent 70%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.study-abroad-intakes-container {
+    position: relative;
+    z-index: 2;
+
+    width: min(
+        1220px,
+        calc(100% - 40px)
+    );
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.study-abroad-intakes-header {
+    max-width: 820px;
+    margin: 0 auto 55px;
+    text-align: center;
+}
+
+
+.study-abroad-intakes-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 17px;
+    padding: 8px 16px;
+
+    border: 1px solid #d6e6f2;
+    border-radius: 50px;
+
+    background: rgba(255, 255, 255, 0.82);
+
+    color: #2563eb;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+}
+
+
+.study-abroad-intakes-header h2 {
+    margin: 0;
+
+    color: #102f4d;
+
+    font-size: clamp(
+        36px,
+        4.5vw,
+        55px
+    );
+
+    line-height: 1.06;
+
+    letter-spacing: -1.8px;
+
+    font-weight: 850;
+}
+
+
+.study-abroad-intakes-header h2 span {
+    color: #2563eb;
+}
+
+
+.study-abroad-intakes-header p {
+    max-width: 760px;
+
+    margin: 18px auto 0;
+
+    color: #647b90;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   INTAKE GRID
+========================================================= */
+
+.study-abroad-intakes-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+
+/* =========================================================
+   INTAKE CARD
+========================================================= */
+
+.study-abroad-intake-card {
+    position: relative;
+
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 25px;
+
+    border: 1px solid #dbe8f1;
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #fbfdff 100%
+        );
+
+    box-shadow:
+        0 12px 35px rgba(15, 76, 129, 0.065);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.28s ease,
+        box-shadow 0.28s ease,
+        border-color 0.28s ease;
+}
+
+
+.study-abroad-intake-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #2563eb,
+            #60a5fa
+        );
+
+    transform: scaleX(0);
+
+    transform-origin: left;
+
+    transition:
+        transform 0.28s ease;
+}
+
+
+.study-abroad-intake-card:hover {
+    transform: translateY(-8px);
+
+    border-color: #b9d6eb;
+
+    box-shadow:
+        0 24px 48px rgba(15, 76, 129, 0.12);
+}
+
+
+.study-abroad-intake-card:hover::before {
+    transform: scaleX(1);
+}
+
+
+/* =========================================================
+   CARD TOP
+========================================================= */
+
+.intake-card-top {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    margin-bottom: 22px;
+}
+
+
+.intake-category {
+    display: inline-flex;
+
+    align-items: center;
+
+    min-height: 28px;
+
+    padding: 0 10px;
+
+    border-radius: 7px;
+
+    background: #edf6ff;
+
+    color: #2563eb;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.7px;
+
+    text-transform: uppercase;
+}
+
+
+.intake-number {
+    color: #a1b0bc;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.intake-main-icon {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 17px;
+
+    border: 1px solid #d9e8f3;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f1f8ff,
+            #e5f2fc
+        );
+
+    font-size: 25px;
+
+    box-shadow:
+        0 8px 18px rgba(37, 99, 235, 0.07);
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.study-abroad-intake-card h3 {
+    margin: 0 0 8px;
+
+    color: #172b40;
+
+    font-size: 23px;
+
+    line-height: 1.2;
+
+    letter-spacing: -0.5px;
+
+    font-weight: 850;
+}
+
+
+.intake-period {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-bottom: 15px;
+
+    color: #2563eb;
+
+    font-size: 13px;
+
+    font-weight: 800;
+}
+
+
+.intake-period-icon {
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 7px;
+
+    background: #edf6ff;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.study-abroad-intake-card > p {
+    margin: 0 0 21px;
+
+    color: #687e90;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   INFO BLOCKS
+========================================================= */
+
+.intake-info-list {
+    display: flex;
+
+    flex-direction: column;
+
+    margin-top: auto;
+
+    border-top: 1px solid #e8eff4;
+}
+
+
+.intake-info {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 11px;
+
+    padding: 13px 0;
+
+    border-bottom: 1px solid #e8eff4;
+}
+
+
+.intake-info:last-child {
+    border-bottom: 0;
+}
+
+
+.intake-info-icon {
+    width: 32px;
+    height: 32px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    background: #f0f7fd;
+
+    font-size: 13px;
+}
+
+
+.intake-info-content {
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+
+.intake-info-label {
+    color: #94a2ae;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.6px;
+
+    text-transform: uppercase;
+}
+
+
+.intake-info-value {
+    color: #354c61;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+
+    font-weight: 650;
+}
+
+
+/* =========================================================
+   DETAILS BUTTON
+========================================================= */
+
+.intake-details-button {
+    width: 100%;
+
+    min-height: 46px;
+
+    margin-top: 18px;
+
+    padding: 0 15px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    border: 1px solid #d5e4ef;
+
+    border-radius: 10px;
+
+    background: #f7fbff;
+
+    color: #0f4c81;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.intake-details-button:hover {
+    border-color: #2563eb;
+
+    background: #2563eb;
+
+    color: #ffffff;
+
+    transform: translateY(-1px);
+}
+
+
+.intake-details-arrow {
+    font-size: 16px;
+
+    transition:
+        transform 0.2s ease;
+}
+
+
+.intake-details-button.active
+.intake-details-arrow {
+    transform: rotate(90deg);
+}
+
+
+/* =========================================================
+   EXPANDABLE DETAILS
+========================================================= */
+
+.intake-details-panel {
+    max-height: 0;
+
+    opacity: 0;
+
+    overflow: hidden;
+
+    transition:
+        max-height 0.3s ease,
+        opacity 0.25s ease;
+}
+
+
+.intake-details-panel.open {
+    max-height: 350px;
+
+    opacity: 1;
+}
+
+
+.intake-details-panel-inner {
+    margin-top: 13px;
+
+    padding: 15px;
+
+    border: 1px solid #dce9f2;
+
+    border-radius: 10px;
+
+    background: #f7fbff;
+}
+
+
+.intake-details-panel-inner p {
+    margin: 0;
+
+    color: #687e90;
+
+    font-size: 11px;
+
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   PLANNING STRIP
+========================================================= */
+
+.study-abroad-intake-planning {
+    margin-top: 45px;
+
+    padding: 25px;
+
+    border: 1px solid #d9e7f0;
+
+    border-radius: 17px;
+
+    background: rgba(255, 255, 255, 0.76);
+}
+
+
+.intake-planning-header {
+    margin-bottom: 20px;
+}
+
+
+.intake-planning-header h3 {
+    margin: 0 0 5px;
+
+    color: #24394e;
+
+    font-size: 18px;
+}
+
+
+.intake-planning-header p {
+    margin: 0;
+
+    color: #75899a;
+
+    font-size: 12px;
+}
+
+
+.intake-planning-steps {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 12px;
+}
+
+
+.intake-planning-step {
+    position: relative;
+
+    padding: 15px;
+
+    border: 1px solid #e1ebf2;
+
+    border-radius: 11px;
+
+    background: #ffffff;
+}
+
+
+.intake-planning-step-number {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #2563eb;
+
+    font-size: 10px;
+
+    font-weight: 850;
+}
+
+
+.intake-planning-step strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #344b60;
+
+    font-size: 11px;
+}
+
+
+.intake-planning-step span {
+    display: block;
+
+    color: #7b8d9c;
+
+    font-size: 10px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   NOTE
+========================================================= */
+
+.study-abroad-intake-note {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 12px;
+
+    margin-top: 20px;
+
+    padding: 16px 18px;
+
+    border: 1px solid #d9e7f1;
+
+    border-radius: 11px;
+
+    background: #f1f8fd;
+}
+
+
+.intake-note-icon {
+    width: 31px;
+    height: 31px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    background: #e2f0fb;
+
+    font-size: 13px;
+}
+
+
+.study-abroad-intake-note p {
+    margin: 0;
+
+    color: #647b8d;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 950px) {
+
+    .study-abroad-intakes-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+
+    .intake-planning-steps {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .study-abroad-intakes {
+        padding: 70px 0 80px;
+    }
+
+
+    .study-abroad-intakes-container {
+        width: calc(100% - 28px);
+    }
+
+
+    .study-abroad-intakes-header {
+        margin-bottom: 38px;
+    }
+
+
+    .study-abroad-intakes-header h2 {
+        font-size: 34px;
+
+        letter-spacing: -1px;
+    }
+
+
+    .study-abroad-intakes-grid {
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+    }
+
+
+    .study-abroad-intake-card {
+        padding: 21px;
+    }
+
+
+    .study-abroad-intake-card h3 {
+        font-size: 21px;
+    }
+
+
+    .study-abroad-intake-planning {
+        padding: 20px;
+    }
+
+
+    .intake-planning-steps {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .study-abroad-intake-card,
+    .study-abroad-intake-card::before,
+    .intake-details-button,
+    .intake-details-arrow,
+    .intake-details-panel {
+        transition: none;
+    }
+
+}

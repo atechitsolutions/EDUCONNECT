@@ -7,6 +7,7 @@ export default function CountryComparison() {
     const countries = [
 
         {
+            id: "usa",
             name: "USA",
             flag: "🇺🇸",
             universities: "4,000+",
@@ -17,6 +18,7 @@ export default function CountryComparison() {
         },
 
         {
+            id: "uk",
             name: "United Kingdom",
             flag: "🇬🇧",
             universities: "160+",
@@ -27,6 +29,7 @@ export default function CountryComparison() {
         },
 
         {
+            id: "canada",
             name: "Canada",
             flag: "🇨🇦",
             universities: "100+",
@@ -37,6 +40,7 @@ export default function CountryComparison() {
         },
 
         {
+            id: "australia",
             name: "Australia",
             flag: "🇦🇺",
             universities: "40+",
@@ -47,6 +51,7 @@ export default function CountryComparison() {
         },
 
         {
+            id: "germany",
             name: "Germany",
             flag: "🇩🇪",
             universities: "400+",
@@ -57,6 +62,7 @@ export default function CountryComparison() {
         },
 
         {
+            id: "france",
             name: "France",
             flag: "🇫🇷",
             universities: "3,500+",
@@ -71,47 +77,31 @@ export default function CountryComparison() {
 
     return `
 
-        <!-- =====================================================
-             COUNTRY COMPARISON
-        ====================================================== -->
-
         <section
             class="study-abroad-country-comparison"
-            id="country-comparison"
+            id="study-abroad-country-comparison"
+            aria-labelledby="country-comparison-title"
         >
-
 
             <div class="study-abroad-country-comparison-container">
 
 
-                <!-- =================================================
-                     SECTION HEADER
-                ================================================== -->
-
                 <div class="study-abroad-country-comparison-header">
-
 
                     <div class="study-abroad-section-eyebrow">
                         COMPARE DESTINATIONS
                     </div>
 
-
-                    <h2>
-
+                    <h2 id="country-comparison-title">
                         Compare Study
                         <span>Destinations</span>
-
                     </h2>
 
-
                     <p>
-
                         Compare popular study abroad destinations
                         based on universities, tuition costs, popular
                         courses and post-study opportunities.
-
                     </p>
-
 
                 </div>
 
@@ -120,102 +110,58 @@ export default function CountryComparison() {
                      COUNTRY SELECTOR
                 ================================================== -->
 
-                <div class="study-abroad-country-selector">
+                <div
+                    class="study-abroad-country-selector"
+                    role="tablist"
+                    aria-label="Select countries"
+                >
 
+                    ${countries.map((country, index) => `
 
-                    <button
-                        type="button"
-                        class="country-selector-button active"
-                    >
+                        <button
+                            type="button"
+                            class="country-selector-button ${index === 0 ? "active" : ""}"
+                            data-country-select="${country.id}"
+                            aria-selected="${index === 0 ? "true" : "false"}"
+                            role="tab"
+                        >
 
-                        🇺🇸 USA
+                            ${country.flag}
+                            ${country.name === "United Kingdom"
+                                ? "UK"
+                                : country.name}
 
-                    </button>
+                        </button>
 
-
-                    <button
-                        type="button"
-                        class="country-selector-button"
-                    >
-
-                        🇬🇧 UK
-
-                    </button>
-
-
-                    <button
-                        type="button"
-                        class="country-selector-button"
-                    >
-
-                        🇨🇦 Canada
-
-                    </button>
-
-
-                    <button
-                        type="button"
-                        class="country-selector-button"
-                    >
-
-                        🇦🇺 Australia
-
-                    </button>
-
-
-                    <button
-                        type="button"
-                        class="country-selector-button"
-                    >
-
-                        🇩🇪 Germany
-
-                    </button>
-
-
-                    <button
-                        type="button"
-                        class="country-selector-button"
-                    >
-
-                        🇫🇷 France
-
-                    </button>
-
+                    `).join("")}
 
                 </div>
 
 
                 <!-- =================================================
-                     COMPARISON GRID
+                     COMPARISON TABLE
                 ================================================== -->
 
-                <div class="study-abroad-country-comparison-grid">
-
+                <div
+                    class="study-abroad-country-comparison-grid"
+                    data-country-comparison-grid
+                >
 
                     ${countries.map((country) => `
 
                         <article
                             class="study-abroad-country-comparison-card"
+                            data-country-comparison-card
+                            data-country="${country.id}"
                         >
-
-
-                            <!-- =================================================
-                                 CARD HEADER
-                            ================================================== -->
 
                             <div class="country-comparison-card-header">
 
-
                                 <div class="country-comparison-country">
 
-
-                                    <span
-                                        class="country-comparison-flag"
-                                    >
+                                    <span class="country-comparison-flag">
                                         ${country.flag}
                                     </span>
-
 
                                     <div>
 
@@ -229,7 +175,6 @@ export default function CountryComparison() {
 
                                     </div>
 
-
                                 </div>
 
 
@@ -237,25 +182,19 @@ export default function CountryComparison() {
                                     type="button"
                                     class="country-comparison-save"
                                     aria-label="Save ${country.name}"
+                                    aria-pressed="false"
+                                    data-country-favourite="${country.id}"
                                 >
-
                                     ♡
-
                                 </button>
-
 
                             </div>
 
-
-                            <!-- =================================================
-                                 COUNTRY DETAILS
-                            ================================================== -->
 
                             <div class="country-comparison-details">
 
 
                                 <div class="country-comparison-detail">
-
 
                                     <span
                                         class="country-comparison-detail-icon"
@@ -263,7 +202,6 @@ export default function CountryComparison() {
                                     >
                                         🎓
                                     </span>
-
 
                                     <div>
 
@@ -277,12 +215,10 @@ export default function CountryComparison() {
 
                                     </div>
 
-
                                 </div>
 
 
                                 <div class="country-comparison-detail">
-
 
                                     <span
                                         class="country-comparison-detail-icon"
@@ -290,7 +226,6 @@ export default function CountryComparison() {
                                     >
                                         💰
                                     </span>
-
 
                                     <div>
 
@@ -304,12 +239,10 @@ export default function CountryComparison() {
 
                                     </div>
 
-
                                 </div>
 
 
                                 <div class="country-comparison-detail">
-
 
                                     <span
                                         class="country-comparison-detail-icon"
@@ -317,7 +250,6 @@ export default function CountryComparison() {
                                     >
                                         📚
                                     </span>
-
 
                                     <div>
 
@@ -331,12 +263,10 @@ export default function CountryComparison() {
 
                                     </div>
 
-
                                 </div>
 
 
                                 <div class="country-comparison-detail">
-
 
                                     <span
                                         class="country-comparison-detail-icon"
@@ -344,7 +274,6 @@ export default function CountryComparison() {
                                     >
                                         ⏱
                                     </span>
-
 
                                     <div>
 
@@ -358,12 +287,10 @@ export default function CountryComparison() {
 
                                     </div>
 
-
                                 </div>
 
 
                                 <div class="country-comparison-detail">
-
 
                                     <span
                                         class="country-comparison-detail-icon"
@@ -371,7 +298,6 @@ export default function CountryComparison() {
                                     >
                                         💼
                                     </span>
-
 
                                     <div>
 
@@ -385,20 +311,15 @@ export default function CountryComparison() {
 
                                     </div>
 
-
                                 </div>
-
 
                             </div>
 
 
-                            <!-- =================================================
-                                 CARD ACTION
-                            ================================================== -->
-
-                            <button
-                                type="button"
+                            <a
+                                href="#study-abroad-course-explorer"
                                 class="country-comparison-explore-button"
+                                data-country-explore="${country.id}"
                             >
 
                                 Explore ${country.name}
@@ -407,26 +328,36 @@ export default function CountryComparison() {
                                     →
                                 </span>
 
-                            </button>
-
+                            </a>
 
                         </article>
 
                     `).join("")}
 
-
                 </div>
 
 
                 <!-- =================================================
-                     COMPARISON FOOTER
+                     MOBILE COMPARISON NOTE
                 ================================================== -->
+
+                <div class="study-abroad-country-comparison-mobile-note">
+
+                    <span aria-hidden="true">
+                        ↔
+                    </span>
+
+                    <p>
+                        Swipe or scroll horizontally to explore
+                        destination information on smaller screens.
+                    </p>
+
+                </div>
+
 
                 <div class="study-abroad-country-comparison-footer">
 
-
                     <div class="country-comparison-footer-content">
-
 
                         <span
                             class="country-comparison-footer-icon"
@@ -435,7 +366,6 @@ export default function CountryComparison() {
                             🌎
                         </span>
 
-
                         <div>
 
                             <strong>
@@ -443,35 +373,31 @@ export default function CountryComparison() {
                             </strong>
 
                             <span>
-                                Compare destinations and find an option
-                                that matches your goals.
+                                Compare destinations and explore
+                                your available study options.
                             </span>
 
                         </div>
 
-
                     </div>
 
 
-                    <button
-                        type="button"
+                    <a
+                        href="#study-abroad-destinations"
                         class="country-comparison-button"
                     >
 
-                        Compare Countries
+                        Explore Destinations
 
                         <span>
                             →
                         </span>
 
-                    </button>
-
+                    </a>
 
                 </div>
 
-
             </div>
-
 
         </section>
 
