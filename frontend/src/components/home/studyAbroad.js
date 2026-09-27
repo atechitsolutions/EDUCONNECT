@@ -1,7 +1,6 @@
 import Section from "../common/Section.js";
 import InstitutionCard from "../common/InstitutionCard.js";
 
-
 export function StudyAbroadSection() {
 
     /* =====================================================
@@ -35,10 +34,10 @@ export function StudyAbroadSection() {
                 "9.4",
 
             ranking:
-                "Home to leading universities and globally recognized study abroad programs",
+                "Home to leading universities and globally recognized study abroad programs for international students",
 
             highlight:
-                "Top universities, study abroad scholarships & career opportunities",
+                "Top universities, study abroad scholarships, international education and career opportunities",
 
             image:
                 "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?auto=format&fit=crop&w=1200&q=85",
@@ -74,7 +73,7 @@ export function StudyAbroadSection() {
                 "9.2",
 
             ranking:
-                "Leading UK universities with globally recognized degrees and programs",
+                "Leading UK universities with globally recognized degrees, study abroad programs and international education",
 
             highlight:
                 "World-class UK education, universities & diverse study abroad programs",
@@ -116,7 +115,7 @@ export function StudyAbroadSection() {
                 "Popular study abroad destination for international students",
 
             highlight:
-                "Canadian education, career & post-study opportunities",
+                "Canadian education, study abroad programs, career and post-study opportunities",
 
             image:
                 "https://images.unsplash.com/photo-1517935706615-2717063c2225?auto=format&fit=crop&w=1200&q=85",
@@ -160,7 +159,7 @@ export function StudyAbroadSection() {
                 "8.9",
 
             ranking:
-                "Strong study abroad destination for universities and professional education",
+                "Popular study abroad destination for international students, universities and professional education",
 
             highlight:
                 "Quality Australian education & international student experience",
@@ -199,7 +198,7 @@ export function StudyAbroadSection() {
                 "8.8",
 
             ranking:
-                "Strong option for technical, engineering and research-oriented education",
+                "Popular study abroad destination for technical, engineering, STEM and research-oriented education",
 
             highlight:
                 "Affordable study in Germany & strong technical programs",
@@ -238,7 +237,7 @@ export function StudyAbroadSection() {
                 "8.7",
 
             ranking:
-                "Access study abroad opportunities across multiple European countries",
+                "Explore study abroad opportunities, universities and education programs across multiple European countries",
 
             highlight:
                 "European universities, scholarships & diverse international study options",
@@ -365,10 +364,10 @@ export function StudyAbroadSection() {
 
 
                     <p>
-                        Explore study abroad destinations,
+                        Explore study abroad destinations for Indian students,
                         international universities, degree programs,
-                        scholarships and career opportunities for
-                        students planning to study overseas.
+                        study abroad scholarships and career opportunities
+                        for students planning to study overseas.
                     </p>
 
                 </div>

@@ -25,7 +25,7 @@ export function TopCompaniesSection() {
             score: "9.1",
 
             ranking:
-                "One of India's leading IT & technology employers",
+                "One of India's leading IT and technology companies offering jobs and career opportunities in India",
 
             highlight:
                 "Strong career growth & learning opportunities",
@@ -50,7 +50,7 @@ export function TopCompaniesSection() {
             score: "8.9",
 
             ranking:
-                "Major technology employer with global operations",
+                "Major IT and technology company offering jobs, internships and career opportunities in India",
 
             highlight:
                 "Learning & development focused workplace",
@@ -75,7 +75,7 @@ export function TopCompaniesSection() {
             score: "9.5",
 
             ranking:
-                "Leading global technology company",
+                "Leading global technology company offering software, cloud, AI and technology careers in India",
 
             highlight:
                 "Innovation, technology & strong work culture",
@@ -100,7 +100,7 @@ export function TopCompaniesSection() {
             score: "9.6",
 
             ranking:
-                "Highly sought-after technology employer",
+                "Leading technology company offering software, data, AI and internship opportunities in India",
 
             highlight:
                 "Innovation & global career opportunities",
@@ -125,7 +125,7 @@ export function TopCompaniesSection() {
             score: "8.8",
 
             ranking:
-                "Large-scale technology and e-commerce employer",
+                "Leading technology and e-commerce company offering jobs, internships and business career opportunities in India",
 
             highlight:
                 "Fast-paced careers & diverse opportunities",
@@ -137,16 +137,13 @@ export function TopCompaniesSection() {
 
         {
             rank: "06",
-
             name: "Deloitte",
-
             shortName: "D",
-
             category: "Consulting & Professional Services",
-
             location: "India",
 
-            highlight: "Professional Growth",
+            highlight:
+                "Professional growth, consulting careers and business opportunities",
 
             rating: "4.6",
 
@@ -170,7 +167,7 @@ export function TopCompaniesSection() {
             score: "8.6",
 
             ranking:
-                "Global technology and consulting employer",
+                "Global technology and consulting company offering IT, consulting and digital career opportunities in India",
 
             highlight:
                 "Global opportunities & digital careers",
@@ -195,7 +192,7 @@ export function TopCompaniesSection() {
             score: "8.5",
 
             ranking:
-                "One of India's leading private sector banks",
+                "One of India's leading private sector banks offering banking, finance and analytics career opportunities",
 
             highlight:
                 "Career stability & financial sector growth",
@@ -220,7 +217,7 @@ export function TopCompaniesSection() {
             score: "8.4",
 
             ranking:
-                "Large diversified organization with multiple sectors",
+                "Large diversified company offering career opportunities across technology, finance, retail and operations",
 
             highlight:
                 "Diverse career paths across industries",
@@ -245,7 +242,7 @@ export function TopCompaniesSection() {
             score: "8.3",
 
             ranking:
-                "Established technology and consulting employer",
+                "Established IT and technology company offering consulting, cloud and career opportunities in India",
 
             highlight:
                 "Workplace opportunities & career mobility",
@@ -360,13 +357,13 @@ export function TopCompaniesSection() {
                     </span>
 
                     <h2>
-                        Top 10 Companies to Work For
+                        Top Companies to Work For in India
                     </h2>
 
                     <p>
-                        Discover leading companies offering exciting
-                        career opportunities, professional growth,
-                        internships and a strong workplace environment.
+                        Discover top companies in India offering jobs,
+                        career opportunities, internships, graduate programs,
+                        professional growth and diverse career paths.
                     </p>
 
                 </div>
@@ -420,7 +417,7 @@ export function TopCompaniesSection() {
                     </span>
 
                     <strong>
-                        Explore jobs and internships from leading companies.
+                        Explore jobs, internships and career opportunities from top companies in India.
                     </strong>
 
                 </div>
@@ -432,7 +429,7 @@ export function TopCompaniesSection() {
                 >
 
                     <span class="top-companies-view-all-text">
-                        View All Companies
+                        View All Top Companies in India
                     </span>
 
                     <span>

@@ -34,10 +34,10 @@ export function EducationLoanSection() {
                 "9.2",
 
             ranking:
-                "Comprehensive education financing information for students",
+                "Education loan information and financing guidance for students in India",
 
             highlight:
-                "Understand loan options for tuition and education expenses",
+                "Understand education loan options for tuition fees and other education expenses",
 
             image:
                 "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=85",
@@ -72,10 +72,10 @@ export function EducationLoanSection() {
                 "9.0",
 
             ranking:
-                "Financing options for higher education expenses",
+                "Higher education loan and financing options for college and university expenses",
 
             highlight:
-                "Understand funding for tuition, living and academic costs",
+                "Understand funding options for tuition fees, accommodation, books and academic costs",
 
             image:
                 "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=85",
@@ -110,10 +110,10 @@ export function EducationLoanSection() {
                 "9.1",
 
             ranking:
-                "Education financing guidance for international study",
+                "Study abroad education loan and international education financing guidance",
 
             highlight:
-                "Understand funding for tuition and overseas expenses",
+                "Understand study abroad loan funding for tuition, living, travel and overseas education expenses",
 
             image:
                 "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=85",
@@ -156,7 +156,7 @@ export function EducationLoanSection() {
                 "8.9",
 
             ranking:
-                "Guide to common education loan eligibility requirements",
+                "Guide to education loan eligibility requirements for students in India",
 
             highlight:
                 "Understand academic, admission and documentation conditions",
@@ -194,7 +194,7 @@ export function EducationLoanSection() {
                 "8.8",
 
             ranking:
-                "Important guide for understanding education loan costs",
+                "Guide to education loan interest rates, costs and repayment terms",
 
             highlight:
                 "Compare loan terms and understand repayment impact",
@@ -232,7 +232,7 @@ export function EducationLoanSection() {
                 "8.7",
 
             ranking:
-                "Guide to commonly required documents for loan applications",
+                "Guide to documents required for education loan applications in India",
 
             highlight:
                 "Prepare the required documents before applying",
@@ -350,14 +350,14 @@ export function EducationLoanSection() {
 
 
                     <h2>
-                        Education Loan
+                        Education Loans
                     </h2>
 
 
                     <p>
-                        Explore education financing options,
-                        eligibility requirements, interest rates,
-                        documentation and application guidance.
+                        Explore education loans in India, higher education
+                        financing options, eligibility requirements, interest rates,
+                        required documents and education loan application guidance.
                     </p>
 
                 </div>
@@ -403,7 +403,7 @@ export function EducationLoanSection() {
                 <button
                     type="button"
                     class="education-loan-next"
-                    aria-label="Show next education loans"
+                    aria-label="Show next education loan options in India"
                 >
 
                     <span>

@@ -14,7 +14,7 @@ export function StudentReviewsSection() {
             type: "Student Experience",
             title: "My College Journey",
             description:
-                "A student shares their experience of choosing a college, academics, campus life, and career opportunities.",
+                "A student shares their college experience, including choosing a college, academics, campus life, courses and career opportunities.",
             reviewer: "Student Review",
             location: "India",
             rating: "4.8",
@@ -29,7 +29,7 @@ export function StudentReviewsSection() {
             type: "Parent Experience",
             title: "A Parent's Education Journey",
             description:
-                "A parent shares their experience of selecting the right educational institution for their child.",
+                "A parent shares their experience of choosing the right school or college and educational institution for their child.",
             reviewer: "Parent Review",
             location: "India",
             rating: "4.7",
@@ -44,7 +44,7 @@ export function StudentReviewsSection() {
             type: "School Experience",
             title: "Life at School",
             description:
-                "A student talks about academics, activities, teachers, facilities, and overall school life.",
+                "A student shares their school experience covering academics, activities, teachers, facilities, campus life and overall school education.",
             reviewer: "Student Review",
             location: "India",
             rating: "4.8",
@@ -59,7 +59,7 @@ export function StudentReviewsSection() {
             type: "College Experience",
             title: "Choosing the Right College",
             description:
-                "A student explains how college comparisons, courses, fees, and placements helped in making a decision.",
+                "A student explains how comparing colleges, courses, fees, placements and career opportunities helped in choosing the right college.",
             reviewer: "Student Review",
             location: "India",
             rating: "4.9",
@@ -74,7 +74,7 @@ export function StudentReviewsSection() {
             type: "Career Experience",
             title: "From Education to Career",
             description:
-                "A graduate shares their journey from education to internships, placements, and career opportunities.",
+                "A graduate shares their journey from education to internships, college placements, jobs and career opportunities.",
             reviewer: "Graduate Review",
             location: "India",
             rating: "4.8",
@@ -89,7 +89,7 @@ export function StudentReviewsSection() {
             type: "Study Abroad Experience",
             title: "My Study Abroad Journey",
             description:
-                "A student shares their experience of selecting an international university and preparing for study abroad.",
+                "A student shares their study abroad experience, including selecting an international university and preparing to study overseas.",
             reviewer: "International Student",
             location: "International",
             rating: "4.9",
@@ -297,13 +297,14 @@ export function StudentReviewsSection() {
 
 
                     <h3>
-                        Review Given by Students & Parents
+                        Student & Parent Education Reviews
                     </h3>
 
 
                     <p>
-                        Discover real education experiences through
-                        student and parent video reviews.
+                        Discover student and parent education reviews
+                        covering schools, colleges, universities, careers
+                        and study abroad experiences.
                     </p>
 
                 </div>
@@ -319,7 +320,7 @@ export function StudentReviewsSection() {
                 >
 
                     <span>
-                        View All Reviews
+                        View All Student & Parent Reviews
                     </span>
 
 
@@ -356,7 +357,7 @@ export function StudentReviewsSection() {
                 <button
                     type="button"
                     class="student-reviews-next"
-                    aria-label="Show next reviews"
+                    aria-label="Show next student and parent education reviews"
                 >
 
                     <span>
@@ -386,13 +387,14 @@ export function StudentReviewsSection() {
                 <div>
 
                     <strong>
-                        Real Education Experiences
+                        Real Student & Parent Education Experiences
                     </strong>
 
 
                     <p>
                         Hear directly from students and parents
-                        about their education journeys.
+                        about their school, college, university and
+                        education journeys.
                     </p>
 
                 </div>
@@ -414,10 +416,10 @@ export function StudentReviewsSection() {
             "student-reviews",
 
         title:
-            "Student & Parent Experiences",
+            "Student & Parent Education Reviews",
 
         subtitle:
-            "Watch real experiences from students, parents, graduates, and learners about education and career journeys.",
+            "Watch real student, parent and graduate reviews about schools, colleges, universities, study abroad, education and career journeys.",
 
         content
 

@@ -1,7 +1,6 @@
 import Section from "../common/Section.js";
 import InstitutionCard from "../common/InstitutionCard.js";
 
-
 export function OnlineEducationSection() {
 
     /* =====================================================
@@ -34,7 +33,7 @@ export function OnlineEducationSection() {
                 "9.2",
 
             ranking:
-                "Popular online MBA and online management program from leading universities",
+                "Popular online MBA degree and online management program from leading universities in India",
 
             highlight:
                 "UGC-approved online learning, flexible study options & career-focused management education",
@@ -72,7 +71,7 @@ export function OnlineEducationSection() {
                 "9.0",
 
             ranking:
-                "Popular online BCA program for computer applications, information technology and digital careers",
+                "Popular online BCA degree program for computer applications, information technology and digital careers in India",
 
             highlight:
                 "Industry-oriented online curriculum, flexible learning & computer application education",
@@ -110,7 +109,7 @@ export function OnlineEducationSection() {
                 "8.8",
 
             ranking:
-                "Short-term online certification courses focused on in-demand professional skills",
+                "Short-term online certification courses in AI, data science, cloud computing and other in-demand professional skills",
 
             highlight:
                 "Practical projects, professional certifications & career-focused online learning",
@@ -156,7 +155,7 @@ export function OnlineEducationSection() {
                 "8.8",
 
             ranking:
-                "Flexible distance MBA and management education for learners and working students",
+                "Flexible distance MBA degree and management education for learners and working professionals in India",
 
             highlight:
                 "Affordable distance education, flexible schedules & management learning",
@@ -194,7 +193,7 @@ export function OnlineEducationSection() {
                 "8.6",
 
             ranking:
-                "Flexible distance B.Com degree for students and working learners",
+                "Flexible distance B.Com degree in commerce, accounting and finance for students and working learners",
 
             highlight:
                 "Distance commerce education, flexible schedules & study-from-home learning",
@@ -232,7 +231,7 @@ export function OnlineEducationSection() {
                 "8.5",
 
             ranking:
-                "Flexible distance postgraduate programs from recognized universities",
+                "Flexible distance M.A. and postgraduate degree programs from recognized universities in India",
 
             highlight:
                 "Flexible schedules, distance education & accessible postgraduate learning",
@@ -350,14 +349,15 @@ export function OnlineEducationSection() {
 
 
                     <h2>
-                        Online & Distance Education
+                        Online & Distance Education in India
                     </h2>
 
 
                     <p>
                         Explore online degrees, distance education programs,
-                        online certification courses and flexible learning
-                        opportunities from recognized institutions.
+                        online MBA, online BCA, distance MBA, online certification
+                        courses and flexible learning opportunities from recognized
+                        universities and institutions in India.
                     </p>
 
                 </div>
@@ -404,7 +404,7 @@ export function OnlineEducationSection() {
                 <button
                     type="button"
                     class="online-education-next"
-                    aria-label="Show next online and distance education programs"
+                    aria-label="Show next online and distance education programs in India"
                 >
 
                     <span>

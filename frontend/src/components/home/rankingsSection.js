@@ -35,7 +35,7 @@ export function RankingsSection() {
                 "9.6",
 
             ranking:
-                "Compare leading universities across academics, research, infrastructure and reputation",
+                "Compare top universities in India across academics, research, infrastructure, placements and reputation",
 
             highlight:
                 "Academics, research, placements & reputation",
@@ -74,7 +74,7 @@ export function RankingsSection() {
                 "9.3",
 
             ranking:
-                "Compare leading colleges across streams, courses and academic performance",
+                "Compare top colleges in India across streams, courses, academics, placements and student opportunities",
 
             highlight:
                 "Courses, academics, placements & student opportunities",
@@ -113,7 +113,7 @@ export function RankingsSection() {
                 "9.1",
 
             ranking:
-                "Discover highly rated schools based on academics, facilities and teaching quality",
+                "Discover top schools in India based on academics, facilities, teaching quality and student development",
 
             highlight:
                 "Academics, facilities, teaching & development",
@@ -160,7 +160,7 @@ export function RankingsSection() {
                 "9.2",
 
             ranking:
-                "Institutions compared on education quality, placements, infrastructure and research",
+                "Compare top engineering colleges in India based on education quality, B.Tech and M.Tech courses, placements, infrastructure and research",
 
             highlight:
                 "Placements, infrastructure & technical education",
@@ -199,7 +199,7 @@ export function RankingsSection() {
                 "9.4",
 
             ranking:
-                "Compare management institutes through academics, placements, faculty and industry exposure",
+                "Compare top management colleges in India through BBA, MBA, academics, placements, faculty and industry exposure",
 
             highlight:
                 "Placements, faculty & industry exposure",
@@ -238,7 +238,7 @@ export function RankingsSection() {
                 "9.1",
 
             ranking:
-                "Compare medical institutions on education, facilities, research and healthcare programs",
+                "Compare top medical colleges in India on medical education, MBBS, MD, MS, facilities, research and healthcare programs",
 
             highlight:
                 "Medical education, facilities & research",
@@ -360,14 +360,15 @@ export function RankingsSection() {
 
 
                     <h2>
-                        Rankings
+                        Education Rankings in India
                     </h2>
 
 
                     <p>
-                        Compare schools, colleges, universities
-                        and professional institutions across
-                        academics, placements, research,
+                        Explore education rankings in India and compare
+                        top schools, colleges, universities, engineering
+                        colleges, management colleges and medical colleges
+                        across academics, courses, placements, research,
                         infrastructure and reputation.
                     </p>
 
@@ -414,7 +415,7 @@ export function RankingsSection() {
                 <button
                     type="button"
                     class="rankings-next"
-                    aria-label="Show next rankings"
+                    aria-label="Show next education rankings in India"
                 >
 
                     <span>

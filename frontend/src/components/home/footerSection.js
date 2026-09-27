@@ -59,9 +59,9 @@ export function FooterSection() {
                     </div>
 
                     <p class="footer-description">
-                        Your education platform for schools, colleges,
-                        universities, courses, scholarships, jobs,
-                        rankings, and study abroad opportunities.
+                        Your education platform to discover top schools,
+                        colleges, universities, courses, scholarships,
+                        education rankings, jobs, careers and study abroad opportunities in India.
                     </p>
 
                     ${SocialLinks()}
@@ -73,10 +73,10 @@ export function FooterSection() {
                 ${FooterColumn({
                     title: "Education",
                     links: [
-                        { label: "Pre School", href: "#" },
-                        { label: "Schools", href: "#" },
-                        { label: "Colleges", href: "#" },
-                        { label: "Universities", href: "#" },
+                        { label: "Pre Schools", href: "#" },
+                        { label: "Top Schools in India", href: "#" },
+                        { label: "Top Colleges in India", href: "#" },
+                        { label: "Top Universities in India", href: "#" },
                         { label: "Online Education", href: "#" },
                         { label: "Distance Education", href: "#" }
                     ]
@@ -87,12 +87,12 @@ export function FooterSection() {
                 ${FooterColumn({
                     title: "Explore",
                     links: [
-                        { label: "Study Abroad", href: "#" },
-                        { label: "Scholarships", href: "#" },
-                        { label: "Top Lists", href: "#" },
-                        { label: "Rankings", href: "#" },
-                        { label: "Student Reviews", href: "#" },
-                        { label: "Compare College", href: "#" }
+                        { label: "Study Abroad for Indian Students", href: "#" },
+                        { label: "Scholarships in India", href: "#" },
+                        { label: "Top Education Lists", href: "#" },
+                        { label: "Education Rankings", href: "#" },
+                        { label: "Student & Parent Reviews", href: "#" },
+                        { label: "Compare Colleges in India", href: "#" }
                     ]
                 })}
 
@@ -101,12 +101,12 @@ export function FooterSection() {
                 ${FooterColumn({
                     title: "Career",
                     links: [
-                        { label: "Jobs", href: "#" },
+                        { label: "Jobs & Career Opportunities", href: "#" },
                         { label: "Internships", href: "#" },
-                        { label: "Education Loan", href: "#" },
+                        { label: "Education Loans", href: "#" },
                         { label: "Career Guidance", href: "#" },
-                        { label: "Courses", href: "#" },
-                        { label: "Certifications", href: "#" }
+                        { label: "Online & Professional Courses", href: "#" },
+                        { label: "Online Certifications", href: "#" }
                     ]
                 })}
 
@@ -116,11 +116,11 @@ export function FooterSection() {
                     title: "Platform",
                     links: [
                         { label: "Student Community", href: "#" },
-                        { label: "Latest News", href: "#" },
-                        { label: "Current Affairs", href: "#" },
-                        { label: "College Rankings", href: "#" },
-                        { label: "Student Reviews", href: "#" },
-                        { label: "Contact Us", href: "#" }
+                        { label: "Education News", href: "#" },
+                        { label: "Education Current Affairs", href: "#" },
+                        { label: "College Rankings in India", href: "#" },
+                        { label: "Student & Parent Reviews", href: "#" },
+                        { label: "Contact EduConnect", href: "#" }
                     ]
                 })}
 
@@ -133,18 +133,19 @@ export function FooterSection() {
                 <div class="footer-highlight-content">
 
                     <h3>
-                        Find the Right Education Opportunity
+                        Find the Right Education Opportunities in India
                     </h3>
 
                     <p>
-                        Explore schools, colleges, universities,
-                        scholarships, jobs and study abroad opportunities.
+                        Explore top schools, colleges, universities,
+                        courses, scholarships, jobs, career opportunities
+                        and study abroad programs in India.
                     </p>
 
                 </div>
 
                 <a href="#" class="footer-cta">
-                    Explore Now
+                    Explore Education
                 </a>
 
             </div>

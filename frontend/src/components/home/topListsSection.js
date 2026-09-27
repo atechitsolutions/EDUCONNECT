@@ -26,7 +26,7 @@ export function TopListsSection() {
                 "India",
 
             highlight:
-                "Explore schools based on academics, facilities, reputation and student opportunities.",
+                "Explore top schools in India based on academics, facilities, reputation, school education and student opportunities.",
 
             image:
                 "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=85",
@@ -52,7 +52,7 @@ export function TopListsSection() {
                 "India",
 
             highlight:
-                "Discover colleges across streams, courses and academic disciplines.",
+                "Discover top colleges in India across streams, UG courses, PG courses and academic disciplines.",
 
             image:
                 "https://digitallearning.eletsonline.com/wp-content/uploads/2020/06/infrastructure.jpg",
@@ -78,7 +78,7 @@ export function TopListsSection() {
                 "India",
 
             highlight:
-                "Explore universities offering undergraduate, postgraduate, research and professional programs.",
+                "Explore top universities in India offering undergraduate, postgraduate, research and professional degree programs.",
 
             image:
                 "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=85",
@@ -112,7 +112,7 @@ export function TopListsSection() {
                 "India",
 
             highlight:
-                "Compare engineering institutions through academics, placements, infrastructure and courses.",
+                "Compare top engineering colleges in India through academics, B.Tech and M.Tech courses, placements, infrastructure and programs.",
 
             image:
                 "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=85",
@@ -138,7 +138,7 @@ export function TopListsSection() {
                 "India",
 
             highlight:
-                "Explore leading management institutions and business schools.",
+                "Explore top management colleges and business schools in India offering BBA, MBA and management programs.",
 
             image:
                 "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=85",
@@ -164,7 +164,7 @@ export function TopListsSection() {
                 "India",
 
             highlight:
-                "Discover medical colleges and institutions offering healthcare programs.",
+                "Discover top medical colleges in India offering MBBS, MD and healthcare education programs.",
 
             image:
                 "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=85",
@@ -266,14 +266,15 @@ export function TopListsSection() {
 
 
                     <h2>
-                        Top Lists
+                        Top Education Lists in India
                     </h2>
 
 
                     <p>
-                        Explore leading schools, colleges,
-                        universities and professional institutions
-                        across different education categories.
+                        Explore top schools, colleges, universities,
+                        engineering colleges, management colleges
+                        and medical colleges in India across
+                        different education categories.
                     </p>
 
                 </div>
@@ -319,7 +320,7 @@ export function TopListsSection() {
                 <button
                     type="button"
                     class="top-lists-next"
-                    aria-label="Show next top lists"
+                    aria-label="Show next top education lists in India"
                 >
 
                     <span>

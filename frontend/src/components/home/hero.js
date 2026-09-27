@@ -34,7 +34,7 @@ export default function Hero() {
                         aria-hidden="true"
                     ></span>
 
-                    India's Education Discovery Platform
+                    India's Education Discovery Platform for Schools, Colleges & Universities
 
                 </div>
 
@@ -48,24 +48,23 @@ export default function Hero() {
                     class="hero-title"
                 >
 
-                    India's Complete
-
-                    <span>
-                        Education Platform
-                    </span>
+                   Explore. Compare.
+                   <span>
+                       Find the Right Education.
+                   </span>
 
                 </h1>
 
 
                 <!-- =================================================
                      DESCRIPTION
-                ================================================== -->
+                ====================================================== -->
 
                 <p class="hero-description">
 
-                    Find schools, colleges, universities, courses,
+                    Find top schools, colleges, universities, courses,
                     scholarships, study abroad programs, education
-                    news and career opportunities — all in one place.
+                    news and career opportunities in India — all in one place.
 
                 </p>
 
@@ -102,8 +101,8 @@ export default function Hero() {
                         id="hero-search-input"
                         name="q"
                         type="search"
-                        placeholder="Search colleges, universities, courses, scholarships..."
-                        aria-label="Search education opportunities"
+                        placeholder="Search schools, colleges, universities, courses, scholarships..."
+                        aria-label="Search schools, colleges, universities, courses and education opportunities"
                         autocomplete="off"
                         enterkeyhint="search"
                     />
@@ -126,7 +125,7 @@ export default function Hero() {
 
                 <nav
                     class="hero-quick-links"
-                    aria-label="Popular education searches"
+                    aria-label="Popular school, college, university and education searches"
                 >
 
                     <span>
@@ -194,7 +193,7 @@ export default function Hero() {
                         data-action="explore-education"
                     >
 
-                        Explore Education
+                        Explore Schools, Colleges & Universities
 
                         <span aria-hidden="true">
                             →
@@ -209,7 +208,7 @@ export default function Hero() {
                         data-action="compare-colleges"
                     >
 
-                        Compare Colleges
+                        Compare Top Colleges in India
 
                     </button>
 

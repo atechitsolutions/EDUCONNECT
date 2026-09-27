@@ -105,26 +105,26 @@ export function TopUGPGCollegesSection() {
                 "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=85"
         },
 
-       {
-           rank: 6,
-           name: "Christ University",
-           shortName: "CHRIST",
-           type: "Private University",
-           category: "UG College",
-           program: "BBA",
-           courses: "BBA • BCA • B.Com • BA",
-           location: "Bengaluru",
-           rating: "4.6",
-           reviews: "1,021",
-           score: "8.8",
-           fees: "₹3.25 Lacs",
-           ranking:
-               "Popular private university for professional programs",
-           highlight:
-               "Industry-oriented courses & campus life",
-           image:
-               "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=85"
-       },
+        {
+            rank: 6,
+            name: "Christ University",
+            shortName: "CHRIST",
+            type: "Private University",
+            category: "UG College",
+            program: "BBA",
+            courses: "BBA • BCA • B.Com • BA",
+            location: "Bengaluru",
+            rating: "4.6",
+            reviews: "1,021",
+            score: "8.8",
+            fees: "₹3.25 Lacs",
+            ranking:
+                "Popular private university for professional programs",
+            highlight:
+                "Industry-oriented courses & campus life",
+            image:
+                "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=85"
+        },
 
         {
             rank: 7,
@@ -468,15 +468,15 @@ export function TopUGPGCollegesSection() {
 
 
                     <h2>
-                        Top UG & PG Colleges
+                        Top UG & PG Colleges in India
                     </h2>
 
 
                     <p>
-                        Discover leading undergraduate and postgraduate
-                        colleges and universities across India.
-                        Compare programs, fees, ratings, rankings,
-                        placements and academic opportunities.
+                        Discover top undergraduate and postgraduate
+                        colleges and universities in India. Compare
+                        UG and PG courses, fees, ratings, rankings,
+                        placements, admissions and academic opportunities.
                     </p>
 
                 </div>
@@ -512,15 +512,16 @@ export function TopUGPGCollegesSection() {
 
 
                     <h2>
-                        Top UG Colleges
+                        Top UG Colleges in India
                     </h2>
 
                 </div>
 
 
                 <p>
-                    Leading institutions for undergraduate
-                    education and career-focused programs.
+                    Explore undergraduate colleges in India
+                    offering UG courses, degree programs and
+                    career-focused higher education.
                 </p>
 
             </div>
@@ -562,16 +563,17 @@ export function TopUGPGCollegesSection() {
 
 
                     <h2>
-                        Top PG Colleges
+                        Top PG Colleges in India
                     </h2>
 
                 </div>
 
 
                 <p>
-                    Leading institutions for postgraduate
-                    education, advanced learning and
-                    professional growth.
+                    Explore postgraduate colleges in India
+                    offering PG courses, advanced degree
+                    programs, higher education and professional
+                    learning opportunities.
                 </p>
 
             </div>
@@ -608,8 +610,9 @@ export function TopUGPGCollegesSection() {
                         Looking for the right college?
                     </span>
 
+
                     <strong>
-                        Compare colleges, courses, fees and admissions.
+                        Compare colleges, UG & PG courses, fees and admissions in India.
                     </strong>
 
                 </div>
