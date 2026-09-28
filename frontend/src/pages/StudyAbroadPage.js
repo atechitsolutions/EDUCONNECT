@@ -37,7 +37,8 @@ import StudyAbroadFAQ from "../components/studyAbroad/StudyAbroadFAQ.js";
 
 import StudyAbroadCTA from "../components/studyAbroad/StudyAbroadCTA.js";
 
-import StudyAbroadAdditionalSections from "../components/studyAbroad/StudyAbroadAdditionalSections.js";
+import StudyAbroadAdditionalSections
+    from "../components/studyAbroad/StudyAbroadAdditionalSections.js";
 
 
 export default function StudyAbroadPage() {
@@ -52,7 +53,6 @@ export default function StudyAbroadPage() {
             class="study-abroad-page-content"
             id="study-abroad-content"
         >
-
 
             <!-- =================================================
                  01. HERO
@@ -230,7 +230,7 @@ export default function StudyAbroadPage() {
                 id="study-abroad-additional-information"
                 class="study-abroad-section"
             >
-                ${StudyAbroadAdditionalSection()}
+                ${StudyAbroadAdditionalSections()}
             </section>
 
 
@@ -268,7 +268,6 @@ export default function StudyAbroadPage() {
             >
                 ${StudyAbroadCTA()}
             </section>
-
 
         </div>
     `;
