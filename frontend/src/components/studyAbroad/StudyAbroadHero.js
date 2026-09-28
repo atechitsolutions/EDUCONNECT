@@ -515,56 +515,8 @@ export default function StudyAbroadHero() {
                              FLOATING DESTINATION CARD
                         =================================================== -->
 
-                        <div
-                            class="study-abroad-floating-card study-abroad-destination-floating"
-                        >
-
-                            <div class="study-abroad-floating-icon">
-                                🌎
-                            </div>
-
-                            <div>
-
-                                <span>
-                                    Popular destination
-                                </span>
-
-                                <strong>
-                                    Study in the USA
-                                </strong>
-
-                            </div>
-
-                            <span class="study-abroad-floating-arrow">
-                                →
-                            </span>
-
-                        </div>
 
 
-                        <!-- ==================================================
-                             FLOATING SCHOLARSHIP CARD
-                        =================================================== -->
-
-                        <div
-                            class="study-abroad-floating-card study-abroad-scholarship-floating"
-                        >
-
-                            <div class="study-abroad-scholarship-icon">
-                                $
-                            </div>
-
-                            <div>
-
-                                <span>
-                                    Explore funding
-                                </span>
-
-                                <strong>
-                                    Scholarships
-                                </strong>
-
-                            </div>
 
                         </div>
 

@@ -55,63 +55,9 @@ export default function StudyAbroadFaq() {
 
             answer:
                 "Some universities and programs require proof of English-language proficiency, while requirements and accepted tests can differ. Check the official requirements of each university and program you are considering."
-        },
-
-        {
-            question:
-                "Are scholarships available for Indian students studying abroad?",
-
-            answer:
-                "Scholarships and other funding opportunities may be available through universities, governments, organizations and other providers. Eligibility, funding, application requirements and deadlines vary, so each scholarship should be checked individually."
-        },
-
-        {
-            question:
-                "Can I get an education loan to study abroad?",
-
-            answer:
-                "Education financing may be available through banks and other financial institutions, depending on the applicant, institution, course, destination and lender criteria. Compare the applicable terms and verify eligibility with the relevant lender."
-        },
-
-        {
-            question:
-                "How much does it cost to study abroad?",
-
-            answer:
-                "The total cost depends on the destination, university, course and lifestyle. Tuition, accommodation, food, transport, insurance, travel, application expenses and other living costs may all contribute to your overall budget."
-        },
-
-        {
-            question:
-                "What is the study abroad application process?",
-
-            answer:
-                "A typical journey can include researching destinations, selecting courses, shortlisting universities, checking eligibility, preparing documents and tests, submitting applications, responding to admission decisions and completing destination-specific visa and pre-departure requirements."
-        },
-
-        {
-            question:
-                "When should I apply to universities abroad?",
-
-            answer:
-                "Application deadlines differ significantly between universities, programs and intakes. Some programs may have multiple deadlines or rolling admissions, while others have fixed deadlines. Always check the official university deadline for your specific program."
-        },
-
-        {
-            question:
-                "Do I need a student visa to study abroad?",
-
-            answer:
-                "Visa requirements depend on the destination, nationality, course and duration of study. Students should check the current requirements and application process through the relevant government or immigration authority."
-        },
-
-        {
-            question:
-                "Can EDUCONNECT guarantee university admission or visa approval?",
-
-            answer:
-                "No. Admission decisions are made by universities and visa decisions are made by the relevant government or immigration authorities. EDUCONNECT can provide information and planning support, but outcomes cannot be guaranteed."
         }
+
+
     ];
 
 
@@ -334,12 +280,7 @@ export default function StudyAbroadFaq() {
                         tests and student visas.
                     </p>
 
-                    <p>
-                        There is no single study abroad process that applies
-                        to every student. Requirements can differ according
-                        to the country, university, program, intake and
-                        individual applicant profile.
-                    </p>
+
 
                     <p>
                         Before submitting an application, verify current

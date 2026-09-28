@@ -1830,4 +1830,56 @@
        .study-abroad-lead-form {
            background: rgba(255, 255, 255, 0.88) !important;
        }
-   }
+   }/* =========================================================
+       GLOBAL STUDY ABROAD SECTION SPACING
+       ========================================================= */
+
+    .study-abroad-page section {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    /* Reduce excessive vertical padding in sections */
+    .study-abroad-page section {
+        padding-top: 60px !important;
+        padding-bottom: 60px !important;
+    }
+
+    /* Keep the first/hero section slightly more spacious */
+    .study-abroad-page section:first-child {
+        padding-top: 70px !important;
+    }
+
+    /* Headings should not create excessive gaps */
+    .study-abroad-page h2 {
+        margin-top: 0 !important;
+        margin-bottom: 18px !important;
+    }
+
+    .study-abroad-page h3 {
+        margin-top: 0 !important;
+    }
+
+    /* Reduce spacing after section headers */
+    .study-abroad-page .section-header,
+    .study-abroad-page .study-abroad-section-header {
+        margin-bottom: 28px !important;
+    }
+
+    /* Reduce common content gaps */
+    .study-abroad-page .section-content {
+        margin-bottom: 25px !important;
+    }
+
+    /* Mobile */
+    @media (max-width: 600px) {
+
+        .study-abroad-page section {
+            padding-top: 45px !important;
+            padding-bottom: 45px !important;
+        }
+
+        .study-abroad-page h2 {
+            margin-bottom: 14px !important;
+        }
+    }
