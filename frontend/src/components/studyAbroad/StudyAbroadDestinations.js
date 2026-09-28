@@ -331,38 +331,7 @@ export default function StudyAbroadDestinations() {
                      SEO CONTENT
                 =================================================== -->
 
-                <div class="study-abroad-destination-seo">
 
-                    <h2>
-                        Study abroad destinations for Indian students
-                    </h2>
-
-                    <p>
-                        Choosing the right study abroad destination is an
-                        important part of planning your overseas education.
-                        Students from India can explore universities and
-                        courses across countries such as the USA, UK, Canada,
-                        Australia, Germany and Ireland, along with other
-                        international destinations.
-                    </p>
-
-                    <p>
-                        The right destination depends on factors such as your
-                        preferred course, degree level, university options,
-                        admission requirements, tuition fees, living costs,
-                        available scholarships and personal goals. Comparing
-                        these factors before applying can help you create a
-                        more informed university shortlist.
-                    </p>
-
-                    <p>
-                        EDUCONNECT brings destination discovery, university
-                        search, course exploration, scholarships, education
-                        financing information and application guidance together
-                        in one Study Abroad platform.
-                    </p>
-
-                </div>
 
             </div>
 

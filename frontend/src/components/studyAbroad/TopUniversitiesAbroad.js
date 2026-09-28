@@ -80,7 +80,6 @@ export default function TopUniversitiesAbroad() {
             id="top-universities-abroad"
         >
 
-
             <div class="study-abroad-top-universities-container">
 
 
@@ -90,28 +89,20 @@ export default function TopUniversitiesAbroad() {
 
                 <div class="study-abroad-top-universities-header">
 
-
                     <div class="study-abroad-section-eyebrow">
                         GLOBAL EDUCATION
                     </div>
 
-
                     <h2>
-
                         Top Universities
                         <span>Abroad</span>
-
                     </h2>
 
-
                     <p>
-
                         Discover leading universities around the world,
                         compare study options and explore programs that
                         match your academic goals.
-
                     </p>
-
 
                 </div>
 
@@ -122,14 +113,12 @@ export default function TopUniversitiesAbroad() {
 
                 <div class="study-abroad-university-filters">
 
-
                     <button
                         class="university-filter active"
                         type="button"
                     >
                         All
                     </button>
-
 
                     <button
                         class="university-filter"
@@ -138,14 +127,12 @@ export default function TopUniversitiesAbroad() {
                         USA
                     </button>
 
-
                     <button
                         class="university-filter"
                         type="button"
                     >
                         UK
                     </button>
-
 
                     <button
                         class="university-filter"
@@ -154,7 +141,6 @@ export default function TopUniversitiesAbroad() {
                         Canada
                     </button>
 
-
                     <button
                         class="university-filter"
                         type="button"
@@ -162,14 +148,12 @@ export default function TopUniversitiesAbroad() {
                         Australia
                     </button>
 
-
                     <button
                         class="university-filter"
                         type="button"
                     >
                         Germany
                     </button>
-
 
                 </div>
 
@@ -180,13 +164,11 @@ export default function TopUniversitiesAbroad() {
 
                 <div class="study-abroad-university-grid">
 
-
                     ${universities.map((university) => `
 
                         <article
                             class="study-abroad-university-card"
                         >
-
 
                             <!-- =================================================
                                  CARD TOP
@@ -194,24 +176,9 @@ export default function TopUniversitiesAbroad() {
 
                             <div class="university-card-top">
 
-
                                 <div class="university-rank">
-
                                     #${university.rank}
-
                                 </div>
-
-
-                                <button
-                                    type="button"
-                                    class="university-favourite"
-                                    aria-label="Save ${university.name}"
-                                >
-
-                                    ♡
-
-                                </button>
-
 
                             </div>
 
@@ -221,9 +188,7 @@ export default function TopUniversitiesAbroad() {
                             ================================================== -->
 
                             <div class="university-card-icon">
-
                                 🎓
-
                             </div>
 
 
@@ -232,7 +197,6 @@ export default function TopUniversitiesAbroad() {
                             ================================================== -->
 
                             <div class="university-card-content">
-
 
                                 <div class="university-card-country">
 
@@ -251,10 +215,8 @@ export default function TopUniversitiesAbroad() {
 
 
                                 <p class="university-card-location">
-
                                     📍
                                     ${university.location}
-
                                 </p>
 
 
@@ -263,7 +225,6 @@ export default function TopUniversitiesAbroad() {
                                 ================================================== -->
 
                                 <div class="university-card-info">
-
 
                                     <div>
 
@@ -290,7 +251,6 @@ export default function TopUniversitiesAbroad() {
 
                                     </div>
 
-
                                 </div>
 
 
@@ -311,56 +271,15 @@ export default function TopUniversitiesAbroad() {
 
                                 </button>
 
-
                             </div>
-
 
                         </article>
 
                     `).join("")}
 
-
                 </div>
-
-
-                <!-- =================================================
-                     SECTION FOOTER
-                ================================================== -->
-
-                <div class="study-abroad-universities-footer">
-
-
-                    <p>
-
-                        Looking for more universities?
-
-                        <strong>
-                            Explore universities by country,
-                            course and ranking.
-                        </strong>
-
-                    </p>
-
-
-                    <button
-                        type="button"
-                        class="study-abroad-view-universities-button"
-                    >
-
-                        View All Universities
-
-                        <span>
-                            →
-                        </span>
-
-                    </button>
-
-
-                </div>
-
 
             </div>
-
 
         </section>
 

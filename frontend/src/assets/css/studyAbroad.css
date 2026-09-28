@@ -1576,4 +1576,258 @@
     }
 
 }
+/* =========================================================
+   STUDY ABROAD HERO — FULL BACKGROUND IMAGE
+========================================================= */
 
+.study-abroad-hero {
+    position: relative !important;
+    overflow: hidden !important;
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.88) 0%,
+            rgba(255, 255, 255, 0.68) 38%,
+            rgba(255, 255, 255, 0.28) 72%,
+            rgba(255, 255, 255, 0.10) 100%
+        ),
+        url("../images/study-abroad-hero1.jpg") !important;
+
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+}
+
+
+/* Hide old decorative hero background */
+.study-abroad-hero-background {
+    display: none !important;
+}
+
+
+/* Keep existing hero content above image */
+.study-abroad-hero-grid,
+.study-abroad-hero-layout,
+.study-abroad-hero-content,
+.study-abroad-hero-visual {
+    position: relative !important;
+    z-index: 5 !important;
+}
+
+
+/* Keep the plan card readable */
+.study-abroad-hero-card {
+    background: rgba(255, 255, 255, 0.92) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 1101px) {
+
+    .study-abroad-hero {
+        min-height: 680px !important;
+        background-position: center center !important;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .study-abroad-hero {
+        background-position: 60% center !important;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .study-abroad-hero {
+
+        background-image:
+            linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0.91) 0%,
+                rgba(255, 255, 255, 0.78) 55%,
+                rgba(255, 255, 255, 0.58) 100%
+            ),
+            url("../images/study-abroad-hero1.jpg") !important;
+
+        background-position: center center !important;
+        background-size: cover !important;
+    }
+
+}/* =========================================================
+    STUDY ABROAD HERO — BACKGROUND IMAGE
+ ========================================================= */
+
+ .study-abroad-hero {
+     position: relative !important;
+     overflow: hidden !important;
+
+     background-image:
+         linear-gradient(
+             90deg,
+             rgba(255, 255, 255, 0.82) 0%,
+             rgba(255, 255, 255, 0.55) 38%,
+             rgba(255, 255, 255, 0.20) 70%,
+             rgba(255, 255, 255, 0.05) 100%
+         ),
+         url("/src/assets/images/study-abroad-hero1.jpg") !important;
+
+ background-size: contain !important;
+ background-position: center center !important;
+ background-repeat: no-repeat !important;
+ }
+
+
+ /* Remove the old decorative hero layer */
+ .study-abroad-hero-background {
+     display: none !important;
+ }
+
+
+ /* Keep hero content above image */
+ .study-abroad-hero .study-abroad-container {
+     position: relative !important;
+     z-index: 10 !important;
+ }
+
+
+ /* Keep existing plan card readable */
+ /* =========================================================
+    HERO CARD — GLASS TRANSPARENT
+ ========================================================= */
+
+ .study-abroad-hero-card {
+     background: rgba(255, 255, 255, 0.22) !important;
+     backdrop-filter: blur(5px);
+     -webkit-backdrop-filter: blur(5px);
+     border: 1px solid rgba(255, 255, 255, 0.55);
+     box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+     border-radius: 28px;
+ }
+
+
+ /* Desktop */
+ @media (min-width: 1101px) {
+
+     .study-abroad-hero {
+         min-height: 760px !important;
+         background-position: center center !important;
+     }
+
+ }
+
+
+ /* Tablet */
+ @media (max-width: 1100px) {
+
+     .study-abroad-hero {
+         background-position: 60% center !important;
+     }
+
+ }
+
+
+ /* Mobile */
+ @media (max-width: 650px) {
+
+     .study-abroad-hero {
+
+         background-image:
+             linear-gradient(
+                 180deg,
+                 rgba(255, 255, 255, 0.86) 0%,
+                 rgba(255, 255, 255, 0.68) 50%,
+                 rgba(255, 255, 255, 0.42) 100%
+             ),
+             url("/src/assets/images/study-abroad-hero1.jpg") !important;
+
+         background-size: cover !important;
+         background-position: center center !important;
+         background-repeat: no-repeat !important;
+     }
+
+ }/* =========================================================
+     REDUCE GAP BETWEEN COUNSELLING & COUNTRY COMPARISON
+  ========================================================= */
+
+  .study-abroad-lead-section {
+      margin-bottom: 0 !important;
+      padding-bottom: 40px !important;
+  }
+
+  .study-abroad-country-comparison {
+      margin-top: 0 !important;
+      padding-top: 40px !important;
+  }/* =========================================================
+      STUDY ABROAD — COUNSELLING SECTION BACKGROUND
+      ========================================================= */
+
+   .study-abroad-lead-section {
+       position: relative !important;
+
+       background-image:
+           linear-gradient(
+               90deg,
+               rgba(255, 255, 255, 0.86) 0%,
+               rgba(255, 255, 255, 0.62) 45%,
+               rgba(255, 255, 255, 0.30) 100%
+           ),
+           url("/src/assets/images/study-abroad-lead.jpg") !important;
+
+       background-size: contain !important;
+       background-position: center center !important;
+       background-repeat: no-repeat !important;
+
+       overflow: hidden !important;
+   }
+
+
+   /* Keep the counselling content above the image */
+
+   .study-abroad-lead-wrapper {
+       position: relative !important;
+       z-index: 2 !important;
+   }
+
+
+   /* Make the form slightly transparent so the image
+      can still be seen behind it */
+
+   .study-abroad-lead-form {
+       background: rgba(255, 255, 255, 0.82) !important;
+       backdrop-filter: blur(8px);
+       -webkit-backdrop-filter: blur(8px);
+   }
+
+
+   /* Mobile */
+
+   @media (max-width: 768px) {
+
+       .study-abroad-lead-section {
+           background-position: center center !important;
+           background-size: cover !important;
+       }
+
+       .study-abroad-lead-form {
+           background: rgba(255, 255, 255, 0.88) !important;
+       }
+   }
