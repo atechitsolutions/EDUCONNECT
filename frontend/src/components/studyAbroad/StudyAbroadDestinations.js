@@ -1,519 +1,371 @@
-/* =========================================================
-   STUDY ABROAD — DESTINATIONS
-========================================================= */
+/**
+ * ============================================================
+ * EDUCONNECT — STUDY ABROAD DESTINATIONS
+ * ============================================================
+ *
+ * Purpose:
+ * - Country discovery
+ * - Study destination SEO
+ * - Internal linking
+ * - Country comparison entry point
+ * - Popular destination exploration
+ *
+ * Framework:
+ * Vanilla JavaScript + Vite
+ * ============================================================
+ */
 
 export default function StudyAbroadDestinations() {
 
     const destinations = [
-
         {
-            id: "usa",
+            code: "US",
             country: "USA",
-            flag: "🇺🇸",
-            category: [
-                "popular",
-                "top-universities"
+            title: "Study in the USA",
+            description:
+                "Explore universities, courses and study opportunities across the United States.",
+            highlights: [
+                "Universities",
+                "STEM programs",
+                "Research"
             ],
-            image:
-                "https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?auto=format&fit=crop&w=1000&q=85",
-            universities:
-                "4,000+ Universities",
-            courses:
-                "STEM, Business & Technology",
-            tuition:
-                "Tuition from ₹18L/year"
+            href: "#study-abroad-country-comparison"
         },
 
         {
-            id: "uk",
-            country: "United Kingdom",
-            flag: "🇬🇧",
-            category: [
-                "popular",
-                "top-universities"
+            code: "UK",
+            country: "UK",
+            title: "Study in the UK",
+            description:
+                "Discover undergraduate, postgraduate and professional study options in the United Kingdom.",
+            highlights: [
+                "Top universities",
+                "Master's programs",
+                "Research"
             ],
-            image:
-                "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1000&q=85",
-            universities:
-                "160+ Universities",
-            courses:
-                "Business, Law & Medicine",
-            tuition:
-                "Tuition from ₹15L/year"
+            href: "#study-abroad-country-comparison"
         },
 
         {
-            id: "canada",
+            code: "CA",
             country: "Canada",
-            flag: "🇨🇦",
-            category: [
-                "popular",
-                "affordable"
+            title: "Study in Canada",
+            description:
+                "Explore Canadian universities, colleges and programs across a wide range of study areas.",
+            highlights: [
+                "Universities",
+                "Colleges",
+                "Programs"
             ],
-            image:
-                "https://images.unsplash.com/photo-1517935706615-2717063c2225?auto=format&fit=crop&w=1000&q=85",
-            universities:
-                "100+ Universities",
-            courses:
-                "IT, Business & Engineering",
-            tuition:
-                "Tuition from ₹12L/year"
+            href: "#study-abroad-country-comparison"
         },
 
         {
-            id: "australia",
+            code: "AU",
             country: "Australia",
-            flag: "🇦🇺",
-            category: [
-                "popular",
-                "top-universities"
+            title: "Study in Australia",
+            description:
+                "Explore courses and institutions across Australia's major study destinations.",
+            highlights: [
+                "Universities",
+                "Courses",
+                "Student life"
             ],
-            image:
-                "https://images.unsplash.com/photo-1506973035872-a4f7d6c5e7a1?auto=format&fit=crop&w=1000&q=85",
-            universities:
-                "40+ Universities",
-            courses:
-                "Business, IT & Healthcare",
-            tuition:
-                "Tuition from ₹14L/year"
+            href: "#study-abroad-country-comparison"
         },
 
         {
-            id: "germany",
+            code: "DE",
             country: "Germany",
-            flag: "🇩🇪",
-            category: [
-                "affordable",
-                "top-universities"
+            title: "Study in Germany",
+            description:
+                "Explore German universities and study opportunities in engineering, technology, business and more.",
+            highlights: [
+                "Engineering",
+                "Technology",
+                "Research"
             ],
-            image:
-                "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=1000&q=85",
-            universities:
-                "400+ Universities",
-            courses:
-                "Engineering & Technology",
-            tuition:
-                "Varies by institution and program"
+            href: "#study-abroad-country-comparison"
         },
 
         {
-            id: "france",
-            country: "France",
-            flag: "🇫🇷",
-            category: [
-                "affordable"
-            ],
-            image:
-                "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1000&q=85",
-            universities:
-                "3,500+ Institutions",
-            courses:
-                "Business, Arts & Fashion",
-            tuition:
-                "Varies by institution and program"
-        },
-
-        {
-            id: "ireland",
+            code: "IE",
             country: "Ireland",
-            flag: "🇮🇪",
-            category: [
-                "popular"
+            title: "Study in Ireland",
+            description:
+                "Discover study opportunities in technology, business, science and other academic fields.",
+            highlights: [
+                "Technology",
+                "Business",
+                "Research"
             ],
-            image:
-                "https://images.unsplash.com/photo-1590089415225-401ed6f9db8e?auto=format&fit=crop&w=1000&q=85",
-            universities:
-                "40+ Higher Education Institutions",
-            courses:
-                "IT, Business & Data Science",
-            tuition:
-                "Varies by institution and program"
+            href: "#study-abroad-country-comparison"
         },
 
         {
-            id: "new-zealand",
+            code: "NZ",
             country: "New Zealand",
-            flag: "🇳🇿",
-            category: [
-                "affordable"
+            title: "Study in New Zealand",
+            description:
+                "Explore universities, institutes and programs available to international students.",
+            highlights: [
+                "Universities",
+                "Programs",
+                "Student experience"
             ],
-            image:
-                "https://images.unsplash.com/photo-1507699622108-4be3abd695ad?auto=format&fit=crop&w=1000&q=85",
-            universities:
-                "8 Universities",
-            courses:
-                "Business, Engineering & IT",
-            tuition:
-                "Varies by institution and program"
-        }
+            href: "#study-abroad-country-comparison"
+        },
 
+        {
+            code: "FR",
+            country: "France",
+            title: "Study in France",
+            description:
+                "Discover higher education opportunities across French universities and institutions.",
+            highlights: [
+                "Business",
+                "Engineering",
+                "Arts"
+            ],
+            href: "#study-abroad-country-comparison"
+        }
     ];
 
 
     return `
-
         <section
-            id="study-abroad-destinations"
-            class="study-abroad-destinations"
+            class="study-abroad-destinations-section"
+            id="study-abroad-destination-explorer"
             aria-labelledby="study-abroad-destinations-title"
         >
 
-            <div class="study-abroad-destinations-container">
+            <div class="study-abroad-container">
 
 
-                <!-- =================================================
-                     HEADER
-                ================================================== -->
+                <!-- ==================================================
+                     SECTION HEADER
+                =================================================== -->
 
-                <div class="study-abroad-destinations-header">
+                <div class="study-abroad-section-header">
 
-                    <div class="study-abroad-section-eyebrow">
-                        EXPLORE THE WORLD
-                    </div>
+                    <div class="study-abroad-section-header-content">
 
-
-                    <h2 id="study-abroad-destinations-title">
-
-                        Choose Your
-                        <span>
-                            Study Destination
+                        <span class="study-abroad-section-eyebrow">
+                            STUDY DESTINATIONS
                         </span>
 
-                    </h2>
+                        <h2 id="study-abroad-destinations-title">
+                            Explore the best study abroad destinations
+                        </h2>
+
+                        <p>
+                            Compare popular countries for overseas education
+                            and discover universities, courses, scholarships,
+                            admission requirements and student opportunities.
+                        </p>
 
-
-                    <p>
-
-                        Explore destinations and compare countries
-                        based on universities, courses and study
-                        opportunities.
-
-                    </p>
-
-                </div>
-
-
-                <!-- =================================================
-                     FILTERS
-                ================================================== -->
-
-                <div
-                    class="study-abroad-destination-filters"
-                    role="tablist"
-                    aria-label="Study destination filters"
-                >
-
-
-                    <button
-                        type="button"
-                        class="destination-filter active"
-                        data-destination-filter="all"
-                        role="tab"
-                        aria-selected="true"
-                    >
-                        All Destinations
-                    </button>
-
-
-                    <button
-                        type="button"
-                        class="destination-filter"
-                        data-destination-filter="popular"
-                        role="tab"
-                        aria-selected="false"
-                    >
-                        Popular
-                    </button>
-
-
-                    <button
-                        type="button"
-                        class="destination-filter"
-                        data-destination-filter="affordable"
-                        role="tab"
-                        aria-selected="false"
-                    >
-                        Affordable
-                    </button>
-
-
-                    <button
-                        type="button"
-                        class="destination-filter"
-                        data-destination-filter="top-universities"
-                        role="tab"
-                        aria-selected="false"
-                    >
-                        Top Universities
-                    </button>
-
-                </div>
-
-
-                <!-- =================================================
-                     DESTINATION GROUP ANCHORS
-                ================================================== -->
-
-                <div
-                    id="study-abroad-popular-destinations"
-                    class="study-abroad-destination-anchor"
-                    aria-hidden="true"
-                ></div>
-
-
-                <div
-                    id="study-abroad-affordable-destinations"
-                    class="study-abroad-destination-anchor"
-                    aria-hidden="true"
-                ></div>
-
-
-                <div
-                    id="study-abroad-top-university-destinations"
-                    class="study-abroad-destination-anchor"
-                    aria-hidden="true"
-                ></div>
-
-
-                <!-- =================================================
-                     DESTINATION GRID
-                ================================================== -->
-
-                <div
-                    class="study-abroad-destination-grid"
-                    data-destination-grid
-                >
-
-                    ${destinations.map((destination) => `
-
-                        <article
-                            class="study-abroad-destination-card"
-                            data-destination-card
-                            data-country="${destination.id}"
-                            data-category="${destination.category.join(" ")}"
-                        >
-
-
-                            <!-- IMAGE -->
-
-                            <div class="destination-card-image">
-
-                                <img
-                                    src="${destination.image}"
-                                    alt="Study in ${destination.country}"
-                                    loading="lazy"
-                                />
-
-
-                                <div
-                                    class="destination-card-image-overlay"
-                                    aria-hidden="true"
-                                ></div>
-
-
-                                <!-- COUNTRY -->
-
-                                <div class="destination-country">
-
-                                    <span>
-                                        ${destination.flag}
-                                    </span>
-
-                                    ${destination.country}
-
-                                </div>
-
-
-                                <!-- FAVORITE -->
-
-                                <button
-                                    type="button"
-                                    class="destination-favourite"
-                                    aria-label="Save ${destination.country}"
-                                    aria-pressed="false"
-                                    data-destination-favourite="${destination.id}"
-                                >
-                                    ♡
-                                </button>
-
-                            </div>
-
-
-                            <!-- CONTENT -->
-
-                            <div class="destination-card-content">
-
-
-                                <div class="destination-card-top">
-
-                                    <span class="destination-card-label">
-                                        STUDY ABROAD
-                                    </span>
-
-
-                                    <span
-                                        class="destination-card-arrow"
-                                        aria-hidden="true"
-                                    >
-                                        ↗
-                                    </span>
-
-                                </div>
-
-
-                                <h3>
-                                    Study in ${destination.country}
-                                </h3>
-
-
-                                <div class="destination-card-info">
-
-
-                                    <!-- UNIVERSITIES -->
-
-                                    <div>
-
-                                        <span
-                                            class="destination-info-icon"
-                                            aria-hidden="true"
-                                        >
-                                            🎓
-                                        </span>
-
-                                        <span>
-                                            ${destination.universities}
-                                        </span>
-
-                                    </div>
-
-
-                                    <!-- COURSES -->
-
-                                    <div>
-
-                                        <span
-                                            class="destination-info-icon"
-                                            aria-hidden="true"
-                                        >
-                                            📚
-                                        </span>
-
-                                        <span>
-                                            ${destination.courses}
-                                        </span>
-
-                                    </div>
-
-
-                                    <!-- COST -->
-
-                                    <div>
-
-                                        <span
-                                            class="destination-info-icon"
-                                            aria-hidden="true"
-                                        >
-                                            💰
-                                        </span>
-
-                                        <span>
-                                            ${destination.tuition}
-                                        </span>
-
-                                    </div>
-
-                                </div>
-
-
-                                <!-- EXPLORE -->
-
-                                <a
-                                    href="#study-abroad-course-explorer"
-                                    class="destination-explore-button"
-                                    data-destination-explore="${destination.id}"
-                                >
-
-                                    Explore ${destination.country}
-
-                                    <span aria-hidden="true">
-                                        →
-                                    </span>
-
-                                </a>
-
-                            </div>
-
-                        </article>
-
-                    `).join("")}
-
-                </div>
-
-
-                <!-- =================================================
-                     EMPTY STATE
-                ================================================== -->
-
-                <div
-                    class="study-abroad-destination-empty"
-                    data-destination-empty
-                    hidden
-                >
-
-                    <div
-                        class="study-abroad-destination-empty-icon"
-                        aria-hidden="true"
-                    >
-                        🌎
                     </div>
-
-                    <h3>
-                        No destinations found
-                    </h3>
-
-                    <p>
-                        Try another destination category.
-                    </p>
-
-                </div>
-
-
-                <!-- =================================================
-                     COMPARE CTA
-                ================================================== -->
-
-                <div class="study-abroad-destinations-footer">
-
-                    <p>
-
-                        Not sure where to study?
-
-                        <strong>
-                            Compare destinations and explore
-                            your options.
-                        </strong>
-
-                    </p>
 
 
                     <a
                         href="#study-abroad-country-comparison"
-                        class="study-abroad-compare-button"
+                        class="study-abroad-section-link"
                     >
-
-                        Compare Countries
+                        Compare countries
 
                         <span aria-hidden="true">
                             →
                         </span>
-
                     </a>
+
+                </div>
+
+
+                <!-- ==================================================
+                     COUNTRY GRID
+                =================================================== -->
+
+                <div class="study-abroad-destinations-grid">
+
+                    ${destinations
+                        .map(
+                            (destination, index) => `
+                                <article
+                                    class="study-abroad-country-card"
+                                    data-country="${destination.code}"
+                                    data-destination-index="${index}"
+                                >
+
+                                    <a
+                                        href="${destination.href}"
+                                        class="study-abroad-country-card-link"
+                                        aria-label="${destination.title}"
+                                    >
+
+
+                                        <!-- COUNTRY TOP -->
+
+                                        <div class="study-abroad-country-card-top">
+
+                                            <span
+                                                class="study-abroad-country-code"
+                                                aria-hidden="true"
+                                            >
+                                                ${destination.code}
+                                            </span>
+
+                                            <span
+                                                class="study-abroad-country-arrow"
+                                                aria-hidden="true"
+                                            >
+                                                ↗
+                                            </span>
+
+                                        </div>
+
+
+                                        <!-- COUNTRY CONTENT -->
+
+                                        <div class="study-abroad-country-card-content">
+
+                                            <h3>
+                                                ${destination.title}
+                                            </h3>
+
+                                            <p>
+                                                ${destination.description}
+                                            </p>
+
+                                        </div>
+
+
+                                        <!-- COUNTRY HIGHLIGHTS -->
+
+                                        <div class="study-abroad-country-highlights">
+
+                                            ${destination.highlights
+                                                .map(
+                                                    (highlight) => `
+                                                        <span>
+                                                            ${highlight}
+                                                        </span>
+                                                    `
+                                                )
+                                                .join("")}
+
+                                        </div>
+
+
+                                        <!-- EXPLORE -->
+
+                                        <div class="study-abroad-country-card-footer">
+
+                                            <span>
+                                                Explore destination
+                                            </span>
+
+                                            <span aria-hidden="true">
+                                                →
+                                            </span>
+
+                                        </div>
+
+                                    </a>
+
+                                </article>
+                            `
+                        )
+                        .join("")}
+
+                </div>
+
+
+                <!-- ==================================================
+                     DESTINATION DISCOVERY CTA
+                =================================================== -->
+
+                <div class="study-abroad-destination-discovery">
+
+                    <div class="study-abroad-destination-discovery-content">
+
+                        <span class="study-abroad-section-eyebrow">
+                            NOT SURE WHERE TO START?
+                        </span>
+
+                        <h3>
+                            Compare countries based on what matters to you.
+                        </h3>
+
+                        <p>
+                            Explore study options, course availability,
+                            admission requirements, estimated costs and
+                            other factors before creating your shortlist.
+                        </p>
+
+                    </div>
+
+
+                    <div class="study-abroad-destination-discovery-actions">
+
+                        <a
+                            href="#study-abroad-country-comparison"
+                            class="study-abroad-primary-button"
+                        >
+                            Compare destinations
+                            <span aria-hidden="true">→</span>
+                        </a>
+
+                        <a
+                            href="#study-abroad-counselling"
+                            class="study-abroad-secondary-button"
+                        >
+                            Get free counselling
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ==================================================
+                     SEO CONTENT
+                =================================================== -->
+
+                <div class="study-abroad-destination-seo">
+
+                    <h2>
+                        Study abroad destinations for Indian students
+                    </h2>
+
+                    <p>
+                        Choosing the right study abroad destination is an
+                        important part of planning your overseas education.
+                        Students from India can explore universities and
+                        courses across countries such as the USA, UK, Canada,
+                        Australia, Germany and Ireland, along with other
+                        international destinations.
+                    </p>
+
+                    <p>
+                        The right destination depends on factors such as your
+                        preferred course, degree level, university options,
+                        admission requirements, tuition fees, living costs,
+                        available scholarships and personal goals. Comparing
+                        these factors before applying can help you create a
+                        more informed university shortlist.
+                    </p>
+
+                    <p>
+                        EDUCONNECT brings destination discovery, university
+                        search, course exploration, scholarships, education
+                        financing information and application guidance together
+                        in one Study Abroad platform.
+                    </p>
 
                 </div>
 
             </div>
 
         </section>
-
     `;
 }

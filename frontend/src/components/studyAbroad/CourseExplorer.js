@@ -1,488 +1,598 @@
-/* =========================================================
-   STUDY ABROAD — COURSE EXPLORER
-========================================================= */
+/**
+ * ============================================================
+ * EDUCONNECT — STUDY ABROAD COURSE EXPLORER
+ * ============================================================
+ *
+ * Purpose:
+ * - Course discovery
+ * - Degree-level discovery
+ * - Subject-based navigation
+ * - Study abroad SEO
+ * - Internal linking
+ *
+ * Framework:
+ * Vanilla JavaScript + Vite
+ * ============================================================
+ */
 
-export default function CourseExplorer() {
+export default function StudyAbroadCourseExplorer() {
 
-    const courses = [
-
+    const studyLevels = [
         {
-            name: "Computer Science",
-            category: "Technology",
-            icon: "💻",
-            destinations: "USA • UK • Canada • Germany",
-            level: "Bachelor's • Master's",
-            popularFor: "Software Development • AI • Data Science",
-            duration: "1–4 Years"
+            number: "01",
+            title: "Bachelor's",
+            description:
+                "Explore undergraduate programs and international bachelor's degrees.",
+            keyword:
+                "bachelor's programs abroad"
         },
 
         {
-            name: "Business Administration",
-            category: "Business",
-            icon: "📊",
-            destinations: "USA • UK • Australia • Canada",
-            level: "Bachelor's • Master's • MBA",
-            popularFor: "Management • Finance • Marketing",
-            duration: "1–2 Years"
+            number: "02",
+            title: "Master's",
+            description:
+                "Discover postgraduate programs across universities and destinations.",
+            keyword:
+                "master's programs abroad"
         },
 
         {
-            name: "Engineering",
-            category: "Engineering",
-            icon: "⚙️",
-            destinations: "Germany • USA • UK • Australia",
-            level: "Bachelor's • Master's",
-            popularFor: "Mechanical • Civil • Electrical",
-            duration: "1–4 Years"
+            number: "03",
+            title: "MBA",
+            description:
+                "Explore business, management and leadership programs overseas.",
+            keyword:
+                "MBA abroad"
         },
 
         {
-            name: "Data Science",
-            category: "Technology",
-            icon: "📈",
-            destinations: "USA • UK • Canada • Ireland",
-            level: "Master's • Postgraduate",
-            popularFor: "AI • Analytics • Machine Learning",
-            duration: "1–2 Years"
-        },
-
-        {
-            name: "Medicine",
-            category: "Healthcare",
-            icon: "🩺",
-            destinations: "UK • Australia • USA • Europe",
-            level: "Bachelor's • Master's",
-            popularFor: "Medicine • Healthcare • Research",
-            duration: "3–6 Years"
-        },
-
-        {
-            name: "Law",
-            category: "Law",
-            icon: "⚖️",
-            destinations: "UK • USA • Australia • Canada",
-            level: "Bachelor's • Master's",
-            popularFor: "Corporate Law • International Law",
-            duration: "1–4 Years"
-        },
-
-        {
-            name: "Architecture",
-            category: "Design",
-            icon: "🏛️",
-            destinations: "UK • Australia • USA • Europe",
-            level: "Bachelor's • Master's",
-            popularFor: "Architecture • Urban Design",
-            duration: "2–5 Years"
-        },
-
-        {
-            name: "Hospitality & Tourism",
-            category: "Hospitality",
-            icon: "🌍",
-            destinations: "Australia • UK • Switzerland • Canada",
-            level: "Bachelor's • Master's",
-            popularFor: "Hotels • Tourism • Event Management",
-            duration: "1–4 Years"
+            number: "04",
+            title: "PhD",
+            description:
+                "Explore research-focused doctoral programs and academic pathways.",
+            keyword:
+                "PhD abroad"
         }
+    ];
 
+
+    const popularCourses = [
+        {
+            title: "Computer Science",
+            short: "CS",
+            description:
+                "Explore computer science, software engineering and computing programs.",
+            tags: [
+                "Technology",
+                "Software",
+                "AI"
+            ]
+        },
+
+        {
+            title: "Data Science & AI",
+            short: "AI",
+            description:
+                "Discover programs focused on data, artificial intelligence and machine learning.",
+            tags: [
+                "Data",
+                "AI",
+                "Machine Learning"
+            ]
+        },
+
+        {
+            title: "Business & Management",
+            short: "BM",
+            description:
+                "Explore business, management, entrepreneurship and leadership programs.",
+            tags: [
+                "Business",
+                "Management",
+                "Leadership"
+            ]
+        },
+
+        {
+            title: "Engineering",
+            short: "EN",
+            description:
+                "Explore engineering programs across technology, mechanical, civil and other fields.",
+            tags: [
+                "Technology",
+                "Engineering",
+                "Research"
+            ]
+        },
+
+        {
+            title: "Finance & Economics",
+            short: "FE",
+            description:
+                "Discover finance, economics, accounting and related international programs.",
+            tags: [
+                "Finance",
+                "Economics",
+                "Accounting"
+            ]
+        },
+
+        {
+            title: "Health & Life Sciences",
+            short: "HS",
+            description:
+                "Explore health, biomedical, life science and related study options.",
+            tags: [
+                "Health",
+                "Science",
+                "Research"
+            ]
+        },
+
+        {
+            title: "Design & Creative Arts",
+            short: "DA",
+            description:
+                "Discover design, media, visual communication and creative programs.",
+            tags: [
+                "Design",
+                "Creative",
+                "Media"
+            ]
+        },
+
+        {
+            title: "Hospitality & Tourism",
+            short: "HT",
+            description:
+                "Explore hospitality, tourism, hotel management and related programs.",
+            tags: [
+                "Hospitality",
+                "Tourism",
+                "Management"
+            ]
+        }
     ];
 
 
     return `
-
-        <!-- =====================================================
-             COURSE EXPLORER
-        ====================================================== -->
-
         <section
             class="study-abroad-course-explorer"
-            id="course-explorer"
+            id="study-abroad-course-explorer"
+            aria-labelledby="study-abroad-course-title"
         >
 
-
-            <div class="study-abroad-course-explorer-container">
-
-
-                <!-- =================================================
-                     SECTION HEADER
-                ================================================== -->
-
-                <div class="study-abroad-course-explorer-header">
+            <div class="study-abroad-container">
 
 
-                    <div class="study-abroad-section-eyebrow">
-                        FIND YOUR COURSE
+                <!-- ==================================================
+                     HEADER
+                =================================================== -->
+
+                <div class="study-abroad-section-header">
+
+                    <div class="study-abroad-section-header-content">
+
+                        <span class="study-abroad-section-eyebrow">
+                            COURSE EXPLORER
+                        </span>
+
+                        <h2 id="study-abroad-course-title">
+                            Find the right course to study abroad
+                        </h2>
+
+                        <p>
+                            Explore international courses by subject and
+                            degree level. Start with your area of interest,
+                            then compare universities and destinations.
+                        </p>
+
                     </div>
 
 
-                    <h2>
-
-                        Explore Courses
-                        <span>Worldwide</span>
-
-                    </h2>
-
-
-                    <p>
-
-                        Discover popular courses and international
-                        programs across leading study destinations.
-                        Compare your options and find the right
-                        academic path.
-
-                    </p>
-
+                    <a
+                        href="#study-abroad-universities"
+                        class="study-abroad-section-link"
+                    >
+                        Find universities
+                        <span aria-hidden="true">→</span>
+                    </a>
 
                 </div>
 
 
-                <!-- =================================================
-                     COURSE SEARCH
-                ================================================== -->
+                <!-- ==================================================
+                     DEGREE LEVEL
+                =================================================== -->
 
-                <div class="study-abroad-course-search">
+                <div class="study-abroad-course-level-wrapper">
 
-
-                    <div class="course-search-input">
-
-
-                        <span
-                            class="course-search-icon"
-                            aria-hidden="true"
-                        >
-                            🔍
-                        </span>
-
-
-                        <input
-                            type="text"
-                            placeholder="Search courses, subjects or programs..."
-                            aria-label="Search courses"
-                        />
-
-
-                    </div>
-
-
-                    <button
-                        type="button"
-                        class="course-search-button"
-                    >
-
-                        Search
+                    <div class="study-abroad-course-subheading">
 
                         <span>
-                            →
+                            CHOOSE YOUR STUDY LEVEL
                         </span>
 
-                    </button>
+                        <h3>
+                            What do you want to study?
+                        </h3>
+
+                    </div>
 
 
-                </div>
+                    <div class="study-abroad-course-level-grid">
 
+                        ${studyLevels
+                            .map(
+                                (level) => `
+                                    <a
+                                        href="#study-abroad-universities"
+                                        class="study-abroad-course-level-card"
+                                        data-study-level="${level.title}"
+                                    >
 
-                <!-- =================================================
-                     COURSE FILTERS
-                ================================================== -->
-
-                <div class="study-abroad-course-filters">
-
-
-                    <button
-                        type="button"
-                        class="course-filter active"
-                    >
-                        All Courses
-                    </button>
-
-
-                    <button
-                        type="button"
-                        class="course-filter"
-                    >
-                        Technology
-                    </button>
-
-
-                    <button
-                        type="button"
-                        class="course-filter"
-                    >
-                        Business
-                    </button>
-
-
-                    <button
-                        type="button"
-                        class="course-filter"
-                    >
-                        Engineering
-                    </button>
-
-
-                    <button
-                        type="button"
-                        class="course-filter"
-                    >
-                        Healthcare
-                    </button>
-
-
-                    <button
-                        type="button"
-                        class="course-filter"
-                    >
-                        Design
-                    </button>
-
-
-                </div>
-
-
-                <!-- =================================================
-                     COURSE GRID
-                ================================================== -->
-
-                <div class="study-abroad-course-grid">
-
-
-                    ${courses.map((course) => `
-
-                        <article
-                            class="study-abroad-course-card"
-                        >
-
-
-                            <!-- =================================================
-                                 CARD HEADER
-                            ================================================== -->
-
-                            <div class="course-card-header">
-
-
-                                <div
-                                    class="course-card-icon"
-                                    aria-hidden="true"
-                                >
-                                    ${course.icon}
-                                </div>
-
-
-                                <span class="course-card-category">
-                                    ${course.category}
-                                </span>
-
-
-                                <button
-                                    type="button"
-                                    class="course-card-favourite"
-                                    aria-label="Save ${course.name}"
-                                >
-                                    ♡
-                                </button>
-
-
-                            </div>
-
-
-                            <!-- =================================================
-                                 CARD CONTENT
-                            ================================================== -->
-
-                            <div class="course-card-content">
-
-
-                                <h3>
-                                    ${course.name}
-                                </h3>
-
-
-                                <p class="course-card-destinations">
-
-                                    🌎
-
-                                    ${course.destinations}
-
-                                </p>
-
-
-                                <!-- =================================================
-                                     COURSE DETAILS
-                                ================================================== -->
-
-                                <div class="course-card-details">
-
-
-                                    <div class="course-card-detail">
-
-
-                                        <span
-                                            class="course-detail-icon"
-                                            aria-hidden="true"
-                                        >
-                                            🎓
-                                        </span>
-
-
-                                        <div>
+                                        <div class="study-abroad-course-level-top">
 
                                             <span>
-                                                Study Level
+                                                ${level.number}
                                             </span>
 
-                                            <strong>
-                                                ${course.level}
-                                            </strong>
+                                            <span aria-hidden="true">
+                                                ↗
+                                            </span>
 
                                         </div>
 
 
-                                    </div>
+                                        <h4>
+                                            ${level.title}
+                                        </h4>
 
 
-                                    <div class="course-card-detail">
+                                        <p>
+                                            ${level.description}
+                                        </p>
 
 
-                                        <span
-                                            class="course-detail-icon"
-                                            aria-hidden="true"
-                                        >
-                                            📚
+                                        <span class="study-abroad-course-level-keyword">
+                                            ${level.keyword}
                                         </span>
 
+                                    </a>
+                                `
+                            )
+                            .join("")}
 
-                                        <div>
-
-                                            <span>
-                                                Popular For
-                                            </span>
-
-                                            <strong>
-                                                ${course.popularFor}
-                                            </strong>
-
-                                        </div>
-
-
-                                    </div>
-
-
-                                    <div class="course-card-detail">
-
-
-                                        <span
-                                            class="course-detail-icon"
-                                            aria-hidden="true"
-                                        >
-                                            ⏱
-                                        </span>
-
-
-                                        <div>
-
-                                            <span>
-                                                Duration
-                                            </span>
-
-                                            <strong>
-                                                ${course.duration}
-                                            </strong>
-
-                                        </div>
-
-
-                                    </div>
-
-
-                                </div>
-
-
-                                <!-- =================================================
-                                     CARD ACTION
-                                ================================================== -->
-
-                                <button
-                                    type="button"
-                                    class="course-explore-button"
-                                >
-
-                                    Explore Course
-
-                                    <span>
-                                        →
-                                    </span>
-
-                                </button>
-
-
-                            </div>
-
-
-                        </article>
-
-                    `).join("")}
-
+                    </div>
 
                 </div>
 
 
-                <!-- =================================================
-                     COURSE FOOTER
-                ================================================== -->
+                <!-- ==================================================
+                     POPULAR SUBJECTS
+                =================================================== -->
 
-                <div class="study-abroad-course-footer">
+                <div class="study-abroad-popular-courses">
 
+                    <div class="study-abroad-course-subheading">
 
-                    <div class="study-abroad-course-footer-content">
-
-
-                        <span
-                            class="study-abroad-course-footer-icon"
-                            aria-hidden="true"
-                        >
-                            🎓
+                        <span>
+                            POPULAR FIELDS OF STUDY
                         </span>
 
+                        <h3>
+                            Explore courses by subject
+                        </h3>
 
-                        <div>
+                    </div>
 
-                            <strong>
-                                Can't find your course?
-                            </strong>
 
-                            <span>
-                                Explore more programs and study options
-                                from universities worldwide.
-                            </span>
+                    <div class="study-abroad-course-grid">
+
+                        ${popularCourses
+                            .map(
+                                (course, index) => `
+                                    <article
+                                        class="study-abroad-course-card"
+                                        data-course="${course.title}"
+                                    >
+
+                                        <a
+                                            href="#study-abroad-universities"
+                                            class="study-abroad-course-card-link"
+                                            aria-label="Explore ${course.title} courses abroad"
+                                        >
+
+                                            <div class="study-abroad-course-card-top">
+
+                                                <span class="study-abroad-course-icon">
+                                                    ${course.short}
+                                                </span>
+
+                                                <span
+                                                    class="study-abroad-course-arrow"
+                                                    aria-hidden="true"
+                                                >
+                                                    ↗
+                                                </span>
+
+                                            </div>
+
+
+                                            <div class="study-abroad-course-card-content">
+
+                                                <h4>
+                                                    ${course.title}
+                                                </h4>
+
+                                                <p>
+                                                    ${course.description}
+                                                </p>
+
+                                            </div>
+
+
+                                            <div class="study-abroad-course-tags">
+
+                                                ${course.tags
+                                                    .map(
+                                                        (tag) => `
+                                                            <span>
+                                                                ${tag}
+                                                            </span>
+                                                        `
+                                                    )
+                                                    .join("")}
+
+                                            </div>
+
+
+                                            <div class="study-abroad-course-card-footer">
+
+                                                <span>
+                                                    Explore programs
+                                                </span>
+
+                                                <span aria-hidden="true">
+                                                    →
+                                                </span>
+
+                                            </div>
+
+                                        </a>
+
+                                    </article>
+                                `
+                            )
+                            .join("")}
+
+                    </div>
+
+                </div>
+
+
+                <!-- ==================================================
+                     COURSE DISCOVERY TOOL
+                =================================================== -->
+
+                <div
+                    class="study-abroad-course-discovery"
+                    id="study-abroad-course-discovery"
+                >
+
+                    <div class="study-abroad-course-discovery-content">
+
+                        <span class="study-abroad-section-eyebrow">
+                            COURSE DISCOVERY
+                        </span>
+
+                        <h3>
+                            Not sure which course is right for you?
+                        </h3>
+
+                        <p>
+                            Start with your preferred study level, subject
+                            area and destination. You can then compare
+                            universities and program requirements.
+                        </p>
+
+                    </div>
+
+
+                    <form
+                        class="study-abroad-course-search"
+                        id="study-abroad-course-search"
+                    >
+
+                        <div class="study-abroad-course-field">
+
+                            <label for="study-level">
+                                Study level
+                            </label>
+
+                            <select id="study-level" name="level">
+
+                                <option value="">
+                                    Select level
+                                </option>
+
+                                <option value="bachelors">
+                                    Bachelor's
+                                </option>
+
+                                <option value="masters">
+                                    Master's
+                                </option>
+
+                                <option value="mba">
+                                    MBA
+                                </option>
+
+                                <option value="phd">
+                                    PhD
+                                </option>
+
+                            </select>
 
                         </div>
 
 
-                    </div>
+                        <div class="study-abroad-course-field">
+
+                            <label for="study-subject">
+                                Subject
+                            </label>
+
+                            <select id="study-subject" name="subject">
+
+                                <option value="">
+                                    Select subject
+                                </option>
+
+                                <option value="computer-science">
+                                    Computer Science
+                                </option>
+
+                                <option value="data-science">
+                                    Data Science & AI
+                                </option>
+
+                                <option value="business">
+                                    Business & Management
+                                </option>
+
+                                <option value="engineering">
+                                    Engineering
+                                </option>
+
+                                <option value="finance">
+                                    Finance & Economics
+                                </option>
+
+                                <option value="health">
+                                    Health & Life Sciences
+                                </option>
+
+                                <option value="design">
+                                    Design & Creative Arts
+                                </option>
+
+                                <option value="hospitality">
+                                    Hospitality & Tourism
+                                </option>
+
+                            </select>
+
+                        </div>
 
 
-                    <button
-                        type="button"
-                        class="study-abroad-view-courses-button"
-                    >
+                        <div class="study-abroad-course-field">
 
-                        View All Courses
+                            <label for="study-country">
+                                Destination
+                            </label>
 
-                        <span>
-                            →
-                        </span>
+                            <select id="study-country" name="country">
 
-                    </button>
+                                <option value="">
+                                    Select country
+                                </option>
 
+                                <option value="usa">
+                                    USA
+                                </option>
+
+                                <option value="uk">
+                                    UK
+                                </option>
+
+                                <option value="canada">
+                                    Canada
+                                </option>
+
+                                <option value="australia">
+                                    Australia
+                                </option>
+
+                                <option value="germany">
+                                    Germany
+                                </option>
+
+                                <option value="ireland">
+                                    Ireland
+                                </option>
+
+                                <option value="new-zealand">
+                                    New Zealand
+                                </option>
+
+                                <option value="france">
+                                    France
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="study-abroad-primary-button"
+                        >
+                            Find courses
+                            <span aria-hidden="true">→</span>
+                        </button>
+
+                    </form>
+
+
+                    <div
+                        class="study-abroad-course-search-message"
+                        id="study-abroad-course-search-message"
+                        role="status"
+                        aria-live="polite"
+                    ></div>
 
                 </div>
 
 
+                <!-- ==================================================
+                     SEO CONTENT
+                =================================================== -->
+
+                <div class="study-abroad-course-seo">
+
+                    <h2>
+                        Study abroad courses for Indian students
+                    </h2>
+
+                    <p>
+                        Students planning to study abroad can choose from
+                        thousands of programs across areas such as computer
+                        science, engineering, business, data science,
+                        finance, healthcare, design and hospitality.
+                    </p>
+
+                    <p>
+                        Your choice of course can influence the universities
+                        you can apply to, admission requirements, tuition
+                        costs and the countries where suitable programs are
+                        available. Compare the degree level, curriculum,
+                        university, destination and total cost before making
+                        your shortlist.
+                    </p>
+
+                    <p>
+                        EDUCONNECT helps students discover study abroad
+                        courses, explore universities, compare destinations
+                        and understand the application journey from one
+                        platform.
+                    </p>
+
+                </div>
+
             </div>
 
-
         </section>
-
     `;
 }

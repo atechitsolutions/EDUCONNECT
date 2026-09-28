@@ -1,437 +1,657 @@
-/* =========================================================
-   STUDY ABROAD — PREMIUM HERO
-========================================================= */
+/**
+ * ============================================================
+ * EDUCONNECT — STUDY ABROAD HERO
+ * ============================================================
+ *
+ * Purpose:
+ * - Introduce the Study Abroad service
+ * - Provide primary search/discovery
+ * - Promote counselling
+ * - Surface popular destinations
+ * - Create strong SEO-relevant page content
+ *
+ * Framework:
+ * Vanilla JavaScript + Vite
+ * ============================================================
+ */
 
 export default function StudyAbroadHero() {
+    const popularDestinations = [
+        {
+            name: "USA",
+            code: "US",
+            description: "Universities, STEM & research"
+        },
+        {
+            name: "UK",
+            code: "UK",
+            description: "Top universities & global programs"
+        },
+        {
+            name: "Canada",
+            code: "CA",
+            description: "Programs, careers & student life"
+        },
+        {
+            name: "Australia",
+            code: "AU",
+            description: "Education, lifestyle & opportunities"
+        },
+        {
+            name: "Germany",
+            code: "DE",
+            description: "Engineering, technology & research"
+        },
+        {
+            name: "Ireland",
+            code: "IE",
+            description: "Technology, business & innovation"
+        }
+    ];
 
     return `
-
-        <!-- =====================================================
-             STUDY ABROAD HERO
-        ====================================================== -->
-
         <section
             class="study-abroad-hero"
             id="study-abroad-hero"
+            aria-labelledby="study-abroad-hero-title"
         >
 
-
-            <!-- =================================================
-                 HERO BACKGROUND
-            ================================================== -->
-
-            <!--
-                IMPORTANT:
-                Keep the existing background exactly as it is.
-                Do not replace or modify the background image.
-            -->
-
-            <div class="study-abroad-hero-background"></div>
-
-            <div class="study-abroad-hero-overlay"></div>
-
-
-            <!-- =================================================
-                 DECORATIVE GLOW ELEMENTS
-            ================================================== -->
+            <!-- ==================================================
+                 BACKGROUND DECORATION
+            =================================================== -->
 
             <div
-                class="study-abroad-hero-glow hero-glow-one"
-            ></div>
+                class="study-abroad-hero-background"
+                aria-hidden="true"
+            >
+                <div class="study-abroad-hero-grid"></div>
 
-            <div
-                class="study-abroad-hero-glow hero-glow-two"
-            ></div>
+                <div class="study-abroad-hero-glow study-abroad-glow-one"></div>
+                <div class="study-abroad-hero-glow study-abroad-glow-two"></div>
 
-
-            <!-- =================================================
-                 HERO MAIN CONTAINER
-            ================================================== -->
-
-            <div class="study-abroad-hero-container">
+                <div class="study-abroad-hero-orbit study-abroad-orbit-one"></div>
+                <div class="study-abroad-hero-orbit study-abroad-orbit-two"></div>
+            </div>
 
 
-                <!-- =================================================
-                     HERO CONTENT
-                ================================================== -->
+            <!-- ==================================================
+                 MAIN HERO CONTAINER
+            =================================================== -->
 
-                <div class="study-abroad-hero-content">
+            <div class="study-abroad-container">
 
-
-                    <!-- =================================================
-                         EYEBROW / BADGE
-                    ================================================== -->
-
-                    <div class="study-abroad-hero-badge">
-
-                        <span>
-                            ✦
-                        </span>
-
-                        YOUR GLOBAL EDUCATION JOURNEY
-
-                    </div>
+                <div class="study-abroad-hero-layout">
 
 
-                    <!-- =================================================
-                         HERO HEADING
-                    ================================================== -->
+                    <!-- ==================================================
+                         LEFT CONTENT
+                    =================================================== -->
 
-                    <h1>
+                    <div class="study-abroad-hero-content">
 
-                        Study Abroad.
-
-                        <span>
-                            Dream Bigger.
-                        </span>
-
-                    </h1>
-
-
-                    <!-- =================================================
-                         HERO DESCRIPTION
-                    ================================================== -->
-
-                    <p>
-
-                        Explore world-class universities,
-                        international courses, scholarships and
-                        career opportunities across the globe —
-                        all in one place.
-
-                    </p>
-
-
-                    <!-- =================================================
-                         HERO SEARCH
-                    ================================================== -->
-
-                    <div class="study-abroad-hero-search">
-
-
-                        <div
-                            class="study-abroad-hero-search-icon"
-                            aria-hidden="true"
-                        >
-                            🔍
-                        </div>
-
-
-                        <input
-                            type="text"
-                            placeholder="Search universities, courses or countries..."
-                            aria-label="Search study abroad opportunities"
-                        />
-
-
-                        <button
-                            type="button"
-                            aria-label="Search study abroad opportunities"
-                        >
-
-                            Search
+                        <div class="study-abroad-hero-badge">
+                            <span class="study-abroad-badge-dot"></span>
 
                             <span>
-                                →
+                                STUDY ABROAD • OVERSEAS EDUCATION
                             </span>
-
-                        </button>
-
-                    </div>
+                        </div>
 
 
-                    <!-- =================================================
-                         POPULAR DESTINATIONS
-                    ================================================== -->
+                        <h1 id="study-abroad-hero-title">
 
-                    <div class="study-abroad-popular">
-
-
-                        <span>
-                            Popular:
-                        </span>
-
-
-                        <button type="button">
-                            🇺🇸 USA
-                        </button>
-
-
-                        <button type="button">
-                            🇬🇧 UK
-                        </button>
-
-
-                        <button type="button">
-                            🇨🇦 Canada
-                        </button>
-
-
-                        <button type="button">
-                            🇦🇺 Australia
-                        </button>
-
-
-                        <button type="button">
-                            🇩🇪 Germany
-                        </button>
-
-
-                    </div>
-
-
-                    <!-- =================================================
-                         HERO ACTION BUTTONS
-                    ================================================== -->
-
-                    <div class="study-abroad-hero-actions">
-
-
-                        <button
-                            type="button"
-                            class="study-abroad-primary-btn"
-                        >
-
-                            Explore Universities
-
+                            Study Abroad from India
                             <span>
-                                →
+                                with the right guidance.
                             </span>
 
-                        </button>
+                        </h1>
 
 
-                        <button
-                            type="button"
-                            class="study-abroad-secondary-btn"
+                        <p class="study-abroad-hero-description">
+
+                            Explore universities, courses, scholarships and
+                            study destinations around the world. Compare your
+                            options and plan your overseas education journey
+                            with EDUCONNECT.
+
+                        </p>
+
+
+                        <!-- ==================================================
+                             SEARCH
+                        =================================================== -->
+
+                        <form
+                            class="study-abroad-search"
+                            id="study-abroad-search-form"
+                            role="search"
+                            action="#study-abroad-results"
+                            method="get"
                         >
 
-                            Find Scholarships
-
-                        </button>
-
-
-                    </div>
-
-
-                </div>
-
-
-                <!-- =================================================
-                     HERO SIDE INFORMATION
-                ================================================== -->
-
-                <div class="study-abroad-hero-side">
-
-
-                    <!-- =================================================
-                         DESTINATIONS CARD
-                    ================================================== -->
-
-                    <div class="study-abroad-hero-card">
+                            <div class="study-abroad-search-icon">
+                                <svg
+                                    width="21"
+                                    height="21"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    aria-hidden="true"
+                                >
+                                    <circle cx="11" cy="11" r="7"></circle>
+                                    <path d="m20 20-3.5-3.5"></path>
+                                </svg>
+                            </div>
 
 
-                        <div
-                            class="study-abroad-hero-card-icon"
-                            aria-hidden="true"
-                        >
-                            🌎
-                        </div>
+                            <div class="study-abroad-search-input-wrapper">
+
+                                <label
+                                    for="study-abroad-search"
+                                    class="study-abroad-visually-hidden"
+                                >
+                                    Search universities, courses or countries
+                                </label>
+
+                                <input
+                                    id="study-abroad-search"
+                                    name="q"
+                                    type="search"
+                                    autocomplete="off"
+                                    placeholder="Search university, course or country..."
+                                    aria-label="Search university, course or country"
+                                />
+
+                            </div>
 
 
-                        <div>
+                            <button
+                                type="submit"
+                                class="study-abroad-search-button"
+                            >
+                                <span>Search</span>
 
-                            <strong>
-                                50+ Destinations
-                            </strong>
+                                <svg
+                                    width="18"
+                                    height="18"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    aria-hidden="true"
+                                >
+                                    <path d="M5 12h14"></path>
+                                    <path d="m13 6 6 6-6 6"></path>
+                                </svg>
+                            </button>
 
-                            <span>
-                                Explore global education
-                            </span>
-
-                        </div>
-
-
-                    </div>
-
-
-                    <!-- =================================================
-                         UNIVERSITIES CARD
-                    ================================================== -->
-
-                    <div class="study-abroad-hero-card">
-
-
-                        <div
-                            class="study-abroad-hero-card-icon"
-                            aria-hidden="true"
-                        >
-                            🎓
-                        </div>
+                        </form>
 
 
-                        <div>
+                        <!-- ==================================================
+                             SEARCH SUGGESTIONS
+                        =================================================== -->
 
-                            <strong>
-                                Global Universities
-                            </strong>
+                        <div class="study-abroad-search-suggestions">
 
-                            <span>
-                                Compare your best options
-                            </span>
+                            <span>Popular searches:</span>
 
-                        </div>
+                            <a href="#study-abroad-universities">
+                                Universities
+                            </a>
 
+                            <a href="#study-abroad-course-explorer">
+                                Courses
+                            </a>
 
-                    </div>
-
-
-                    <!-- =================================================
-                         SCHOLARSHIPS CARD
-                    ================================================== -->
-
-                    <div class="study-abroad-hero-card">
-
-
-                        <div
-                            class="study-abroad-hero-card-icon"
-                            aria-hidden="true"
-                        >
-                            💰
-                        </div>
-
-
-                        <div>
-
-                            <strong>
+                            <a href="#study-abroad-scholarships">
                                 Scholarships
-                            </strong>
+                            </a>
 
-                            <span>
-                                Find funding opportunities
+                            <a href="#study-abroad-destinations">
+                                Study in USA
+                            </a>
+
+                            <a href="#study-abroad-destinations">
+                                Study in UK
+                            </a>
+
+                        </div>
+
+
+                        <!-- ==================================================
+                             PRIMARY ACTIONS
+                        =================================================== -->
+
+                        <div class="study-abroad-hero-actions">
+
+                            <a
+                                href="#study-abroad-counselling"
+                                class="study-abroad-primary-button"
+                            >
+
+                                <span>
+                                    Get Free Counselling
+                                </span>
+
+                                <svg
+                                    width="18"
+                                    height="18"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    aria-hidden="true"
+                                >
+                                    <path d="M5 12h14"></path>
+                                    <path d="m13 6 6 6-6 6"></path>
+                                </svg>
+
+                            </a>
+
+
+                            <a
+                                href="#study-abroad-destinations"
+                                class="study-abroad-secondary-button"
+                            >
+                                Explore Destinations
+                            </a>
+
+                        </div>
+
+
+                        <!-- ==================================================
+                             TRUST INDICATORS
+                        =================================================== -->
+
+                        <div class="study-abroad-hero-trust">
+
+                            <div class="study-abroad-trust-item">
+
+                                <strong>
+                                    50+
+                                </strong>
+
+                                <span>
+                                    Destinations
+                                </span>
+
+                            </div>
+
+
+                            <div class="study-abroad-trust-divider"></div>
+
+
+                            <div class="study-abroad-trust-item">
+
+                                <strong>
+                                    5,000+
+                                </strong>
+
+                                <span>
+                                    Universities
+                                </span>
+
+                            </div>
+
+
+                            <div class="study-abroad-trust-divider"></div>
+
+
+                            <div class="study-abroad-trust-item">
+
+                                <strong>
+                                    10,000+
+                                </strong>
+
+                                <span>
+                                    Programs
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ==================================================
+                         RIGHT HERO PANEL
+                    =================================================== -->
+
+                    <div class="study-abroad-hero-visual">
+
+                        <div
+                            class="study-abroad-hero-card"
+                            aria-label="Study abroad planning overview"
+                        >
+
+                            <!-- CARD HEADER -->
+
+                            <div class="study-abroad-card-header">
+
+                                <div>
+                                    <span>
+                                        EDUCONNECT
+                                    </span>
+
+                                    <strong>
+                                        Your Study Abroad Plan
+                                    </strong>
+                                </div>
+
+                                <div class="study-abroad-card-status">
+                                    <span></span>
+                                    Explore
+                                </div>
+
+                            </div>
+
+
+                            <!-- PROGRESS -->
+
+                            <div class="study-abroad-plan-progress">
+
+                                <div class="study-abroad-progress-label">
+
+                                    <span>
+                                        Planning progress
+                                    </span>
+
+                                    <strong>
+                                        25%
+                                    </strong>
+
+                                </div>
+
+                                <div class="study-abroad-progress-bar">
+                                    <span></span>
+                                </div>
+
+                            </div>
+
+
+                            <!-- PLANNING STEPS -->
+
+                            <div class="study-abroad-plan-list">
+
+                                <div class="study-abroad-plan-item active">
+
+                                    <div class="study-abroad-plan-number">
+                                        01
+                                    </div>
+
+                                    <div class="study-abroad-plan-content">
+
+                                        <strong>
+                                            Choose your destination
+                                        </strong>
+
+                                        <span>
+                                            Compare countries and study options
+                                        </span>
+
+                                    </div>
+
+                                    <div class="study-abroad-plan-check">
+                                        ✓
+                                    </div>
+
+                                </div>
+
+
+                                <div class="study-abroad-plan-item">
+
+                                    <div class="study-abroad-plan-number">
+                                        02
+                                    </div>
+
+                                    <div class="study-abroad-plan-content">
+
+                                        <strong>
+                                            Find your course
+                                        </strong>
+
+                                        <span>
+                                            Discover programs matching your goals
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="study-abroad-plan-item">
+
+                                    <div class="study-abroad-plan-number">
+                                        03
+                                    </div>
+
+                                    <div class="study-abroad-plan-content">
+
+                                        <strong>
+                                            Shortlist universities
+                                        </strong>
+
+                                        <span>
+                                            Compare institutions and requirements
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="study-abroad-plan-item">
+
+                                    <div class="study-abroad-plan-number">
+                                        04
+                                    </div>
+
+                                    <div class="study-abroad-plan-content">
+
+                                        <strong>
+                                            Prepare your application
+                                        </strong>
+
+                                        <span>
+                                            Documents, tests and deadlines
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- CARD FOOTER -->
+
+                            <div class="study-abroad-card-footer">
+
+                                <div class="study-abroad-card-footer-icon">
+
+                                    <svg
+                                        width="20"
+                                        height="20"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="1.8"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        aria-hidden="true"
+                                    >
+                                        <circle cx="12" cy="12" r="9"></circle>
+                                        <path d="M12 7v5l3 2"></path>
+                                    </svg>
+
+                                </div>
+
+                                <div>
+                                    <strong>
+                                        Start planning early
+                                    </strong>
+
+                                    <span>
+                                        Deadlines vary by university and course
+                                    </span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- ==================================================
+                             FLOATING DESTINATION CARD
+                        =================================================== -->
+
+                        <div
+                            class="study-abroad-floating-card study-abroad-destination-floating"
+                        >
+
+                            <div class="study-abroad-floating-icon">
+                                🌎
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    Popular destination
+                                </span>
+
+                                <strong>
+                                    Study in the USA
+                                </strong>
+
+                            </div>
+
+                            <span class="study-abroad-floating-arrow">
+                                →
                             </span>
 
                         </div>
 
 
+                        <!-- ==================================================
+                             FLOATING SCHOLARSHIP CARD
+                        =================================================== -->
+
+                        <div
+                            class="study-abroad-floating-card study-abroad-scholarship-floating"
+                        >
+
+                            <div class="study-abroad-scholarship-icon">
+                                $
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    Explore funding
+                                </span>
+
+                                <strong>
+                                    Scholarships
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ==================================================
+                     POPULAR DESTINATIONS
+                =================================================== -->
+
+                <div
+                    class="study-abroad-popular-destinations"
+                    id="study-abroad-destinations"
+                >
+
+                    <div class="study-abroad-popular-header">
+
+                        <div>
+
+                            <span class="study-abroad-section-label">
+                                EXPLORE DESTINATIONS
+                            </span>
+
+                            <h2>
+                                Where do you want to study?
+                            </h2>
+
+                        </div>
+
+                        <a href="#study-abroad-country-comparison">
+                            Compare destinations
+                            <span>→</span>
+                        </a>
+
                     </div>
 
 
-                </div>
+                    <div class="study-abroad-destination-list">
 
+                        ${popularDestinations
+                            .map(
+                                (destination) => `
+                                    <a
+                                        href="#study-abroad-country-comparison"
+                                        class="study-abroad-destination-card"
+                                        data-country="${destination.code}"
+                                    >
+
+                                        <div class="study-abroad-destination-country">
+
+                                            <span
+                                                class="study-abroad-country-code"
+                                            >
+                                                ${destination.code}
+                                            </span>
+
+                                            <div>
+
+                                                <strong>
+                                                    ${destination.name}
+                                                </strong>
+
+                                                <span>
+                                                    ${destination.description}
+                                                </span>
+
+                                            </div>
+
+                                        </div>
+
+                                        <span class="study-abroad-destination-arrow">
+                                            →
+                                        </span>
+
+                                    </a>
+                                `
+                            )
+                            .join("")}
+
+                    </div>
+
+                </div>
 
             </div>
-
-
-            <!-- =================================================
-                 HERO BOTTOM STATISTICS
-            ================================================== -->
-
-            <div class="study-abroad-hero-stats">
-
-
-                <!-- Universities -->
-
-                <div class="study-abroad-stat">
-
-                    <strong>
-                        5,000+
-                    </strong>
-
-                    <span>
-                        Universities
-                    </span>
-
-                </div>
-
-
-                <div
-                    class="study-abroad-stat-divider"
-                    aria-hidden="true"
-                ></div>
-
-
-                <!-- Countries -->
-
-                <div class="study-abroad-stat">
-
-                    <strong>
-                        50+
-                    </strong>
-
-                    <span>
-                        Countries
-                    </span>
-
-                </div>
-
-
-                <div
-                    class="study-abroad-stat-divider"
-                    aria-hidden="true"
-                ></div>
-
-
-                <!-- Programs -->
-
-                <div class="study-abroad-stat">
-
-                    <strong>
-                        10,000+
-                    </strong>
-
-                    <span>
-                        Programs
-                    </span>
-
-                </div>
-
-
-                <div
-                    class="study-abroad-stat-divider"
-                    aria-hidden="true"
-                ></div>
-
-
-                <!-- Scholarships -->
-
-                <div class="study-abroad-stat">
-
-                    <strong>
-                        1,000+
-                    </strong>
-
-                    <span>
-                        Scholarships
-                    </span>
-
-                </div>
-
-
-            </div>
-
-
-            <!-- =================================================
-                 SCROLL INDICATOR
-            ================================================== -->
-
-            <div class="study-abroad-scroll">
-
-
-                <span>
-                    Explore
-                </span>
-
-
-                <div aria-hidden="true">
-                    ↓
-                </div>
-
-
-            </div>
-
 
         </section>
-
     `;
 }
