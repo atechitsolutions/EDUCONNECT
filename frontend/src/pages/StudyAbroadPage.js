@@ -37,7 +37,7 @@ import StudyAbroadFAQ from "../components/studyAbroad/StudyAbroadFAQ.js";
 
 import StudyAbroadCTA from "../components/studyAbroad/StudyAbroadCTA.js";
 
-import StudyAbroadAdditionalSection from "../components/studyAbroad/StudyAbroadAdditionalSection.js";
+import StudyAbroadAdditionalSections from "../components/studyAbroad/StudyAbroadAdditionalSections.js";
 
 
 export default function StudyAbroadPage() {
