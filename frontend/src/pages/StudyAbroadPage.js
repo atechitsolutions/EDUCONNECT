@@ -3,272 +3,229 @@
    ---------------------------------------------------------
    Page composition only.
 
-   IMPORTANT:
-   - Existing Study Abroad Navbar stays in StudyAbroadLayout.js
-   - Existing Header/Footer stay in StudyAbroadLayout.js
-   - Components remain inside:
-     src/components/studyAbroad/
-   ========================================================= */
+   KEEP UNCHANGED:
+   - Existing Study Abroad Navbar
+   - Existing Header / Footer
+   - Existing Hero
+   - Lead Form / Counselling
+   - SEO / Metadata
+   - Existing Vanilla JS + Vite architecture
 
-import StudyAbroadHero from "../components/studyAbroad/StudyAbroadHero.js";
-import StudyAbroadSearch from "../components/studyAbroad/StudyAbroadSearch.js";
+   This file controls only the order of the Study Abroad
+   content sections.
+========================================================= */
 
-import StudyAbroadDestinations from "../components/studyAbroad/StudyAbroadDestinations.js";
-import CountryComparison from "../components/studyAbroad/CountryComparison.js";
 
-import DegreeExplorer from "../components/studyAbroad/DegreeExplorer.js";
-import CourseExplorer from "../components/studyAbroad/CourseExplorer.js";
+import StudyAbroadHero
+    from "../components/studyAbroad/StudyAbroadHero.js";
 
-import TopUniversitiesAbroad from "../components/studyAbroad/TopUniversitiesAbroad.js";
 
-import AdmissionRequirements from "../components/studyAbroad/AdmissionRequirements.js";
-import ApplicationProcess from "../components/studyAbroad/ApplicationProcess.js";
-import Intakes from "../components/studyAbroad/Intakes.js";
+import StudyAbroadSearch
+    from "../components/studyAbroad/StudyAbroadSearch.js";
 
-import AbroadScholarships from "../components/studyAbroad/AbroadScholarships.js";
-import StudyAbroadCost from "../components/studyAbroad/StudyAbroadCost.js";
-import AbroadExams from "../components/studyAbroad/AbroadExams.js";
 
-import StudyAbroadTools from "../components/studyAbroad/StudyAbroadTools.js";
+import StudyAbroadDestinations
+    from "../components/studyAbroad/StudyAbroadDestinations.js";
 
-import AbroadStudentReviews from "../components/studyAbroad/AbroadStudentReviews.js";
 
-import StudyAbroadFAQ from "../components/studyAbroad/StudyAbroadFAQ.js";
+import CountryComparison
+    from "../components/studyAbroad/CountryComparison.js";
 
-import StudyAbroadCTA from "../components/studyAbroad/StudyAbroadCTA.js";
+
+import DegreeExplorer
+    from "../components/studyAbroad/DegreeExplorer.js";
+
+
+import CourseExplorer
+    from "../components/studyAbroad/CourseExplorer.js";
+
+
+import TopUniversitiesAbroad
+    from "../components/studyAbroad/TopUniversitiesAbroad.js";
+
+
+import AdmissionRequirements
+    from "../components/studyAbroad/AdmissionRequirements.js";
+
+
+import ApplicationProcess
+    from "../components/studyAbroad/ApplicationProcess.js";
+
+
+import Intakes
+    from "../components/studyAbroad/Intakes.js";
+
+
+import AbroadScholarships
+    from "../components/studyAbroad/AbroadScholarships.js";
+
+
+import StudyAbroadCost
+    from "../components/studyAbroad/StudyAbroadCost.js";
+
+
+import AbroadExams
+    from "../components/studyAbroad/AbroadExams.js";
+
 
 import StudyAbroadAdditionalSections
     from "../components/studyAbroad/StudyAbroadAdditionalSections.js";
 
 
+import AbroadStudentReviews
+    from "../components/studyAbroad/AbroadStudentReviews.js";
+
+
+import StudyAbroadFAQ
+    from "../components/studyAbroad/StudyAbroadFAQ.js";
+
+
+import StudyAbroadCTA
+    from "../components/studyAbroad/StudyAbroadCTA.js";
+
+
+/* =========================================================
+   STUDY ABROAD PAGE
+========================================================= */
+
 export default function StudyAbroadPage() {
 
     return `
 
-        <!-- =================================================
-             STUDY ABROAD PAGE
-        ================================================== -->
-
         <div
-            class="study-abroad-page-content"
             id="study-abroad-content"
+            class="study-abroad-page-content"
         >
 
+
             <!-- =================================================
-                 01. HERO
+                 01. EXISTING HERO
+                 -------------------------------------------------
+                 KEEP HERO UNCHANGED
             ================================================== -->
 
-            <section
-                id="study-abroad-hero-section"
-                class="study-abroad-section study-abroad-hero-wrapper"
-            >
-                ${StudyAbroadHero()}
-            </section>
+            ${StudyAbroadHero()}
 
 
             <!-- =================================================
                  02. SEARCH / DISCOVERY
             ================================================== -->
 
-            <section
-                id="study-abroad-search-section"
-                class="study-abroad-section"
-            >
-                ${StudyAbroadSearch()}
-            </section>
+            ${StudyAbroadSearch()}
 
 
             <!-- =================================================
-                 03. DESTINATIONS
+                 03. DESTINATION DISCOVERY
             ================================================== -->
 
-            <section
-                id="study-abroad-destinations-section"
-                class="study-abroad-section"
-            >
-                ${StudyAbroadDestinations()}
-            </section>
+            ${StudyAbroadDestinations()}
 
 
             <!-- =================================================
                  04. COUNTRY COMPARISON
             ================================================== -->
 
-            <section
-                id="study-abroad-country-comparison"
-                class="study-abroad-section"
-            >
-                ${CountryComparison()}
-            </section>
+            ${CountryComparison()}
 
 
             <!-- =================================================
                  05. DEGREE EXPLORER
             ================================================== -->
 
-            <section
-                id="study-abroad-degree-explorer"
-                class="study-abroad-section"
-            >
-                ${DegreeExplorer()}
-            </section>
+            ${DegreeExplorer()}
 
 
             <!-- =================================================
                  06. COURSE EXPLORER
             ================================================== -->
 
-            <section
-                id="study-abroad-course-explorer"
-                class="study-abroad-section"
-            >
-                ${CourseExplorer()}
-            </section>
+            ${CourseExplorer()}
 
 
             <!-- =================================================
-                 07. TOP UNIVERSITIES
+                 07. UNIVERSITIES & PROGRAMS
             ================================================== -->
 
-            <section
-                id="study-abroad-universities"
-                class="study-abroad-section"
-            >
-                ${TopUniversitiesAbroad()}
-            </section>
+            ${TopUniversitiesAbroad()}
 
 
             <!-- =================================================
                  08. ADMISSION REQUIREMENTS
             ================================================== -->
 
-            <section
-                id="study-abroad-admission-requirements"
-                class="study-abroad-section"
-            >
-                ${AdmissionRequirements()}
-            </section>
+            ${AdmissionRequirements()}
 
 
             <!-- =================================================
                  09. APPLICATION PROCESS
             ================================================== -->
 
-            <section
-                id="study-abroad-application-process"
-                class="study-abroad-section"
-            >
-                ${ApplicationProcess()}
-            </section>
+            ${ApplicationProcess()}
 
 
             <!-- =================================================
-                 10. INTAKES
+                 10. INTAKES & DEADLINES
             ================================================== -->
 
-            <section
-                id="study-abroad-intakes"
-                class="study-abroad-section"
-            >
-                ${Intakes()}
-            </section>
+            ${Intakes()}
 
 
             <!-- =================================================
-                 11. SCHOLARSHIPS
+                 11. SCHOLARSHIPS & FUNDING
             ================================================== -->
 
-            <section
-                id="study-abroad-scholarships"
-                class="study-abroad-section"
-            >
-                ${AbroadScholarships()}
-            </section>
+            ${AbroadScholarships()}
 
 
             <!-- =================================================
                  12. EDUCATION COST
             ================================================== -->
 
-            <section
-                id="study-abroad-cost"
-                class="study-abroad-section"
-            >
-                ${StudyAbroadCost()}
-            </section>
+            ${StudyAbroadCost()}
 
 
             <!-- =================================================
-                 13. EXAMS
+                 13. EXAMS & ELIGIBILITY
             ================================================== -->
 
-            <section
-                id="study-abroad-exams"
-                class="study-abroad-section"
-            >
-                ${AbroadExams()}
-            </section>
+            ${AbroadExams()}
 
 
             <!-- =================================================
-                 14. STUDY ABROAD TOOLS
+                 14. ADDITIONAL STUDY ABROAD CONTENT
+                 -------------------------------------------------
+                 Contains supporting sections such as:
+                 - Why Study Abroad
+                 - Study Abroad Tools
+                 - Application Support
+                 - Other planning information
             ================================================== -->
 
-            <section
-                id="study-abroad-tools"
-                class="study-abroad-section"
-            >
-                ${StudyAbroadTools()}
-            </section>
+            ${StudyAbroadAdditionalSections()}
 
 
             <!-- =================================================
-                 15. ADDITIONAL INFORMATION
+                 15. STUDENT REVIEWS
             ================================================== -->
 
-            <section
-                id="study-abroad-additional-information"
-                class="study-abroad-section"
-            >
-                ${StudyAbroadAdditionalSections()}
-            </section>
+            ${AbroadStudentReviews()}
 
 
             <!-- =================================================
-                 16. STUDENT REVIEWS
+                 16. FAQ
             ================================================== -->
 
-            <section
-                id="study-abroad-student-reviews"
-                class="study-abroad-section"
-            >
-                ${AbroadStudentReviews()}
-            </section>
+            ${StudyAbroadFAQ()}
 
 
             <!-- =================================================
-                 17. FAQ
+                 17. FINAL CTA
             ================================================== -->
 
-            <section
-                id="study-abroad-faq"
-                class="study-abroad-section"
-            >
-                ${StudyAbroadFAQ()}
-            </section>
+            ${StudyAbroadCTA()}
 
-
-            <!-- =================================================
-                 18. FINAL CTA
-            ================================================== -->
-
-            <section
-                id="study-abroad-final-cta"
-                class="study-abroad-section"
-            >
-                ${StudyAbroadCTA()}
-            </section>
 
         </div>
+
     `;
 }

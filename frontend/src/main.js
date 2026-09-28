@@ -1,5 +1,30 @@
-import initPremiumCursor from "./assets/js/premiumCursor.js";
-import initScrollPlane from "./assets/js/scrollPlane.js";
+/* =========================================================
+   EDUCONNECT — APPLICATION ENTRY
+   ---------------------------------------------------------
+   Frontend:
+   - Vanilla JavaScript
+   - Vite
+   - Client-side Router
+
+   IMPORTANT:
+   - Existing application logic preserved
+   - Existing navbar preserved
+   - Existing hero preserved
+   - Existing lead form preserved
+   - Existing SEO preserved
+   - Study Abroad CSS imports centralized here
+========================================================= */
+
+
+/* =========================================================
+   GLOBAL JAVASCRIPT
+========================================================= */
+
+import initPremiumCursor
+    from "./assets/js/premiumCursor.js";
+
+import initScrollPlane
+    from "./assets/js/scrollPlane.js";
 
 
 /* =========================================================
@@ -9,30 +34,111 @@ import initScrollPlane from "./assets/js/scrollPlane.js";
 import "./assets/css/premiumCursor.css";
 import "./assets/css/variables.css";
 import "./assets/css/style.css";
+
 import "./assets/css/header.css";
 import "./assets/css/navbar.css";
+
+
+/* =========================================================
+   STUDY ABROAD — SEARCH
+========================================================= */
+
 import "./assets/css/studyAbroadSearch.css";
-import "./assets/css/study-abroad-country-comparison.css";
-import "./assets/css/study-abroad-degree-explorer.css";
-import "./assets/css/study-abroad-course-explorer.css";
-import "./assets/css/study-abroad-top-universities.css";
-import "./assets/css/study-abroad-admission-requirements.css";
-import "./assets/css/study-abroad-application-process.css";
+
+
+/* =========================================================
+   STUDY ABROAD — DESTINATIONS
+========================================================= */
+
+import "./assets/css/study-abroad-destinations.css";
 import "./assets/css/study-abroad-intakes.css";
+
+
+/* =========================================================
+   STUDY ABROAD — COUNTRY COMPARISON
+========================================================= */
+
+import "./assets/css/study-abroad-country-comparison.css";
+
+
+/* =========================================================
+   STUDY ABROAD — DEGREE EXPLORER
+========================================================= */
+
+import "./assets/css/study-abroad-degree-explorer.css";
+
+
+/* =========================================================
+   STUDY ABROAD — COURSE EXPLORER
+========================================================= */
+
+import "./assets/css/study-abroad-course-explorer.css";
+
+
+/* =========================================================
+   STUDY ABROAD — TOP UNIVERSITIES
+========================================================= */
+
+import "./assets/css/study-abroad-top-universities.css";
+
+
+/* =========================================================
+   STUDY ABROAD — ADMISSION REQUIREMENTS
+========================================================= */
+
+import "./assets/css/study-abroad-admission-requirements.css";
+
+
+/* =========================================================
+   STUDY ABROAD — APPLICATION PROCESS
+========================================================= */
+
+import "./assets/css/study-abroad-application-process.css";
+
+
+/* =========================================================
+   STUDY ABROAD — INTAKES
+========================================================= */
+
+import "./assets/css/study-abroad-intakes.css";
+
+
+/* =========================================================
+   STUDY ABROAD — GLOBAL CONTENT FOUNDATION
+========================================================= */
+
+import "./assets/css/studyAbroad.css";
+
+
+/* =========================================================
+   STUDY ABROAD — ADDITIONAL SECTIONS
+   ---------------------------------------------------------
+   This stylesheet exists in the project and was previously
+   missing from main.js.
+========================================================= */
+
+import "./assets/css/studyAbroadAdditionalSections.css";
+
+
+/* =========================================================
+   STUDY ABROAD — NAVBAR
+   ---------------------------------------------------------
+   KEEP THIS IMPORT.
+   DO NOT MODIFY THE NAVBAR DESIGN.
+========================================================= */
+
+import "./assets/css/studyAbroadNavbar.css";
+
+
+/* =========================================================
+   OTHER GLOBAL CSS
+========================================================= */
+
 import "./assets/css/home.css";
 import "./assets/css/footer.css";
 import "./assets/css/ticker.css";
 import "./assets/css/ui.css";
 import "./assets/css/responsive.css";
-
-import "./assets/css/studyAbroad.css";
-import "./assets/css/study-abroad-destinations.css";
-
-/*
-   STUDY ABROAD NAVBAR
-*/
-import "./assets/css/studyAbroadNavbar.css";
-
 import "./assets/css/earlyLearning.css";
 
 
@@ -40,7 +146,8 @@ import "./assets/css/earlyLearning.css";
    ROUTER
 ========================================================= */
 
-import Router from "./router/router.js";
+import Router
+    from "./router/router.js";
 
 
 /* =========================================================
@@ -143,10 +250,12 @@ document.addEventListener(
     "DOMContentLoaded",
     () => {
 
+        /* =====================================================
+           APP ROOT
+        ====================================================== */
+
         const app =
-            document.getElementById(
-                "app"
-            );
+            document.getElementById("app");
 
 
         /* =====================================================
@@ -172,14 +281,14 @@ document.addEventListener(
 
 
         /* =====================================================
-           INITIALIZE AUTHENTICATION
+           AUTHENTICATION
         ====================================================== */
 
         initAuth();
 
 
         /* =====================================================
-           INITIALIZE ONLINE EDUCATION CAROUSEL
+           ONLINE EDUCATION CAROUSEL
         ====================================================== */
 
         if (
@@ -323,8 +432,8 @@ document.addEventListener(
         /* =====================================================
            SCROLL PAPER PLANE
 
-           Keep disabled for now because enabling it was
-           creating unwanted white space after the footer.
+           Disabled intentionally because it previously
+           created unwanted whitespace after the footer.
         ====================================================== */
 
         // initScrollPlane();
@@ -684,55 +793,62 @@ document.addEventListener(
             `);
 
 
-        const carouselVisibilityObserver =
-            new IntersectionObserver(
-                (entries) => {
+        if (
+            animatedCarouselTracks.length &&
+            "IntersectionObserver" in window
+        ) {
 
-                    entries.forEach(
-                        (entry) => {
+            const carouselVisibilityObserver =
+                new IntersectionObserver(
+                    (entries) => {
 
-                            const track =
-                                entry.target;
+                        entries.forEach(
+                            (entry) => {
+
+                                const track =
+                                    entry.target;
 
 
-                            if (
-                                entry.isIntersecting
-                            ) {
+                                if (
+                                    entry.isIntersecting
+                                ) {
 
-                                track.style
-                                    .animationPlayState =
-                                    "running";
+                                    track.style
+                                        .animationPlayState =
+                                        "running";
+
+                                }
+
+
+                                else {
+
+                                    track.style
+                                        .animationPlayState =
+                                        "paused";
+
+                                }
 
                             }
+                        );
+
+                    },
+                    {
+                        threshold: 0.05
+                    }
+                );
 
 
-                            else {
+            animatedCarouselTracks.forEach(
+                (track) => {
 
-                                track.style
-                                    .animationPlayState =
-                                    "paused";
-
-                            }
-
-                        }
+                    carouselVisibilityObserver.observe(
+                        track
                     );
 
-                },
-                {
-                    threshold: 0.05
                 }
             );
 
-
-        animatedCarouselTracks.forEach(
-            (track) => {
-
-                carouselVisibilityObserver.observe(
-                    track
-                );
-
-            }
-        );
+        }
 
     }
 );
