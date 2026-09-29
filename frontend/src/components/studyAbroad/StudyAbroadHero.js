@@ -232,8 +232,9 @@ export default function StudyAbroadHero() {
                         <div class="study-abroad-hero-actions">
 
                             <a
-                                href="#study-abroad-counselling"
+                                href="#"
                                 class="study-abroad-primary-button"
+                                onclick="document.querySelector('.study-abroad-lead-wrapper')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); return false;"
                             >
 
                                 <span>

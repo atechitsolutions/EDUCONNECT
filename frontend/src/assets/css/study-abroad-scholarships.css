@@ -936,4 +936,146 @@ button:focus-visible {
          max-width: 100% !important;
          height: auto !important;
      }
- }
+ }/* =========================================================
+     SCHOLARSHIP CARD BACKGROUND IMAGES
+  ========================================================= */
+
+  .study-abroad-scholarship-card {
+      position: relative !important;
+      overflow: hidden !important;
+      isolation: isolate !important;
+      background: #ffffff !important;
+  }
+
+  /* Image layer */
+  .study-abroad-scholarship-card::after {
+      content: "" !important;
+
+      position: absolute !important;
+      right: -10px !important;
+      bottom: -10px !important;
+
+      width: 65% !important;
+      height: 65% !important;
+
+      background-repeat: no-repeat !important;
+      background-position: right bottom !important;
+      background-size: contain !important;
+
+      opacity: 0.22 !important;
+
+      pointer-events: none !important;
+
+      z-index: 1 !important;
+  }
+
+  /* Keep card content above image */
+  .study-abroad-scholarship-card > * {
+      position: relative !important;
+      z-index: 2 !important;
+  }
+
+
+  /* USA */
+  .study-abroad-scholarship-card:nth-child(1)::after {
+      background-image: url("../images/01_usa_statue_of_liberty.png") !important;
+  }
+
+  /* UK */
+  .study-abroad-scholarship-card:nth-child(2)::after {
+      background-image: url("../images/02_uk_big_ben.png") !important;
+  }
+
+  /* Europe */
+  .study-abroad-scholarship-card:nth-child(3)::after {
+      background-image: url("../images/06_france_eiffel_tower.png") !important;
+  }
+
+  /* Germany */
+  .study-abroad-scholarship-card:nth-child(4)::after {
+      background-image: url("../images/05_germany_brandenburg_gate.png") !important;
+  }
+
+  /* Australia */
+  .study-abroad-scholarship-card:nth-child(5)::after {
+      background-image: url("../images/04_australia_sydney_opera_house.png") !important;
+  }
+
+  /* Canada */
+  .study-abroad-scholarship-card:nth-child(6)::after {
+      background-image: url("../images/03_canada_cn_tower.png") !important;
+  }/* =========================================================
+      SCHOLARSHIP CARD COUNTRY IMAGE
+   ========================================================= */
+
+   .study-abroad-scholarship-card {
+       position: relative !important;
+       overflow: hidden !important;
+       isolation: isolate !important;
+       background: #ffffff !important;
+   }
+
+   /* COUNTRY IMAGE */
+   .study-abroad-scholarship-card::after {
+       content: "" !important;
+
+       position: absolute !important;
+
+       right: -25px !important;
+       bottom: -20px !important;
+
+       width: 100% !important;
+       height: 75% !important;
+
+       background-repeat: no-repeat !important;
+       background-position: center !important;
+       background-size: contain !important;
+
+       opacity: 1.5 !important;
+
+       pointer-events: none !important;
+
+       z-index: 1 !important;
+   }
+
+   /* CONTENT ABOVE IMAGE */
+   .study-abroad-scholarship-card > * {
+       position: relative !important;
+       z-index: 3 !important;
+   }
+
+
+   /* USA */
+   .study-abroad-scholarship-card:nth-child(1)::after {
+       background-image: url("../images/01_usa_statue_of_liberty.png") !important;
+   }
+
+
+   /* UK */
+   .study-abroad-scholarship-card:nth-child(2)::after {
+       background-image: url("../images/02_uk_big_ben.png") !important;
+   }
+
+
+   /* EUROPE / FRANCE */
+   .study-abroad-scholarship-card:nth-child(3)::after {
+       background-image: url("../images/06_france_eiffel_tower.png") !important;
+   }
+
+
+   /* GERMANY */
+   .study-abroad-scholarship-card:nth-child(4)::after {
+       background-image: url("../images/05_germany_brandenburg_gate.png") !important;
+   }
+
+
+   /* AUSTRALIA */
+   .study-abroad-scholarship-card:nth-child(5)::after {
+       background-image: url("../images/04_australia_sydney_opera_house.png") !important;
+   }
+
+
+   /* CANADA */
+   .study-abroad-scholarship-card:nth-child(6)::after {
+       background-image: url("../images/03_canada_cn_tower.png") !important;
+   }

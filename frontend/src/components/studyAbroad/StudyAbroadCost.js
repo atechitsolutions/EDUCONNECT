@@ -334,18 +334,14 @@ export default function StudyAbroadCost() {
                                  COST ACTION
                             ================================================== -->
 
-                            <button
-                                type="button"
-                                class="cost-explore-button"
-                            >
-
-                                Explore ${country.country}
-
-                                <span>
-                                    →
-                                </span>
-
-                            </button>
+                           <button
+                               type="button"
+                               class="cost-explore-button"
+                               onclick="openStudyAbroadCountry('${country.country === "United Kingdom" ? "UK" : country.country}');"
+                           >
+                               Explore ${country.country}
+                               <span>→</span>
+                           </button>
 
 
                         </article>

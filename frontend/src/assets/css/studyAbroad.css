@@ -1882,4 +1882,10 @@
         .study-abroad-page h2 {
             margin-bottom: 14px !important;
         }
-    }
+    }html {
+         scroll-behavior: smooth;
+     }
+
+     #study-abroad-counselling {
+         scroll-margin-top: 90px;
+     }

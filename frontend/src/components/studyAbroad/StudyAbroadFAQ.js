@@ -97,8 +97,9 @@ export default function StudyAbroadFaq() {
 
 
                     <a
-                        href="#study-abroad-counselling"
-                        class="study-abroad-section-link"
+                        href="#"
+                        class="study-abroad-primary-button"
+                        onclick="document.querySelector('.study-abroad-lead-wrapper')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); return false;"
                     >
                         Talk to a counsellor
                         <span aria-hidden="true">→</span>
@@ -242,11 +243,11 @@ export default function StudyAbroadFaq() {
 
                     <div class="study-abroad-faq-actions">
 
-                        <a
-                            href="#study-abroad-counselling"
-                            class="study-abroad-primary-button"
-                        >
-                            Get free counselling
+                      <a
+                          href="#"
+                          class="study-abroad-primary-button"
+                          onclick="document.querySelector('.study-abroad-lead-wrapper')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); return false;"
+                      > Get free counselling
                             <span aria-hidden="true">→</span>
                         </a>
 
