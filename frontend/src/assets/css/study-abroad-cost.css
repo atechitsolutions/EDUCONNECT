@@ -675,4 +675,41 @@
         transition: none;
     }
 
-}
+}/* =========================================
+    COMPACT COST CARDS
+ ========================================= */
+
+ .study-abroad-cost-card {
+      width: 100% !important;
+         max-width: 360px !important;
+         height: 450px !important;
+         min-height: 0 !important;
+
+ }
+
+ /* Reduce internal spacing */
+ .study-abroad-cost-card > * {
+     margin-top: 0 !important;
+     margin-bottom: 0 !important;
+ }
+
+ .study-abroad-cost-card-content {
+     padding: 14px !important;
+ }
+
+ .study-abroad-cost-card h3 {
+     margin-bottom: 8px !important;
+ }
+
+ .study-abroad-cost-card p {
+     margin-bottom: 10px !important;
+ }
+
+ /* Mobile */
+ @media (max-width: 600px) {
+     .study-abroad-cost-card {
+         max-width: 100% !important;
+         height: auto !important;
+         min-height: 0 !important;
+     }
+ }

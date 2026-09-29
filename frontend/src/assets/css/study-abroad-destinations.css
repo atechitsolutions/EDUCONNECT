@@ -1096,3 +1096,43 @@
         padding: 14px !important;
     }
 }
+/* =========================================
+   COMPACT COUNTRY COMPARISON CARDS
+========================================= */
+
+article.study-abroad-country-comparison-card {
+    width: 100% !important;
+    max-width: 360px !important;
+    height: 450px !important;
+    min-height: 0 !important;
+
+    padding: 0 !important;
+    margin: 0 auto !important;
+
+    border-radius: 16px !important;
+}
+
+
+/* Reduce the space inside the card */
+article.study-abroad-country-comparison-card > * {
+    max-width: 100%;
+}
+
+
+/* Tablet */
+@media (max-width: 1150px) {
+    article.study-abroad-country-comparison-card {
+        max-width: 270px !important;
+        height: 490px !important;
+    }
+}
+
+
+/* Mobile */
+@media (max-width: 600px) {
+    article.study-abroad-country-comparison-card {
+        max-width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+    }
+}

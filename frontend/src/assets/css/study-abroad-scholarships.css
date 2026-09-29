@@ -902,4 +902,38 @@ button:focus-visible {
         transition: none;
     }
 
-}
+}/* =========================================
+    COMPACT SCHOLARSHIP CARDS
+ ========================================= */
+
+ .study-abroad-scholarship-card {
+      width: 100% !important;
+         max-width: 360px !important;
+         height: 460px !important;
+         min-height: 0 !important;
+
+ }
+
+ .study-abroad-scholarship-card > * {
+     margin-top: 0 !important;
+     margin-bottom: 0 !important;
+ }
+
+ .study-abroad-scholarship-card-content {
+     padding: 14px !important;
+ }
+
+ .study-abroad-scholarship-card h3 {
+     margin-bottom: 8px !important;
+ }
+
+ .study-abroad-scholarship-card p {
+     margin-bottom: 10px !important;
+ }
+
+ @media (max-width: 600px) {
+     .study-abroad-scholarship-card {
+         max-width: 100% !important;
+         height: auto !important;
+     }
+ }
