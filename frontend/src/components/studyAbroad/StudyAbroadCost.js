@@ -2,6 +2,100 @@
    STUDY ABROAD — COST
 ========================================================= */
 
+function openStudyAbroadCountry(country) {
+
+    const selectedCountry =
+        country === "United Kingdom"
+            ? "UK"
+            : country;
+
+    const navbar =
+        document.querySelector(
+            "#edu-study-nav"
+        );
+
+    const countryMenu =
+        navbar?.querySelector(
+            '[data-mega-menu="countries"]'
+        );
+
+    const countryTrigger =
+        navbar?.querySelector(
+            '[data-mega-trigger="countries"]'
+        );
+
+    if (!navbar || !countryMenu || !countryTrigger) {
+        document
+            .querySelector(
+                "#study-abroad-country-comparison"
+            )
+            ?.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        return;
+    }
+
+    navbar.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+
+    countryMenu.classList.add("is-open");
+    countryTrigger.classList.add("is-open");
+    countryTrigger.setAttribute(
+        "aria-expanded",
+        "true"
+    );
+
+    countryTrigger
+        .closest(".edu-study-nav-item")
+        ?.classList.add("is-open");
+
+    countryMenu
+        .querySelectorAll(".edu-country-item")
+        .forEach((button) => {
+            button.classList.toggle(
+                "active",
+                button.dataset.country === selectedCountry
+            );
+        });
+
+    countryMenu
+        .querySelectorAll(".edu-country-panel")
+        .forEach((panel) => {
+            panel.classList.toggle(
+                "active",
+                panel.dataset.countryPanel === selectedCountry
+            );
+        });
+}
+
+window.openStudyAbroadCountry = openStudyAbroadCountry;
+
+if (!window.__studyAbroadCostExploreHandler) {
+
+    window.__studyAbroadCostExploreHandler = true;
+
+    document.addEventListener("click", (event) => {
+
+        const exploreButton =
+            event.target.closest("[data-cost-country]");
+
+        if (!exploreButton) {
+            return;
+        }
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        openStudyAbroadCountry(
+            exploreButton.dataset.costCountry
+        );
+    });
+}
+
 export default function StudyAbroadCost() {
 
     const costOptions = [
@@ -337,7 +431,8 @@ export default function StudyAbroadCost() {
                            <button
                                type="button"
                                class="cost-explore-button"
-                               onclick="openStudyAbroadCountry('${country.country === "United Kingdom" ? "UK" : country.country}');"
+                               data-cost-country="${country.country === "United Kingdom" ? "UK" : country.country}"
+                               onclick="window.openStudyAbroadCountry('${country.country === "United Kingdom" ? "UK" : country.country}')"
                            >
                                Explore ${country.country}
                                <span>→</span>

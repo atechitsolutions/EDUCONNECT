@@ -260,8 +260,9 @@ export default function StudyAbroadHero() {
 
 
                             <a
-                                href="#study-abroad-destinations"
+                                href="#edu-study-nav"
                                 class="study-abroad-secondary-button"
+                                data-open-destinations
                             >
                                 Explore Destinations
                             </a>

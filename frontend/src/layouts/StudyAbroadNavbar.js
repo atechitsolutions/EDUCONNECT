@@ -552,6 +552,105 @@ export default function StudyAbroadNavbar() {
             "click",
             (event) => {
 
+                const destinationsLink =
+                    event.target.closest(
+                        "[data-open-destinations]"
+                    );
+
+
+                if (destinationsLink) {
+
+                    event.preventDefault();
+                    event.stopPropagation();
+
+                    const navbar =
+                        document.querySelector(
+                            "#edu-study-nav"
+                        );
+
+                    const menu =
+                        navbar?.querySelector(
+                            '[data-mega-menu="destinations"]'
+                        );
+
+                    const trigger =
+                        navbar?.querySelector(
+                            '[data-mega-trigger="destinations"]'
+                        );
+
+                    if (!navbar || !menu || !trigger) {
+                        return;
+                    }
+
+                    navbar.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+
+                    navbar
+                        .querySelectorAll(
+                            ".edu-study-mega.is-open"
+                        )
+                        .forEach((openMenu) => {
+                            openMenu.classList.remove("is-open");
+                        });
+
+                    navbar
+                        .querySelectorAll(
+                            ".edu-study-nav-item.is-open"
+                        )
+                        .forEach((openItem) => {
+                            openItem.classList.remove("is-open");
+                        });
+
+                    navbar
+                        .querySelectorAll(
+                            ".edu-study-nav-button.is-open"
+                        )
+                        .forEach((openButton) => {
+                            openButton.classList.remove("is-open");
+                            openButton.setAttribute(
+                                "aria-expanded",
+                                "false"
+                            );
+                        });
+
+                    menu.classList.add("is-open");
+                    trigger.classList.add("is-open");
+                    trigger.setAttribute(
+                        "aria-expanded",
+                        "true"
+                    );
+
+                    trigger
+                        .closest(".edu-study-nav-item")
+                        ?.classList.add("is-open");
+
+                    navbar
+                        .querySelector(".edu-study-menu")
+                        ?.classList.add("is-open");
+
+                    menu
+                        .querySelectorAll("[data-mega-content]")
+                        .forEach((panel) => {
+                            panel.classList.toggle(
+                                "active",
+                                panel.dataset.megaContent === "featured"
+                            );
+                        });
+
+                    menu
+                        .querySelectorAll("[data-mega-panel]")
+                        .forEach((panelButton) => {
+                            panelButton.classList.toggle(
+                                "active",
+                                panelButton.dataset.megaPanel === "featured"
+                            );
+                        });
+
+                    return;
+                }
+
                 const navbar =
                     event.target.closest(
                         "#edu-study-nav"

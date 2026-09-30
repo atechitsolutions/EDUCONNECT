@@ -143,9 +143,8 @@ export default function Navbar() {
             ================================================== -->
 
             <a
-                href="#study-abroad"
+                href="/study-abroad"
                 class="navbar-link"
-                data-auth-required="true"
                 aria-label="Study Abroad Programs"
             >
                 Study Abroad
