@@ -1,12 +1,13 @@
 
 package com.ALL_in_one.home.controller;
 
-import com.ALL_in_one.home.entity.HomeNews;
+import com.ALL_in_one.home.dto.HomeNewsRequest;
+import com.ALL_in_one.home.dto.HomeNewsResponse;
 import com.ALL_in_one.home.service.HomeNewsService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
@@ -20,7 +21,34 @@ public class HomeNewsController {
     }
 
     @GetMapping
-    public List<HomeNews> getAllNews() {
+    public List<HomeNewsResponse> getPublishedNews() {
+        return homeNewsService.getPublishedNews();
+    }
+
+    @GetMapping("/admin")
+    @PreAuthorize("hasRole('ADMIN')")
+    public List<HomeNewsResponse> getAllNews() {
         return homeNewsService.getAllNews();
+    }
+
+    @PostMapping("/admin")
+    @PreAuthorize("hasRole('ADMIN')")
+    @ResponseStatus(HttpStatus.CREATED)
+    public HomeNewsResponse create(@Valid @RequestBody HomeNewsRequest request) {
+        return homeNewsService.create(request);
+    }
+
+    @PutMapping("/admin/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public HomeNewsResponse update(@PathVariable Long id,
+                                   @Valid @RequestBody HomeNewsRequest request) {
+        return homeNewsService.update(id, request);
+    }
+
+    @DeleteMapping("/admin/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable Long id) {
+        homeNewsService.delete(id);
     }
 }
