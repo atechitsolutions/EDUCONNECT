@@ -8,6 +8,7 @@ import com.ALL_in_one.studyabroad.service.InstitutionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,6 +21,7 @@ public class InstitutionController {
     private final InstitutionService institutionService;
 
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<InstitutionResponse> createInstitution(@RequestBody  InstitutionRequest institutionRequest){
 
       InstitutionResponse response = institutionService.createInstitution(institutionRequest);
@@ -44,6 +46,7 @@ public class InstitutionController {
     }
 
     @PutMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
      public ResponseEntity<InstitutionResponse> updateInstitution(@PathVariable Long id , @RequestBody InstitutionRequest institutionRequest){
 
         InstitutionResponse updatedresponse = institutionService.updateInstitution(id , institutionRequest);
@@ -52,6 +55,7 @@ public class InstitutionController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Void> deleteInstitution(@PathVariable  Long id){
          institutionService.deleteInstitution(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);

@@ -1,15 +1,12 @@
 package com.ALL_in_one.studyabroad.dto;
 
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.ALL_in_one.studyabroad.enums.InstitutionType;
 import lombok.Data;
 
 @Data
 public class SearchResult {
-      @Id
-      @GeneratedValue (strategy = GenerationType.IDENTITY)
+
       private Long id;
       private String name;
       private String description;
@@ -19,7 +16,7 @@ public class SearchResult {
       private String countryCode;
       private String website;
       private String coverImageUrl;
-      private String type;
+      private InstitutionType type;
       private boolean verified;
 }
 
