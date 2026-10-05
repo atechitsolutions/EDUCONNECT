@@ -142,7 +142,6 @@ import "./assets/css/home.css";
 import "./assets/css/footer.css";
 import "./assets/css/ticker.css";
 import "./assets/css/ui.css";
-import "./assets/css/institutionSearch.css";
 import "./assets/css/responsive.css";
 import "./assets/css/earlyLearning.css";
 
@@ -153,11 +152,6 @@ import "./assets/css/earlyLearning.css";
 
 import Router
     from "./router/router.js";
-
-import {
-    initInstitutionSearch,
-    loadStudyAbroadInstitutions
-} from "./assets/js/institutionSearch.js";
 
 
 /* =========================================================
@@ -289,8 +283,6 @@ document.addEventListener(
         app.innerHTML =
             Router();
 
-        initInstitutionSearch();
-
 
         /* =====================================================
            AUTHENTICATION
@@ -333,31 +325,14 @@ document.addEventListener(
            STUDY ABROAD CAROUSEL
         ====================================================== */
 
-        const hasStudyAbroadHomeCarousel =
-            Boolean(document.querySelector("#study-abroad"));
-        const hasStudyAbroadInstitutionSection =
-            Boolean(
-                document.querySelector(
-                    "[data-study-abroad-institutions]"
-                )
-            );
-
         if (
-            hasStudyAbroadHomeCarousel ||
-            hasStudyAbroadInstitutionSection
+            document.querySelector(
+                "#study-abroad"
+            )
         ) {
-            loadStudyAbroadInstitutions()
-                .catch((error) => {
-                    console.error(
-                        "Unable to load study abroad institutions.",
-                        error
-                    );
-                })
-                .finally(() => {
-                    if (hasStudyAbroadHomeCarousel) {
-                        initStudyAbroadCarousel();
-                    }
-                });
+
+            initStudyAbroadCarousel();
+
         }
 
 

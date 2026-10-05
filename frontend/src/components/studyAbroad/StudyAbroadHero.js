@@ -20,32 +20,32 @@ export default function StudyAbroadHero() {
         {
             name: "USA",
             code: "US",
-            description: "Universities, STEM & research"
+            description: "Study in the USA: universities & courses"
         },
         {
             name: "UK",
             code: "UK",
-            description: "Top universities & global programs"
+            description: "Study in the UK: universities & courses"
         },
         {
             name: "Canada",
             code: "CA",
-            description: "Programs, careers & student life"
+            description: "Study in Canada: courses & universities"
         },
         {
             name: "Australia",
             code: "AU",
-            description: "Education, lifestyle & opportunities"
+            description: "Study in Australia: courses & universities"
         },
         {
             name: "Germany",
             code: "DE",
-            description: "Engineering, technology & research"
+            description: "Study in Germany: courses & admissions"
         },
         {
             name: "Ireland",
             code: "IE",
-            description: "Technology, business & innovation"
+            description: "Study in Ireland: courses & universities"
         }
     ];
 
@@ -102,7 +102,7 @@ export default function StudyAbroadHero() {
 
                             Study Abroad from India
                             <span>
-                                with the right guidance.
+                                Compare countries, courses & universities.
                             </span>
 
                         </h1>
@@ -110,10 +110,7 @@ export default function StudyAbroadHero() {
 
                         <p class="study-abroad-hero-description">
 
-                            Explore universities, courses, scholarships and
-                            study destinations around the world. Compare your
-                            options and plan your overseas education journey
-                            with EDUCONNECT.
+                            Compare study abroad destinations from India. Explore universities and courses, check admission requirements and intakes, find scholarship options, and estimate tuition and living costs before planning your application.
 
                         </p>
 
@@ -166,8 +163,8 @@ export default function StudyAbroadHero() {
                                     name="q"
                                     type="search"
                                     autocomplete="off"
-                                    placeholder="Search university, course or country..."
-                                    aria-label="Search university, course or country"
+                                    placeholder="Search country, university or course (e.g. Germany)..."
+                                    aria-label="Search for a study abroad country, university or course"
                                 />
 
                             </div>
@@ -235,11 +232,15 @@ export default function StudyAbroadHero() {
                             </a>
 
                             <a href="#study-abroad-destinations">
-                                Study in USA
+                                Study in the USA
                             </a>
 
                             <a href="#study-abroad-destinations">
-                                Study in UK
+                                Study in the UK
+                            </a>
+
+                            <a href="#study-abroad-destinations">
+                                Study in Germany
                             </a>
 
                         </div>
@@ -299,11 +300,11 @@ export default function StudyAbroadHero() {
                             <div class="study-abroad-trust-item">
 
                                 <strong>
-                                    50+
+                                    Global
                                 </strong>
 
                                 <span>
-                                    Destinations
+                                    study destinations
                                 </span>
 
                             </div>
@@ -315,11 +316,11 @@ export default function StudyAbroadHero() {
                             <div class="study-abroad-trust-item">
 
                                 <strong>
-                                    5,000+
+                                    Course
                                 </strong>
 
                                 <span>
-                                    Universities
+                                    and university options
                                 </span>
 
                             </div>
@@ -331,11 +332,11 @@ export default function StudyAbroadHero() {
                             <div class="study-abroad-trust-item">
 
                                 <strong>
-                                    10,000+
+                                    Application
                                 </strong>
 
                                 <span>
-                                    Programs
+                                    planning guidance
                                 </span>
 
                             </div>
@@ -565,7 +566,7 @@ export default function StudyAbroadHero() {
                             </span>
 
                             <h2>
-                                Where do you want to study?
+                                Compare study abroad destinations for Indian students
                             </h2>
 
                         </div>

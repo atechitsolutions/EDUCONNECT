@@ -192,12 +192,11 @@ export default function CountryComparison() {
                     </div>
 
                     <h2>
-                        Compare Study <span>Destinations</span>
+                        Compare Study Abroad <span>Destinations</span>
                     </h2>
 
                     <p>
-                        Compare popular study abroad destinations based on
-                        universities, tuition costs, courses, and opportunities.
+                        Compare popular study abroad destinations for Indian students. Review university options, common course areas and indicative tuition, then check current admission requirements, fees and visa guidance with each university and official authority.
                     </p>
                 </header>
 
@@ -301,6 +300,15 @@ export default function CountryComparison() {
                                 Explore ${country.name}
                                 <span aria-hidden="true">→</span>
                             </a>
+                            ${country.id === "germany" ? `
+                                <div class="country-comparison-germany-note">
+                                    <strong>Study in Germany from India</strong>
+                                    <p>Check whether your qualification is recognised, confirm APS requirements, and compare course language and current university fees before applying.</p>
+                                    <a href="https://www.daad.de/en/studying-in-germany/requirements/overview/" target="_blank" rel="noopener noreferrer">DAAD Germany admission and language requirements</a>
+                                    <a href="https://india.diplo.de/in-en/service/2756350-2756350" target="_blank" rel="noopener noreferrer">German Missions in India: study visa and APS</a>
+                                    <a href="https://www.daad.de/en/studying-in-germany/living-in-germany/finances/" target="_blank" rel="noopener noreferrer">DAAD tuition and cost guidance</a>
+                                </div>
+                            ` : ""}
                         </article>
                     `).join("")}
                 </div>

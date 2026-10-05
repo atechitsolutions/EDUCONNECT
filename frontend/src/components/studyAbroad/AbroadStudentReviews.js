@@ -72,13 +72,11 @@ export default function AbroadStudentReviews() {
                     </span>
 
                     <h2>
-                        What Students Say About Their Journey
+                        Student Experiences with Study Abroad Planning
                     </h2>
 
                     <p>
-                        Explore experiences from students who planned
-                        their international education journey across
-                        different countries and universities.
+                        Read about students’ experiences comparing universities, courses and application steps across study destinations.
                     </p>
 
                 </div>

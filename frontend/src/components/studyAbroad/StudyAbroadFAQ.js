@@ -55,6 +55,30 @@ export default function StudyAbroadFaq() {
 
             answer:
                 "Some universities and programs require proof of English-language proficiency, while requirements and accepted tests can differ. Check the official requirements of each university and program you are considering."
+        },
+
+        {
+            question:
+                "How much does it cost to study abroad from India?",
+
+            answer:
+                "Costs vary by destination, city, university, course and study duration. Compare tuition and living expenses, then confirm current fees with the university and consult official sources before setting your budget."
+        },
+
+        {
+            question:
+                "Can Indian students get scholarships to study abroad?",
+
+            answer:
+                "Scholarship eligibility, funding and deadlines vary by university, course and provider. Check the official scholarship and university pages for current requirements and deadlines; awards are not guaranteed."
+        },
+
+        {
+            question:
+                "What should Indian students check before applying to study in Germany?",
+
+            answer:
+                "Check whether your academic qualification meets the chosen university’s entry requirements, confirm the programme’s language requirements and review the current APS guidance from the German Missions in India. Requirements depend on your qualifications and programme, so verify them with the university and official sources."
         }
 
 
@@ -84,13 +108,11 @@ export default function StudyAbroadFaq() {
                         </span>
 
                         <h2 id="study-abroad-faq-title">
-                            Study Abroad questions, answered
+                            Study Abroad from India: Admissions, Costs & Scholarships
                         </h2>
 
                         <p>
-                            Find answers to common questions about studying
-                            abroad, university applications, scholarships,
-                            costs, exams and student visas.
+                            Get answers to common questions about choosing a country, applying to universities abroad, scholarships for Indian students, tuition and living costs, language tests and student visa planning.
                         </p>
 
                     </div>
@@ -270,15 +292,14 @@ export default function StudyAbroadFaq() {
                 <div class="study-abroad-faq-seo">
 
                     <h2>
-                        Frequently asked questions about studying abroad
+                        Study abroad from India: admissions, fees and scholarships
                     </h2>
 
                     <p>
-                        Students planning to study abroad from India often
-                        have questions about destinations, universities,
-                        courses, eligibility, application deadlines,
-                        scholarships, education loans, English-language
-                        tests and student visas.
+                        Find answers about studying abroad from India,
+                        including choosing a country or university, course
+                        eligibility, application deadlines, scholarships,
+                        education costs, language tests and student visas.
                     </p>
 
 

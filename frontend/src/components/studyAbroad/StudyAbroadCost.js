@@ -186,17 +186,15 @@ export default function StudyAbroadCost() {
 
                     <h2>
 
-                        Study Abroad
-                        <span>Cost & Expenses</span>
+                        Study Abroad Costs
+                        <span> & Living Expenses</span>
 
                     </h2>
 
 
                     <p>
 
-                        Understand the major expenses involved in
-                        studying abroad, including tuition, living
-                        costs and accommodation.
+                        Estimate the cost of studying abroad from India by comparing tuition, accommodation and living expenses across destinations. Actual costs vary by university, course, city and study duration; confirm current fees with the university and official sources before applying.
 
                     </p>
 
@@ -469,9 +467,7 @@ export default function StudyAbroadCost() {
                         </strong>
 
                         <p>
-                            Actual costs can vary depending on the
-                            university, course, city, lifestyle and
-                            duration of study.
+                            These figures are indicative planning estimates, not a quote. Actual costs vary by university, course, city, exchange rates, lifestyle and study duration. Confirm current fees directly with each university.
                         </p>
 
                     </div>

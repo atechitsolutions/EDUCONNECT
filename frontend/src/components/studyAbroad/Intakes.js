@@ -77,17 +77,15 @@ export default function Intakes() {
 
                     <h2>
 
-                        Study Abroad
-                        <span>Intakes</span>
+                        Study Abroad Intakes
+                        <span> & Application Deadlines</span>
 
                     </h2>
 
 
                     <p>
 
-                        Understand major university intakes and
-                        plan your applications around the right
-                        admission cycle.
+                        Intake availability and deadlines vary by university, course and destination. Compare common start periods, then check each program’s official application calendar so you can plan tests, documents and funding.
 
                     </p>
 
