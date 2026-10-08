@@ -59,6 +59,26 @@ export default function StudyAbroadPage() {
 
             ${StudyAbroadHero()}
 
+            <section
+                class="study-abroad-featured-institutions"
+                id="study-abroad-institutions"
+                aria-labelledby="study-abroad-institutions-title"
+                hidden
+            >
+                <div class="study-abroad-featured-institutions-container">
+                    <div class="study-abroad-featured-institutions-heading">
+                        <p>EXPLORE INSTITUTIONS</p>
+                        <h2 id="study-abroad-institutions-title">
+                            Colleges &amp; Universities Abroad
+                        </h2>
+                    </div>
+                    <div
+                        class="institution-search-card-grid"
+                        data-study-abroad-institutions
+                    ></div>
+                </div>
+            </section>
+
 
             <!-- =================================================
                  02. LEAD / COUNSELLING FORM

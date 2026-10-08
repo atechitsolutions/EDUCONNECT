@@ -1,353 +1,63 @@
 import Section from "../common/Section.js";
 import InstitutionCard from "../common/InstitutionCard.js";
+import {
+    getInstitutions
+} from "../../services/studyAbroadService.js";
+import {
+    bindInstitutionDetailButtons
+} from "../studyAbroad/InstitutionDetailsModals.js";
+
 
 export function StudyAbroadSection() {
 
-    /* =====================================================
-       POPULAR DESTINATIONS
-    ====================================================== */
-
-    const popularDestinations = [
-
-        {
-            rank: "01",
-
-            name:
-                "Study in USA",
-
-            category:
-                "Study in USA",
-
-            location:
-                "United States",
-
-            program:
-                "UG • PG • MBA • STEM • Research",
-
-            rating:
-                "4.8",
-
-            reviews:
-                "2,480",
-
-            score:
-                "9.4",
-
-            ranking:
-                "Home to leading universities and globally recognized study abroad programs for international students",
-
-            highlight:
-                "Top universities, study abroad scholarships, international education and career opportunities",
-
-            image:
-                "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?auto=format&fit=crop&w=1200&q=85",
-
-            actionLabel:
-                "Explore USA"
-
-        },
-
-
-        {
-            rank: "02",
-
-            name:
-                "Study in UK",
-
-            category:
-                "Study in UK",
-
-            location:
-                "United Kingdom",
-
-            program:
-                "UG • PG • MBA • Research",
-
-            rating:
-                "4.7",
-
-            reviews:
-                "2,120",
-
-            score:
-                "9.2",
-
-            ranking:
-                "Leading UK universities with globally recognized degrees, study abroad programs and international education",
-
-            highlight:
-                "World-class UK education, universities & diverse study abroad programs",
-
-            image:
-                "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1200&q=85",
-
-            actionLabel:
-                "Explore UK"
-
-        },
-
-
-        {
-            rank: "03",
-
-            name:
-                "Study in Canada",
-
-            category:
-                "Study in Canada",
-
-            location:
-                "Canada",
-
-            program:
-                "UG • PG • Diploma • Co-op",
-
-            rating:
-                "4.7",
-
-            reviews:
-                "1,980",
-
-            score:
-                "9.1",
-
-            ranking:
-                "Popular study abroad destination for international students",
-
-            highlight:
-                "Canadian education, study abroad programs, career and post-study opportunities",
-
-            image:
-                "https://images.unsplash.com/photo-1517935706615-2717063c2225?auto=format&fit=crop&w=1200&q=85",
-
-            actionLabel:
-                "Explore Canada"
-
-        }
-
-    ];
-
-
-    /* =====================================================
-       OTHER DESTINATIONS
-    ====================================================== */
-
-    const otherDestinations = [
-
-        {
-            rank: "04",
-
-            name:
-                "Study in Australia",
-
-            category:
-                "Study in Australia",
-
-            location:
-                "Australia",
-
-            program:
-                "UG • PG • MBA • Research",
-
-            rating:
-                "4.6",
-
-            reviews:
-                "1,560",
-
-            score:
-                "8.9",
-
-            ranking:
-                "Popular study abroad destination for international students, universities and professional education",
-
-            highlight:
-                "Quality Australian education & international student experience",
-
-            image:
-                "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?auto=format&fit=crop&w=1200&q=85",
-
-            actionLabel:
-                "Explore Australia"
-
-        },
-
-
-        {
-            rank: "05",
-
-            name:
-                "Study in Germany",
-
-            category:
-                "Study in Germany",
-
-            location:
-                "Germany",
-
-            program:
-                "Engineering • MBA • Research • STEM",
-
-            rating:
-                "4.6",
-
-            reviews:
-                "1,320",
-
-            score:
-                "8.8",
-
-            ranking:
-                "Popular study abroad destination for technical, engineering, STEM and research-oriented education",
-
-            highlight:
-                "Affordable study in Germany & strong technical programs",
-
-            image:
-                "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=1200&q=85",
-
-            actionLabel:
-                "Explore Germany"
-
-        },
-
-
-        {
-            rank: "06",
-
-            name:
-                "Study in Europe",
-
-            category:
-                "Study in Europe",
-
-            location:
-                "Europe",
-
-            program:
-                "UG • PG • MBA • Research",
-
-            rating:
-                "4.5",
-
-            reviews:
-                "1,140",
-
-            score:
-                "8.7",
-
-            ranking:
-                "Explore study abroad opportunities, universities and education programs across multiple European countries",
-
-            highlight:
-                "European universities, scholarships & diverse international study options",
-
-            image:
-                "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1200&q=85",
-
-            actionLabel:
-                "Explore Europe"
-
-        }
-
-    ];
-
-
-    /* =====================================================
-       COMBINE ALL DESTINATIONS
-    ====================================================== */
-
-    const allDestinations = [
-
-        ...popularDestinations,
-
-        ...otherDestinations
-
-    ];
-
-
-    /* =====================================================
-       CREATE DESTINATION CARD
-    ====================================================== */
-
-    function createDestinationCard(
-        destination
-    ) {
+    function createInstitutionCard(institution, index) {
+
+        const location = [
+            institution.city,
+            institution.state,
+            institution.country
+        ].filter(Boolean).join(", ");
+
+        const category = [
+            institution.type === "UNIVERSITY"
+                ? "University"
+                : institution.type === "COLLEGE"
+                    ? "College"
+                    : "Institution",
+            institution.country
+        ].filter(Boolean).join(" • ");
 
         return InstitutionCard({
 
             item: {
-
-                rank:
-                    destination.rank,
-
-                name:
-                    destination.name,
-
-                category:
-                    destination.category,
-
-                location:
-                    destination.location,
-
-                program:
-                    destination.program,
-
-                rating:
-                    destination.rating,
-
-                reviews:
-                    destination.reviews,
-
-                score:
-                    destination.score,
-
-                ranking:
-                    destination.ranking,
-
-                highlight:
-                    destination.highlight,
-
-                image:
-                    destination.image,
-
-                actionLabel:
-                    destination.actionLabel
-
+                id: institution.id,
+                rank: String(index + 1).padStart(2, "0"),
+                name: institution.name,
+                category,
+                location,
+                program: institution.type === "UNIVERSITY"
+                    ? "Partner University"
+                    : "Partner College",
+                ranking: institution.verified
+                    ? "Verified EduConnect partner"
+                    : "EduConnect partner institution",
+                highlight: institution.description ||
+                    "Explore this EduConnect Study Abroad partner institution.",
+                image: institution.coverImageUrl || "",
+                actionLabel: "View More",
+                showCompare: false
             },
 
-            type:
-                "study-abroad"
-
+            type: "study-abroad"
         });
-
     }
 
 
-    /* =====================================================
-       CREATE ALL SIX CARDS
-    ====================================================== */
-
-    const destinationCards =
-        allDestinations
-            .map(
-                createDestinationCard
-            )
-            .join("");
-
-
-    /* =====================================================
-       CONTENT
-    ====================================================== */
-
     const content = `
-
-        <div class="study-abroad-section">
-
-
-            <!-- =================================================
-                 INTRO
-            ================================================== -->
+        <div
+            class="study-abroad-section"
+            id="study-abroad-destinations"
+        >
 
             <div class="study-abroad-intro">
 
@@ -357,17 +67,13 @@ export function StudyAbroadSection() {
                         🌍 INTERNATIONAL EDUCATION
                     </span>
 
-
                     <h2>
-                        Study Abroad Destinations
+                        Study Abroad
                     </h2>
 
-
                     <p>
-                        Explore study abroad destinations for Indian students,
-                        international universities, degree programs,
-                        study abroad scholarships and career opportunities
-                        for students planning to study overseas.
+                        Explore colleges and universities that are
+                        available through EduConnect partner institutions.
                     </p>
 
                 </div>
@@ -375,13 +81,15 @@ export function StudyAbroadSection() {
 
                 <div class="study-abroad-stat">
 
-                    <strong>
-                        ${allDestinations.length}
+                    <strong
+                        class="study-abroad-institution-count"
+                    >
+                        0
                     </strong>
 
                     <span>
-                        Featured<br>
-                        Destinations
+                        Partner<br>
+                        Institutions
                     </span>
 
                 </div>
@@ -389,66 +97,144 @@ export function StudyAbroadSection() {
             </div>
 
 
-            <!-- =================================================
-                 HORIZONTAL CAROUSEL
-            ================================================== -->
-
             <div class="study-abroad-carousel">
-
 
                 <div class="study-abroad-viewport">
 
                     <div class="study-abroad-track">
 
-                        ${destinationCards}
+                        <div class="study-abroad-loading">
+                            Loading Study Abroad institutions...
+                        </div>
 
                     </div>
 
                 </div>
 
 
-                <!-- =================================================
-                     NEXT BUTTON
-                ================================================== -->
-
                 <button
                     type="button"
                     class="study-abroad-next"
-                    aria-label="Show next study abroad destinations and international education options"
+                    aria-label="Show next Study Abroad institutions"
                 >
-
-                    <span>
-                        →
-                    </span>
-
+                    <span>→</span>
                 </button>
 
             </div>
 
         </div>
-
     `;
 
 
-    /* =====================================================
-       RETURN SECTION
-    ====================================================== */
+    const section =
+        Section({
+            id: "study-abroad-section",
+            title: "",
+            subtitle: "",
+            content
+        });
 
-    return Section({
 
-        id:
-            "study-abroad",
+    setTimeout(
+        async () => {
 
-        title:
-            "",
+            try {
 
-        subtitle:
-            "",
+                const institutions =
+                    await getInstitutions();
 
-        content
+                const visibleInstitutions =
+                    institutions
+                        .filter(
+                            (institution) =>
+                                institution.active === true &&
+                                institution.studyAbroadEnabled === true
+                        );
 
-    });
+                const track =
+                    document.querySelector(
+                        "#study-abroad-destinations .study-abroad-track"
+                    );
 
+                const countElement =
+                    document.querySelector(
+                        "#study-abroad-destinations .study-abroad-institution-count"
+                    );
+
+                if (!track) {
+                    return;
+                }
+
+                if (countElement) {
+                    countElement.textContent =
+                        visibleInstitutions.length;
+                }
+
+                if (!visibleInstitutions.length) {
+
+                    track.innerHTML = `
+                        <div class="study-abroad-loading">
+                            No Study Abroad partner institutions are available yet.
+                        </div>
+                    `;
+
+                    return;
+                }
+
+                const institutionMap =
+                    new Map(
+                        visibleInstitutions.map(
+                            (institution) => [
+                                String(institution.id),
+                                institution
+                            ]
+                        )
+                    );
+
+                track.innerHTML =
+                    visibleInstitutions
+                        .map(createInstitutionCard)
+                        .join("");
+
+                bindInstitutionDetailButtons(
+                    track,
+                    institutionMap
+                );
+
+                window.dispatchEvent(
+                    new CustomEvent(
+                        "educonnect:studyabroad-cards-ready"
+                    )
+                );
+
+            }
+            catch (error) {
+
+                console.error(
+                    "Failed to load Study Abroad institutions:",
+                    error
+                );
+
+                const track =
+                    document.querySelector(
+                        "#study-abroad-destinations .study-abroad-track"
+                    );
+
+                if (track) {
+                    track.innerHTML = `
+                        <div class="study-abroad-loading">
+                            Unable to load Study Abroad institutions.
+                        </div>
+                    `;
+                }
+            }
+
+        },
+        0
+    );
+
+
+    return section;
 }
 
 

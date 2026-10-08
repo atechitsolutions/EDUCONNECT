@@ -25,6 +25,11 @@ public class HomeNewsController {
         return homeNewsService.getPublishedNews();
     }
 
+    @GetMapping("/{id}")
+    public HomeNewsResponse getPublishedNewsById(@PathVariable Long id) {
+        return homeNewsService.getPublishedNewsById(id);
+    }
+
     @GetMapping("/admin")
     @PreAuthorize("hasRole('ADMIN')")
     public List<HomeNewsResponse> getAllNews() {

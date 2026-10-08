@@ -289,6 +289,11 @@ public class SearchService {
         );
 
 
+        result.setAddress(
+                institution.getAddress()
+        );
+
+
         result.setCity(
                 institution.getCity()
         );
@@ -311,6 +316,16 @@ public class SearchService {
 
         result.setWebsite(
                 institution.getWebsite()
+        );
+
+
+        result.setEmail(
+                institution.getEmail()
+        );
+
+
+        result.setPhone(
+                institution.getPhone()
         );
 
 

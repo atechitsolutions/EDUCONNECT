@@ -1,6 +1,5 @@
 package com.ALL_in_one.studyabroad.service;
 
-
 import com.ALL_in_one.studyabroad.dto.InstitutionRequest;
 import com.ALL_in_one.studyabroad.dto.InstitutionResponse;
 import com.ALL_in_one.studyabroad.entity.Institution;
@@ -18,18 +17,13 @@ public class InstitutionService {
     private final InstitutionRepository institutionRepository;
     private final InstitutionMapper institutionMapper;
 
-    public InstitutionResponse createInstitution(InstitutionRequest institutionRequest){
-
+    public InstitutionResponse createInstitution(InstitutionRequest institutionRequest) {
         Institution institution = institutionMapper.toEntity(institutionRequest);
-
-        Institution savedinstitution = institutionRepository.save(institution);
-
-        return institutionMapper.toResponse(savedinstitution);
-
+        Institution savedInstitution = institutionRepository.save(institution);
+        return institutionMapper.toResponse(savedInstitution);
     }
 
-    public InstitutionResponse updateInstitution(Long id , InstitutionRequest institutionRequest){
-
+    public InstitutionResponse updateInstitution(Long id, InstitutionRequest institutionRequest) {
         Institution existingInstitution = institutionRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Institution Not Found"));
 
@@ -50,37 +44,44 @@ public class InstitutionService {
         existingInstitution.setVerified(institutionRequest.isVerified());
 
         Institution updatedInstitution = institutionRepository.save(existingInstitution);
-
         return institutionMapper.toResponse(updatedInstitution);
-
     }
 
-    public InstitutionResponse getInstitutionById(Long id){
+    public InstitutionResponse getPublicInstitutionById(Long id) {
+        Institution institution = institutionRepository
+                .findByIdAndActiveTrueAndStudyAbroadEnabledTrue(id)
+                .orElseThrow(() -> new RuntimeException("Institution Not Found"));
 
-        Institution institutionById = institutionRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Institution Not Found "));
-
-        return institutionMapper.toResponse(institutionById);
+        return institutionMapper.toResponse(institution);
     }
-    public List<InstitutionResponse> getAllInstitutions(){
 
-        List<Institution> institution = institutionRepository.findAll();
+    public InstitutionResponse getInstitutionById(Long id) {
+        Institution institution = institutionRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Institution Not Found"));
 
-        return institution.stream()
+        return institutionMapper.toResponse(institution);
+    }
+
+    public List<InstitutionResponse> getPublicInstitutions() {
+        return institutionRepository
+                .findByActiveTrueAndStudyAbroadEnabledTrueOrderByCreatedAtDesc()
+                .stream()
                 .map(institutionMapper::toResponse)
                 .toList();
     }
+
+    public List<InstitutionResponse> getAllInstitutions() {
+        return institutionRepository.findAll()
+                .stream()
+                .map(institutionMapper::toResponse)
+                .toList();
+    }
+
     public void deleteInstitution(Long id) {
-
         if (!institutionRepository.existsById(id)) {
-
-            throw new RuntimeException(
-                    "Institution not found with id: " + id
-            );
+            throw new RuntimeException("Institution not found with id: " + id);
         }
 
         institutionRepository.deleteById(id);
     }
-
-
 }

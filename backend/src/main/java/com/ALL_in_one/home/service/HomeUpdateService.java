@@ -1,18 +1,18 @@
-
-
 package com.ALL_in_one.home.service;
 
-import com.ALL_in_one.home.repository.HomeUpdateRepository;
 import com.ALL_in_one.home.dto.HomeUpdateRequest;
 import com.ALL_in_one.home.dto.HomeUpdateResponse;
 import com.ALL_in_one.home.entity.HomeUpdate;
 import com.ALL_in_one.home.exception.HomeResourceNotFoundException;
+import com.ALL_in_one.home.repository.HomeUpdateRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class HomeUpdateService {
+
+    private static final String CURRENT_AFFAIRS = "CURRENT_AFFAIRS";
 
     private final HomeUpdateRepository repository;
 
@@ -22,6 +22,12 @@ public class HomeUpdateService {
 
     public List<HomeUpdateResponse> getActiveUpdates() {
         return repository.findByActiveTrueOrderBySortOrderAscCreatedAtDesc()
+                .stream().map(this::toResponse).toList();
+    }
+
+    public List<HomeUpdateResponse> getActiveCurrentAffairs() {
+        return repository
+                .findByActiveTrueAndTypeOrderBySortOrderAscCreatedAtDesc(CURRENT_AFFAIRS)
                 .stream().map(this::toResponse).toList();
     }
 
@@ -59,9 +65,18 @@ public class HomeUpdateService {
     }
 
     private HomeUpdateResponse toResponse(HomeUpdate update) {
-        return new HomeUpdateResponse(update.getId(), update.getTitle(), update.getSubtitle(),
-                update.getDescription(), update.getType(), update.getIcon(),
-                update.getTargetUrl(), update.isActive(), update.getSortOrder(),
-                update.getCreatedAt(), update.getUpdatedAt());
+        return new HomeUpdateResponse(
+                update.getId(),
+                update.getTitle(),
+                update.getSubtitle(),
+                update.getDescription(),
+                update.getType(),
+                update.getIcon(),
+                update.getTargetUrl(),
+                update.isActive(),
+                update.getSortOrder(),
+                update.getCreatedAt(),
+                update.getUpdatedAt()
+        );
     }
 }

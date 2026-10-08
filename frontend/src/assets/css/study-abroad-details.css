@@ -1,0 +1,136 @@
+body.study-abroad-details-open {
+    overflow: hidden;
+}
+
+.study-abroad-details-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.study-abroad-details-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.68);
+}
+
+.study-abroad-details-modal {
+    position: relative;
+    z-index: 1;
+    width: min(900px, 100%);
+    max-height: 90vh;
+    overflow: auto;
+    border-radius: 24px;
+    background: #ffffff;
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.25);
+}
+
+.study-abroad-details-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 42px;
+    height: 42px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.55);
+    color: #ffffff;
+    font-size: 26px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.study-abroad-details-image img {
+    width: 100%;
+    height: 290px;
+    object-fit: cover;
+    display: block;
+}
+
+.study-abroad-details-body {
+    padding: 30px;
+}
+
+.study-abroad-details-type {
+    display: inline-flex;
+    padding: 7px 12px;
+    border-radius: 999px;
+    background: #eef4ff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .05em;
+}
+
+.study-abroad-details-body h2 {
+    margin: 14px 0 8px;
+}
+
+.study-abroad-details-location,
+.study-abroad-details-description {
+    color: #555;
+    line-height: 1.7;
+}
+
+.study-abroad-details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 24px;
+}
+
+.study-abroad-details-grid > div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 16px;
+    border-radius: 16px;
+    background: #f7f8fa;
+}
+
+.study-abroad-details-grid a {
+    color: inherit;
+    word-break: break-word;
+}
+
+.study-abroad-details-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+}
+
+.study-abroad-details-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 18px;
+    border-radius: 12px;
+    border: 0;
+    background: #111827;
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.study-abroad-details-button.secondary {
+    background: #e5e7eb;
+    color: #111827;
+}
+
+@media (max-width: 700px) {
+    .study-abroad-details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .study-abroad-details-image img {
+        height: 220px;
+    }
+
+    .study-abroad-details-body {
+        padding: 22px;
+    }
+}

@@ -13,10 +13,16 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/home/updates")
 public class HomeUpdateController {
+
     private final HomeUpdateService service;
 
     public HomeUpdateController(HomeUpdateService service) {
         this.service = service;
+    }
+
+    @GetMapping("/current-affairs")
+    public List<HomeUpdateResponse> getCurrentAffairs() {
+        return service.getActiveCurrentAffairs();
     }
 
     @GetMapping

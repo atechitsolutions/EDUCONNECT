@@ -22,6 +22,13 @@ public class HomeNewsService {
                 .stream().map(this::toResponse).toList();
     }
 
+    public HomeNewsResponse getPublishedNewsById(Long id) {
+        HomeNews news = repository.findById(id)
+                .filter(HomeNews::isPublished)
+                .orElseThrow(() -> new HomeResourceNotFoundException("Published news not found: " + id));
+        return toResponse(news);
+    }
+
     public List<HomeNewsResponse> getAllNews() {
         return repository.findAllByOrderByCreatedAtDesc()
                 .stream().map(this::toResponse).toList();

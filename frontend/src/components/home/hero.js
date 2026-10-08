@@ -73,13 +73,17 @@ export default function Hero() {
                      EDUCATION SEARCH
                 ================================================== -->
 
-                <form
-                    class="hero-search"
-                    role="search"
-                    action="/"
-                    method="get"
-                    aria-label="Search EduConnect"
-                >
+                <div class="institution-search-widget">
+                    <form
+                        class="hero-search"
+                        role="search"
+                        action="/"
+                        method="get"
+                        aria-label="Search EduConnect"
+                        data-institution-search
+                        data-search-suggestions-id="home-institution-suggestions"
+                        data-search-results-id="home-institution-results"
+                    >
 
                     <div
                         class="hero-search-icon"
@@ -116,7 +120,23 @@ export default function Hero() {
                         Search
                     </button>
 
-                </form>
+                    </form>
+
+                    <div
+                        id="home-institution-suggestions"
+                        class="institution-search-suggestions-list"
+                        role="listbox"
+                        aria-label="Matching institutions"
+                        hidden
+                    ></div>
+
+                    <section
+                        id="home-institution-results"
+                        class="institution-search-results"
+                        aria-live="polite"
+                        hidden
+                    ></section>
+                </div>
 
 
                 <!-- =================================================

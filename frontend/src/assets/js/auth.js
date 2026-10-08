@@ -1170,6 +1170,26 @@ function updateAuthButtons() {
         getCurrentUser();
 
 
+    const isAdmin =
+        authenticated &&
+        user &&
+        user.role === "ADMIN";
+
+
+    document
+        .querySelectorAll(
+            "[data-admin-only]"
+        )
+        .forEach((element) => {
+
+            element.style.display =
+                isAdmin
+                    ? "inline-flex"
+                    : "none";
+
+        });
+
+
     document
         .querySelectorAll(
             "[data-auth-user]"

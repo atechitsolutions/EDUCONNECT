@@ -4,6 +4,7 @@ export default function InstitutionCard({
 }) {
 
     const {
+        id = "",
         rank = "",
         name = "Institution",
         location = "",
@@ -17,7 +18,8 @@ export default function InstitutionCard({
         ranking = "",
         highlight = "",
         category = "",
-        actionLabel = "View Details"
+        actionLabel = "View Details",
+        showCompare = true
     } = item;
 
 
@@ -25,11 +27,8 @@ export default function InstitutionCard({
         <article
             class="institution-card"
             data-type="${type}"
+            ${id ? `data-institution-id="${id}"` : ""}
         >
-
-            <!-- =================================================
-                 VISUAL HEADER
-            ================================================== -->
 
             <div class="institution-card-visual">
 
@@ -107,10 +106,6 @@ export default function InstitutionCard({
             </div>
 
 
-            <!-- =================================================
-                 MAIN INFORMATION
-            ================================================== -->
-
             <div class="institution-card-body">
 
                 ${
@@ -183,9 +178,7 @@ export default function InstitutionCard({
                     ranking
                         ? `
                             <div class="institution-card-ranking">
-
                                 ${ranking}
-
                             </div>
                         `
                         : ""
@@ -202,10 +195,6 @@ export default function InstitutionCard({
                         : ""
                 }
 
-
-                <!-- =================================================
-                     ACTIONS
-                ================================================== -->
 
                 <div class="institution-card-actions">
 
@@ -235,14 +224,20 @@ export default function InstitutionCard({
                     }
 
 
-                    <button
-                        type="button"
-                        class="institution-card-action"
-                        data-action="compare"
-                    >
-                        Compare
-                        <span>›</span>
-                    </button>
+                    ${
+                        showCompare
+                            ? `
+                                <button
+                                    type="button"
+                                    class="institution-card-action"
+                                    data-action="compare"
+                                >
+                                    Compare
+                                    <span>›</span>
+                                </button>
+                            `
+                            : ""
+                    }
 
                 </div>
 

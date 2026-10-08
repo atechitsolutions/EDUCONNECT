@@ -122,13 +122,17 @@ export default function StudyAbroadHero() {
                              SEARCH
                         =================================================== -->
 
-                        <form
-                            class="study-abroad-search"
-                            id="study-abroad-search-form"
-                            role="search"
-                            action="#study-abroad-results"
-                            method="get"
-                        >
+                        <div class="institution-search-widget study-abroad-search-widget">
+                            <form
+                                class="study-abroad-search"
+                                id="study-abroad-search-form"
+                                role="search"
+                                action="#study-abroad-results"
+                                method="get"
+                                data-institution-search
+                                data-search-suggestions-id="study-abroad-institution-suggestions"
+                                data-search-results-id="study-abroad-institution-results"
+                            >
 
                             <div class="study-abroad-search-icon">
                                 <svg
@@ -191,7 +195,23 @@ export default function StudyAbroadHero() {
                                 </svg>
                             </button>
 
-                        </form>
+                            </form>
+
+                            <div
+                                id="study-abroad-institution-suggestions"
+                                class="institution-search-suggestions-list"
+                                role="listbox"
+                                aria-label="Matching institutions"
+                                hidden
+                            ></div>
+
+                            <section
+                                id="study-abroad-institution-results"
+                                class="institution-search-results"
+                                aria-live="polite"
+                                hidden
+                            ></section>
+                        </div>
 
 
                         <!-- ==================================================

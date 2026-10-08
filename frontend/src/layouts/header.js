@@ -53,6 +53,16 @@ export default function Header() {
                    </button>
 
 
+                   <a
+                       href="/admin"
+                       class="header-admin-button header-register-button"
+                       data-admin-only
+                       style="display: none;"
+                   >
+                       Admin
+                   </a>
+
+
                    <button
                        type="button"
                        class="header-user-button"

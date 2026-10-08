@@ -1,9 +1,7 @@
 package com.ALL_in_one.studyabroad.controller;
 
-
 import com.ALL_in_one.studyabroad.dto.InstitutionRequest;
 import com.ALL_in_one.studyabroad.dto.InstitutionResponse;
-
 import com.ALL_in_one.studyabroad.service.InstitutionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -22,42 +20,54 @@ public class InstitutionController {
 
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<InstitutionResponse> createInstitution(@RequestBody  InstitutionRequest institutionRequest){
+    public ResponseEntity<InstitutionResponse> createInstitution(
+            @RequestBody InstitutionRequest institutionRequest) {
 
-      InstitutionResponse response = institutionService.createInstitution(institutionRequest);
+        InstitutionResponse response =
+                institutionService.createInstitution(institutionRequest);
 
-      return new ResponseEntity<>(response , HttpStatus.CREATED);
-
-
+        return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
-     @GetMapping
-    public ResponseEntity<List<InstitutionResponse>> getAllInstitutions(){
 
-        List<InstitutionResponse> responses = institutionService.getAllInstitutions();
+    @GetMapping
+    public ResponseEntity<List<InstitutionResponse>> getPublicInstitutions() {
+        return ResponseEntity.ok(
+                institutionService.getPublicInstitutions()
+        );
+    }
 
-        return new ResponseEntity<>(responses , HttpStatus.OK);
-
+    @GetMapping("/admin")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<List<InstitutionResponse>> getAllInstitutionsForAdmin() {
+        return ResponseEntity.ok(
+                institutionService.getAllInstitutions()
+        );
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<InstitutionResponse> getInstitutionById(@PathVariable Long id){
-        InstitutionResponse response = institutionService.getInstitutionById(id);
-        return new ResponseEntity<>(response , HttpStatus.OK);
+    public ResponseEntity<InstitutionResponse> getInstitutionById(
+            @PathVariable Long id) {
+
+        return ResponseEntity.ok(
+                institutionService.getPublicInstitutionById(id)
+        );
     }
 
     @PutMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-     public ResponseEntity<InstitutionResponse> updateInstitution(@PathVariable Long id , @RequestBody InstitutionRequest institutionRequest){
+    public ResponseEntity<InstitutionResponse> updateInstitution(
+            @PathVariable Long id,
+            @RequestBody InstitutionRequest institutionRequest) {
 
-        InstitutionResponse updatedresponse = institutionService.updateInstitution(id , institutionRequest);
-
-        return new ResponseEntity<>(updatedresponse , HttpStatus.OK);
+        return ResponseEntity.ok(
+                institutionService.updateInstitution(id, institutionRequest)
+        );
     }
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<Void> deleteInstitution(@PathVariable  Long id){
-         institutionService.deleteInstitution(id);
+    public ResponseEntity<Void> deleteInstitution(@PathVariable Long id) {
+        institutionService.deleteInstitution(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
