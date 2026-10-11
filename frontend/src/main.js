@@ -51,7 +51,6 @@ import "./assets/css/studyAbroadSearch.css";
 ========================================================= */
 
 import "./assets/css/study-abroad-destinations.css";
-import "./assets/css/study-abroad-intakes.css";
 
 
 /* =========================================================
@@ -144,6 +143,7 @@ import "./assets/css/ticker.css";
 import "./assets/css/ui.css";
 import "./assets/css/responsive.css";
 import "./assets/css/earlyLearning.css";
+import "./assets/css/online-education.css";
 
 
 /* =========================================================
@@ -152,6 +152,10 @@ import "./assets/css/earlyLearning.css";
 
 import Router
     from "./router/router.js";
+import { initOnlineEducationPage } from "./assets/js/onlineEducationPage.js";
+
+import { applyStudyAbroadSEO }
+    from "./utils/studyAbroadSEO.js";
 
 
 /* =========================================================
@@ -285,6 +289,11 @@ document.addEventListener(
             Router();
 
         applyStudyAbroadSEO();
+
+        if (document.querySelector("#online-education-page")) {
+            initOnlineEducationPage();
+        }
+
 
         /* =====================================================
            AUTHENTICATION

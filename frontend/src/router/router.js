@@ -1,6 +1,7 @@
 import MainLayout from "../layouts/MainLayout.js";
 import StudyAbroadLayout from "../layouts/StudyAbroadLayout.js";
 import AuthModal from "../components/AuthModal.js";
+import OnlineEducationLayout from "../layouts/OnlineEducationLayout.js";
 
 export function Router() {
 
@@ -29,7 +30,9 @@ export function Router() {
             pageContent = StudyAbroadLayout();
             break;
 
-
+        case "/online-education":
+            pageContent = OnlineEducationLayout();
+            break;
 
         // =====================================================
         // UNKNOWN ROUTE
