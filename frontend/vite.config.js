@@ -12,6 +12,10 @@ export default defineConfig({
                 "study-abroad/index": resolve(
                     frontendRoot,
                     "study-abroad/index.html"
+                ),
+                "online-education/index": resolve(
+                    frontendRoot,
+                    "online-education/index.html"
                 )
             }
         }

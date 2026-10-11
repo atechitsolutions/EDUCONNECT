@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 public class HomeNews {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -30,11 +31,35 @@ public class HomeNews {
     @Column(length = 80)
     private String country;
 
+    @Column(length = 250)
+    private String program;
+
+    @Column
+    private Float rating;
+
+    @Column
+    private Integer reviews;
+
+    @Column
+    private Float score;
+
+    @Column(length = 2000)
+    private String highlight;
+
     @Column(length = 1000)
     private String imageUrl;
 
     @Column(length = 1000)
     private String sourceUrl;
+
+    @Column(length = 100)
+    private String actionLabel;
+
+    /*
+     * LATEST or TRENDING
+     */
+    @Column(nullable = false, length = 30)
+    private String section = "LATEST";
 
     @Column(nullable = false)
     private boolean published = true;

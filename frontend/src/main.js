@@ -181,6 +181,7 @@ import {
 } from "./assets/js/studyAbroadCarousel.js";
 
 
+
 /* =========================================================
    SCHOLARSHIP CAROUSEL
 ========================================================= */
@@ -283,6 +284,7 @@ document.addEventListener(
         app.innerHTML =
             Router();
 
+        applyStudyAbroadSEO();
 
         /* =====================================================
            AUTHENTICATION

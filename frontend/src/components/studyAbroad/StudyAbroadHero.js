@@ -100,7 +100,7 @@ export default function StudyAbroadHero() {
 
                         <h1 id="study-abroad-hero-title">
 
-                            Study Abroad from India
+                            Study Abroad
                             <span>
                                 Compare countries, courses & universities.
                             </span>
@@ -217,7 +217,7 @@ export default function StudyAbroadHero() {
 
                         <div class="study-abroad-search-suggestions">
 
-                            <span>Popular searches:</span>
+
 
                             <a href="#study-abroad-universities">
                                 Universities
