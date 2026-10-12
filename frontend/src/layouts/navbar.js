@@ -150,6 +150,14 @@ export default function Navbar() {
                 Study Abroad
             </a>
 
+            <a
+                href="/online-education"
+                class="navbar-link"
+                aria-label="Online Education Programs"
+            >
+                Online Education
+            </a>
+
 
             <!-- =================================================
                  SCHOLARSHIPS

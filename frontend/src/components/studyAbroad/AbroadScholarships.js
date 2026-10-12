@@ -104,17 +104,15 @@ export default function AbroadScholarships() {
 
                     <h2>
 
-                        Study Abroad
-                        <span>Scholarships</span>
+                        Study Abroad Scholarships
+                        <span> for Indian Students</span>
 
                     </h2>
 
 
                     <p>
 
-                        Discover scholarship and funding opportunities
-                        that can help make your international education
-                        more affordable.
+                        Search for scholarships to study abroad by destination, university, course and study level. Eligibility, funding and deadlines vary by award, so confirm current terms on the official scholarship or university website before applying.
 
                     </p>
 

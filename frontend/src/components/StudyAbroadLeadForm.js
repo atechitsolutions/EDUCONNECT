@@ -44,14 +44,11 @@ export default function StudyAbroadLeadForm() {
                         </span>
 
                         <h2 id="study-abroad-lead-title">
-                            Get guidance for your study abroad plans
+                            Get study abroad guidance for your plans from India
                         </h2>
 
                         <p>
-                            Tell us about your academic background, preferred
-                            destination and course interests. Our counselling
-                            team can help you understand the next steps in
-                            your overseas education journey.
+                            Share your academic background, preferred country and course. Our counselling team can discuss university options, admission steps and planning for your study abroad application from India.
                         </p>
 
 
@@ -701,7 +698,7 @@ export default function StudyAbroadLeadForm() {
                 <div class="study-abroad-lead-seo">
 
                     <h2>
-                        Free study abroad counselling for students in India
+                        Study abroad counselling for students in India
                     </h2>
 
                     <p>

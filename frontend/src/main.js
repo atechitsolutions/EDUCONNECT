@@ -30,7 +30,6 @@ import "./assets/css/studyAbroadSearch.css";
 ========================================================= */
 
 import "./assets/css/study-abroad-destinations.css";
-import "./assets/css/study-abroad-intakes.css";
 
 
 /* =========================================================
@@ -121,9 +120,9 @@ import "./assets/css/home.css";
 import "./assets/css/footer.css";
 import "./assets/css/ticker.css";
 import "./assets/css/ui.css";
-import "./assets/css/institutionSearch.css";
 import "./assets/css/responsive.css";
 import "./assets/css/earlyLearning.css";
+import "./assets/css/online-education.css";
 
 
 /* =========================================================
@@ -132,11 +131,10 @@ import "./assets/css/earlyLearning.css";
 
 import Router
     from "./router/router.js";
+import { initOnlineEducationPage } from "./assets/js/onlineEducationPage.js";
 
-import {
-    initInstitutionSearch,
-    loadStudyAbroadInstitutions
-} from "./assets/js/institutionSearch.js";
+import { applyStudyAbroadSEO }
+    from "./utils/studyAbroadSEO.js";
 
 
 /* =========================================================
@@ -164,6 +162,7 @@ import {
 import {
     initStudyAbroadCarousel
 } from "./assets/js/studyAbroadCarousel.js";
+
 
 
 /* =========================================================
@@ -269,7 +268,11 @@ document.addEventListener(
         app.innerHTML =
             Router();
 
-        initInstitutionSearch();
+        applyStudyAbroadSEO();
+
+        if (document.querySelector("#online-education-page")) {
+            initOnlineEducationPage();
+        }
 
 
         /* =====================================================
@@ -313,31 +316,14 @@ document.addEventListener(
            STUDY ABROAD CAROUSEL
         ====================================================== */
 
-        const hasStudyAbroadHomeCarousel =
-            Boolean(document.querySelector("#study-abroad"));
-        const hasStudyAbroadInstitutionSection =
-            Boolean(
-                document.querySelector(
-                    "[data-study-abroad-institutions]"
-                )
-            );
-
         if (
-            hasStudyAbroadHomeCarousel ||
-            hasStudyAbroadInstitutionSection
+            document.querySelector(
+                "#study-abroad"
+            )
         ) {
-            loadStudyAbroadInstitutions()
-                .catch((error) => {
-                    console.error(
-                        "Unable to load study abroad institutions.",
-                        error
-                    );
-                })
-                .finally(() => {
-                    if (hasStudyAbroadHomeCarousel) {
-                        initStudyAbroadCarousel();
-                    }
-                });
+
+            initStudyAbroadCarousel();
+
         }
 
 

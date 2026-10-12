@@ -18,11 +18,60 @@
    UNIVERSITY CARD DATA
 ========================================================= */
 
+const UPGRAD_CS_CATALOG_SOURCE =
+    "https://www.upgrad.com/study-abroad/abroad/courses/computer-science/";
+const UPGRAD_STUDY_ABROAD_SOURCE =
+    "https://www.upgrad.com/study-abroad/";
+
 function countryUniversityCards(country) {
 
     const universities = {
 
         USA: [
+            {
+                logo: "YU",
+                tag: "COMPUTING",
+                tagClass: "purple",
+                title: "MS Computer Science",
+                university: "Yeshiva University",
+                meta1: "",
+                meta2: "USA",
+                sourceUrl: UPGRAD_CS_CATALOG_SOURCE,
+                lastVerifiedAt: "2026-10-11"
+            },
+            {
+                logo: "WSU",
+                tag: "COMPUTING",
+                tagClass: "blue",
+                title: "BS Engineering · Computer Science option",
+                university: "Washington State University",
+                meta1: "",
+                meta2: "USA",
+                sourceUrl: UPGRAD_CS_CATALOG_SOURCE,
+                lastVerifiedAt: "2026-10-11"
+            },
+            {
+                logo: "TROY",
+                tag: "COMPUTING",
+                tagClass: "purple",
+                title: "Master in Computer Science",
+                university: "Troy University",
+                meta1: "",
+                meta2: "USA",
+                sourceUrl: UPGRAD_CS_CATALOG_SOURCE,
+                lastVerifiedAt: "2026-10-11"
+            },
+            {
+                logo: "DEP",
+                tag: "BUSINESS",
+                tagClass: "blue",
+                title: "Master of Business Administration",
+                university: "DePaul University",
+                meta1: "",
+                meta2: "USA",
+                sourceUrl: UPGRAD_STUDY_ABROAD_SOURCE,
+                lastVerifiedAt: "2026-10-11"
+            },
             {
                 logo: "NU",
                 tag: "TOP UNIVERSITY",
@@ -63,6 +112,50 @@ function countryUniversityCards(country) {
 
         Germany: [
             {
+                logo: "UAM",
+                tag: "COMPUTING",
+                tagClass: "purple",
+                title: "MSc Computer Science · 90 ECTS",
+                university: "University of Applied Management",
+                meta1: "",
+                meta2: "Germany",
+                sourceUrl: UPGRAD_CS_CATALOG_SOURCE,
+                lastVerifiedAt: "2026-10-11"
+            },
+            {
+                logo: "CODE",
+                tag: "COMPUTING",
+                tagClass: "blue",
+                title: "BSc Software Engineering",
+                university: "CODE University of Applied Sciences",
+                meta1: "",
+                meta2: "Germany",
+                sourceUrl: UPGRAD_CS_CATALOG_SOURCE,
+                lastVerifiedAt: "2026-10-11"
+            },
+            {
+                logo: "UAM",
+                tag: "BUSINESS",
+                tagClass: "purple",
+                title: "MBA · 90 ECTS",
+                university: "University of Applied Management",
+                meta1: "",
+                meta2: "Germany",
+                sourceUrl: UPGRAD_STUDY_ABROAD_SOURCE,
+                lastVerifiedAt: "2026-10-11"
+            },
+            {
+                logo: "TU",
+                tag: "BUSINESS",
+                tagClass: "blue",
+                title: "MBA",
+                university: "Touro University, Germany",
+                meta1: "",
+                meta2: "Germany",
+                sourceUrl: UPGRAD_STUDY_ABROAD_SOURCE,
+                lastVerifiedAt: "2026-10-11"
+            },
+            {
                 logo: "TUM",
                 tag: "TOP UNIVERSITY",
                 tagClass: "purple",
@@ -101,6 +194,17 @@ function countryUniversityCards(country) {
         ],
 
         France: [
+            {
+                logo: "PSB",
+                tag: "BUSINESS",
+                tagClass: "purple",
+                title: "Master of Business Administration",
+                university: "Paris School of Business",
+                meta1: "",
+                meta2: "France",
+                sourceUrl: UPGRAD_STUDY_ABROAD_SOURCE,
+                lastVerifiedAt: "2026-10-11"
+            },
             {
                 logo: "PSL",
                 tag: "TOP UNIVERSITY",
@@ -141,6 +245,28 @@ function countryUniversityCards(country) {
 
         UK: [
             {
+                logo: "SUS",
+                tag: "COMPUTING",
+                tagClass: "purple",
+                title: "MSc Advanced Computer Science",
+                university: "University of Sussex",
+                meta1: "",
+                meta2: "UK",
+                sourceUrl: UPGRAD_CS_CATALOG_SOURCE,
+                lastVerifiedAt: "2026-10-11"
+            },
+            {
+                logo: "SUS",
+                tag: "BUSINESS",
+                tagClass: "blue",
+                title: "Master of Business Administration",
+                university: "University of Sussex",
+                meta1: "",
+                meta2: "UK",
+                sourceUrl: UPGRAD_STUDY_ABROAD_SOURCE,
+                lastVerifiedAt: "2026-10-11"
+            },
+            {
                 logo: "MAN",
                 tag: "TOP UNIVERSITY",
                 tagClass: "purple",
@@ -180,6 +306,17 @@ function countryUniversityCards(country) {
 
         Australia: [
             {
+                logo: "MAC",
+                tag: "TECHNOLOGY",
+                tagClass: "blue",
+                title: "Bachelor of Information Technology",
+                university: "Macquarie University",
+                meta1: "",
+                meta2: "Australia",
+                sourceUrl: UPGRAD_CS_CATALOG_SOURCE,
+                lastVerifiedAt: "2026-10-11"
+            },
+            {
                 logo: "USYD",
                 tag: "TOP UNIVERSITY",
                 tagClass: "purple",
@@ -218,6 +355,28 @@ function countryUniversityCards(country) {
         ],
 
         Finland: [
+            {
+                logo: "HAAGA",
+                tag: "TECHNOLOGY",
+                tagClass: "blue",
+                title: "BBA Business Information Technology",
+                university: "Haaga-Helia University of Applied Sciences",
+                meta1: "",
+                meta2: "Finland",
+                sourceUrl: UPGRAD_CS_CATALOG_SOURCE,
+                lastVerifiedAt: "2026-10-11"
+            },
+            {
+                logo: "SEAMK",
+                tag: "BUSINESS",
+                tagClass: "purple",
+                title: "MBA in International Business Management",
+                university: "Seinäjoki University of Applied Sciences",
+                meta1: "",
+                meta2: "Finland",
+                sourceUrl: UPGRAD_STUDY_ABROAD_SOURCE,
+                lastVerifiedAt: "2026-10-11"
+            },
             {
                 logo: "AAL",
                 tag: "TOP UNIVERSITY",
@@ -297,6 +456,28 @@ function countryUniversityCards(country) {
 
         Canada: [
             {
+                logo: "ALG",
+                tag: "COMPUTING",
+                tagClass: "purple",
+                title: "Bachelor of Computer Science",
+                university: "Algoma University",
+                meta1: "",
+                meta2: "Canada",
+                sourceUrl: UPGRAD_CS_CATALOG_SOURCE,
+                lastVerifiedAt: "2026-10-11"
+            },
+            {
+                logo: "WAT",
+                tag: "BUSINESS",
+                tagClass: "blue",
+                title: "Master of Business, Entrepreneurship and Technology",
+                university: "University of Waterloo",
+                meta1: "",
+                meta2: "Canada",
+                sourceUrl: UPGRAD_STUDY_ABROAD_SOURCE,
+                lastVerifiedAt: "2026-10-11"
+            },
+            {
                 logo: "UOT",
                 tag: "TOP UNIVERSITY",
                 tagClass: "purple",
@@ -375,6 +556,17 @@ function countryUniversityCards(country) {
 
         Ireland: [
             {
+                logo: "UCC",
+                tag: "FINANCE",
+                tagClass: "blue",
+                title: "MSc Finance: Investment & Asset Management",
+                university: "University College Cork",
+                meta1: "",
+                meta2: "Ireland",
+                sourceUrl: UPGRAD_STUDY_ABROAD_SOURCE,
+                lastVerifiedAt: "2026-10-11"
+            },
+            {
                 logo: "TCD",
                 tag: "TOP UNIVERSITY",
                 tagClass: "purple",
@@ -415,15 +607,13 @@ function countryUniversityCards(country) {
     };
 
 
-    const list =
-        universities[country] ||
-        universities.USA;
+    const list = universities[country] || universities.USA;
 
 
     return list.map((item) => {
 
         return `
-            <article class="edu-university-card">
+            <article class="edu-university-card" data-program-country="${item.meta2}">
 
                 <div class="edu-university-card-top">
 
@@ -431,9 +621,7 @@ function countryUniversityCards(country) {
                         ${item.logo}
                     </div>
 
-                    <span class="edu-university-tag ${item.tagClass}">
-                        ${item.tag}
-                    </span>
+                    <span class="edu-university-tag ${item.sourceUrl ? "blue" : "purple"}">${item.sourceUrl ? "PUBLIC LISTING" : "ILLUSTRATIVE"}</span>
 
                 </div>
 
@@ -457,7 +645,7 @@ function countryUniversityCards(country) {
 
                 </div>
 
-                <a href="#study-abroad-universities">
+                <a href="#study-abroad-country-comparison">
                     View details
                     <span>→</span>
                 </a>
@@ -470,6 +658,77 @@ function countryUniversityCards(country) {
 }
 
 
+/* Filter the local discovery sample by subject and programme level. */
+function applyProgramFilters(panel, subject = "", level = "") {
+    if (!panel) return;
+    const subjects = {
+        "Computer Science": /computer science|computing|software|informatics|information technology|cyber\s?security/i,
+        "Business": /business|management|mba|entrepreneur|finance|accounting/i,
+        "Engineering": /engineering|engineer/i, "Data Science": /data science|analytics/i,
+        "MBA": /\bmba\b|master of business administration/i,
+        "Information Technology": /information technology|\bIT\b|computing/i,
+        "AI & Machine Learning": /artificial intelligence|\bAI\b|machine learning/i,
+        "Technology": /technology|computing|computer science|information technology/i,
+        "Management": /management|business administration/i, "Finance": /finance|accounting/i,
+        "Healthcare": /health|medical|nursing|public health/i, "Education": /education|teaching/i,
+        "Arts & Humanities": /arts|humanities|history|literature/i, "Law": /\blaw\b|legal/i,
+        "Cybersecurity": /cyber\s?security|information security/i, "Marketing": /marketing/i,
+        "Psychology": /psychology/i, "Design": /design|media/i, "Economics": /economics/i,
+        "Nursing": /nursing/i, "IT": /information technology|\bIT\b/i,
+        "AI": /artificial intelligence|\bAI\b|machine learning/i
+    };
+    const levels = {
+        "Undergraduate": /bachelor|undergraduate|\bBSc\b|\bBA\b|\bBBA\b|\bBS\b/i,
+        "Postgraduate": /master|postgraduate|\bMSc\b|\bMS\b|\bMPS\b|MBA|doctorate|ph\.?d/i,
+        "MBA": /\bmba\b|master of business administration/i,
+        "PhD": /ph\.?d|doctorate|doctoral/i
+    };
+    const subjectPattern = subjects[subject];
+    const levelPattern = levels[level];
+    const cards = Array.from(panel.querySelectorAll(".edu-university-card"));
+    let count = 0;
+    cards.forEach((card) => {
+        const text = card.textContent || "";
+        card.hidden = Boolean((subjectPattern && !subjectPattern.test(text)) || (levelPattern && !levelPattern.test(text)));
+        if (!card.hidden) count += 1;
+    });
+    const status = panel.querySelector("[data-program-status]");
+    if (status) {
+        const active = [subject, level].filter(Boolean);
+        const countryName = panel.querySelector(".edu-country-heading h3")?.childNodes[0]?.textContent?.trim() || "this country";
+        status.textContent = active.length
+            ? count + " matching sample listings for " + active.join(" · ") + " in " + countryName + "."
+            : count + " sample listings for " + countryName + "; this local view is not a complete catalogue.";
+    }
+    const empty = panel.querySelector("[data-program-empty]");
+    if (empty) empty.hidden = count !== 0;
+    panel.querySelectorAll("[data-country-subject]").forEach((button) => {
+        const selected = button.dataset.countrySubject === (subject || "All programmes");
+        button.classList.toggle("active", selected);
+        button.setAttribute("aria-pressed", String(selected));
+    });
+}
+
+function openSelectedCountryResults(navbar, { subject = "", level = "" } = {}) {
+    const mega = navbar?.querySelector(".edu-country-mega");
+    const selectedPanel = mega?.querySelector(".edu-country-panel.active")
+        || mega?.querySelector('[data-country-panel="USA"]');
+    if (!mega || !selectedPanel) return;
+    applyProgramFilters(selectedPanel, subject, level);
+    const menu = navbar.querySelector('[data-mega-menu="countries"]');
+    const trigger = navbar.querySelector('[data-mega-trigger="countries"]');
+    navbar.querySelectorAll(".edu-study-mega.is-open").forEach((item) => item.classList.remove("is-open"));
+    navbar.querySelectorAll(".edu-study-nav-item.is-open").forEach((item) => item.classList.remove("is-open"));
+    navbar.querySelectorAll(".edu-study-nav-button.is-open").forEach((item) => {
+        item.classList.remove("is-open");
+        item.setAttribute("aria-expanded", "false");
+    });
+    menu?.classList.add("is-open");
+    trigger?.classList.add("is-open");
+    trigger?.setAttribute("aria-expanded", "true");
+    trigger?.closest(".edu-study-nav-item")?.classList.add("is-open");
+    navbar.querySelector(".edu-study-menu")?.classList.add("is-open");
+}
 /* =========================================================
    COUNTRY PANEL
 ========================================================= */
@@ -480,6 +739,8 @@ function countryPanel(
     subjects
 ) {
 
+    const panelSubjects = ["All programmes", ...new Set(subjects.filter((subject) => subject !== "All programmes"))];
+
     return `
         <div
             class="edu-country-panel ${country === "USA" ? "active" : ""}"
@@ -488,12 +749,9 @@ function countryPanel(
 
             <div class="edu-country-heading">
 
-                <h3>
-                    ${country}
-                    <span>(${count} Universities)</span>
-                </h3>
+                <h3>${country}<span>(Programme options)</span></h3>
 
-                <a href="#study-abroad-universities">
+                <a href="#study-abroad-country-comparison">
                     View All
                 </a>
 
@@ -502,9 +760,11 @@ function countryPanel(
 
             <div class="edu-country-chips">
 
-                ${subjects.map((subject) => `
+                ${panelSubjects.map((subject) => `
                     <button
                         type="button"
+                        class="${subject === "All programmes" ? "active" : ""}"
+                        aria-pressed="${subject === "All programmes" ? "true" : "false"}"
                         data-country-subject="${subject}"
                     >
                         ${subject}
@@ -512,13 +772,14 @@ function countryPanel(
                 `).join("")}
 
             </div>
+            <p class="edu-country-filter-status" data-program-status role="status" aria-live="polite"></p>
 
-
-            <div class="edu-university-grid">
+<div class="edu-university-grid">
 
                 ${countryUniversityCards(country)}
 
             </div>
+<div class="edu-country-empty" data-program-empty hidden><strong>No sample options match these filters yet.</strong><span>Choose “All programmes” to reset and browse available listings.</span></div>
 
         </div>
     `;
@@ -551,6 +812,15 @@ export default function StudyAbroadNavbar() {
         document.addEventListener(
             "click",
             (event) => {
+
+                const courseFilterLink = event.target.closest("[data-explore-subject], [data-explore-level]");
+                if (courseFilterLink) {
+                    event.preventDefault(); event.stopPropagation();
+                    const nav = document.querySelector("#edu-study-nav");
+                    if (!nav) return;
+                    openSelectedCountryResults(nav, { subject: courseFilterLink.dataset.exploreSubject || "", level: courseFilterLink.dataset.exploreLevel || "" });
+                    return;
+                }
 
                 const destinationsLink =
                     event.target.closest(
@@ -864,11 +1134,8 @@ export default function StudyAbroadNavbar() {
 
 
                     if (selectedPanel) {
-
-                        selectedPanel.classList.add(
-                            "active"
-                        );
-
+                        selectedPanel.classList.add("active");
+                        applyProgramFilters(selectedPanel);
                     }
 
                     return;
@@ -879,49 +1146,16 @@ export default function StudyAbroadNavbar() {
                    SUBJECT CHIP
                 ========================================== */
 
-                const subjectButton =
-                    event.target.closest(
-                        "[data-country-subject]"
-                    );
-
+                const subjectButton = event.target.closest("[data-country-subject]");
 
                 if (subjectButton) {
-
-                    event.preventDefault();
-                    event.stopPropagation();
-
-
-                    const panel =
-                        subjectButton.closest(
-                            ".edu-country-panel"
-                        );
-
-
-                    if (!panel) {
-                        return;
-                    }
-
-
-                    panel
-                        .querySelectorAll(
-                            "[data-country-subject]"
-                        )
-                        .forEach((button) => {
-
-                            button.classList.remove(
-                                "active"
-                            );
-
-                        });
-
-
-                    subjectButton.classList.add(
-                        "active"
-                    );
-
+                    event.preventDefault(); event.stopPropagation();
+                    const panel = subjectButton.closest(".edu-country-panel");
+                    if (!panel) return;
+                    const selected = subjectButton.dataset.countrySubject;
+                    applyProgramFilters(panel, selected === "All programmes" ? "" : selected);
                     return;
                 }
-
 
                 /* =========================================
                    SIDEBAR MENU
@@ -1190,8 +1424,7 @@ export default function StudyAbroadNavbar() {
                                         Explore Countries
                                     </div>
 
-
-                                    <button
+<button
                                         type="button"
                                         class="edu-country-item active"
                                         data-country="USA"
@@ -1597,23 +1830,23 @@ export default function StudyAbroadNavbar() {
                                                 Popular Destinations
                                             </h4>
 
-                                            <a href="#study-abroad-destinations">
+                                            <a href="#study-abroad-country-comparison">
                                                 USA
                                             </a>
 
-                                            <a href="#study-abroad-destinations">
+                                            <a href="#study-abroad-country-comparison">
                                                 UK
                                             </a>
 
-                                            <a href="#study-abroad-destinations">
+                                            <a href="#study-abroad-country-comparison">
                                                 Canada
                                             </a>
 
-                                            <a href="#study-abroad-destinations">
+                                            <a href="#study-abroad-country-comparison">
                                                 Australia
                                             </a>
 
-                                            <a href="#study-abroad-destinations">
+                                            <a href="#study-abroad-country-comparison">
                                                 Germany
                                             </a>
 
@@ -1626,19 +1859,19 @@ export default function StudyAbroadNavbar() {
                                                 Europe
                                             </h4>
 
-                                            <a href="#study-abroad-destinations">
+                                            <a href="#study-abroad-country-comparison">
                                                 France
                                             </a>
 
-                                            <a href="#study-abroad-destinations">
+                                            <a href="#study-abroad-country-comparison">
                                                 Finland
                                             </a>
 
-                                            <a href="#study-abroad-destinations">
+                                            <a href="#study-abroad-country-comparison">
                                                 Hungary
                                             </a>
 
-                                            <a href="#study-abroad-destinations">
+                                            <a href="#study-abroad-country-comparison">
                                                 Ireland
                                             </a>
 
@@ -1651,15 +1884,15 @@ export default function StudyAbroadNavbar() {
                                                 Middle East
                                             </h4>
 
-                                            <a href="#study-abroad-destinations">
+                                            <a href="#study-abroad-country-comparison">
                                                 UAE
                                             </a>
 
-                                            <a href="#study-abroad-destinations">
+                                            <a href="#study-abroad-country-comparison">
                                                 Dubai
                                             </a>
 
-                                            <a href="#study-abroad-destinations">
+                                            <a href="#study-abroad-country-comparison">
                                                 Abu Dhabi
                                             </a>
 
@@ -1708,15 +1941,15 @@ export default function StudyAbroadNavbar() {
                                                 University Types
                                             </h4>
 
-                                            <a href="#study-abroad-universities">
+                                            <a href="#study-abroad-country-comparison">
                                                 Top Universities
                                             </a>
 
-                                            <a href="#study-abroad-universities">
+                                            <a href="#study-abroad-country-comparison">
                                                 Public Universities
                                             </a>
 
-                                            <a href="#study-abroad-universities">
+                                            <a href="#study-abroad-country-comparison">
                                                 Private Universities
                                             </a>
 
@@ -1729,15 +1962,15 @@ export default function StudyAbroadNavbar() {
                                                 Explore By
                                             </h4>
 
-                                            <a href="#study-abroad-universities">
+                                            <a href="#study-abroad-country-comparison">
                                                 Ranking
                                             </a>
 
-                                            <a href="#study-abroad-universities">
+                                            <a href="#study-abroad-country-comparison">
                                                 Country
                                             </a>
 
-                                            <a href="#study-abroad-universities">
+                                            <a href="#study-abroad-destinations">
                                                 Course
                                             </a>
 
@@ -1757,19 +1990,19 @@ export default function StudyAbroadNavbar() {
                                                 Popular Courses
                                             </h4>
 
-                                            <a href="#study-abroad-course-explorer">
+                                            <a href="#study-abroad-search" data-explore-subject="Computer Science">
                                                 Computer Science
                                             </a>
 
-                                            <a href="#study-abroad-course-explorer">
+                                            <a href="#study-abroad-search" data-explore-subject="Business">
                                                 Business
                                             </a>
 
-                                            <a href="#study-abroad-course-explorer">
+                                            <a href="#study-abroad-search" data-explore-subject="Engineering">
                                                 Engineering
                                             </a>
 
-                                            <a href="#study-abroad-course-explorer">
+                                            <a href="#study-abroad-search" data-explore-subject="Data Science">
                                                 Data Science
                                             </a>
 
@@ -1782,19 +2015,19 @@ export default function StudyAbroadNavbar() {
                                                 Study Level
                                             </h4>
 
-                                            <a href="#study-abroad-degree-explorer">
+                                            <a href="#study-abroad-search" data-explore-level="Undergraduate">
                                                 Undergraduate
                                             </a>
 
-                                            <a href="#study-abroad-degree-explorer">
+                                            <a href="#study-abroad-search" data-explore-level="Postgraduate">
                                                 Postgraduate
                                             </a>
 
-                                            <a href="#study-abroad-degree-explorer">
+                                            <a href="#study-abroad-search" data-explore-level="MBA">
                                                 MBA
                                             </a>
 
-                                            <a href="#study-abroad-degree-explorer">
+                                            <a href="#study-abroad-search" data-explore-level="PhD">
                                                 PhD
                                             </a>
 
@@ -1858,9 +2091,18 @@ export default function StudyAbroadNavbar() {
                                     <button
                                         type="button"
                                         class="edu-study-side-item"
-                                        data-mega-panel="admission-tests"
+                                        data-mega-panel="graduate-admissions"
                                     >
                                         Admission Tests
+                                        <span>→</span>
+                                    </button> 
+                                    <button type="button" class="edu-study-side-item" data-mega-panel="undergraduate-admissions" aria-controls="undergraduate-admissions">
+                                        Undergraduate Admission
+                                        <span>→</span>
+                                    </button>
+
+                                    <button type="button" class="edu-study-side-item" data-mega-panel="test-planning" aria-controls="test-planning">
+                                        Test Requirements
                                         <span>→</span>
                                     </button>
 
@@ -1882,20 +2124,20 @@ export default function StudyAbroadNavbar() {
                                                 English Tests
                                             </h4>
 
-                                            <a href="#study-abroad-exams">
+                                            <a href="https://ielts.org/take-a-test" target="_blank" rel="noopener noreferrer">
                                                 IELTS
                                             </a>
 
-                                            <a href="#study-abroad-exams">
-                                                TOEFL
+                                            <a href="https://www.ets.org/toefl/test-takers/ibt/about/content.html" target="_blank" rel="noopener noreferrer">
+                                                TOEFL iBT
                                             </a>
 
-                                            <a href="#study-abroad-exams">
-                                                PTE
+                                            <a href="https://www.pearsonpte.com/pte-academic/" target="_blank" rel="noopener noreferrer">
+                                                PTE Academic
                                             </a>
 
-                                            <a href="#study-abroad-exams">
-                                                Duolingo
+                                            <a href="https://englishtest.duolingo.com/" target="_blank" rel="noopener noreferrer">
+                                                Duolingo English Test
                                             </a>
 
                                         </div>
@@ -1907,16 +2149,16 @@ export default function StudyAbroadNavbar() {
                                                 Preparation
                                             </h4>
 
-                                            <a href="#study-abroad-exams">
-                                                Exam Pattern
+                                            <a href="https://ielts.org/take-a-test/test-types" target="_blank" rel="noopener noreferrer">
+                                                IELTS test types &amp; format ↗
                                             </a>
 
-                                            <a href="#study-abroad-exams">
-                                                Preparation Guide
+                                            <a href="https://ielts.org/take-a-test/preparation-resources" target="_blank" rel="noopener noreferrer">
+                                                IELTS preparation resources ↗
                                             </a>
 
-                                            <a href="#study-abroad-exams">
-                                                Practice
+                                            <a href="https://ielts.org/take-a-test/your-results" target="_blank" rel="noopener noreferrer">
+                                                IELTS results &amp; score guidance ↗
                                             </a>
 
                                         </div>
@@ -1942,60 +2184,102 @@ export default function StudyAbroadNavbar() {
                                                 study destination.
                                             </p>
 
-                                            <a href="#study-abroad-exams">
-                                                Explore exams →
+                                            <a href="#study-abroad-faq">
+                                                Browse EduConnect study-abroad FAQs →
                                             </a>
 
                                         </div>
 
+                                     
+                                        <div class="edu-study-column">
+                                            <h4>Plan before you book</h4>
+                                            <a href="#abroad-exams">Compare exam overviews on EduConnect</a>
+                                            <a href="#study-abroad-faq">Check admission requirement guidance</a>
+                                            <a href="#study-abroad-destination-explorer">Explore study destinations</a>
+                                        </div></div>
+
+
+                                    <div class="edu-study-panel" data-mega-content="graduate-admissions">
+                                        <div class="edu-study-column">
+                                            <h4>Graduate admission tests</h4>
+                                            <a href="https://www.ets.org/gre/test-takers/general-test/about.html" target="_blank" rel="noopener noreferrer">GRE General Test ↗</a>
+                                            <a href="https://www.mba.com/exams/gmat-exam" target="_blank" rel="noopener noreferrer">GMAT Exam ↗</a>
+                                            <a href="#abroad-exams">See exam summaries on EduConnect</a>
+                                        </div>
+                                        <div class="edu-study-column">
+                                            <h4>What to review</h4>
+                                            <a href="#abroad-exams">Test sections and score overview</a>
+                                            <a href="#study-abroad-faq">Programme entry requirements</a>
+                                            <a href="#study-abroad-course-explorer">Explore graduate programmes</a>
+                                        </div>
+                                        <div class="edu-study-column">
+                                            <h4>Prepare your application</h4>
+                                            <a href="#study-abroad-documents">Application document guidance</a>
+                                            <a href="#study-abroad-application">Application steps</a>
+                                            <a href="#study-abroad-intakes">Plan around an intake</a>
+                                        </div>
+                                        <div class="edu-study-feature">
+                                            <span class="edu-study-feature-icon" aria-hidden="true">✦</span>
+                                            <strong>Check before you prepare</strong>
+                                            <p>Test requirements can differ by institution, programme and applicant. Confirm the current policy with your chosen provider.</p>
+                                            <a href="#study-abroad-faq">Review EduConnect guidance →</a>
+                                        </div>
                                     </div>
 
-
-                                    <div
-                                        class="edu-study-panel"
-                                        data-mega-content="admission-tests"
-                                    >
-
+                                 
+                                    <div class="edu-study-panel" id="undergraduate-admissions" data-mega-content="undergraduate-admissions">
                                         <div class="edu-study-column">
-
-                                            <h4>
-                                                Graduate
-                                            </h4>
-
-                                            <a href="#study-abroad-exams">
-                                                GRE
-                                            </a>
-
-                                            <a href="#study-abroad-exams">
-                                                GMAT
-                                            </a>
-
-                                            <a href="#study-abroad-exams">
-                                                SAT
-                                            </a>
-
+                                            <h4>Undergraduate admission tests</h4>
+                                            <a href="https://satsuite.collegeboard.org/sat" target="_blank" rel="noopener noreferrer">SAT · official test information ↗</a>
+                                            <a href="https://www.act.org/content/act/en/products-and-services/the-act.html" target="_blank" rel="noopener noreferrer">ACT · official test information ↗</a>
+                                            <a href="#abroad-exams">See exam summaries on EduConnect</a>
                                         </div>
-
-
                                         <div class="edu-study-column">
-
-                                            <h4>
-                                                Other Tests
-                                            </h4>
-
-                                            <a href="#study-abroad-exams">
-                                                ACT
-                                            </a>
-
-                                            <a href="#study-abroad-exams">
-                                                University Tests
-                                            </a>
-
+                                            <h4>Application planning</h4>
+                                            <a href="#study-abroad-application">Review application steps</a>
+                                            <a href="#study-abroad-documents">Prepare document checklist</a>
+                                            <a href="#study-abroad-intakes">Explore intake planning</a>
                                         </div>
-
+                                        <div class="edu-study-column">
+                                            <h4>Find suitable options</h4>
+                                            <a href="#study-abroad-destination-explorer">Browse destinations</a>
+                                            <a href="#study-abroad-course-explorer">Explore course options</a>
+                                            <a href="#study-abroad-faq">Check entry guidance</a>
+                                        </div>
+                                        <div class="edu-study-feature">
+                                            <span class="edu-study-feature-icon" aria-hidden="true">✓</span>
+                                            <strong>Plan your next steps</strong>
+                                            <p>Check the current test policy and application requirements for each institution you are considering.</p>
+                                            <a href="#study-abroad-application">Open the application guide →</a>
+                                        </div>
                                     </div>
 
-                                </div>
+                                    <div class="edu-study-panel" id="test-planning" data-mega-content="test-planning">
+                                        <div class="edu-study-column">
+                                            <h4>Choose a test category</h4>
+                                            <a href="#abroad-exams">English proficiency exams</a>
+                                            <a href="#abroad-exams">Graduate admission exams</a>
+                                            <a href="#abroad-exams">Undergraduate admission exams</a>
+                                        </div>
+                                        <div class="edu-study-column">
+                                            <h4>Verify requirements</h4>
+                                            <a href="#study-abroad-faq">Review entry requirements</a>
+                                            <a href="#study-abroad-course-explorer">Check programme details</a>
+                                            <a href="#study-abroad-destination-explorer">Explore destination options</a>
+                                        </div>
+                                        <div class="edu-study-column">
+                                            <h4>Get ready to apply</h4>
+                                            <a href="#study-abroad-documents">Review document guidance</a>
+                                            <a href="#study-abroad-application">Follow application steps</a>
+                                            <a href="#study-abroad-intakes">Plan an intake timeline</a>
+                                        </div>
+                                        <div class="edu-study-feature">
+                                            <span class="edu-study-feature-icon" aria-hidden="true">i</span>
+                                            <strong>Requirements vary</strong>
+                                            <p>Confirm accepted tests, scores and deadlines directly with the institution and programme.</p>
+                                            <a href="#study-abroad-faq">Read EduConnect FAQs →</a>
+                                        </div>
+                                    </div></div>
 
                             </div>
 
@@ -2044,7 +2328,16 @@ export default function StudyAbroadNavbar() {
                                         class="edu-study-side-item active"
                                         data-mega-panel="study-guides"
                                     >
-                                        Study Guides
+                                        Articles &amp; Guides
+                                        <span>→</span>
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        class="edu-study-side-item"
+                                        data-mega-panel="planning-hub"
+                                    >
+                                        Study Planning Hub
                                         <span>→</span>
                                     </button>
 
@@ -2053,16 +2346,25 @@ export default function StudyAbroadNavbar() {
                                         class="edu-study-side-item"
                                         data-mega-panel="scholarships"
                                     >
-                                        Scholarships
+                                        Scholarships &amp; Funding
                                         <span>→</span>
                                     </button>
 
                                     <button
                                         type="button"
                                         class="edu-study-side-item"
-                                        data-mega-panel="career"
+                                        data-mega-panel="resource-tests"
                                     >
-                                        Jobs & Career
+                                        Tests &amp; Preparation
+                                        <span>→</span>
+                                    </button> 
+                                    <button type="button" class="edu-study-side-item" data-mega-panel="application-documents" aria-controls="application-documents">
+                                        Applications &amp; Documents
+                                        <span>→</span>
+                                    </button>
+
+                                    <button type="button" class="edu-study-side-item" data-mega-panel="popular-guides" aria-controls="popular-guides">
+                                        Popular Study Guides
                                         <span>→</span>
                                     </button>
 
@@ -2084,17 +2386,17 @@ export default function StudyAbroadNavbar() {
                                                 Study Guides
                                             </h4>
 
-                                            <a href="#study-abroad-admission-requirements">
+                                            <a href="#study-abroad-faq">
                                                 Admission Requirements
                                             </a>
 
-                                            <a href="#study-abroad-application-process">
+                                            <a href="#study-abroad-lead-form">
                                                 Application Process
                                             </a>
 
-                                            <a href="#study-abroad-intakes">
-                                                Intakes
-                                            </a>
+                                            <a href="#study-abroad-intakes">Intakes</a>
+                                            <a href="#study-abroad-destinations">Choose a destination</a>
+                                            <a href="#study-abroad-lead-form">Application document guidance →</a>
 
                                         </div>
 
@@ -2109,13 +2411,12 @@ export default function StudyAbroadNavbar() {
                                                 Cost & Finance
                                             </a>
 
-                                            <a href="#study-abroad-scholarships">
+                                            <a href="#abroad-scholarships">
                                                 Scholarships
                                             </a>
 
-                                            <a href="#study-abroad-faq">
-                                                FAQs
-                                            </a>
+                                            <a href="#study-abroad-faq">FAQs</a>
+                                            <a href="#abroad-scholarships">Funding information →</a>
 
                                         </div>
 
@@ -2139,7 +2440,7 @@ export default function StudyAbroadNavbar() {
                                                 to plan your journey.
                                             </p>
 
-                                            <a href="#study-abroad-explorer">
+                                            <a href="#study-abroad-destinations">
                                                 Start exploring →
                                             </a>
 
@@ -2150,26 +2451,53 @@ export default function StudyAbroadNavbar() {
 
                                     <div
                                         class="edu-study-panel"
+                                        data-mega-content="planning-hub"
+                                    >
+
+                                        <div class="edu-study-column">
+                                            <h4>Choose a destination</h4>
+                                            <a href="#study-abroad-country-comparison">Compare study destinations →</a>
+                                            <a href="#study-abroad-destinations">Browse destination options</a>
+                                            <a href="#study-abroad-intakes">Explore upcoming intakes</a>
+                                        </div>
+
+                                        <div class="edu-study-column">
+                                            <h4>Find a programme</h4>
+                                            <a href="#study-abroad-destination-explorer">Explore courses and universities</a>
+                                            <a href="#study-abroad-course-explorer">Browse course options</a>
+                                            <a href="#study-abroad-faq">Review entry requirements</a>
+                                        </div>
+
+                                        <div class="edu-study-column">
+                                            <h4>Plan your budget</h4>
+                                            <a href="#study-abroad-cost">Review study costs</a>
+                                            <a href="#study-abroad-tools">Open planning tools</a>
+                                            <a href="#abroad-scholarships">Explore funding information</a>
+                                        </div>
+
+                                        <div class="edu-study-feature">
+                                            <span class="edu-study-feature-icon" aria-hidden="true">✦</span>
+                                            <strong>Build a clear study plan</strong>
+                                            <p>Compare destinations, explore programmes and check official requirements before you apply.</p>
+                                            <a href="#study-abroad-cta">Continue with EduConnect →</a>
+                                        </div>
+
+                                    </div>
+
+                                    <div
+                                        class="edu-study-panel"
                                         data-mega-content="scholarships"
                                     >
 
                                         <div class="edu-study-column">
 
-                                            <h4>
-                                                Scholarships
-                                            </h4>
+                                            <h4>Funding opportunities</h4>
 
-                                            <a href="#study-abroad-scholarships">
-                                                Merit Scholarships
-                                            </a>
-
-                                            <a href="#study-abroad-scholarships">
-                                                Need Based
-                                            </a>
-
-                                            <a href="#study-abroad-scholarships">
-                                                University Awards
-                                            </a>
+                                            <a href="#abroad-scholarships">Browse scholarship information</a>
+                                            <a href="https://foreign.fulbrightonline.org/" target="_blank" rel="noopener noreferrer">Fulbright Foreign Student Program ↗</a>
+                                            <a href="https://www.chevening.org/scholarships/" target="_blank" rel="noopener noreferrer">Chevening Scholarships ↗</a>
+                                            <a href="https://erasmus-plus.ec.europa.eu/opportunities/opportunities-for-individuals/students/erasmus-mundus-joint-masters" target="_blank" rel="noopener noreferrer">Erasmus Mundus Joint Masters ↗</a>
+                                            <a href="https://www.daad.de/en/studying-in-germany/scholarships/" target="_blank" rel="noopener noreferrer">DAAD scholarships ↗</a>
 
                                         </div>
 
@@ -2178,28 +2506,102 @@ export default function StudyAbroadNavbar() {
 
                                     <div
                                         class="edu-study-panel"
-                                        data-mega-content="career"
+                                        data-mega-content="resource-tests"
                                     >
-
                                         <div class="edu-study-column">
-
-                                            <h4>
-                                                Career
-                                            </h4>
-
-                                            <a href="#study-abroad-reviews">
-                                                Student Perspectives
-                                            </a>
-
-                                            <a href="#study-abroad-explorer">
-                                                Career Programs
-                                            </a>
-
+                                            <h4>English proficiency tests</h4>
+                                            <a href="https://ielts.org/take-a-test" target="_blank" rel="noopener noreferrer">IELTS Academic ↗</a>
+                                            <a href="https://www.ets.org/toefl/test-takers/ibt/about/content.html" target="_blank" rel="noopener noreferrer">TOEFL iBT ↗</a>
+                                            <a href="https://www.pearsonpte.com/pte-academic/" target="_blank" rel="noopener noreferrer">PTE Academic ↗</a>
+                                            <a href="https://englishtest.duolingo.com/" target="_blank" rel="noopener noreferrer">Duolingo English Test ↗</a>
                                         </div>
-
+                                        <div class="edu-study-column">
+                                            <h4>Admissions tests</h4>
+                                            <a href="https://www.ets.org/gre/test-takers/general-test/about.html" target="_blank" rel="noopener noreferrer">GRE General Test ↗</a>
+                                            <a href="https://www.mba.com/exams/gmat-exam" target="_blank" rel="noopener noreferrer">GMAT Exam ↗</a>
+                                            <a href="https://satsuite.collegeboard.org/sat" target="_blank" rel="noopener noreferrer">SAT ↗</a>
+                                            <a href="https://www.act.org/content/act/en/products-and-services/the-act.html" target="_blank" rel="noopener noreferrer">ACT ↗</a>
+                                        </div>
+                                        <div class="edu-study-column">
+                                            <h4>Preparation &amp; requirements</h4>
+                                            <a href="https://ielts.org/take-a-test/test-types" target="_blank" rel="noopener noreferrer">IELTS test types &amp; format ↗</a>
+                                            <a href="https://ielts.org/take-a-test/your-results" target="_blank" rel="noopener noreferrer">IELTS results &amp; score guidance ↗</a>
+                                            <a href="https://ielts.org/take-a-test/preparation-resources" target="_blank" rel="noopener noreferrer">IELTS preparation resources ↗</a>
+                                            <a href="#study-abroad-faq">Admission checklist</a>
+                                        </div>
                                     </div>
 
-                                </div>
+                                    <div class="edu-study-panel" data-mega-content="official-resources">
+                                        <div class="edu-study-column">
+                                            <h4>Official destination guidance</h4>
+                                            <a href="https://educationusa.state.gov/your-5-steps-us-study" target="_blank" rel="noopener noreferrer">United States · EducationUSA ↗</a>
+                                            <a href="https://www.gov.uk/student-visa" target="_blank" rel="noopener noreferrer">United Kingdom · GOV.UK ↗</a>
+                                            <a href="https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit.html" target="_blank" rel="noopener noreferrer">Canada · Study permit ↗</a>
+                                            <a href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500" target="_blank" rel="noopener noreferrer">Australia · Student visa ↗</a>
+                                        </div>
+                                        <div class="edu-study-column">
+                                            <h4>More official sources</h4>
+                                            <a href="https://www.make-it-in-germany.com/en/visa-residence/types/studying" target="_blank" rel="noopener noreferrer">Germany · Study visa ↗</a>
+                                            <a href="https://www.france-visas.gouv.fr/en/web/france-visas/etudiant" target="_blank" rel="noopener noreferrer">France · Student visa ↗</a>
+                                            <a href="https://www.irishimmigration.ie/coming-to-study-in-ireland/" target="_blank" rel="noopener noreferrer">Ireland · Study information ↗</a>
+                                            <a href="#study-abroad-faq">More EduConnect study-abroad FAQs →</a>
+                                        </div>
+                                    </div>
+
+                                 
+                                    <div class="edu-study-panel" id="application-documents" data-mega-content="application-documents">
+                                        <div class="edu-study-column">
+                                            <h4>Application documents</h4>
+                                            <a href="#study-abroad-documents">Document guidance on EduConnect</a>
+                                            <a href="#study-abroad-application">Application process and next steps</a>
+                                            <a href="#study-abroad-faq">Common application questions</a>
+                                        </div>
+                                        <div class="edu-study-column">
+                                            <h4>Statement &amp; references</h4>
+                                            <a href="#study-abroad-documents">Statement of purpose planning</a>
+                                            <a href="#study-abroad-documents">Recommendation letter planning</a>
+                                            <a href="#study-abroad-documents">Organize supporting documents</a>
+                                        </div>
+                                        <div class="edu-study-column">
+                                            <h4>Keep your application on track</h4>
+                                            <a href="#study-abroad-intakes">Review intake dates</a>
+                                            <a href="#study-abroad-application">See the application steps</a>
+                                            <a href="#study-abroad-course-explorer">Return to programme discovery</a>
+                                        </div>
+                                        <div class="edu-study-feature">
+                                            <span class="edu-study-feature-icon" aria-hidden="true">▤</span>
+                                            <strong>Get your documents ready</strong>
+                                            <p>Use EduConnect’s existing document guidance, then confirm each programme’s exact requirements.</p>
+                                            <a href="#study-abroad-documents">Open document guidance →</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="edu-study-panel" id="popular-guides" data-mega-content="popular-guides">
+                                        <div class="edu-study-column">
+                                            <h4>Explore destinations</h4>
+                                            <a href="#study-abroad-destinations">Browse study destinations</a>
+                                            <a href="#study-abroad-country-comparison">Compare country options</a>
+                                            <a href="#study-abroad-intakes">Explore study intakes</a>
+                                        </div>
+                                        <div class="edu-study-column">
+                                            <h4>Find a programme</h4>
+                                            <a href="#study-abroad-destination-explorer">Explore universities</a>
+                                            <a href="#study-abroad-course-explorer">Browse course options</a>
+                                            <a href="#study-abroad-faq">Review entry guidance</a>
+                                        </div>
+                                        <div class="edu-study-column">
+                                            <h4>Plan costs &amp; funding</h4>
+                                            <a href="#study-abroad-cost">Explore study costs</a>
+                                            <a href="#abroad-scholarships">Review scholarship information</a>
+                                            <a href="#study-abroad-tools">Open planning tools</a>
+                                        </div>
+                                        <div class="edu-study-feature">
+                                            <span class="edu-study-feature-icon" aria-hidden="true">✦</span>
+                                            <strong>Start with your priorities</strong>
+                                            <p>Compare destinations, programmes and funding information before deciding where to apply.</p>
+                                            <a href="#study-abroad-country-comparison">Compare destinations →</a>
+                                        </div>
+                                    </div></div>
 
                             </div>
 
@@ -2270,6 +2672,11 @@ export default function StudyAbroadNavbar() {
                                         <span>→</span>
                                     </button>
 
+                                    <button type="button" class="edu-study-side-item" data-mega-panel="official-resources">
+                                        Official Resources
+                                        <span>→</span>
+                                    </button>
+
                                 </aside>
 
 
@@ -2296,9 +2703,7 @@ export default function StudyAbroadNavbar() {
                                                 Country Comparison
                                             </a>
 
-                                            <a href="#study-abroad-universities">
-                                                University Shortlist
-                                            </a>
+                                            <a href="#study-abroad-destinations">Course &amp; university discovery</a>
 
                                         </div>
 
@@ -2313,17 +2718,29 @@ export default function StudyAbroadNavbar() {
                                                 Intake Planner
                                             </a>
 
-                                            <a href="#study-abroad-admission-requirements">
+                                            <a href="#study-abroad-faq">
                                                 Requirements
                                             </a>
 
-                                            <a href="#study-abroad-application-process">
+                                            <a href="#study-abroad-lead-form">
                                                 Application Process
                                             </a>
 
                                         </div>
 
-                                    </div>
+                                     
+                                        <div class="edu-study-column">
+                                            <h4>Planning tools</h4>
+                                            <a href="#study-abroad-tool-cost">Estimate your study budget</a>
+                                            <a href="#study-abroad-tool-timeline">Build an application timeline</a>
+                                            <a href="#study-abroad-tool-profile">Review your study profile</a>
+                                        </div>
+                                        <div class="edu-study-feature">
+                                            <span class="edu-study-feature-icon" aria-hidden="true">↗</span>
+                                            <strong>Plan with EduConnect</strong>
+                                            <p>Use the on-page tools to organize your budget, timeline and preparation priorities.</p>
+                                            <a href="#study-abroad-tools">Browse study planning tools →</a>
+                                        </div></div>
 
 
                                     <div
@@ -2337,15 +2754,15 @@ export default function StudyAbroadNavbar() {
                                                 EDUCONNECT
                                             </h4>
 
-                                            <a href="#study-abroad-explorer">
+                                            <a href="#study-abroad-destinations">
                                                 Study Abroad
                                             </a>
 
-                                            <a href="#study-abroad-universities">
+                                            <a href="#study-abroad-country-comparison">
                                                 University Discovery
                                             </a>
 
-                                            <a href="#study-abroad-scholarships">
+                                            <a href="#abroad-scholarships">
                                                 Scholarship Discovery
                                             </a>
 
@@ -2369,7 +2786,7 @@ export default function StudyAbroadNavbar() {
                                                 FAQs
                                             </a>
 
-                                            <a href="#study-abroad-application-process">
+                                            <a href="#study-abroad-lead-form">
                                                 Application Help
                                             </a>
 
@@ -2379,6 +2796,22 @@ export default function StudyAbroadNavbar() {
 
                                         </div>
 
+                                    </div>
+
+                                    <div class="edu-study-panel" data-mega-content="official-resources">
+                                        <div class="edu-study-column">
+                                            <h4>Official destination information</h4>
+                                            <a href="https://educationusa.state.gov/your-5-steps-us-study" target="_blank" rel="noopener noreferrer">Government and advising links ↗</a>
+                                            <a href="#study-abroad-faq">Application requirements</a>
+                                            <a href="#abroad-scholarships">Scholarships and funding ↗</a>
+                                            <a href="https://ielts.org/take-a-test" target="_blank" rel="noopener noreferrer">English test information ↗</a>
+                                        </div>
+                                        <div class="edu-study-feature">
+                                            <span class="edu-study-feature-icon" aria-hidden="true">↗</span>
+                                            <strong>Use official sources</strong>
+                                            <p>Check current visa rules, entry requirements and scholarship details with the responsible organization.</p>
+                                            <a href="#study-abroad-faq">Browse EduConnect study-abroad FAQs →</a>
+                                        </div>
                                     </div>
 
                                 </div>

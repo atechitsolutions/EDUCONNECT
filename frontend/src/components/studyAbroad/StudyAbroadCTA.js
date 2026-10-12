@@ -33,18 +33,15 @@ export default function StudyAbroadCTA() {
 
                     <h2>
 
-                        Your Global Education
-                        <span>Journey Starts Here.</span>
+                        Plan to Study Abroad
+                        <span>from India</span>
 
                     </h2>
 
 
                     <p>
 
-                        Explore universities, courses, scholarships
-                        and destinations around the world. Find the
-                        opportunities that match your academic and
-                        career goals.
+                        Compare study destinations, universities, courses and scholarships. Review admission requirements and estimated costs, then choose the next step for your overseas education plans.
 
                     </p>
 

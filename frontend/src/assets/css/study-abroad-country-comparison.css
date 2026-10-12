@@ -580,6 +580,33 @@
     color: #ffffff;
 }
 
+.country-comparison-germany-note {
+    display: grid;
+    gap: 7px;
+    margin: 0 22px 22px;
+    padding: 15px;
+    border-radius: 10px;
+    background: #f3f8fd;
+    color: #526b80;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.country-comparison-germany-note strong {
+    color: #102f4d;
+    font-size: 13px;
+}
+
+.country-comparison-germany-note p {
+    margin: 0;
+}
+
+.country-comparison-germany-note a {
+    color: #155db3;
+    font-weight: 650;
+    text-underline-offset: 2px;
+}
+
 
 /* =========================================================
    MOBILE NOTE
