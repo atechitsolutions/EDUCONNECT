@@ -1,24 +1,3 @@
-/* =========================================================
-   EDUCONNECT — APPLICATION ENTRY
-   ---------------------------------------------------------
-   Frontend:
-   - Vanilla JavaScript
-   - Vite
-   - Client-side Router
-
-   IMPORTANT:
-   - Existing application logic preserved
-   - Existing navbar preserved
-   - Existing hero preserved
-   - Existing lead form preserved
-   - Existing SEO preserved
-   - Study Abroad CSS imports centralized here
-========================================================= */
-
-
-/* =========================================================
-   GLOBAL JAVASCRIPT
-========================================================= */
 
 import initPremiumCursor
     from "./assets/js/premiumCursor.js";
@@ -250,6 +229,7 @@ import {
 } from "./assets/js/auth.js";
 
 import "./assets/css/auth.css";
+import "./assets/css/admin.css";
 
 
 /* =========================================================

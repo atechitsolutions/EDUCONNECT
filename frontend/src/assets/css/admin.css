@@ -407,3 +407,301 @@
         grid-column: auto;
     }
 }
+
+.admin-study-abroad-page .admin-study-abroad-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    width: 100%;
+    align-items: stretch;
+}
+
+.admin-study-abroad-page .admin-study-abroad-item {
+    grid-template-columns: 110px minmax(0, 1fr);
+    align-items: start;
+    gap: 12px;
+    padding: 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    background: #ffffff;
+}
+
+.admin-study-abroad-page .admin-study-abroad-item-image {
+    width: 110px;
+    height: 100px;
+}
+
+.admin-study-abroad-page .admin-study-abroad-item-actions {
+    grid-column: 1 / -1;
+    justify-content: flex-end;
+    padding-top: 8px;
+}
+
+@media (max-width: 900px) {
+    .admin-study-abroad-page .admin-study-abroad-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================
+   STUDY ABROAD ADMIN - FULL PAGE LAYOUT
+   ========================================= */
+
+.admin-study-abroad-page {
+    width: 100%;
+    min-height: 100vh;
+    padding: 32px 24px 48px;
+    box-sizing: border-box;
+    background: #f4f7fb;
+    color: #172033;
+}
+
+.admin-study-abroad-page *,
+.admin-study-abroad-page *::before,
+.admin-study-abroad-page *::after {
+    box-sizing: border-box;
+}
+
+.admin-study-abroad-page .admin-study-abroad-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+/* Page heading */
+.admin-study-abroad-page .admin-study-abroad-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+.admin-study-abroad-page .admin-study-abroad-header h1 {
+    margin: 8px 0 10px;
+    font-size: clamp(26px, 3vw, 36px);
+    line-height: 1.2;
+    font-weight: 800;
+}
+
+.admin-study-abroad-page .admin-study-abroad-header p {
+    margin: 0;
+    max-width: 760px;
+    line-height: 1.7;
+    color: #64748b;
+}
+
+/* Form and institution list panels */
+.admin-study-abroad-page .admin-study-abroad-form-card,
+.admin-study-abroad-page .admin-study-abroad-list-card {
+    width: 100%;
+    min-width: 0;
+    margin: 0 0 28px;
+    padding: 26px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04);
+}
+
+.admin-study-abroad-page .admin-study-abroad-form-card h2,
+.admin-study-abroad-page .admin-study-abroad-list-card h2 {
+    margin: 0 0 22px;
+    font-size: 23px;
+    line-height: 1.35;
+    font-weight: 750;
+}
+
+/* Form field grid */
+.admin-study-abroad-page .admin-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px 24px;
+    width: 100%;
+    align-items: start;
+}
+
+.admin-study-abroad-page .admin-form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+}
+
+.admin-study-abroad-page .admin-form-field.full {
+    grid-column: 1 / -1;
+}
+
+.admin-study-abroad-page .admin-form-field label {
+    display: block;
+    margin: 0;
+    color: #334155;
+    font-size: 14px;
+    font-weight: 650;
+    line-height: 1.5;
+}
+
+.admin-study-abroad-page .admin-form-field input,
+.admin-study-abroad-page .admin-form-field select,
+.admin-study-abroad-page .admin-form-field textarea {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 12px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #172033;
+    font: inherit;
+    font-size: 14px;
+    line-height: 1.5;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.admin-study-abroad-page .admin-form-field input,
+.admin-study-abroad-page .admin-form-field select {
+    min-height: 46px;
+}
+
+.admin-study-abroad-page .admin-form-field textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.admin-study-abroad-page .admin-form-field input:focus,
+.admin-study-abroad-page .admin-form-field select:focus,
+.admin-study-abroad-page .admin-form-field textarea:focus {
+    border-color: #647cff;
+    box-shadow: 0 0 0 3px rgba(100, 124, 255, 0.13);
+}
+
+/* Checkboxes */
+.admin-study-abroad-page .admin-checkbox-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px 24px;
+    margin: 22px 0;
+    padding: 14px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    background: #f8fafc;
+}
+
+.admin-study-abroad-page .admin-checkbox-row label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.admin-study-abroad-page .admin-checkbox-row input[type="checkbox"] {
+    width: 17px;
+    height: 17px;
+    margin: 0;
+    accent-color: #172033;
+}
+
+/* Form action buttons */
+.admin-study-abroad-page .admin-form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.admin-study-abroad-page .admin-form-actions button,
+.admin-study-abroad-page .admin-study-abroad-item-actions button {
+    min-height: 44px;
+    padding: 10px 18px;
+    border-radius: 9px;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 650;
+    cursor: pointer;
+}
+
+/* Institution list heading */
+.admin-study-abroad-page .admin-study-abroad-list-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.admin-study-abroad-page .admin-study-abroad-list-header h2 {
+    margin: 0;
+}
+
+/* Status and feedback */
+.admin-study-abroad-page .admin-study-abroad-message {
+    margin-bottom: 20px;
+}
+
+/* Responsive tablet layout */
+@media (max-width: 900px) {
+    .admin-study-abroad-page {
+        padding: 24px 18px 36px;
+    }
+
+    .admin-study-abroad-page .admin-study-abroad-form-card,
+    .admin-study-abroad-page .admin-study-abroad-list-card {
+        padding: 20px;
+    }
+
+    .admin-study-abroad-page .admin-study-abroad-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Responsive mobile layout */
+@media (max-width: 600px) {
+    .admin-study-abroad-page {
+        padding: 18px 12px 28px;
+    }
+
+    .admin-study-abroad-page .admin-study-abroad-form-card,
+    .admin-study-abroad-page .admin-study-abroad-list-card {
+        padding: 16px;
+        border-radius: 12px;
+    }
+
+    .admin-study-abroad-page .admin-form-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+    }
+
+    .admin-study-abroad-page .admin-form-field.full {
+        grid-column: auto;
+    }
+
+    .admin-study-abroad-page .admin-study-abroad-form-card h2,
+    .admin-study-abroad-page .admin-study-abroad-list-card h2 {
+        font-size: 20px;
+    }
+
+    .admin-study-abroad-page .admin-checkbox-row {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .admin-study-abroad-page .admin-form-actions {
+        align-items: stretch;
+    }
+
+    .admin-study-abroad-page .admin-form-actions button {
+        flex: 1 1 auto;
+   }
+}
