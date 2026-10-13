@@ -2,6 +2,9 @@ import MainLayout from "../layouts/MainLayout.js";
 import StudyAbroadLayout from "../layouts/StudyAbroadLayout.js";
 import AuthModal from "../components/AuthModal.js";
 import OnlineEducationLayout from "../layouts/OnlineEducationLayout.js";
+import OnlineEducationAdminPage from "../pages/OnlineEducationAdminPage.js";
+import Header from "../layouts/header.js";
+import FooterSection from "../components/home/footerSection.js";
 
 export function Router() {
 
@@ -32,6 +35,10 @@ export function Router() {
 
         case "/online-education":
             pageContent = OnlineEducationLayout();
+            break;
+
+        case "/online-education/admin":
+            pageContent = `${Header()}${OnlineEducationAdminPage()}${FooterSection()}`;
             break;
 
         // =====================================================

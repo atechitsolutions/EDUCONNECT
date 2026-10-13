@@ -610,6 +610,10 @@ function setupLoginForm() {
                         window.location.href =
                             destination;
 
+                    } else if (window.location.pathname.replace(/\/+$/, "") === "/online-education/admin") {
+
+                        window.location.reload();
+
                     }
 
                 }, 700);
