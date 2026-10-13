@@ -1,0 +1,6 @@
+// Institutional profile details checked on official institution pages on 2026-10-09.
+// Programme availability, fees, delivery and entry details must be confirmed at source.
+export const onlineEducationInstitutions = [
+    { id:"asu", name:"Arizona State University — ASU Online", country:"United States", city:"Tempe, Arizona", type:"University", levels:["Bachelor's","Master's","Certificate"], subjects:["Business & Management","Education","Engineering & Technology","Healthcare","Science & Mathematics","Computer Science & IT"], modes:["Fully online"], programmeNote:"Browse current online degree and certificate listings on the official directory.", url:"https://asuonline.asu.edu/online-degree-programs/", sourceUrl:"https://asuonline.asu.edu/online-degree-programs/", lastVerifiedAt:"2026-10-09" },
+    { id:"uol", name:"University of London", country:"United Kingdom", city:"London", type:"University", levels:["Bachelor's","Master's","Short Course","Diploma","Certificate"], subjects:["Business & Management","Law","Computer Science & IT"], modes:["Fully online","Distance learning","Hybrid"], programmeNote:"Browse online learning options; teaching-centre arrangements vary by programme.", url:"https://www.london.ac.uk/study/where-study/online-learning", sourceUrl:"https://www.london.ac.uk/study/where-study/online-learning", lastVerifiedAt:"2026-10-09" }
+];
