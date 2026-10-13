@@ -23,6 +23,45 @@ const UPGRAD_CS_CATALOG_SOURCE =
 const UPGRAD_STUDY_ABROAD_SOURCE =
     "https://www.upgrad.com/study-abroad/";
 
+// Local discovery content for the country switcher. These are topic prompts
+// and illustrative university names, not a live catalogue or ranking.
+const DESTINATION_MENU_DATA = {
+    USA: { label: "United States", streams: ["Computer Science", "Data Science", "Artificial Intelligence", "Business & Management", "Healthcare", "Engineering", "Cybersecurity", "Finance"], specializations: ["Computer Science", "Business Analytics", "Public Health", "Cybersecurity", "Engineering Management", "Finance", "Psychology", "Information Technology"], universities: ["Yeshiva University", "Washington State University", "Troy University", "DePaul University", "Northeastern University", "New York University" ] },
+    Australia: { label: "Australia", streams: ["Computer Science", "Business", "Engineering", "Data Science", "Information Technology", "Healthcare", "Education", "Management"], specializations: ["Data Science", "Business Analytics", "Public Health", "Information Technology", "Project Management", "Engineering", "Education", "Finance"], universities: ["Macquarie University", "University of Sydney", "UNSW Sydney", "Monash University", "University of Melbourne"] },
+    Canada: { label: "Canada", streams: ["Computer Science", "Business", "Engineering", "Data Science", "Healthcare", "Management", "Education", "Technology"], specializations: ["Computer Science", "Data Science", "Business Analytics", "Public Health", "Engineering", "Management", "Psychology", "Finance"], universities: ["Algoma University", "University of Waterloo", "University of Toronto", "University of British Columbia", "McGill University"] },
+    UK: { label: "United Kingdom", streams: ["Computer Science", "Business", "Data Science", "Engineering", "Finance", "Healthcare", "Law", "Management"], specializations: ["Computer Science", "Data Science", "Finance", "Public Health", "Business Analytics", "Law", "Psychology", "Engineering"], universities: ["University of Sussex", "University of Manchester", "King's College London", "London School of Economics", "University College London"] },
+    Germany: { label: "Germany", streams: ["Computer Science", "Engineering", "Data Science", "Business", "Artificial Intelligence", "Technology", "Management", "Finance"], specializations: ["Computer Science", "Software Engineering", "Artificial Intelligence", "Data Science", "Engineering", "Business", "Technology", "Management"], universities: ["Technical University of Munich", "RWTH Aachen University", "Free University of Berlin", "TU Berlin"] },
+    Ireland: { label: "Ireland", streams: ["Computer Science", "Technology", "Business", "Data Science", "Engineering", "Finance", "Healthcare", "Management"], specializations: ["Computing", "Data Science", "Finance", "Business Analytics", "Public Health", "Engineering", "Cybersecurity", "Management"], universities: ["University College Cork", "Trinity College Dublin", "University College Dublin", "Dublin City University", "University of Galway"] },
+    France: { label: "France", streams: ["Business", "Management", "Engineering", "Computer Science", "Finance", "Technology", "Arts & Humanities", "Data Science"], specializations: ["Business Analytics", "Finance", "Computer Science", "Engineering", "Management", "Luxury Management", "Data Science", "International Business"], universities: ["Paris School of Business", "PSL University", "HEC Paris", "Institut Polytechnique de Paris", "Sorbonne University"] },
+    Finland: { label: "Finland", streams: ["Computer Science", "Technology", "Engineering", "Data Science", "Business", "Artificial Intelligence", "Education", "Design"], specializations: ["Computer Science", "Artificial Intelligence", "Data Science", "Software Engineering", "Education", "Business", "Technology", "Design"], universities: ["Haaga-Helia University of Applied Sciences", "Seinäjoki University of Applied Sciences", "Aalto University", "University of Helsinki", "University of Turku", "Tampere University"] },
+    UAE: { label: "United Arab Emirates", streams: ["Business", "Computer Science", "Engineering", "Management", "Technology", "Finance", "Healthcare", "Artificial Intelligence"], specializations: ["Business Administration", "Computer Science", "Finance", "Artificial Intelligence", "Engineering", "Management", "Cybersecurity", "Data Science"], universities: ["Khalifa University", "American University in Dubai", "NYU Abu Dhabi", "University of Sharjah"] },
+    Hungary: { label: "Hungary", streams: ["Computer Science", "Engineering", "Business", "Technology", "Data Science", "Management", "Healthcare", "Finance"], specializations: ["Computer Science", "Engineering", "Data Science", "Business", "Technology", "Management", "Finance", "Healthcare"], universities: ["Budapest University of Technology", "Eötvös Loránd University", "University of Szeged", "University of Debrecen"] }
+};
+
+const DESTINATION_GUIDES = [
+    ["Study costs & budgeting", "#study-abroad-cost"],
+    ["Admission requirements", "#admission-requirements"],
+    ["Scholarship guidance", "#abroad-scholarships"],
+    ["Application planning", "#study-abroad-application"],
+    ["Frequently asked questions", "#study-abroad-faq"]
+];
+
+function destinationCountryPanel(country) {
+    const data = DESTINATION_MENU_DATA[country];
+    if (!data) return "";
+    const internalLink = (label, category = "Computer Science") => `
+        <a href="#study-abroad-course-explorer" data-explore-subject="${category}" data-destination-country="${country}">${label}</a>`;
+    return `
+        <section class="edu-study-panel edu-destination-panel ${country === "USA" ? "active" : ""}" data-mega-content="${country}" aria-label="Study destinations in ${data.label}">
+            <header class="edu-destination-heading"><div><span>EXPLORE DESTINATIONS</span><h3>${data.label}</h3></div><a href="#study-abroad-country-comparison">Compare destinations →</a></header>
+            <div class="edu-study-column"><h4>Popular streams</h4>${data.streams.map((name) => internalLink(name, name)).join("")}</div>
+            <div class="edu-study-column"><h4>Popular specialisations</h4>${data.specializations.map((name) => internalLink(name, name)).join("")}</div>
+            <div class="edu-study-column"><h4>Universities to explore</h4>${data.universities.map((name) => `<a href="#study-abroad-country-comparison">${name}</a>`).join("")}</div>
+            <div class="edu-study-column"><h4>Study guides</h4>${DESTINATION_GUIDES.map(([name, href]) => `<a href="${href}">${name}</a>`).join("")}</div>
+            <p class="edu-destination-note">Topic links open EduConnect discovery. University and programme details can change; confirm them with the institution. This menu does not rank universities.</p>
+        </section>`;
+}
+
 function countryUniversityCards(country) {
 
     const universities = {
@@ -664,6 +703,7 @@ function applyProgramFilters(panel, subject = "", level = "") {
     const subjects = {
         "Computer Science": /computer science|computing|software|informatics|information technology|cyber\s?security/i,
         "Business": /business|management|mba|entrepreneur|finance|accounting/i,
+        "Business & Management": /business|management|mba|entrepreneur|finance|accounting/i,
         "Engineering": /engineering|engineer/i, "Data Science": /data science|analytics/i,
         "MBA": /\bmba\b|master of business administration/i,
         "Information Technology": /information technology|\bIT\b|computing/i,
@@ -674,6 +714,9 @@ function applyProgramFilters(panel, subject = "", level = "") {
         "Arts & Humanities": /arts|humanities|history|literature/i, "Law": /\blaw\b|legal/i,
         "Cybersecurity": /cyber\s?security|information security/i, "Marketing": /marketing/i,
         "Psychology": /psychology/i, "Design": /design|media/i, "Economics": /economics/i,
+        "Public Health": /public health|health/i, "Digital Marketing": /digital marketing|marketing/i,
+        "Software Engineering": /software|engineering|computing/i, "Business Analytics": /business|analytics/i,
+        "International Business": /international business|business|management/i,
         "Nursing": /nursing/i, "IT": /information technology|\bIT\b/i,
         "AI": /artificial intelligence|\bAI\b|machine learning/i
     };
@@ -683,7 +726,7 @@ function applyProgramFilters(panel, subject = "", level = "") {
         "MBA": /\bmba\b|master of business administration/i,
         "PhD": /ph\.?d|doctorate|doctoral/i
     };
-    const subjectPattern = subjects[subject];
+    const subjectPattern = subjects[subject] || (subject ? new RegExp(subject.split(/\s*&\s*/).join("|"), "i") : null);
     const levelPattern = levels[level];
     const cards = Array.from(panel.querySelectorAll(".edu-university-card"));
     let count = 0;
@@ -709,11 +752,16 @@ function applyProgramFilters(panel, subject = "", level = "") {
     });
 }
 
-function openSelectedCountryResults(navbar, { subject = "", level = "" } = {}) {
+function openSelectedCountryResults(navbar, { subject = "", level = "", country = "" } = {}) {
     const mega = navbar?.querySelector(".edu-country-mega");
-    const selectedPanel = mega?.querySelector(".edu-country-panel.active")
+    const activeDestination = navbar?.querySelector('[data-mega-menu="destinations"] .edu-study-side-item.active')?.dataset.megaPanel;
+    const selectedCountry = country || (DESTINATION_MENU_DATA[activeDestination] ? activeDestination : "USA");
+    const selectedPanel = mega?.querySelector(`[data-country-panel="${selectedCountry}"]`)
+        || mega?.querySelector(".edu-country-panel.active")
         || mega?.querySelector('[data-country-panel="USA"]');
     if (!mega || !selectedPanel) return;
+    mega.querySelectorAll(".edu-country-item").forEach((item) => item.classList.toggle("active", item.dataset.country === selectedCountry));
+    mega.querySelectorAll(".edu-country-panel").forEach((panel) => panel.classList.toggle("active", panel === selectedPanel));
     applyProgramFilters(selectedPanel, subject, level);
     const menu = navbar.querySelector('[data-mega-menu="countries"]');
     const trigger = navbar.querySelector('[data-mega-trigger="countries"]');
@@ -818,7 +866,7 @@ export default function StudyAbroadNavbar() {
                     event.preventDefault(); event.stopPropagation();
                     const nav = document.querySelector("#edu-study-nav");
                     if (!nav) return;
-                    openSelectedCountryResults(nav, { subject: courseFilterLink.dataset.exploreSubject || "", level: courseFilterLink.dataset.exploreLevel || "" });
+                    openSelectedCountryResults(nav, { subject: courseFilterLink.dataset.exploreSubject || "", level: courseFilterLink.dataset.exploreLevel || "", country: courseFilterLink.dataset.destinationCountry || "" });
                     return;
                 }
 
@@ -905,7 +953,7 @@ export default function StudyAbroadNavbar() {
                         .forEach((panel) => {
                             panel.classList.toggle(
                                 "active",
-                                panel.dataset.megaContent === "featured"
+                                panel.dataset.megaContent === "USA"
                             );
                         });
 
@@ -914,7 +962,7 @@ export default function StudyAbroadNavbar() {
                         .forEach((panelButton) => {
                             panelButton.classList.toggle(
                                 "active",
-                                panelButton.dataset.megaPanel === "featured"
+                                panelButton.dataset.megaPanel === "USA"
                             );
                         });
 
@@ -1195,6 +1243,10 @@ export default function StudyAbroadNavbar() {
                             );
 
                         });
+
+                    mega.querySelectorAll(".edu-study-side-item[aria-pressed]").forEach((item) => {
+                        item.setAttribute("aria-pressed", String(item === sideButton));
+                    });
 
 
                     sideButton.classList.add(
@@ -1753,296 +1805,26 @@ export default function StudyAbroadNavbar() {
                     <!-- ===================================
                          DESTINATIONS
                     ==================================== -->
-
-                    <div
-                        class="edu-study-nav-item"
-                    >
-
-                        <button
-                            type="button"
-                            class="edu-study-nav-button"
-                            data-mega-trigger="destinations"
-                            aria-expanded="false"
-                        >
-
-                            Destinations
-
-                            <span>⌄</span>
-
+                    <div class="edu-study-nav-item">
+                        <button type="button" class="edu-study-nav-button" data-mega-trigger="destinations" aria-expanded="false">
+                            Destinations <span>⌄</span>
                         </button>
-
-
-                        <div
-                            class="edu-study-mega"
-                            data-mega-menu="destinations"
-                        >
-
-                            <div
-                                class="edu-study-mega-inner"
-                            >
-
-                                <aside
-                                    class="edu-study-mega-sidebar"
-                                >
-
-                                    <button
-                                        type="button"
-                                        class="edu-study-side-item active"
-                                        data-mega-panel="featured"
-                                    >
-                                        Featured
-                                        <span>→</span>
-                                    </button>
-
-                                    <button
-                                        type="button"
-                                        class="edu-study-side-item"
-                                        data-mega-panel="universities"
-                                    >
-                                        Universities
-                                        <span>→</span>
-                                    </button>
-
-                                    <button
-                                        type="button"
-                                        class="edu-study-side-item"
-                                        data-mega-panel="courses"
-                                    >
-                                        Courses
-                                        <span>→</span>
-                                    </button>
-
+                        <div class="edu-study-mega edu-destination-mega" data-mega-menu="destinations">
+                            <div class="edu-study-mega-inner edu-destination-mega-inner">
+                                <aside class="edu-study-mega-sidebar edu-destination-sidebar" aria-label="Choose a destination">
+                                    <div class="edu-destination-sidebar-title">Explore countries</div>
+                                    ${Object.entries(DESTINATION_MENU_DATA).map(([country, data]) => `
+                                        <button type="button" class="edu-study-side-item ${country === "USA" ? "active" : ""}" data-mega-panel="${country}" aria-pressed="${country === "USA" ? "true" : "false"}">
+                                            <span>${data.label}</span><span aria-hidden="true">→</span>
+                                        </button>
+                                    `).join("")}
                                 </aside>
-
-
-                                <div
-                                    class="edu-study-mega-content"
-                                >
-
-                                    <div
-                                        class="edu-study-panel active"
-                                        data-mega-content="featured"
-                                    >
-
-                                        <div class="edu-study-column">
-
-                                            <h4>
-                                                Popular Destinations
-                                            </h4>
-
-                                            <a href="#study-abroad-country-comparison">
-                                                USA
-                                            </a>
-
-                                            <a href="#study-abroad-country-comparison">
-                                                UK
-                                            </a>
-
-                                            <a href="#study-abroad-country-comparison">
-                                                Canada
-                                            </a>
-
-                                            <a href="#study-abroad-country-comparison">
-                                                Australia
-                                            </a>
-
-                                            <a href="#study-abroad-country-comparison">
-                                                Germany
-                                            </a>
-
-                                        </div>
-
-
-                                        <div class="edu-study-column">
-
-                                            <h4>
-                                                Europe
-                                            </h4>
-
-                                            <a href="#study-abroad-country-comparison">
-                                                France
-                                            </a>
-
-                                            <a href="#study-abroad-country-comparison">
-                                                Finland
-                                            </a>
-
-                                            <a href="#study-abroad-country-comparison">
-                                                Hungary
-                                            </a>
-
-                                            <a href="#study-abroad-country-comparison">
-                                                Ireland
-                                            </a>
-
-                                        </div>
-
-
-                                        <div class="edu-study-column">
-
-                                            <h4>
-                                                Middle East
-                                            </h4>
-
-                                            <a href="#study-abroad-country-comparison">
-                                                UAE
-                                            </a>
-
-                                            <a href="#study-abroad-country-comparison">
-                                                Dubai
-                                            </a>
-
-                                            <a href="#study-abroad-country-comparison">
-                                                Abu Dhabi
-                                            </a>
-
-                                        </div>
-
-
-                                        <div
-                                            class="edu-study-feature"
-                                        >
-
-                                            <span
-                                                class="edu-study-feature-icon"
-                                            >
-                                                🌍
-                                            </span>
-
-                                            <strong>
-                                                Find your study destination
-                                            </strong>
-
-                                            <p>
-                                                Compare destinations,
-                                                universities and study
-                                                opportunities.
-                                            </p>
-
-                                            <a
-                                                href="#study-abroad-destinations"
-                                            >
-                                                Explore destinations →
-                                            </a>
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <div
-                                        class="edu-study-panel"
-                                        data-mega-content="universities"
-                                    >
-
-                                        <div class="edu-study-column">
-
-                                            <h4>
-                                                University Types
-                                            </h4>
-
-                                            <a href="#study-abroad-country-comparison">
-                                                Top Universities
-                                            </a>
-
-                                            <a href="#study-abroad-country-comparison">
-                                                Public Universities
-                                            </a>
-
-                                            <a href="#study-abroad-country-comparison">
-                                                Private Universities
-                                            </a>
-
-                                        </div>
-
-
-                                        <div class="edu-study-column">
-
-                                            <h4>
-                                                Explore By
-                                            </h4>
-
-                                            <a href="#study-abroad-country-comparison">
-                                                Ranking
-                                            </a>
-
-                                            <a href="#study-abroad-country-comparison">
-                                                Country
-                                            </a>
-
-                                            <a href="#study-abroad-destinations">
-                                                Course
-                                            </a>
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <div
-                                        class="edu-study-panel"
-                                        data-mega-content="courses"
-                                    >
-
-                                        <div class="edu-study-column">
-
-                                            <h4>
-                                                Popular Courses
-                                            </h4>
-
-                                            <a href="#study-abroad-search" data-explore-subject="Computer Science">
-                                                Computer Science
-                                            </a>
-
-                                            <a href="#study-abroad-search" data-explore-subject="Business">
-                                                Business
-                                            </a>
-
-                                            <a href="#study-abroad-search" data-explore-subject="Engineering">
-                                                Engineering
-                                            </a>
-
-                                            <a href="#study-abroad-search" data-explore-subject="Data Science">
-                                                Data Science
-                                            </a>
-
-                                        </div>
-
-
-                                        <div class="edu-study-column">
-
-                                            <h4>
-                                                Study Level
-                                            </h4>
-
-                                            <a href="#study-abroad-search" data-explore-level="Undergraduate">
-                                                Undergraduate
-                                            </a>
-
-                                            <a href="#study-abroad-search" data-explore-level="Postgraduate">
-                                                Postgraduate
-                                            </a>
-
-                                            <a href="#study-abroad-search" data-explore-level="MBA">
-                                                MBA
-                                            </a>
-
-                                            <a href="#study-abroad-search" data-explore-level="PhD">
-                                                PhD
-                                            </a>
-
-                                        </div>
-
-                                    </div>
-
+                                <div class="edu-study-mega-content edu-destination-content" aria-live="polite">
+                                    ${Object.keys(DESTINATION_MENU_DATA).map(destinationCountryPanel).join("")}
                                 </div>
-
                             </div>
-
                         </div>
-
                     </div>
-
 
                     <!-- ===================================
                          EXAMS

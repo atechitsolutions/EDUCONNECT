@@ -2251,3 +2251,102 @@
     color: #64748b;
     font-size: 13px;
 }
+
+/* Country-aware destination menu: four useful, country-specific columns. */
+.edu-destination-mega-inner {
+    grid-template-columns: 270px minmax(0, 1fr);
+    min-height: 460px;
+    max-height: min(660px, calc(100vh - 100px));
+}
+.edu-destination-sidebar {
+    gap: 3px;
+    padding: 14px 12px;
+}
+.edu-destination-sidebar-title {
+    padding: 8px 14px 13px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: .01em;
+}
+.edu-destination-sidebar .edu-study-side-item {
+    min-height: 43px;
+    padding-inline: 13px;
+    font-size: 12px;
+}
+.edu-study-panel.edu-destination-panel {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-content: start;
+    gap: 22px;
+    width: 100%;
+}
+.edu-destination-heading,
+.edu-destination-note {
+    grid-column: 1 / -1;
+}
+.edu-destination-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #e7edf5;
+}
+.edu-destination-heading>div>span {
+    color: var(--edu-primary);
+    font-size: 9px;
+    font-weight: 850;
+    letter-spacing: .13em;
+}
+.edu-destination-heading h3 {
+    margin: 2px 0 0;
+    color: var(--edu-navy);
+    font-size: 21px;
+    line-height: 1.2;
+    letter-spacing: -.025em;
+}
+.edu-destination-heading>a {
+    flex: 0 0 auto;
+    color: var(--edu-primary);
+    font-size: 11px;
+    font-weight: 750;
+    text-decoration: none;
+}
+.edu-destination-heading>a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.edu-destination-panel .edu-study-column h4 {
+    min-height: 36px;
+    margin-bottom: 11px;
+    color: var(--edu-navy);
+    font-size: 14px;
+    line-height: 1.35;
+}
+.edu-destination-panel .edu-study-column a {
+    margin-bottom: 10px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+.edu-destination-note {
+    margin: 0;
+    padding-top: 11px;
+    border-top: 1px solid #e7edf5;
+    color: #66758a;
+    font-size: 10px;
+    line-height: 1.5;
+}
+@media (max-width: 900px) {
+    .edu-destination-mega-inner { grid-template-columns: 210px minmax(0, 1fr); }
+    .edu-study-panel.edu-destination-panel { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+}
+@media (max-width: 820px) {
+    .edu-destination-mega-inner { display: block; max-height: none; }
+    .edu-destination-sidebar { max-height: 220px; overflow-y: auto; }
+    .edu-study-panel.edu-destination-panel { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+    .edu-destination-sidebar { max-height: 190px; }
+    .edu-study-panel.edu-destination-panel { grid-template-columns: 1fr; gap: 12px; }
+    .edu-destination-heading { align-items: flex-start; flex-direction: column; gap: 6px; }
+    .edu-destination-heading h3 { font-size: 19px; }
+    .edu-destination-panel .edu-study-column h4 { min-height: 0; margin-bottom: 7px; }
+    .edu-destination-panel .edu-study-column a { margin-bottom: 8px; }
+}
