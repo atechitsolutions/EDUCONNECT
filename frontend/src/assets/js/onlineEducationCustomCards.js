@@ -178,6 +178,8 @@ export async function renderOnlineEducationCustomCards() {
         container.insertAdjacentHTML("beforeend", markup);
     }
 
+    duplicateEducationLevelCards();
+
     const addFilterOptions = (selectId, values) => {
         const select = document.getElementById(selectId);
         if (!select) return;
@@ -196,6 +198,25 @@ export async function renderOnlineEducationCustomCards() {
     addFilterOptions("oe-inst-level", cards.filter((card) => card.section === "institutions").map((card) => card.level));
     addFilterOptions("oe-inst-subject", cards.filter((card) => card.section === "institutions").map((card) => card.subject));
     addFilterOptions("oe-inst-mode", cards.filter((card) => card.section === "institutions").map((card) => card.mode));
+}
+
+function duplicateEducationLevelCards() {
+    const track = document.querySelector(".oe-level-grid");
+    if (!track) return;
+
+    track.querySelectorAll("[data-carousel-clone]").forEach((card) => card.remove());
+    const originalCards = [...track.children];
+
+    originalCards.forEach((card) => {
+        const clone = card.cloneNode(true);
+        clone.dataset.carouselClone = "true";
+        clone.setAttribute("aria-hidden", "true");
+        clone.setAttribute("tabindex", "-1");
+        clone.querySelectorAll("a, button, input, select, textarea, [tabindex]").forEach((element) => {
+            element.setAttribute("tabindex", "-1");
+        });
+        track.append(clone);
+    });
 }
 
 function applyDefaultCardChanges(section, container, overrides, removedIds) {

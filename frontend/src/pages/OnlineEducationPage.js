@@ -50,6 +50,7 @@ export default function OnlineEducationPage() {
             </div>
             <a class="oe-text-link" href="#oe-programmes">Browse all options →</a>
             </div>
+            <div class="oe-level-carousel" aria-label="Education levels">
             <div class="oe-level-grid">${[["01","School learning","Subject-led practice and learning resources.","School","⌂"],["02","Diploma programmes","Explore vocational and academic study routes.","Diploma","▤"],["03","Bachelor’s degrees","Discover undergraduate learning pathways.","Bachelor's","◇"],["04","Master’s degrees","Explore advanced postgraduate study.","Master's","✦"],["05","MBA programmes","Find business and management study options.","MBA","↗"],["06","PhD & doctoral","Explore research-led doctoral pathways.","PhD / Doctorate","⌘"],["07","Online degrees","Browse degree discovery resources.","Online Degree","▣"],["08","Professional certificates","Build knowledge through focused programmes.","Professional Certificate","✳"],["09","Short courses","Learn a subject in a shorter format.","Short Course","◷"],["10","Microcredentials","Explore compact learning achievements.","Microcredential","✣"]].map(([n,t,d,l,i])=>`<a class="oe-level-card" href="#oe-programmes" data-level="${l}">
             <span class="oe-card-icon">${i}</span>
             <span class="oe-card-number">${n}</span>
@@ -59,6 +60,7 @@ export default function OnlineEducationPage() {
             <p>${d}</p>
             <span class="oe-card-arrow">Explore options →</span>
             </a>`).join("")}</div>
+            </div>
             </div>
             </section>
         <section class="oe-section oe-subject-section">

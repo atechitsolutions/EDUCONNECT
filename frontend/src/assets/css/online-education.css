@@ -379,6 +379,15 @@
 @media(max-width:460px){.oe-level-grid{grid-template-columns:1fr}.oe-level-card{min-height:unset}.oe-level-card>.oe-level-photo{height:165px;flex-basis:165px}.oe-level-card>.oe-card-icon{top:177px}.oe-level-card>.oe-card-number{top:178px}.oe-level-card>h3{margin-top:51px}}
 @media(prefers-reduced-motion:reduce){.oe-level-card{transition:none}.oe-level-card:hover,.oe-level-card:focus-visible{transform:none}}
 
+/* Keep every education-level card on one continuous carousel row. */
+.oe-level-carousel{width:100%;overflow:hidden;padding:10px 4px 28px;margin:-10px -4px -28px;}
+.oe-level-grid{display:flex;flex-wrap:nowrap;align-items:stretch;gap:18px;width:max-content;min-width:max-content;padding-right:18px;animation:oe-levels-loop 36s linear infinite;will-change:transform;}
+.oe-level-grid>.oe-level-card{flex:0 0 clamp(280px,24vw,330px);width:clamp(280px,24vw,330px);}
+.oe-level-grid>.oe-level-card[data-carousel-clone="true"]{pointer-events:auto;}
+@keyframes oe-levels-loop{to{transform:translateX(-50%);}}
+@media(max-width:760px){.oe-level-grid>.oe-level-card{flex-basis:min(78vw,310px);width:min(78vw,310px);}}
+@media(prefers-reduced-motion:reduce){.oe-level-carousel{overflow:hidden;}.oe-page .oe-level-grid{animation:oe-levels-loop 36s linear infinite!important;will-change:transform;}}
+
 /* Provider and level pathway cards use a subtle, non-human still-life photo strip. */
 .oe-platform-card{padding-right:28%!important}
 .oe-platform-card>.oe-platform-photo{position:absolute;z-index:0;top:0;right:0;bottom:0;width:30%;border-radius:0 17px 17px 0;background-image:url("../images/online-pathway-stilllife-grid.jpg");background-size:400% 200%;background-repeat:no-repeat;opacity:.9;pointer-events:none;transition:filter .35s ease,opacity .10s ease}
