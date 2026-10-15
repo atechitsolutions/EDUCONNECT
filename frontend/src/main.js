@@ -325,7 +325,7 @@ document.addEventListener(
 
         if (
             document.querySelector(
-                "#study-abroad"
+                "#study-abroad, #study-abroad-page"
             )
         ) {
 

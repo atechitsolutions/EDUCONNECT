@@ -4,6 +4,40 @@
 
 export function initStudyAbroadCarousel() {
 
+    const destinationTrack = document.querySelector(".study-abroad-destination-list");
+    if (destinationTrack && destinationTrack.dataset.infiniteLoopReady !== "true") {
+        const destinationCards = Array.from(destinationTrack.children);
+        destinationCards.forEach((card) => {
+            const clone = card.cloneNode(true);
+            clone.setAttribute("aria-hidden", "true");
+            clone.tabIndex = -1;
+            clone.dataset.carouselClone = "true";
+            destinationTrack.appendChild(clone);
+        });
+        destinationTrack.dataset.infiniteLoopReady = "true";
+    }
+    if (destinationTrack && destinationTrack.dataset.destinationLoopRunning !== "true") {
+        destinationTrack.dataset.destinationLoopRunning = "true";
+        destinationTrack.style.animation = "none";
+        let offset = 0;
+        let lastFrame = 0;
+        let loopWidth = destinationTrack.scrollWidth / 2;
+        const animateDestinations = (time) => {
+            if (document.hidden) {
+                lastFrame = 0;
+            } else if (lastFrame && loopWidth > 0) {
+                offset = (offset + Math.min(time - lastFrame, 40) * 0.045) % loopWidth;
+            }
+            lastFrame = time;
+            loopWidth = destinationTrack.scrollWidth / 2;
+            destinationTrack.style.transform = `translate3d(-${offset}px, 0, 0)`;
+            requestAnimationFrame(animateDestinations);
+        };
+        document.addEventListener("visibilitychange", () => { lastFrame = 0; });
+        window.addEventListener("resize", () => { loopWidth = destinationTrack.scrollWidth / 2; });
+        requestAnimationFrame(animateDestinations);
+    }
+
     const carousel =
         document.querySelector(
             ".study-abroad-carousel"
