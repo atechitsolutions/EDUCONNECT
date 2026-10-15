@@ -1,4 +1,6 @@
 import { onlineEducationInstitutions } from "../data/onlineEducationInstitutions.js";
+import onlineEducationHeroVideo from "../assets/images/online-education-hero.mp4";
+import onlineEducationHeroPoster from "../assets/images/online-education-hero.jpg";
 
 const levels = ["School", "Diploma", "Certificate", "Undergraduate", "Bachelor's", "Postgraduate", "Master's", "MBA", "PhD / Doctorate", "Online Degree", "Short Course", "Professional Certificate", "Microcredential"];
 const subjects = ["AI & Machine Learning", "Data Science", "Business", "Engineering", "Healthcare", "Finance", "Digital Marketing", "Cybersecurity", "Design", "Psychology", "Education"];
@@ -25,11 +27,14 @@ export default function OnlineEducationPage() {
           </div>
         </nav>
         <section class="oe-hero" id="oe-top">
+          <video class="oe-hero-video" autoplay muted loop playsinline preload="metadata" poster="${onlineEducationHeroPoster}" aria-hidden="true" tabindex="-1">
+            <source src="${onlineEducationHeroVideo}" type="video/mp4">
+          </video>
           <div class="oe-hero-inner">
             <div class="oe-hero-copy">
             <p class="oe-eyebrow">A clearer way to choose what’s next</p>
-            <h1>Learn Online. Discover More. Build Your Future.</h1>
-            <p>Explore online courses, professional certificates, diplomas and university degrees from learning platforms and institutions around the world. Compare study options, understand costs and find a programme that fits your goals.</p>
+            <h1>Online Education: Compare Courses, Certificates &amp; Degrees</h1>
+            <p>Compare online courses, certificates, diplomas and degree programmes from learning websites and universities. Explore options by subject, education level and study mode, then verify fees and recognition with the provider.</p>
             <div class="oe-hero-actions">
             <a class="oe-button oe-primary" href="#oe-programmes">Explore Programmes <span>→</span>
             </a>
@@ -71,8 +76,13 @@ export default function OnlineEducationPage() {
             <h2>Explore by subject</h2>
             <p>Choose a subject to apply it to the programme results.</p>
             </div>
+            <div class="oe-subject-controls" aria-label="Subject carousel controls">
+            <button class="oe-subject-arrow" type="button" data-subject-prev aria-label="Previous subjects">←</button>
+            <button class="oe-subject-arrow" type="button" data-subject-next aria-label="Next subjects">→</button>
             </div>
-            <div class="oe-subject-grid">${subjects.map((s,i)=>`<button class="oe-subject-card" type="button" data-subject="${s}">
+            </div>
+            <div class="oe-subject-carousel" data-subject-carousel>
+            <div class="oe-subject-grid" data-subject-track>${subjects.map((s,i)=>`<button class="oe-subject-card" type="button" data-subject="${s}">
             <span class="oe-subject-art" aria-hidden="true">
             </span>
             <span class="oe-subject-icon">${["✦","▥","↗","⚙","＋","＄","◉","◇","✎","◎","▧"][i]}</span>
@@ -80,6 +90,7 @@ export default function OnlineEducationPage() {
             <small>Explore programmes <i>→</i>
             </small>
             </button>`).join("")}</div>
+            </div>
             </div>
             </section>
         <section class="oe-section oe-popular" id="oe-popular">
@@ -113,8 +124,8 @@ export default function OnlineEducationPage() {
             <div class="oe-section-head">
             <div>
             <p class="oe-eyebrow">A GUIDE TO DISCOVERY SOURCES</p>
-            <h2 id="oe-platform-title">Choose a platform for your learning goal</h2>
-            <p>Use these discovery sources as starting points. Availability and programme details can change, so confirm information on the official provider or institution site.</p>
+            <h2 id="oe-platform-title">Best websites for online learning, by education level</h2>
+            <p>Find learning websites for school courses, diplomas, certificates and online degrees. There is no single best site for everyone, so compare course choice, format, cost and recognition before choosing. Confirm current details with each provider.</p>
             </div>
             <a class="oe-text-link" href="#oe-programmes">Explore EduConnect options →</a>
             </div>

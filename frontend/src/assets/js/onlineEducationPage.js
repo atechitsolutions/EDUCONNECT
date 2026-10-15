@@ -14,8 +14,8 @@ function setMeta(selector, attribute, value, createTag) {
 }
 
 function updatePageMetadata() {
-    const title = "Online Courses & Degrees | Compare Study Options | EduConnect";
-    const description = "Discover online courses, online degree programmes, distance learning, certificates and diplomas. Compare subjects, study modes and learning options with EduConnect.";
+    const title = "Online Education: Compare Courses & Degrees | EduConnect";
+    const description = "Compare online courses, certificates, diplomas and degree programmes. Explore learning websites by education level, subject, study mode and destination.";
     const canonicalUrl = "https://www.educonnect.com/online-education/";
     document.title = title;
     setMeta('meta[name="description"]', "name", description, "meta");
@@ -36,6 +36,17 @@ export async function initOnlineEducationPage() {
     updatePageMetadata();
     const root = byId("online-education-page");
     if (!root) return;
+    const heroVideo = root.querySelector(".oe-hero-video");
+    if (heroVideo) {
+        heroVideo.muted = true;
+        heroVideo.defaultMuted = true;
+        const startHeroVideo = () => {
+            const playback = heroVideo.play();
+            if (playback) playback.catch(() => {});
+        };
+        heroVideo.addEventListener("canplay", startHeroVideo, { once: true });
+        startHeroVideo();
+    }
     try {
         await renderOnlineEducationCustomCards();
     } catch (error) {
@@ -50,6 +61,57 @@ export async function initOnlineEducationPage() {
     let institutionCompared = [];
     let cardObserver = null;
     const motionEnabled = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const subjectCarousel = root.querySelector("[data-subject-carousel]");
+    const subjectTrack = root.querySelector("[data-subject-track]");
+    if (subjectCarousel && subjectTrack) {
+        if (!subjectTrack.dataset.loopReady) {
+            const originalCards = [...subjectTrack.querySelectorAll(".oe-subject-card")];
+            const cardStep = originalCards[0]?.getBoundingClientRect().width + (parseFloat(getComputedStyle(subjectTrack).gap) || 0);
+            const cloneCount = Math.min(originalCards.length, Math.ceil(subjectCarousel.clientWidth / cardStep) + 1);
+            originalCards.slice(0, cloneCount).forEach((card) => {
+                const clone = card.cloneNode(true);
+                clone.setAttribute("aria-hidden", "true");
+                clone.tabIndex = -1;
+                clone.dataset.carouselClone = "true";
+                subjectTrack.append(clone);
+            });
+            subjectTrack.dataset.loopReady = "true";
+        }
+        let subjectIndex = 0;
+        let subjectTimer;
+        const originals = () => [...subjectTrack.querySelectorAll(".oe-subject-card:not([data-carousel-clone])")];
+        const moveSubject = (direction) => {
+            const cards = originals();
+            if (!cards.length) return;
+            const gap = parseFloat(getComputedStyle(subjectTrack).gap) || 0;
+            const step = cards[0].getBoundingClientRect().width + gap;
+            const nextIndex = subjectIndex + direction;
+            if (nextIndex >= cards.length) {
+                subjectIndex = cards.length;
+                subjectCarousel.scrollTo({ left: step * subjectIndex, behavior: "smooth" });
+                window.setTimeout(() => {
+                    subjectIndex = 0;
+                    subjectCarousel.scrollTo({ left: 0, behavior: "auto" });
+                }, 720);
+                return;
+            }
+            if (nextIndex < 0) {
+                subjectIndex = Math.max(0, cards.length - Math.ceil(subjectCarousel.clientWidth / step));
+                subjectCarousel.scrollTo({ left: step * subjectIndex, behavior: "auto" });
+                return;
+            }
+            subjectIndex = nextIndex;
+            subjectCarousel.scrollTo({ left: step * subjectIndex, behavior: "smooth" });
+        };
+        const restartSubjectAutoplay = () => {
+            window.clearInterval(subjectTimer);
+            if (!document.hidden && originals().length > 1) subjectTimer = window.setInterval(() => moveSubject(1), 2600);
+        };
+        root.querySelector("[data-subject-prev]")?.addEventListener("click", () => { moveSubject(-1); restartSubjectAutoplay(); });
+        root.querySelector("[data-subject-next]")?.addEventListener("click", () => { moveSubject(1); restartSubjectAutoplay(); });
+        document.addEventListener("visibilitychange", restartSubjectAutoplay);
+        restartSubjectAutoplay();
+    }
     if (motionEnabled && "IntersectionObserver" in window) {
         root.classList.add("oe-motion-ready");
         cardObserver = new IntersectionObserver((entries) => entries.forEach((entry) => {
