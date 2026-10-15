@@ -14,14 +14,19 @@ export default function OnlineEducationPage() {
             </a>
             <button class="oe-menu-toggle" id="oe-menu-toggle" type="button" aria-expanded="false" aria-controls="oe-nav-links">Menu</button>
             <div class="oe-nav-links" id="oe-nav-links">
-              <a href="#oe-programmes">Explore Courses</a>
-            <a href="#oe-school">School Learning</a>
-            <a href="#oe-levels">Diplomas &amp; Certificates</a>
-            <a href="#oe-degrees">Bachelor's &amp; Master's</a>
-            <a href="#oe-universities">Universities</a>
-            <a href="#oe-programmes">Compare Programmes</a>
-            <a href="/online-education/admin">Admin</a>
-            <a class="oe-nav-cta" href="#oe-programmes">Find Your Course <span aria-hidden="true">↗</span>
+              <a href="#oe-programmes">Courses</a>
+              <details class="oe-nav-dropdown">
+                <summary>Study paths <span aria-hidden="true">⌄</span></summary>
+                <div class="oe-nav-dropdown-menu">
+                  <a href="#oe-school">School learning</a>
+                  <a href="#oe-levels">Diplomas &amp; certificates</a>
+                  <a href="#oe-degrees">Bachelor’s &amp; master’s</a>
+                </div>
+              </details>
+              <a href="#oe-universities">Universities</a>
+              <a href="#oe-programmes">Compare</a>
+              <a href="/online-education/admin">Admin</a>
+              <a class="oe-nav-cta" href="#oe-programmes">Find a course <span aria-hidden="true">↗</span>
             </a>
             </div>
           </div>
