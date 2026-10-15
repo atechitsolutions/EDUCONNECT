@@ -1,274 +1,64 @@
 export function initPremiumCursor() {
-
-    /* =====================================================
-       DISABLE ON TOUCH DEVICES
-    ====================================================== */
-
-    if (
-        window.matchMedia(
-            "(hover: none), (pointer: coarse)"
-        ).matches
-    ) {
+    if (window.matchMedia("(hover: none), (pointer: coarse)").matches) {
         return;
     }
 
-
-    /* =====================================================
-       PREVENT DUPLICATE CURSOR
-    ====================================================== */
-
-    if (
-        document.querySelector(
-            ".premium-cursor"
-        )
-    ) {
+    if (document.querySelector(".page-pointer-shadow")) {
         return;
     }
 
+    const shadow = document.createElement("div");
+    shadow.className = "page-pointer-shadow";
+    shadow.setAttribute("aria-hidden", "true");
+    document.body.appendChild(shadow);
 
-    /* =====================================================
-       CREATE CUSTOM CURSOR
-    ====================================================== */
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let targetX = window.innerWidth / 2;
+    let targetY = window.innerHeight / 2;
+    let currentX = targetX;
+    let currentY = targetY;
+    let framePending = false;
 
-    const cursor =
-        document.createElement(
-            "div"
-        );
+    const paintPosition = () => {
+        shadow.style.setProperty("--pointer-x", `${currentX}px`);
+        shadow.style.setProperty("--pointer-y", `${currentY}px`);
+    };
 
-    cursor.className =
-        "premium-cursor";
+    const animateShadow = () => {
+        const deltaX = targetX - currentX;
+        const deltaY = targetY - currentY;
 
+        currentX += reducedMotion ? deltaX : deltaX * 0.12;
+        currentY += reducedMotion ? deltaY : deltaY * 0.12;
+        paintPosition();
 
-    cursor.innerHTML = `
-        <div class="paper-plane-cursor">
-            <div class="plane-wing"></div>
-            <div class="plane-fold"></div>
-        </div>
-    `;
-
-
-    document.body.appendChild(
-        cursor
-    );
-
-
-    /* =====================================================
-       MOUSE STATE
-    ====================================================== */
-
-    let mouseX = 0;
-    let mouseY = 0;
-
-    let currentX = 0;
-    let currentY = 0;
-
-
-    /* =====================================================
-       MOUSE POSITION
-    ====================================================== */
-
-    document.addEventListener(
-        "mousemove",
-        (event) => {
-
-            mouseX =
-                event.clientX;
-
-            mouseY =
-                event.clientY;
-
+        if (!reducedMotion && (Math.abs(deltaX) > 0.4 || Math.abs(deltaY) > 0.4)) {
+            requestAnimationFrame(animateShadow);
+        } else {
+            framePending = false;
         }
-    );
+    };
 
+    document.addEventListener("pointermove", (event) => {
+        targetX = event.clientX;
+        targetY = event.clientY;
 
-    /* =====================================================
-       SMOOTH MOVEMENT
-    ====================================================== */
-
-    function animateCursor() {
-
-        currentX +=
-            (mouseX - currentX) * 0.22;
-
-        currentY +=
-            (mouseY - currentY) * 0.22;
-
-
-        cursor.style.transform = `
-            translate3d(
-                ${currentX}px,
-                ${currentY}px,
-                0
-            )
-        `;
-
-
-        requestAnimationFrame(
-            animateCursor
-        );
-
-    }
-
-
-    animateCursor();
-
-
-    /* =====================================================
-       INTERACTIVE ELEMENTS
-    ====================================================== */
-
-    const interactiveSelector = `
-        button,
-        a,
-        .premium-card,
-        .premium-category-card,
-        .video-review-card,
-        .news-card,
-        .small-card,
-        .hero-search,
-        .hero-search-btn,
-        .hero-primary-btn,
-        .hero-secondary-btn,
-        .category-arrow,
-        .premium-card-link,
-        .video-review-link,
-        [role="button"]
-    `;
-
-
-    /* =====================================================
-       HOVER START
-    ====================================================== */
-
-    document.addEventListener(
-        "mouseover",
-        (event) => {
-
-            const target =
-                event.target.closest(
-                    interactiveSelector
-                );
-
-
-            if (!target) {
-                return;
-            }
-
-
-            cursor.classList.add(
-                "plane-active"
-            );
-
-
-            document.body.classList.add(
-                "plane-cursor-active"
-            );
-
+        if (!shadow.classList.contains("is-visible")) {
+            currentX = targetX;
+            currentY = targetY;
+            paintPosition();
         }
-    );
 
-
-    /* =====================================================
-       HOVER END
-    ====================================================== */
-
-    document.addEventListener(
-        "mouseout",
-        (event) => {
-
-            const target =
-                event.target.closest(
-                    interactiveSelector
-                );
-
-
-            if (!target) {
-                return;
-            }
-
-
-            /*
-                Ignore movement between
-                children of the same target.
-            */
-
-            const relatedTarget =
-                event.relatedTarget;
-
-
-            if (
-                relatedTarget &&
-                target.contains(
-                    relatedTarget
-                )
-            ) {
-                return;
-            }
-
-
-            cursor.classList.remove(
-                "plane-active"
-            );
-
-
-            document.body.classList.remove(
-                "plane-cursor-active"
-            );
-
+        shadow.classList.add("is-visible");
+        if (!framePending) {
+            framePending = true;
+            requestAnimationFrame(animateShadow);
         }
-    );
+    }, { passive: true });
 
-
-    /* =====================================================
-       INPUTS
-    ====================================================== */
-
-    document.addEventListener(
-        "focusin",
-        (event) => {
-
-            if (
-                event.target.matches(
-                    "input, textarea, select"
-                )
-            ) {
-
-                cursor.classList.remove(
-                    "plane-active"
-                );
-
-
-                document.body.classList.remove(
-                    "plane-cursor-active"
-                );
-
-            }
-
-        }
-    );
-
-
-    /* =====================================================
-       MOUSE LEAVE WINDOW
-    ====================================================== */
-
-    document.addEventListener(
-        "mouseleave",
-        () => {
-
-            cursor.classList.remove(
-                "plane-active"
-            );
-
-
-            document.body.classList.remove(
-                "plane-cursor-active"
-            );
-
-        }
-    );
-
+    document.addEventListener("pointerleave", () => {
+        shadow.classList.remove("is-visible");
+    });
 }
-
 
 export default initPremiumCursor;
