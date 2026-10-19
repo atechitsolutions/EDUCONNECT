@@ -127,6 +127,7 @@ import "./assets/css/earlyLearning.css";
 import "./assets/css/online-education.css";
 import "./assets/css/online-education-card-layouts.css";
 import "./assets/css/online-education-admin.css";
+import "./assets/css/institution-compare.css";
 
 
 /* =========================================================
@@ -137,6 +138,7 @@ import Router
     from "./router/router.js";
 import { initOnlineEducationPage } from "./assets/js/onlineEducationPage.js";
 import { initOnlineEducationAdminPage } from "./pages/OnlineEducationAdminPage.js";
+import { initInstitutionCompareSection } from "./components/home/InstitutionCompareSection.js";
 
 import { applyStudyAbroadSEO }
     from "./utils/studyAbroadSEO.js";
@@ -273,6 +275,8 @@ document.addEventListener(
 
         app.innerHTML =
             Router();
+
+        initInstitutionCompareSection();
 
         initWebsiteAssistant();
 

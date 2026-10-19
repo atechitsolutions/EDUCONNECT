@@ -49,6 +49,9 @@ import StudentReviewsSection
 import CompareCollegeSection
     from "../components/home/compareCollegeSection.js";
 
+import InstitutionCompareSection
+    from "../components/home/InstitutionCompareSection.js";
+
 import EducationLoanSection
     from "../components/home/educationLoanSection.js";
 
@@ -291,6 +294,13 @@ export default function MainLayout() {
             <!-- =================================================
                  COLLEGE COMPARISON
             ================================================== -->
+
+            <section
+                id="institution-comparison"
+                aria-label="Compare universities, colleges and schools"
+            >
+                ${InstitutionCompareSection()}
+            </section>
 
             <section
                 id="compare-college"
