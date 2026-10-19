@@ -249,6 +249,48 @@ export function RankingsSection() {
             actionLabel:
                 "Explore Medical"
 
+        },
+
+        {
+            rank: "07",
+            name: "Top Pre-Schools",
+            category: "Pre-School Rankings",
+            location: "India",
+            program: "Playgroup • Nursery • LKG • UKG",
+            ranking: "Explore early-learning centres using Atech's review and analysis of learning approach, safety, facilities and family information.",
+            highlight: "Early learning, safety & child development",
+            image: "https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=1200&q=85",
+            actionLabel: "Explore Pre-Schools",
+            actionHref: "#pre-school",
+            rankingCategory: "preschool"
+        },
+
+        {
+            rank: "08",
+            name: "Top Play Schools",
+            category: "Play School Rankings",
+            location: "India",
+            program: "Playgroup • Nursery • Early learning",
+            ranking: "Discover play schools reviewed by Atech across child-centred activities, safety, facilities and early development.",
+            highlight: "Play-based learning & a safe environment",
+            image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=1200&q=85",
+            actionLabel: "Explore Play Schools",
+            actionHref: "#play-school",
+            rankingCategory: "playschool"
+        },
+
+        {
+            rank: "09",
+            name: "Top Boarding Schools",
+            category: "Boarding School Rankings",
+            location: "India",
+            program: "Residential • Day boarding • K–12",
+            ranking: "Compare residential schools using Atech's review and analysis of academics, student care, campus facilities and programmes.",
+            highlight: "Academics, residential life & student care",
+            image: "https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=1200&q=85",
+            actionLabel: "Explore Boarding Schools",
+            actionHref: "#boarding-schools",
+            rankingCategory: "boarding"
         }
 
     ];
@@ -313,7 +355,30 @@ export function RankingsSection() {
                     rankingItem.image,
 
                 actionLabel:
-                    rankingItem.actionLabel
+                    rankingItem.actionLabel,
+
+                actionHref:
+                    rankingItem.actionHref || ({
+                        "Top Universities": "#rankings",
+                        "Top Colleges": "#colleges",
+                        "Top Schools": "#schools",
+                        "Engineering Rankings": "#colleges",
+                        "Management Rankings": "#colleges",
+                        "Medical Rankings": "#colleges"
+                    }[rankingItem.name] || "#rankings"),
+
+                rankingCategory: rankingItem.rankingCategory || ({
+                    "Top Universities": "universities",
+                    "Top Colleges": "colleges",
+                    "Top Schools": "schools",
+                    "Engineering Rankings": "engineering",
+                    "Management Rankings": "management",
+                    "Medical Rankings": "medical"
+                }[rankingItem.name] || "other"),
+
+                rating: "",
+                reviews: "",
+                score: ""
 
             },
 
@@ -360,16 +425,12 @@ export function RankingsSection() {
 
 
                     <h2>
-                        Education Rankings in India
+                        Atech Review &amp; Analysis
                     </h2>
 
 
                     <p>
-                        Explore education rankings in India and compare
-                        top schools, colleges, universities, engineering
-                        colleges, management colleges and medical colleges
-                        across academics, courses, placements, research,
-                        infrastructure and reputation.
+                        Education rankings in India, guided by Atech’s independent review of academics, programmes, facilities, and publicly available information.
                     </p>
 
                 </div>
@@ -390,6 +451,22 @@ export function RankingsSection() {
 
             </div>
 
+            <div class="rankings-filter-bar">
+                <label for="rankings-category-filter">Browse rankings by category</label>
+                <select id="rankings-category-filter" aria-controls="rankings-carousel-track">
+                    <option value="all">All categories</option>
+                    <option value="universities">Universities</option>
+                    <option value="colleges">Colleges</option>
+                    <option value="engineering">Engineering colleges</option>
+                    <option value="management">Management colleges</option>
+                    <option value="medical">Medical colleges</option>
+                    <option value="schools">Schools</option>
+                    <option value="preschool">Pre-schools</option>
+                    <option value="playschool">Play schools</option>
+                    <option value="boarding">Boarding schools</option>
+                </select>
+            </div>
+
 
             <!-- =================================================
                  HORIZONTAL RANKINGS CAROUSEL
@@ -399,7 +476,7 @@ export function RankingsSection() {
 
                 <div class="rankings-viewport">
 
-                    <div class="rankings-track">
+                    <div class="rankings-track" id="rankings-carousel-track">
 
                         ${rankingCards}
 

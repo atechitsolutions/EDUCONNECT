@@ -36,13 +36,15 @@ export function StudyAbroadSection() {
                 category,
                 location,
                 program: institution.type === "UNIVERSITY"
-                    ? "Partner University"
-                    : "Partner College",
+                    ? "University listing"
+                    : institution.type === "COLLEGE"
+                        ? "College listing"
+                        : "Institution listing",
                 ranking: institution.verified
-                    ? "Verified EduConnect partner"
-                    : "EduConnect partner institution",
+                    ? "Details verified"
+                    : "Institution listing",
                 highlight: institution.description ||
-                    "Explore this EduConnect Study Abroad partner institution.",
+                    "Explore this institution as a Study Abroad option.",
                 image: institution.coverImageUrl || "",
                 actionLabel: "View More",
                 showCompare: false
@@ -72,8 +74,8 @@ export function StudyAbroadSection() {
                     </h2>
 
                     <p>
-                        Explore colleges and universities that are
-                        available through EduConnect partner institutions.
+                        Browse the universities, colleges and institutions listed
+                        across our Study Abroad destinations.
                     </p>
 
                 </div>
@@ -88,7 +90,7 @@ export function StudyAbroadSection() {
                     </strong>
 
                     <span>
-                        Partner<br>
+                        Listed<br>
                         Institutions
                     </span>
 
@@ -174,7 +176,7 @@ export function StudyAbroadSection() {
 
                     track.innerHTML = `
                         <div class="study-abroad-loading">
-                            No Study Abroad partner institutions are available yet.
+                            No Study Abroad institutions have been listed yet.
                         </div>
                     `;
 

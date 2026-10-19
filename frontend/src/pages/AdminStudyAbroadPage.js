@@ -474,6 +474,7 @@ export default function AdminStudyAbroadPage() {
                                 <select id="admin-type" required>
                                     <option value="UNIVERSITY">University</option>
                                     <option value="COLLEGE">College</option>
+                                    <option value="INSTITUTION">Institution / Other</option>
                                 </select>
                             </div>
 

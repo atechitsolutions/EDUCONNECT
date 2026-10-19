@@ -1,3 +1,6 @@
+import { getInstitutions } from "../services/studyAbroadService.js";
+import localInstitutions from "../data/studyAbroadInstitutions.json";
+
 /* =========================================================
    EDUCONNECT — STUDY ABROAD NAVBAR
    Complete standalone navbar
@@ -762,7 +765,7 @@ function openSelectedCountryResults(navbar, { subject = "", level = "", country 
     if (!mega || !selectedPanel) return;
     mega.querySelectorAll(".edu-country-item").forEach((item) => item.classList.toggle("active", item.dataset.country === selectedCountry));
     mega.querySelectorAll(".edu-country-panel").forEach((panel) => panel.classList.toggle("active", panel === selectedPanel));
-    applyProgramFilters(selectedPanel, subject, level);
+    // The Explore Countries panel shows institution listings, not sample programme cards.
     const menu = navbar.querySelector('[data-mega-menu="countries"]');
     const trigger = navbar.querySelector('[data-mega-trigger="countries"]');
     navbar.querySelectorAll(".edu-study-mega.is-open").forEach((item) => item.classList.remove("is-open"));
@@ -781,59 +784,87 @@ function openSelectedCountryResults(navbar, { subject = "", level = "", country 
    COUNTRY PANEL
 ========================================================= */
 
-function countryPanel(
-    country,
-    count,
-    subjects
-) {
-
-    const panelSubjects = ["All programmes", ...new Set(subjects.filter((subject) => subject !== "All programmes"))];
-
+function countryPanel(country) {
+    const label = DESTINATION_MENU_DATA[country]?.label || country;
     return `
-        <div
-            class="edu-country-panel ${country === "USA" ? "active" : ""}"
-            data-country-panel="${country}"
-        >
-
+        <div class="edu-country-panel ${country === "USA" ? "active" : ""}" data-country-panel="${country}">
             <div class="edu-country-heading">
-
-                <h3>${country}<span>(Programme options)</span></h3>
-
-                <a href="#study-abroad-country-comparison">
-                    View All
-                </a>
-
+                <h3>${label}<span>Institution listings</span></h3>
+                <span class="edu-country-list-count" data-country-list-count="${country}">Loading…</span>
             </div>
-
-
-            <div class="edu-country-chips">
-
-                ${panelSubjects.map((subject) => `
-                    <button
-                        type="button"
-                        class="${subject === "All programmes" ? "active" : ""}"
-                        aria-pressed="${subject === "All programmes" ? "true" : "false"}"
-                        data-country-subject="${subject}"
-                    >
-                        ${subject}
-                    </button>
-                `).join("")}
-
+            <div class="edu-university-grid" data-country-institutions="${country}">
+                <p class="edu-country-list-loading">Loading listed institutions…</p>
             </div>
-            <p class="edu-country-filter-status" data-program-status role="status" aria-live="polite"></p>
-
-<div class="edu-university-grid">
-
-                ${countryUniversityCards(country)}
-
-            </div>
-<div class="edu-country-empty" data-program-empty hidden><strong>No sample options match these filters yet.</strong><span>Choose “All programmes” to reset and browse available listings.</span></div>
-
         </div>
     `;
-
 }
 
+
+function escapeCountryMenuText(value) {
+    return String(value ?? "").replace(/[&<>"']/g, (character) => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;"
+    })[character]);
+}
+
+const COUNTRY_MENU_LABELS = {
+    USA: { country: "United States", aliases: ["united states", "usa", "us"] },
+    Germany: { country: "Germany", aliases: ["germany", "de"] },
+    France: { country: "France", aliases: ["france", "fr"] },
+    UK: { country: "United Kingdom", aliases: ["united kingdom", "uk", "gb"] },
+    Australia: { country: "Australia", aliases: ["australia", "au"] },
+    Finland: { country: "Finland", aliases: ["finland", "fi"] },
+    UAE: { country: "United Arab Emirates", aliases: ["united arab emirates", "uae", "ae"] },
+    Canada: { country: "Canada", aliases: ["canada", "ca"] },
+    Hungary: { country: "Hungary", aliases: ["hungary", "hu"] },
+    Ireland: { country: "Ireland", aliases: ["ireland", "ie"] },
+    Netherlands: { country: "Netherlands", aliases: ["netherlands", "nl"] },
+    Italy: { country: "Italy", aliases: ["italy", "it"] }
+};
+
+async function loadCountryMenuInstitutions() {
+    const nav = document.querySelector("#edu-study-nav");
+    if (!nav || nav.dataset.countryListingsLoaded === "true" || nav.dataset.countryListingsLoading === "true") return;
+    nav.dataset.countryListingsLoading = "true";
+    nav.dataset.countryListingsLoaded = "true";
+    try {
+        const response = await getInstitutions();
+        const institutions = Array.isArray(response) && response.length ? response.filter((item) =>
+            item.active === true && item.studyAbroadEnabled === true
+        ) : localInstitutions;
+        renderCountryMenuInstitutions(nav, institutions);
+    } catch (error) {
+        renderCountryMenuInstitutions(nav, localInstitutions);
+        nav.querySelectorAll("[data-country-list-count]").forEach((count) => {
+            count.dataset.source = "local";
+        });
+        console.info("Showing local Explore Countries institution data because the backend is unavailable.", error);
+    } finally {
+        nav.dataset.countryListingsLoading = "false";
+    }
+}
+
+function renderCountryMenuInstitutions(nav, institutions) {
+        Object.entries(COUNTRY_MENU_LABELS).forEach(([key, destination]) => {
+            const matches = institutions.filter((item) => destination.aliases.includes(
+                String(item.country || item.countryCode || "").trim().toLowerCase()
+            ));
+            const grid = nav.querySelector(`[data-country-institutions="${key}"]`);
+            const count = nav.querySelector(`[data-country-list-count="${key}"]`);
+            if (count) count.textContent = `${matches.length} listed`;
+            if (!grid) return;
+            grid.innerHTML = matches.length ? matches.map((item) => {
+                const name = escapeCountryMenuText(item.name || "Institution");
+                const type = String(item.type || "").toUpperCase();
+                const typeLabel = type === "UNIVERSITY" ? "University" : type === "COLLEGE" ? "College" : "Institution";
+                const initials = name.split(/\s+/).slice(0, 2).map((word) => word[0] || "").join("").toUpperCase();
+                return `<article class="edu-university-card"><div class="edu-university-card-top"><span class="edu-university-logo">${initials}</span><span class="edu-university-tag blue">${typeLabel}</span></div><h4>${name}</h4><p>${escapeCountryMenuText(destination.country)}</p><div class="edu-university-meta"><span>Study Abroad listing</span></div><a href="#study-abroad-institutions">View institution list <span>→</span></a></article>`;
+            }).join("") : `<p class="edu-country-list-empty">No institutions are listed for ${escapeCountryMenuText(destination.country)} yet.</p>`;
+        });
+}
+
+export function initStudyAbroadCountryMenu() {
+    loadCountryMenuInstitutions();
+}
 
 /* =========================================================
    NAVBAR
@@ -860,6 +891,17 @@ export default function StudyAbroadNavbar() {
         document.addEventListener(
             "click",
             (event) => {
+
+                const retryButton = event.target.closest("[data-country-list-retry]");
+                if (retryButton) {
+                    const nav = retryButton.closest("#edu-study-nav");
+                    if (!nav) return;
+                    nav.dataset.countryListingsLoaded = "false";
+                    nav.querySelectorAll("[data-country-list-count]").forEach((count) => count.textContent = "Loading…");
+                    nav.querySelectorAll("[data-country-institutions]").forEach((grid) => grid.innerHTML = '<p class="edu-country-list-loading">Loading listed institutions…</p>');
+                    loadCountryMenuInstitutions();
+                    return;
+                }
 
                 const courseFilterLink = event.target.closest("[data-explore-subject], [data-explore-level]");
                 if (courseFilterLink) {
@@ -1627,9 +1669,25 @@ export default function StudyAbroadNavbar() {
                                             →
                                         </span>
                                     </button>
-
+                                    <button
+                                        type="button"
+                                        class="edu-country-item"
+                                        data-country="Netherlands"
+                                    >
+                                        <span>Netherlands</span>
+                                        <span class="edu-country-arrow">→</span>
+                                    </button>
 
                                     <button
+                                        type="button"
+                                        class="edu-country-item"
+                                        data-country="Italy"
+                                    >
+                                        <span>Italy</span>
+                                        <span class="edu-country-arrow">→</span>
+                                    </button>
+
+<button
                                         type="button"
                                         class="edu-country-item"
                                         data-country="Ireland"
@@ -1779,6 +1837,9 @@ export default function StudyAbroadNavbar() {
                                         ]
                                     )}
 
+
+                                    ${countryPanel("Netherlands")}
+                                    ${countryPanel("Italy")}
 
                                     ${countryPanel(
                                         "Ireland",

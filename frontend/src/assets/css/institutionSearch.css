@@ -106,6 +106,43 @@
     font-size: clamp(28px, 4vw, 42px);
 }
 
+.study-abroad-featured-institutions-description {
+    max-width: 760px;
+    margin: 12px auto 0;
+    color: #526a7d;
+    line-height: 1.7;
+}
+
+.study-abroad-country-group + .study-abroad-country-group {
+    margin-top: 42px;
+}
+
+.study-abroad-country-groups {
+    display: block;
+}
+
+.study-abroad-country-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 0 0 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #dce8f3;
+}
+
+.study-abroad-country-heading h3 {
+    margin: 0;
+    color: #173b5c;
+    font-size: clamp(20px, 2.5vw, 28px);
+}
+
+.study-abroad-country-heading span {
+    color: #60788d;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
 .study-abroad-featured-institutions .institution-card {
     min-width: 0;
 }

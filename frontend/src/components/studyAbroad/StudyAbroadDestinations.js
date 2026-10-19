@@ -81,7 +81,8 @@ function buildDestinations(institutions) {
                 code: institution.countryCode || "",
                 institutions: [],
                 universities: 0,
-                colleges: 0
+                colleges: 0,
+                otherInstitutions: 0
             });
         }
 
@@ -98,6 +99,10 @@ function buildDestinations(institutions) {
 
         if (String(institution.type ?? "").toUpperCase() === "COLLEGE") {
             group.colleges += 1;
+        }
+
+        if (!["UNIVERSITY", "COLLEGE"].includes(String(institution.type ?? "").toUpperCase())) {
+            group.otherInstitutions += 1;
         }
     });
 
@@ -123,8 +128,7 @@ export default function StudyAbroadDestinations() {
                     </h2>
 
                     <p>
-                        Discover countries where EduConnect currently has active
-                        partner colleges and universities available for students.
+                        Explore the destinations represented in the current institution list.
                     </p>
                 </div>
 
@@ -172,6 +176,7 @@ export default function StudyAbroadDestinations() {
                 const total = destination.institutions.length;
                 const universityLabel = `${destination.universities} ${destination.universities === 1 ? "University" : "Universities"}`;
                 const collegeLabel = `${destination.colleges} ${destination.colleges === 1 ? "College" : "Colleges"}`;
+                const otherInstitutionLabel = `${destination.otherInstitutions} ${destination.otherInstitutions === 1 ? "Other institution" : "Other institutions"}`;
 
                 return `
                     <article
@@ -199,7 +204,7 @@ export default function StudyAbroadDestinations() {
                                 </div>
 
                                 <span class="destination-card-count">
-                                    ${total} partner ${total === 1 ? "institution" : "institutions"}
+                                    ${total} listed ${total === 1 ? "institution" : "institutions"}
                                 </span>
                             </div>
 
@@ -212,7 +217,7 @@ export default function StudyAbroadDestinations() {
                                 <h3>Study in ${escapeHtml(destination.country)}</h3>
 
                                 <p class="destination-card-description">
-                                    Explore active EduConnect partner institutions available in this destination.
+                                    Browse the institutions currently listed for this destination.
                                 </p>
 
                                 <div class="destination-card-stats">
@@ -223,6 +228,10 @@ export default function StudyAbroadDestinations() {
                                     <span>
                                         <strong>${destination.colleges}</strong>
                                         ${escapeHtml(collegeLabel)}
+                                    </span>
+                                    <span>
+                                        <strong>${destination.otherInstitutions}</strong>
+                                        ${escapeHtml(otherInstitutionLabel)}
                                     </span>
                                 </div>
 

@@ -1,6 +1,7 @@
 
 import initPremiumCursor
     from "./assets/js/premiumCursor.js";
+import { initWebsiteAssistant } from "./components/WebsiteAssistant.js";
 
 import initScrollPlane
     from "./assets/js/scrollPlane.js";
@@ -11,6 +12,7 @@ import initScrollPlane
 ========================================================= */
 
 import "./assets/css/premiumCursor.css";
+import "./assets/css/website-assistant.css";
 import "./assets/css/variables.css";
 import "./assets/css/style.css";
 
@@ -138,6 +140,7 @@ import { initOnlineEducationAdminPage } from "./pages/OnlineEducationAdminPage.j
 
 import { applyStudyAbroadSEO }
     from "./utils/studyAbroadSEO.js";
+import { initStudyAbroadCountryMenu } from "./layouts/StudyAbroadNavbar.js";
 
 
 /* =========================================================
@@ -271,7 +274,13 @@ document.addEventListener(
         app.innerHTML =
             Router();
 
+        initWebsiteAssistant();
+
         applyStudyAbroadSEO();
+
+        if (document.querySelector("#edu-study-nav")) {
+            initStudyAbroadCountryMenu();
+        }
 
         if (document.querySelector("#online-education-page")) {
             initOnlineEducationPage();
@@ -854,3 +863,4 @@ document.addEventListener(
 
     }
 );
+

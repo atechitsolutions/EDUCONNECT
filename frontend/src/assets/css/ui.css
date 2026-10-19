@@ -6406,6 +6406,37 @@
         0 14px 7px;
 }
 
+.rankings-methodology-note {
+    width: min(1250px, calc(100% - 40px));
+    margin: -12px auto 24px;
+    padding: 13px 17px;
+    display: flex;
+    align-items: baseline;
+    gap: 9px;
+    border: 1px solid rgba(29, 116, 201, .14);
+    border-radius: 12px;
+    background: rgba(239, 247, 255, .88);
+    color: #536a80;
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+.rankings-methodology-note strong {
+    flex: 0 0 auto;
+    color: #174e80;
+    font-weight: 800;
+}
+
+@media (max-width: 680px) {
+    .rankings-methodology-note {
+        width: calc(100% - 28px);
+        margin: 0 auto 20px;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+    }
+}
+
 .institution-card-action {
     width: 100%;
     min-height: 39px;
@@ -6430,6 +6461,7 @@
     text-align: left;
 
     cursor: pointer;
+    text-decoration: none;
 
     transition:
         color .2s ease,
@@ -13151,6 +13183,51 @@
 
 }
 
+.rankings-filter-bar {
+    width: min(1250px, calc(100% - 40px));
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    color: #34445a;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.rankings-filter-bar select {
+    min-width: 230px;
+    min-height: 46px;
+    padding: 0 42px 0 15px;
+    border: 1px solid #d5e2f1;
+    border-radius: 12px;
+    background: #fff;
+    color: #17324f;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(15, 76, 129, .07);
+}
+
+.rankings-filter-bar select:focus-visible {
+    outline: 3px solid rgba(37, 99, 235, .2);
+    outline-offset: 2px;
+}
+
+@media (max-width: 680px) {
+    .rankings-filter-bar {
+        width: calc(100% - 28px);
+        align-items: stretch;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .rankings-filter-bar select {
+        width: 100%;
+        min-width: 0;
+    }
+}
+
 
 #rankings .rankings-viewport {
 
@@ -13210,6 +13287,37 @@
     max-height:
         360px !important;
 
+    transform: perspective(1100px) translateY(0) rotateX(0) rotateY(0);
+    transform-style: preserve-3d;
+    will-change: transform;
+    transition: transform .35s cubic-bezier(.2,.75,.25,1), box-shadow .35s ease, border-color .25s ease;
+    box-shadow: 0 8px 22px rgba(14, 48, 82, .1);
+
+}
+
+#rankings .rankings-track .institution-card:hover {
+    z-index: 2;
+    transform: perspective(1100px) translateY(-9px) rotateX(2.4deg) rotateY(-2.4deg);
+    border-color: #9fc8f4;
+    box-shadow: 0 24px 42px rgba(14, 48, 82, .22);
+}
+
+#rankings .rankings-track .institution-card:focus-within {
+    transform: perspective(1100px) translateY(-6px) rotateX(1.5deg);
+    box-shadow: 0 20px 36px rgba(14, 48, 82, .18);
+}
+
+#rankings .rankings-track .institution-card[hidden] {
+    display: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #rankings .rankings-track .institution-card,
+    #rankings .rankings-track .institution-card:hover,
+    #rankings .rankings-track .institution-card:focus-within {
+        transform: none;
+        transition: none;
+    }
 }
 
 

@@ -1,278 +1,102 @@
-/* =========================================================
-   EDUCONNECT — RANKINGS INFINITE CAROUSEL
-========================================================= */
-
+/* Rankings category filter and seamless next-card carousel. */
 export function initRankingsCarousel() {
+    const carousel = document.querySelector("#rankings .rankings-carousel");
+    if (!carousel || carousel.dataset.initialized === "true") return;
 
-    const carousel =
-        document.querySelector(
-            "#rankings .rankings-carousel"
-        );
+    const track = carousel.querySelector(".rankings-track");
+    const nextButton = carousel.querySelector(".rankings-next");
+    const categoryFilter = document.querySelector("#rankings-category-filter");
+    if (!track || !nextButton) return;
+    carousel.dataset.initialized = "true";
 
+    const categoryCards = Array.from(track.querySelectorAll(".institution-card"));
+    const sourceLists = {
+        schools: "#school .early-learning-all-grid .institution-card",
+        preschool: "#pre-school .early-learning-all-grid .institution-card",
+        playschool: "#play-school .early-learning-all-grid .institution-card",
+        boarding: "#top-boarding-schools .boarding-schools-all-grid .institution-card"
+    };
+    let visibleCards = [];
+    let carouselCards = [];
+    let currentIndex = 0;
+    let isAnimating = false;
 
-    if (!carousel) {
-        return;
+    function cardStep() {
+        if (carouselCards.length < 2) return carouselCards[0]?.getBoundingClientRect().width || 0;
+        return carouselCards[1].getBoundingClientRect().left - carouselCards[0].getBoundingClientRect().left;
     }
 
-
-    const viewport =
-        carousel.querySelector(
-            ".rankings-viewport"
-        );
-
-
-    const track =
-        carousel.querySelector(
-            ".rankings-track"
-        );
-
-
-    const nextButton =
-        carousel.querySelector(
-            ".rankings-next"
-        );
-
-
-    if (
-        !viewport ||
-        !track ||
-        !nextButton
-    ) {
-        return;
+    function moveTrack(animate = true) {
+        track.style.transition = animate ? "transform 0.45s cubic-bezier(.2,.8,.2,1)" : "none";
+        track.style.transform = `translate3d(-${currentIndex * cardStep()}px, 0, 0)`;
     }
 
-
-    /* =====================================================
-       ORIGINAL CARDS
-    ====================================================== */
-
-    const originalCards =
-        Array.from(
-            track.querySelectorAll(
-                ".institution-card"
-            )
+    function rebuildCarousel() {
+        track.querySelectorAll('[data-carousel-clone="true"]').forEach((clone) => clone.remove());
+        track.querySelectorAll('[data-ranking-source-card="true"]').forEach((card) => card.remove());
+        const selectedCategory = categoryFilter?.value || "all";
+        let cardsForView = categoryCards.filter((card) =>
+            selectedCategory === "all" || card.dataset.rankingCategory === selectedCategory
         );
 
-
-    if (!originalCards.length) {
-        return;
-    }
-
-
-    const originalCount =
-        originalCards.length;
-
-
-    /* =====================================================
-       CREATE CLONES
-    ====================================================== */
-
-    originalCards.forEach(
-        (card) => {
-
-            const clone =
-                card.cloneNode(true);
-
-            clone.dataset.carouselClone =
-                "true";
-
-            track.appendChild(
-                clone
-            );
-
-        }
-    );
-
-
-    /* =====================================================
-       ALL CARDS
-    ====================================================== */
-
-    const allCards =
-        Array.from(
-            track.querySelectorAll(
-                ".institution-card"
-            )
-        );
-
-
-    let currentIndex =
-        0;
-
-
-    let isAnimating =
-        false;
-
-
-    /* =====================================================
-       GET CARD STEP
-    ====================================================== */
-
-    function getStep() {
-
-        if (
-            allCards.length < 2
-        ) {
-
-            return (
-                allCards[0]
-                    .getBoundingClientRect()
-                    .width
-            );
-
-        }
-
-
-        const first =
-            allCards[0]
-                .getBoundingClientRect();
-
-
-        const second =
-            allCards[1]
-                .getBoundingClientRect();
-
-
-        return (
-            second.left -
-            first.left
-        );
-
-    }
-
-
-    /* =====================================================
-       MOVE TRACK
-    ====================================================== */
-
-    function moveTrack(
-        animate = true
-    ) {
-
-        const step =
-            getStep();
-
-
-        track.style.transition =
-            animate
-                ? "transform 0.45s cubic-bezier(.2,.8,.2,1)"
-                : "none";
-
-
-        track.style.transform =
-            `translate3d(
-                -${currentIndex * step}px,
-                0,
-                0
-            )`;
-
-    }
-
-
-    /* =====================================================
-       NEXT BUTTON
-    ====================================================== */
-
-    nextButton.addEventListener(
-        "click",
-        () => {
-
-            if (isAnimating) {
-                return;
+        const sourceSelector = sourceLists[selectedCategory];
+        if (sourceSelector) {
+            const sourceCards = Array.from(document.querySelectorAll(sourceSelector));
+            if (sourceCards.length) {
+                cardsForView = sourceCards.map((sourceCard) => {
+                    const card = sourceCard.cloneNode(true);
+                    card.dataset.rankingSourceCard = "true";
+                    card.dataset.rankingCategory = selectedCategory;
+                    card.removeAttribute("id");
+                    track.appendChild(card);
+                    return card;
+                });
             }
-
-
-            isAnimating =
-                true;
-
-
-            currentIndex +=
-                1;
-
-
-            moveTrack(
-                true
-            );
-
         }
-    );
 
+        categoryCards.forEach((card) => {
+            card.hidden = !cardsForView.includes(card);
+        });
 
-    /* =====================================================
-       INFINITE LOOP
-    ====================================================== */
+        visibleCards = cardsForView;
 
-    track.addEventListener(
-        "transitionend",
-        (event) => {
+        visibleCards.forEach((card) => {
+            const clone = card.cloneNode(true);
+            clone.dataset.carouselClone = "true";
+            clone.removeAttribute("id");
+            track.appendChild(clone);
+        });
 
-            if (
-                event.propertyName !==
-                "transform"
-            ) {
-                return;
-            }
+        carouselCards = [
+            ...visibleCards,
+            ...Array.from(track.querySelectorAll('[data-carousel-clone="true"]'))
+        ];
+        currentIndex = 0;
+        isAnimating = false;
+        nextButton.disabled = visibleCards.length < 2;
+        nextButton.hidden = visibleCards.length < 2;
+        moveTrack(false);
+    }
 
+    nextButton.addEventListener("click", () => {
+        if (isAnimating || visibleCards.length < 2) return;
+        isAnimating = true;
+        currentIndex += 1;
+        moveTrack(true);
+    });
 
-            if (
-                currentIndex >=
-                originalCount
-            ) {
-
-                currentIndex =
-                    currentIndex -
-                    originalCount;
-
-
-                moveTrack(
-                    false
-                );
-
-            }
-
-
-            requestAnimationFrame(
-                () => {
-
-                    isAnimating =
-                        false;
-
-                }
-            );
-
+    track.addEventListener("transitionend", (event) => {
+        if (event.propertyName !== "transform") return;
+        if (currentIndex >= visibleCards.length) {
+            currentIndex = 0;
+            moveTrack(false);
         }
-    );
+        requestAnimationFrame(() => { isAnimating = false; });
+    });
 
-
-    /* =====================================================
-       RESIZE
-    ====================================================== */
-
-    window.addEventListener(
-        "resize",
-        () => {
-
-            moveTrack(
-                false
-            );
-
-        }
-    );
-
-
-    /* =====================================================
-       INITIALIZE
-    ====================================================== */
-
-    nextButton.disabled =
-        false;
-
-
-    moveTrack(
-        false
-    );
-
+    categoryFilter?.addEventListener("change", rebuildCarousel);
+    window.addEventListener("resize", () => moveTrack(false));
+    rebuildCarousel();
 }
-
 
 export default initRankingsCarousel;

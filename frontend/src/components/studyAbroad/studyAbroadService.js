@@ -32,7 +32,7 @@ export default function StudyAbroadSearch() {
                         <span>Study Abroad Option</span>
                     </h2>
                     <p>
-                        Search EduConnect partner universities and colleges
+                        Search universities and institutions by name or destination
                         by institution, city, state or country.
                     </p>
                 </div>
@@ -151,7 +151,7 @@ function initializeStudyAbroadSearch() {
 
         resultsContainer.innerHTML = `
             <div class="study-abroad-search-loading">
-                Searching EduConnect partner institutions...
+                Searching listed Study Abroad institutions...
             </div>
         `;
 
@@ -162,7 +162,7 @@ function initializeStudyAbroadSearch() {
             if (!results.length) {
                 resultsContainer.innerHTML = `
                     <div class="study-abroad-search-empty">
-                        No matching Study Abroad partner institutions found.
+                        No matching Study Abroad institutions found.
                     </div>
                 `;
                 return;
@@ -185,10 +185,10 @@ function initializeStudyAbroadSearch() {
                                 institution.state,
                                 institution.country
                             ].filter(Boolean).join(", "),
-                            program: "EduConnect Study Abroad Partner",
+                            program: "Study Abroad listing",
                             ranking: institution.verified
-                                ? "Verified EduConnect partner"
-                                : "EduConnect partner institution",
+                                ? "Details verified"
+                                : "Institution listing",
                             highlight: institution.description || "",
                             image: institution.coverImageUrl || "",
                             actionLabel: "View More",

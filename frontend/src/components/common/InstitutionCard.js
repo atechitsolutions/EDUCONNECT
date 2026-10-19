@@ -19,6 +19,8 @@ export default function InstitutionCard({
         highlight = "",
         category = "",
         actionLabel = "View Details",
+        actionHref = "",
+        rankingCategory = "",
         showCompare = true
     } = item;
 
@@ -27,6 +29,7 @@ export default function InstitutionCard({
         <article
             class="institution-card"
             data-type="${type}"
+            ${rankingCategory ? `data-ranking-category="${rankingCategory}"` : ""}
             ${id ? `data-institution-id="${id}"` : ""}
         >
 
@@ -198,14 +201,9 @@ export default function InstitutionCard({
 
                 <div class="institution-card-actions">
 
-                    <button
-                        type="button"
-                        class="institution-card-action"
-                        data-action="details"
-                    >
-                        ${actionLabel}
-                        <span>›</span>
-                    </button>
+                    ${actionHref
+                        ? `<a class="institution-card-action" href="${actionHref}">${actionLabel}<span>›</span></a>`
+                        : `<button type="button" class="institution-card-action" data-action="details">${actionLabel}<span>›</span></button>`}
 
 
                     ${

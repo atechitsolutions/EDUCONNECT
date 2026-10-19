@@ -15,6 +15,12 @@
 import StudyAbroadHero
     from "../components/studyAbroad/StudyAbroadHero.js";
 
+import StudyAbroadDestinations
+    from "../components/studyAbroad/StudyAbroadDestinations.js";
+
+import { loadStudyAbroadInstitutions }
+    from "../assets/js/institutionSearch.js";
+
 import StudyAbroadLeadForm
     from "../components/StudyAbroadLeadForm.js";
 
@@ -46,6 +52,12 @@ import StudyAbroadCTA
 
 export default function StudyAbroadPage() {
 
+    setTimeout(() => {
+        loadStudyAbroadInstitutions().catch((error) => {
+            console.error("Unable to load Study Abroad institution cards.", error);
+        });
+    }, 0);
+
     return `
 
         <div
@@ -59,6 +71,8 @@ export default function StudyAbroadPage() {
 
             ${StudyAbroadHero()}
 
+            ${StudyAbroadDestinations()}
+
             <section
                 class="study-abroad-featured-institutions"
                 id="study-abroad-institutions"
@@ -69,11 +83,14 @@ export default function StudyAbroadPage() {
                     <div class="study-abroad-featured-institutions-heading">
                         <p>EXPLORE INSTITUTIONS</p>
                         <h2 id="study-abroad-institutions-title">
-                            Colleges &amp; Universities Abroad
+                            Universities and Institutions by Destination
                         </h2>
+                        <p class="study-abroad-featured-institutions-description">
+                            Browse the institutions currently listed for each destination. Program, fee, and official website details appear when available.
+                        </p>
                     </div>
                     <div
-                        class="institution-search-card-grid"
+                        class="study-abroad-country-groups"
                         data-study-abroad-institutions
                     ></div>
                 </div>

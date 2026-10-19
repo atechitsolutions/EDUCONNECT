@@ -32,7 +32,12 @@ function getInstitutionLocation(institution) {
 }
 
 function renderInstitutionCard(institution) {
-    const type = institution.type || "Institution";
+    const rawType = String(institution.type || "").toUpperCase();
+    const type = rawType === "UNIVERSITY"
+        ? "University"
+        : rawType === "COLLEGE"
+            ? "College"
+            : "Institution";
 
     return InstitutionCard({
         type: "study-abroad",
@@ -299,9 +304,35 @@ export async function loadStudyAbroadInstitutions() {
         "[data-study-abroad-institutions]"
     );
     if (studyAbroadSection && studyAbroadGrid && institutions.length) {
-        studyAbroadGrid.innerHTML = `
-            ${cards}
-        `;
+        const countryOrder = [
+            "United States", "Canada", "United Kingdom", "Australia", "Germany",
+            "France", "Ireland", "Finland", "Netherlands", "Italy",
+            "United Arab Emirates", "Hungary"
+        ];
+        const groups = new Map();
+        institutions.forEach((institution) => {
+            const country = institution.country || "Other destinations";
+            if (!groups.has(country)) groups.set(country, []);
+            groups.get(country).push(institution);
+        });
+        const sortedCountries = [...groups.keys()].sort((a, b) => {
+            const indexA = countryOrder.indexOf(a);
+            const indexB = countryOrder.indexOf(b);
+            return (indexA < 0 ? countryOrder.length : indexA)
+                - (indexB < 0 ? countryOrder.length : indexB)
+                || a.localeCompare(b);
+        });
+        studyAbroadGrid.innerHTML = sortedCountries.map((country) => `
+            <section class="study-abroad-country-group" aria-label="Institutions in ${escapeHtml(country)}">
+                <div class="study-abroad-country-heading">
+                    <h3>${escapeHtml(country)}</h3>
+                    <span>${groups.get(country).length} listed</span>
+                </div>
+                <div class="institution-search-card-grid">
+                    ${groups.get(country).map(renderInstitutionCard).join("")}
+                </div>
+            </section>
+        `).join("");
         studyAbroadSection.hidden = false;
     }
 }
