@@ -105,6 +105,12 @@ public class SecurityConfig {
                                         )
                                         .permitAll()
 
+                                        .requestMatchers("/api/community/admin/**")
+                                        .hasRole("ADMIN")
+
+                                        .requestMatchers("/api/community/**")
+                                        .hasRole("STUDENT")
+
 
                                         /* ==================
                                            OPTIONS
@@ -115,15 +121,6 @@ public class SecurityConfig {
                                         )
                                         .permitAll()
                 )
-
-                /*
-                   IMPORTANT:
-                   Change protected endpoints to
-                   .authenticated() when we create them.
-
-                   For now authentication API itself
-                   is publicly accessible.
-                */
 
                 .addFilterBefore(
 

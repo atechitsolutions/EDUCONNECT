@@ -192,7 +192,7 @@ export default function Navbar() {
             ================================================== -->
 
             <a
-                href="#community"
+                href="/community"
                 class="navbar-link"
                 data-auth-required="true"
                 aria-label="Education Community"

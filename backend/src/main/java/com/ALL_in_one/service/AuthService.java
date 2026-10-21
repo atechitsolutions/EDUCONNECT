@@ -4,11 +4,14 @@ import com.ALL_in_one.dto.AuthResponse;
 import com.ALL_in_one.dto.LoginRequest;
 import com.ALL_in_one.dto.RegisterRequest;
 import com.ALL_in_one.entity.User;
+import com.ALL_in_one.community.entity.StudentProfile;
+import com.ALL_in_one.community.repository.StudentProfileRepository;
 import com.ALL_in_one.repository.UserRepository;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 
@@ -23,6 +26,8 @@ public class AuthService {
 
     private final JwtService jwtService;
 
+    private final StudentProfileRepository studentProfileRepository;
+
 
     public AuthService(
 
@@ -30,7 +35,9 @@ public class AuthService {
 
             PasswordEncoder passwordEncoder,
 
-            JwtService jwtService
+            JwtService jwtService,
+
+            StudentProfileRepository studentProfileRepository
 
     ) {
 
@@ -43,6 +50,8 @@ public class AuthService {
         this.jwtService =
                 jwtService;
 
+        this.studentProfileRepository = studentProfileRepository;
+
     }
 
 
@@ -50,6 +59,7 @@ public class AuthService {
        REGISTER
     ====================================================== */
 
+    @Transactional
     public AuthResponse register(
             RegisterRequest request
     ) {
@@ -155,6 +165,13 @@ public class AuthService {
                 userRepository.save(
                         user
                 );
+
+        if ("STUDENT".equals(role)) {
+            StudentProfile profile = new StudentProfile();
+            profile.setUser(savedUser);
+            profile.setUsername("student_" + savedUser.getId());
+            studentProfileRepository.save(profile);
+        }
 
 
         /* -------------------------------------------------

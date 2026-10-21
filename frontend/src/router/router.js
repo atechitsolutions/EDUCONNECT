@@ -5,6 +5,8 @@ import OnlineEducationLayout from "../layouts/OnlineEducationLayout.js";
 import OnlineEducationAdminPage from "../pages/OnlineEducationAdminPage.js";
 import Header from "../layouts/header.js";
 import FooterSection from "../components/home/footerSection.js";
+import Navbar from "../layouts/navbar.js";
+import CommunityPage from "../pages/CommunityPage.js";
 
 export function Router() {
 
@@ -39,6 +41,10 @@ export function Router() {
 
         case "/online-education/admin":
             pageContent = `${Header()}${OnlineEducationAdminPage()}${FooterSection()}`;
+            break;
+
+        case "/community":
+            pageContent = `${Header()}${Navbar()}${CommunityPage()}${FooterSection()}`;
             break;
 
         // =====================================================

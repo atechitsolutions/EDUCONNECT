@@ -2,6 +2,7 @@
 import initPremiumCursor
     from "./assets/js/premiumCursor.js";
 import { initWebsiteAssistant } from "./components/WebsiteAssistant.js";
+import { initCommunityPage } from "./assets/js/communityPage.js";
 
 import initScrollPlane
     from "./assets/js/scrollPlane.js";
@@ -18,6 +19,7 @@ import "./assets/css/style.css";
 
 import "./assets/css/header.css";
 import "./assets/css/navbar.css";
+import "./assets/css/community.css";
 
 
 /* =========================================================
@@ -128,6 +130,7 @@ import "./assets/css/online-education.css";
 import "./assets/css/online-education-card-layouts.css";
 import "./assets/css/online-education-admin.css";
 import "./assets/css/institution-compare.css";
+import "./assets/css/education-loan-section.css";
 
 
 /* =========================================================
@@ -139,6 +142,7 @@ import Router
 import { initOnlineEducationPage } from "./assets/js/onlineEducationPage.js";
 import { initOnlineEducationAdminPage } from "./pages/OnlineEducationAdminPage.js";
 import { initInstitutionCompareSection } from "./components/home/InstitutionCompareSection.js";
+import { initEducationLoanSection } from "./components/home/educationLoanSection.js";
 
 import { applyStudyAbroadSEO }
     from "./utils/studyAbroadSEO.js";
@@ -198,15 +202,6 @@ import {
 import {
     initStudentReviewsCarousel
 } from "./assets/js/studentReviewsCarousel.js";
-
-
-/* =========================================================
-   EDUCATION LOAN CAROUSEL
-========================================================= */
-
-import {
-    initEducationLoanCarousel
-} from "./assets/js/educationLoanCarousel.js";
 
 
 /* =========================================================
@@ -301,6 +296,10 @@ document.addEventListener(
 
         initAuth();
 
+        if (document.querySelector("#community-page")) {
+            initCommunityPage();
+        }
+
 
         /* =====================================================
            ONLINE EDUCATION CAROUSEL
@@ -392,19 +391,7 @@ document.addEventListener(
         }
 
 
-        /* =====================================================
-           EDUCATION LOAN CAROUSEL
-        ====================================================== */
-
-        if (
-            document.querySelector(
-                "#education-loan"
-            )
-        ) {
-
-            initEducationLoanCarousel();
-
-        }
+        initEducationLoanSection();
 
 
         /* =====================================================
