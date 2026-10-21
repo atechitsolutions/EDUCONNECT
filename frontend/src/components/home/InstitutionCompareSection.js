@@ -28,10 +28,6 @@ const categories = {
 const labels = { type: "Institution type", place: "Location", programs: "Programs / grades", fees: "Fees shown", rating: "Listing rating", score: "Atech review score" };
 const choices = [["university", "Universities"], ["college", "Colleges"], ["school", "Schools"], ["boarding", "Boarding schools"]];
 
-function options(items, selected) {
-    return items.map((item, i) => `<option value="${i}" ${i === selected ? "selected" : ""}>${item.name}</option>`).join("");
-}
-
 function rows(left, right) {
     return Object.entries(labels).map(([key, label]) => {
         const a = left[key] || "Not listed";
@@ -42,13 +38,24 @@ function rows(left, right) {
 
 export function InstitutionCompareSection() {
     const list = categories.university;
+    const options = (items) => items.map((item) => `<option value="${item.name}"></option>`).join("");
     return `<section class="institution-compare-section" aria-labelledby="institution-compare-title">
         <header class="institution-compare-heading"><span>SIDE-BY-SIDE COMPARISON</span><h2 id="institution-compare-title">Compare universities, colleges &amp; schools</h2><p>Pick a category and two institutions to see their listed details and differences side by side.</p></header>
         <div class="institution-compare-controls">
             <label>Category<select class="institution-compare-category" aria-label="Choose category">${choices.map(([v, t]) => `<option value="${v}">${t}</option>`).join("")}</select></label>
-            <label>Institution 1<select class="institution-compare-left" aria-label="Choose first institution">${options(list, 0)}</select></label>
+            <div class="institution-compare-picker" data-side="left" data-selected-index="0">
+                <label for="institution-compare-left">Institution 1</label>
+                <div class="institution-compare-search"><input id="institution-compare-left" class="institution-compare-input" type="search" list="institution-compare-list-left" placeholder="Search or select an institution" autocomplete="off"><span aria-hidden="true">⌄</span></div>
+                <datalist id="institution-compare-list-left">${options(list)}</datalist>
+                <p class="institution-compare-search-status" data-search-status="left" aria-live="polite"></p>
+            </div>
             <span class="institution-compare-vs" aria-hidden="true">VS</span>
-            <label>Institution 2<select class="institution-compare-right" aria-label="Choose second institution">${options(list, 1)}</select></label>
+            <div class="institution-compare-picker" data-side="right" data-selected-index="1">
+                <label for="institution-compare-right">Institution 2</label>
+                <div class="institution-compare-search"><input id="institution-compare-right" class="institution-compare-input" type="search" list="institution-compare-list-right" placeholder="Search or select an institution" autocomplete="off"><span aria-hidden="true">⌄</span></div>
+                <datalist id="institution-compare-list-right">${options(list)}</datalist>
+                <p class="institution-compare-search-status" data-search-status="right" aria-live="polite"></p>
+            </div>
             <button type="button" class="institution-compare-submit">Compare institutions <span>→</span></button>
         </div>
         <div class="institution-compare-result" aria-live="polite"><div class="institution-compare-result-heading"><span>COMPARISON</span><p class="institution-compare-summary"></p></div>
@@ -64,33 +71,86 @@ export function initInstitutionCompareSection(root = document) {
     if (!section || section.dataset.ready) return;
     section.dataset.ready = "true";
     const category = section.querySelector(".institution-compare-category");
-    const leftSelect = section.querySelector(".institution-compare-left");
-    const rightSelect = section.querySelector(".institution-compare-right");
+    const pickers = {
+        left: section.querySelector('[data-side="left"]'),
+        right: section.querySelector('[data-side="right"]')
+    };
     const leftTitle = section.querySelector(".institution-compare-left-name");
     const rightTitle = section.querySelector(".institution-compare-right-name");
     const rowsNode = section.querySelector(".institution-compare-rows");
     const summary = section.querySelector(".institution-compare-summary");
+
+    const pickerInput = (picker) => picker.querySelector(".institution-compare-input");
+    const pickerList = (picker) => section.querySelector(`#institution-compare-list-${picker.dataset.side}`);
+    const pickerStatus = (side) => section.querySelector(`[data-search-status="${side}"]`);
+    const selectedInstitution = (picker) => categories[category.value][Number(picker.dataset.selectedIndex)];
+    const fillList = (picker) => {
+        pickerList(picker).innerHTML = categories[category.value].map((item) => `<option value="${item.name}"></option>`).join("");
+    };
+    const findInstitution = (picker) => categories[category.value].findIndex((item) => item.name.toLocaleLowerCase() === pickerInput(picker).value.trim().toLocaleLowerCase());
+
     const update = () => {
+        const leftPicker = pickers.left;
+        const rightPicker = pickers.right;
+        let li = Number(leftPicker.dataset.selectedIndex);
+        let ri = Number(rightPicker.dataset.selectedIndex);
         const items = categories[category.value];
-        let li = Number(leftSelect.value), ri = Number(rightSelect.value);
-        if (li === ri && items.length > 1) { ri = (li + 1) % items.length; rightSelect.value = String(ri); }
-        const left = items[li], right = items[ri];
+        if (li === ri && items.length > 1) {
+            ri = (li + 1) % items.length;
+            rightPicker.dataset.selectedIndex = String(ri);
+            pickerInput(rightPicker).value = items[ri].name;
+        }
+        const left = items[li];
+        const right = items[ri];
         leftTitle.textContent = left.name;
         rightTitle.textContent = right.name;
         rowsNode.innerHTML = rows(left, right);
         const count = Object.keys(labels).filter((key) => (left[key] || "Not listed") !== (right[key] || "Not listed")).length;
         summary.textContent = `${count} listed ${count === 1 ? "difference" : "differences"} highlighted`;
     };
-    const updateCategory = () => {
-        const items = categories[category.value];
-        leftSelect.innerHTML = options(items, 0);
-        rightSelect.innerHTML = options(items, 1);
+
+    const commitInstitution = (picker) => {
+        const index = findInstitution(picker);
+        if (index < 0) {
+            pickerInput(picker).value = selectedInstitution(picker).name;
+            pickerStatus(picker.dataset.side).textContent = "Choose an institution from the suggestions.";
+            return;
+        }
+        picker.dataset.selectedIndex = String(index);
+        pickerInput(picker).value = categories[category.value][index].name;
+        pickerStatus(picker.dataset.side).textContent = "";
         update();
     };
+
+    const updateCategory = () => {
+        const items = categories[category.value];
+        pickers.left.dataset.selectedIndex = "0";
+        pickers.right.dataset.selectedIndex = "1";
+        Object.values(pickers).forEach(fillList);
+        pickerInput(pickers.left).value = items[0].name;
+        pickerInput(pickers.right).value = items[1].name;
+        section.querySelectorAll(".institution-compare-search-status").forEach((status) => { status.textContent = ""; });
+        update();
+    };
+
     category.addEventListener("change", updateCategory);
-    leftSelect.addEventListener("change", update);
-    rightSelect.addEventListener("change", update);
+    Object.values(pickers).forEach((picker) => {
+        const input = pickerInput(picker);
+        input.addEventListener("input", () => {
+            const query = input.value.trim().toLocaleLowerCase();
+            const matches = categories[category.value].filter((item) => item.name.toLocaleLowerCase().includes(query)).length;
+            pickerStatus(picker.dataset.side).textContent = query
+                ? (matches ? `${matches} matching ${matches === 1 ? "institution" : "institutions"}. Select a suggestion.` : "No matching institution in this category.")
+                : "Type to search, or use the dropdown suggestions.";
+        });
+        input.addEventListener("change", () => commitInstitution(picker));
+        input.addEventListener("blur", () => { if (findInstitution(picker) >= 0) commitInstitution(picker); });
+    });
+
     section.querySelector(".institution-compare-submit").addEventListener("click", update);
+    Object.values(pickers).forEach(fillList);
+    pickerInput(pickers.left).value = selectedInstitution(pickers.left).name;
+    pickerInput(pickers.right).value = selectedInstitution(pickers.right).name;
     update();
 }
 
