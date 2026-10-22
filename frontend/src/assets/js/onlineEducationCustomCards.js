@@ -1,8 +1,8 @@
 import { onlineEducationDefaultCards } from "../../data/onlineEducationDefaultCards.js";
-import {
-    getOnlineEducationCards
-} from "../../services/onlineEducationService.js";
 
+import {
+    getOnlineEducationCardOverrides
+} from "../../services/onlineEducationService.js";
 function escapeHTML(value = "") {
     return String(value).replace(/[&<>"']/g, (character) => ({
         "&": "&amp;",

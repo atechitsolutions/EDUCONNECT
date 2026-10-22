@@ -1896,3 +1896,81 @@
 .study-abroad-destination-list>.study-abroad-destination-card{flex:0 0 clamp(245px,14.8vw,290px);width:clamp(245px,14.8vw,290px);min-height:74px}
 .study-abroad-destination-list>.study-abroad-destination-card[data-carousel-clone="true"]{pointer-events:auto}
 @media(max-width:760px){.study-abroad-destination-list{gap:10px}.study-abroad-destination-list>.study-abroad-destination-card{flex-basis:245px;width:245px}}
+
+
+/* =========================================================
+   EDUCONNECT — STUDY ABROAD HERO ALIGNMENT
+   Keep hero content fully visible below a fixed/sticky navbar.
+   This is intentionally scoped to the hero only.
+========================================================= */
+
+.study-abroad-page .study-abroad-hero {
+    position: relative;
+    isolation: isolate;
+    min-height: 760px;
+    padding: 112px 0 58px !important;
+    overflow: hidden;
+}
+
+.study-abroad-page .study-abroad-hero .study-abroad-container {
+    position: relative;
+    z-index: 10;
+    padding-top: 0;
+}
+
+.study-abroad-page .study-abroad-hero .study-abroad-hero-layout {
+    align-items: center;
+}
+
+.study-abroad-page .study-abroad-hero .study-abroad-hero-content {
+    min-width: 0;
+    align-self: center;
+    margin-top: 0;
+    transform: none;
+}
+
+.study-abroad-page .study-abroad-hero .study-abroad-hero-badge {
+    position: relative;
+    margin-top: 0;
+    transform: none;
+}
+
+/* Desktop: provide room for the navbar without changing the design. */
+@media (min-width: 1101px) {
+    .study-abroad-page .study-abroad-hero {
+        min-height: 760px;
+        padding-top: 112px !important;
+        padding-bottom: 58px !important;
+    }
+}
+
+/* Tablet layout stacks the text and planning card. */
+@media (max-width: 1100px) {
+    .study-abroad-page .study-abroad-hero {
+        min-height: auto;
+        padding-top: 96px !important;
+        padding-bottom: 56px !important;
+    }
+
+    .study-abroad-page .study-abroad-hero .study-abroad-hero-layout {
+        align-items: start;
+    }
+}
+
+/* Mobile: use compact, safe spacing below the navbar. */
+@media (max-width: 700px) {
+    .study-abroad-page .study-abroad-hero {
+        min-height: auto;
+        padding: 76px 0 48px !important;
+    }
+
+    .study-abroad-page .study-abroad-hero .study-abroad-hero-layout {
+        gap: 38px;
+    }
+}
+
+@media (max-width: 430px) {
+    .study-abroad-page .study-abroad-hero {
+        padding-top: 68px !important;
+    }
+}

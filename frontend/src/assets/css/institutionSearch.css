@@ -25,7 +25,7 @@
 .institution-search-suggestions-list[hidden],
 .institution-search-results[hidden],
 .study-abroad-featured-institutions[hidden] {
-    display: none;
+    display: none !important;
 }
 
 .institution-search-suggestion {
@@ -71,15 +71,27 @@
     font-size: 18px;
 }
 
+/* Search results grid */
 .institution-search-card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 22px;
+    width: 100%;
+}
+
+.institution-search-card-grid > * {
+    min-width: 0;
 }
 
 .study-abroad-featured-institutions {
     padding: 72px 0;
-    background: linear-gradient(145deg, #f7fbff, #edf6fc 55%, #ffffff);
+    background: linear-gradient(
+        145deg,
+        #f7fbff,
+        #edf6fc 55%,
+        #ffffff
+    );
 }
 
 .study-abroad-featured-institutions-container {
@@ -113,12 +125,18 @@
     line-height: 1.7;
 }
 
-.study-abroad-country-group + .study-abroad-country-group {
-    margin-top: 42px;
+.study-abroad-country-groups {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    width: 100%;
 }
 
-.study-abroad-country-groups {
+.study-abroad-country-group {
     display: block;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
 }
 
 .study-abroad-country-heading {
@@ -143,10 +161,95 @@
     white-space: nowrap;
 }
 
+/* Each country uses a consistent three-column grid. */
+#study-abroad-institutions .institution-search-card-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    align-items: stretch;
+    gap: 22px;
+    width: 100%;
+}
+
+#study-abroad-institutions .institution-search-card-item {
+    display: block;
+    min-width: 0;
+    width: 100%;
+}
+
+#study-abroad-institutions .institution-search-card-item[hidden] {
+    display: none !important;
+}
+
+#study-abroad-institutions .institution-search-card-item .institution-card {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+}
+
 .study-abroad-featured-institutions .institution-card {
     min-width: 0;
 }
 
+/* View More / View Less controls */
+.study-abroad-load-more-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 24px 0 0;
+}
+
+.study-abroad-load-more {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 44px;
+    padding: 11px 22px;
+    border: 1px solid #1769a8;
+    border-radius: 999px;
+    background: #1769a8;
+    color: #ffffff;
+    font: inherit;
+    font-weight: 700;
+    line-height: 1.4;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.study-abroad-load-more:hover {
+    border-color: #125585;
+    background: #125585;
+    transform: translateY(-1px);
+}
+
+.study-abroad-load-more:focus-visible {
+    outline: 3px solid rgba(37, 99, 235, 0.3);
+    outline-offset: 3px;
+}
+
+.study-abroad-load-more span {
+    flex-shrink: 0;
+}
+
+/* Tablet: two columns */
+@media (max-width: 1000px) {
+    .institution-search-card-grid,
+    #study-abroad-institutions .institution-search-card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 18px;
+    }
+
+    .study-abroad-featured-institutions {
+        padding: 56px 0;
+    }
+}
+
+/* Mobile: one column */
 @media (max-width: 640px) {
     .institution-search-results {
         padding: 12px;
@@ -154,5 +257,25 @@
 
     .study-abroad-featured-institutions {
         padding: 48px 0;
+    }
+
+    .institution-search-card-grid,
+    #study-abroad-institutions .institution-search-card-grid {
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 16px;
+    }
+
+    .study-abroad-featured-institutions-container {
+        width: min(100% - 28px, 1280px);
+    }
+
+    .study-abroad-country-heading {
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .study-abroad-load-more {
+        width: 100%;
+        max-width: 320px;
     }
 }

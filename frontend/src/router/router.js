@@ -8,15 +8,22 @@ import FooterSection from "../components/home/footerSection.js";
 import Navbar from "../layouts/navbar.js";
 import CommunityPage from "../pages/CommunityPage.js";
 
-export function Router() {
+import AdminDashboardPage from "../pages/AdminDashboard.js";
+import AdminNewsPage from "../pages/AdminNewsPage.js";
+import AdminCurrentAffairsPage from "../pages/AdminCurrentAffairsPage.js";
+import AdminStudyAbroadPage from "../pages/AdminStudyAbroadPage.js";
 
-    const path = window.location.pathname.replace(/\/+$/, "") || "/";
+import StudyAbroadSearchResultsPage
+    from "../pages/StudyAbroadSearchResultsPage.js";
+
+export function Router() {
+    const path =
+        window.location.pathname.replace(/\/+$/, "") || "/";
 
     let pageContent = "";
     let pageStatus = 200;
 
     switch (path) {
-
         // =====================================================
         // HOME
         // =====================================================
@@ -26,6 +33,41 @@ export function Router() {
             pageContent = MainLayout();
             break;
 
+        // =====================================================
+        // GENERAL ADMIN DASHBOARD
+        // =====================================================
+
+        case "/admin":
+            pageContent =
+                `${Header()}${AdminDashboardPage()}${FooterSection()}`;
+            break;
+
+        // =====================================================
+        // ADMIN — NEWS
+        // =====================================================
+
+        case "/admin/news":
+            pageContent =
+                `${Header()}${AdminNewsPage()}${FooterSection()}`;
+            break;
+
+        // =====================================================
+        // ADMIN — CURRENT AFFAIRS
+        // =====================================================
+
+        case "/admin/current-affairs":
+            pageContent =
+                `${Header()}${AdminCurrentAffairsPage()}${FooterSection()}`;
+            break;
+
+        // =====================================================
+        // ADMIN — STUDY ABROAD
+        // =====================================================
+
+        case "/admin/study-abroad":
+            pageContent =
+                `${Header()}${AdminStudyAbroadPage()}${FooterSection()}`;
+            break;
 
         // =====================================================
         // STUDY ABROAD
@@ -35,22 +77,34 @@ export function Router() {
             pageContent = StudyAbroadLayout();
             break;
 
+        case "/study-abroad/search-results":
+            pageContent = StudyAbroadSearchResultsPage();
+            break;
+
+        // =====================================================
+        // ONLINE EDUCATION
+        // =====================================================
+
         case "/online-education":
             pageContent = OnlineEducationLayout();
             break;
 
         case "/online-education/admin":
-            pageContent = `${Header()}${OnlineEducationAdminPage()}${FooterSection()}`;
+            pageContent =
+                `${Header()}${OnlineEducationAdminPage()}${FooterSection()}`;
             break;
 
+        // =====================================================
+        // COMMUNITY
+        // =====================================================
+
         case "/community":
-            pageContent = `${Header()}${Navbar()}${CommunityPage()}${FooterSection()}`;
+            pageContent =
+                `${Header()}${Navbar()}${CommunityPage()}${FooterSection()}`;
             break;
 
         // =====================================================
         // UNKNOWN ROUTE
-        // Do not silently render the homepage.
-        // No new page is created.
         // =====================================================
 
         default:
@@ -62,10 +116,7 @@ export function Router() {
                     aria-labelledby="route-not-found-title"
                 >
                     <section class="route-not-found-content">
-
-                        <p class="route-not-found-code">
-                            404
-                        </p>
+                        <p class="route-not-found-code">404</p>
 
                         <h1 id="route-not-found-title">
                             Page Not Found
@@ -78,19 +129,14 @@ export function Router() {
                         <a href="/">
                             Go to EduConnect Home
                         </a>
-
                     </section>
                 </main>
             `;
-
             break;
     }
 
-    /*
-     * Store the current route status so main.js can update
-     * SEO/indexability information after rendering.
-     */
-    document.documentElement.dataset.routeStatus = String(pageStatus);
+    document.documentElement.dataset.routeStatus =
+        String(pageStatus);
 
     return `
         ${pageContent}

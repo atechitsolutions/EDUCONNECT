@@ -479,3 +479,244 @@
 @media(max-width:760px){.oe-page .oe-nav{padding:8px 0}.oe-page .oe-nav-inner{width:calc(100% - 28px);min-height:64px;display:flex;gap:8px;padding:8px 10px 8px 15px;border-radius:22px}.oe-page .oe-brand{gap:7px;font-size:15px}.oe-page .oe-brand::before{width:30px;height:30px;flex-basis:30px}.oe-page .oe-brand span{font-size:9px}.oe-page .oe-menu-toggle{margin-left:auto}.oe-page .oe-nav-links{position:static;inset:auto;display:none;flex:0 0 100%;padding:10px;margin-top:4px;border:1px solid #e0e9f5;border-radius:15px;background:#fff;box-shadow:0 15px 32px rgba(24,53,91,.12)}.oe-page .oe-nav-links.is-open{display:flex}.oe-page .oe-nav-cta{position:static;transform:none;margin:5px 0 0;min-height:44px;border-radius:11px}.oe-page .oe-nav-cta:hover{transform:translateY(-1px)}}
 
 
+/* =========================================================
+   ONLINE EDUCATION HERO SEARCH
+========================================================= */
+
+.oe-hero-search-form {
+    position: relative;
+    width: min(100%, 820px);
+    margin-top: 24px;
+}
+
+.oe-hero-search-label {
+    display: block;
+    margin-bottom: 8px;
+    color: #173b5c;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.oe-hero-search-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    width: 100%;
+    min-height: 62px;
+    padding: 6px 7px 6px 16px;
+
+    border: 1px solid rgba(190, 211, 238, 0.95);
+    border-radius: 15px;
+
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 12px 32px rgba(20, 55, 95, 0.12);
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.oe-hero-search-control:focus-within {
+    border-color: #4b91e5;
+    box-shadow:
+        0 0 0 4px rgba(37, 99, 235, 0.10),
+        0 12px 32px rgba(20, 55, 95, 0.12);
+}
+
+.oe-hero-search-icon {
+    display: grid;
+    flex: 0 0 34px;
+    width: 34px;
+    height: 34px;
+    place-items: center;
+
+    color: #58718c;
+    font-size: 28px;
+    line-height: 1;
+}
+
+.oe-hero-search-control input {
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+    height: 46px;
+    padding: 0 6px;
+
+    border: 0;
+    outline: 0;
+
+    background: transparent;
+    color: #173b5c;
+    font: inherit;
+    font-size: 14px;
+}
+
+.oe-hero-search-control input::placeholder {
+    color: #8598ad;
+}
+
+.oe-hero-search-control input:focus-visible {
+    outline: none;
+}
+
+.oe-hero-search-control button {
+    flex: 0 0 auto;
+    min-height: 46px;
+    padding: 0 20px;
+    white-space: nowrap;
+}
+
+.oe-hero-search-hint {
+    margin: 9px 0 0;
+    color: #526b85;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.oe-hero-search-control button:focus-visible {
+    outline: 3px solid rgba(37, 99, 235, 0.35);
+    outline-offset: 3px;
+}
+
+@media (max-width: 560px) {
+    .oe-hero-search-form {
+        margin-top: 20px;
+    }
+
+    .oe-hero-search-control {
+        display: grid;
+        grid-template-columns: 30px minmax(0, 1fr);
+        gap: 4px;
+        padding: 8px 10px;
+    }
+
+    .oe-hero-search-icon {
+        width: 30px;
+        font-size: 25px;
+    }
+
+    .oe-hero-search-control input {
+        font-size: 13px;
+    }
+
+    .oe-hero-search-control button {
+        grid-column: 1 / -1;
+        width: 100%;
+    }
+}
+/* =========================================================
+   ONLINE EDUCATION — HERO COURSE SUGGESTIONS
+========================================================= */
+
+.oe-hero-search-form {
+    position: relative;
+    z-index: 20;
+}
+
+.oe-course-suggestions {
+    display: grid;
+    gap: 4px;
+
+    width: 100%;
+    max-height: 340px;
+    margin: 8px 0 0;
+    padding: 8px;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    border: 1px solid #dce7f4;
+    border-radius: 13px;
+
+    background: #ffffff;
+    box-shadow: 0 16px 40px rgba(18, 48, 80, 0.16);
+
+    text-align: left;
+}
+
+.oe-course-suggestions[hidden] {
+    display: none !important;
+}
+
+.oe-course-suggestion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+
+    width: 100%;
+    min-width: 0;
+    padding: 12px 14px;
+
+    border: 1px solid transparent;
+    border-radius: 9px;
+
+    background: #ffffff;
+    color: #173b5c;
+
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+
+    transition:
+        background 0.18s ease,
+        border-color 0.18s ease;
+}
+
+.oe-course-suggestion:hover,
+.oe-course-suggestion:focus-visible {
+    border-color: #d7e7fa;
+    background: #f1f7ff;
+    outline: none;
+}
+
+.oe-course-suggestion-main {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.oe-course-suggestion-main strong {
+    color: #173b5c;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.oe-course-suggestion-main small {
+    color: #70839a;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.oe-course-suggestion-arrow {
+    flex-shrink: 0;
+    color: #2873ce;
+    font-size: 17px;
+}
+
+.oe-course-suggestion:focus-visible {
+    outline: 3px solid rgba(37, 99, 235, 0.25);
+    outline-offset: 2px;
+}
+
+@media (max-width: 560px) {
+    .oe-course-suggestions {
+        max-height: 280px;
+        padding: 6px;
+    }
+
+    .oe-course-suggestion {
+        padding: 11px;
+    }
+
+    .oe-course-suggestion-main strong {
+        font-size: 13px;
+    }
+}

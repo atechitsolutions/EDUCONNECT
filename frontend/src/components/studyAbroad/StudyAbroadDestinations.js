@@ -71,6 +71,7 @@ function buildDestinations(institutions) {
 
     institutions.forEach((institution) => {
         const country = institution.country?.trim();
+
         if (!country) {
             return;
         }
@@ -93,21 +94,31 @@ function buildDestinations(institutions) {
             group.code = institution.countryCode;
         }
 
-        if (String(institution.type ?? "").toUpperCase() === "UNIVERSITY") {
+        const type = String(institution.type ?? "").toUpperCase();
+
+        if (type === "UNIVERSITY") {
             group.universities += 1;
-        }
-
-        if (String(institution.type ?? "").toUpperCase() === "COLLEGE") {
+        } else if (type === "COLLEGE") {
             group.colleges += 1;
-        }
-
-        if (!["UNIVERSITY", "COLLEGE"].includes(String(institution.type ?? "").toUpperCase())) {
+        } else {
             group.otherInstitutions += 1;
         }
     });
 
-    return [...groups.values()]
-        .sort((a, b) => a.country.localeCompare(b.country));
+    return [...groups.values()].sort(
+        (a, b) => a.country.localeCompare(b.country)
+    );
+}
+
+/*
+ * Show two complete rows according to the responsive grid.
+ */
+function getDestinationBatchSize() {
+    if (window.matchMedia("(max-width: 600px)").matches) return 2;
+    if (window.matchMedia("(max-width: 850px)").matches) return 4;
+    if (window.matchMedia("(max-width: 1150px)").matches) return 6;
+
+    return 8;
 }
 
 export default function StudyAbroadDestinations() {
@@ -124,7 +135,8 @@ export default function StudyAbroadDestinations() {
                     </span>
 
                     <h2 id="study-abroad-destinations-title">
-                        Explore destinations available on <span>EduConnect</span>
+                        Explore destinations available on
+                        <span>EduConnect</span>
                     </h2>
 
                     <p>
@@ -141,6 +153,21 @@ export default function StudyAbroadDestinations() {
                         <span class="destination-loading-dot"></span>
                         <span>Loading destinations...</span>
                     </div>
+                </div>
+
+                <div
+                    class="study-abroad-load-more-wrap"
+                    data-destination-controls
+                    hidden
+                >
+                    <button
+                        type="button"
+                        class="study-abroad-load-more"
+                        data-destination-load-more
+                    >
+                        View More Destinations
+                        <span aria-hidden="true">↓</span>
+                    </button>
                 </div>
             </div>
         </section>
@@ -165,37 +192,70 @@ export default function StudyAbroadDestinations() {
                     <div class="study-abroad-destination-empty">
                         <div class="study-abroad-destination-empty-icon">🌍</div>
                         <h3>No destinations available yet</h3>
-                        <p>Active Study Abroad institutions added by an administrator will appear here.</p>
+                        <p>
+                            Active Study Abroad institutions added by an administrator
+                            will appear here.
+                        </p>
                     </div>
                 `;
                 return;
             }
 
+            const initialCount = getDestinationBatchSize();
+
             container.innerHTML = destinations.map((destination, index) => {
                 const meta = getCountryMeta(destination.code);
                 const total = destination.institutions.length;
-                const universityLabel = `${destination.universities} ${destination.universities === 1 ? "University" : "Universities"}`;
-                const collegeLabel = `${destination.colleges} ${destination.colleges === 1 ? "College" : "Colleges"}`;
-                const otherInstitutionLabel = `${destination.otherInstitutions} ${destination.otherInstitutions === 1 ? "Other institution" : "Other institutions"}`;
+
+                const universityLabel =
+                    `${destination.universities} ${
+                        destination.universities === 1
+                            ? "University"
+                            : "Universities"
+                    }`;
+
+                const collegeLabel =
+                    `${destination.colleges} ${
+                        destination.colleges === 1
+                            ? "College"
+                            : "Colleges"
+                    }`;
+
+                const otherInstitutionLabel =
+                    `${destination.otherInstitutions} ${
+                        destination.otherInstitutions === 1
+                            ? "Other institution"
+                            : "Other institutions"
+                    }`;
 
                 return `
                     <article
                         class="study-abroad-destination-card"
-                        data-country="${escapeHtml(destination.code || destination.country)}"
+                        data-country="${escapeHtml(
+                            destination.code || destination.country
+                        )}"
                         data-destination-index="${index}"
+                        ${index >= initialCount ? "hidden" : ""}
                     >
                         <a
                             href="#study-abroad-search"
                             class="study-abroad-destination-link"
-                            data-destination-query="institutions in ${escapeHtml(destination.country)}"
-                            aria-label="Explore Study Abroad institutions in ${escapeHtml(destination.country)}"
+                            data-destination-query="institutions in ${escapeHtml(
+                                destination.country
+                            )}"
+                            aria-label="Explore Study Abroad institutions in ${escapeHtml(
+                                destination.country
+                            )}"
                         >
                             <div class="destination-card-image">
                                 <img
                                     src="${meta.image}"
-                                    alt="Study in ${escapeHtml(destination.country)}"
+                                    alt="Study in ${escapeHtml(
+                                        destination.country
+                                    )}"
                                     loading="lazy"
                                 />
+
                                 <div class="destination-card-image-overlay"></div>
 
                                 <div class="destination-country">
@@ -204,20 +264,30 @@ export default function StudyAbroadDestinations() {
                                 </div>
 
                                 <span class="destination-card-count">
-                                    ${total} listed ${total === 1 ? "institution" : "institutions"}
+                                    ${total} listed ${
+                                        total === 1 ? "institution" : "institutions"
+                                    }
                                 </span>
                             </div>
 
                             <div class="destination-card-content">
                                 <div class="destination-card-top">
-                                    <span class="destination-card-label">STUDY ABROAD</span>
-                                    <span class="destination-card-arrow" aria-hidden="true">↗</span>
+                                    <span class="destination-card-label">
+                                        STUDY ABROAD
+                                    </span>
+                                    <span
+                                        class="destination-card-arrow"
+                                        aria-hidden="true"
+                                    >↗</span>
                                 </div>
 
-                                <h3>Study in ${escapeHtml(destination.country)}</h3>
+                                <h3>
+                                    Study in ${escapeHtml(destination.country)}
+                                </h3>
 
                                 <p class="destination-card-description">
-                                    Browse the institutions currently listed for this destination.
+                                    Browse the institutions currently listed for
+                                    this destination.
                                 </p>
 
                                 <div class="destination-card-stats">
@@ -225,10 +295,12 @@ export default function StudyAbroadDestinations() {
                                         <strong>${destination.universities}</strong>
                                         ${escapeHtml(universityLabel)}
                                     </span>
+
                                     <span>
                                         <strong>${destination.colleges}</strong>
                                         ${escapeHtml(collegeLabel)}
                                     </span>
+
                                     <span>
                                         <strong>${destination.otherInstitutions}</strong>
                                         ${escapeHtml(otherInstitutionLabel)}
@@ -236,7 +308,9 @@ export default function StudyAbroadDestinations() {
                                 </div>
 
                                 <div class="destination-card-footer">
-                                    <span>Explore ${escapeHtml(destination.country)}</span>
+                                    <span>
+                                        Explore ${escapeHtml(destination.country)}
+                                    </span>
                                     <span aria-hidden="true">→</span>
                                 </div>
                             </div>
@@ -245,25 +319,84 @@ export default function StudyAbroadDestinations() {
                 `;
             }).join("");
 
-            container.addEventListener("click", (event) => {
+            const sectionElement = container.closest(
+                ".study-abroad-destinations"
+            );
+
+            const controls = sectionElement?.querySelector(
+                "[data-destination-controls]"
+            );
+
+            const button = controls?.querySelector(
+                "[data-destination-load-more]"
+            );
+
+            let expanded = false;
+
+            if (controls && button) {
+                controls.hidden = destinations.length <= initialCount;
+
+                button.addEventListener("click", () => {
+                    const cards = [
+                        ...container.querySelectorAll(
+                            ".study-abroad-destination-card"
+                        )
+                    ];
+
+                    if (expanded) {
+                        cards.forEach((card, index) => {
+                            card.hidden = index >= initialCount;
+                        });
+
+                        expanded = false;
+                        button.innerHTML =
+                            'View More Destinations <span aria-hidden="true">↓</span>';
+
+                        return;
+                    }
+
+                    const hiddenCards = cards
+                        .filter((card) => card.hidden)
+                        .slice(0, getDestinationBatchSize());
+
+                    hiddenCards.forEach((card) => {
+                        card.hidden = false;
+                    });
+
+                    if (!cards.some((card) => card.hidden)) {
+                        expanded = true;
+                        button.innerHTML =
+                            'View Less <span aria-hidden="true">↑</span>';
+                    }
+                });
+            }
+
+            sectionElement?.addEventListener("click", (event) => {
                 const link = event.target.closest("[data-destination-query]");
+
                 if (!link) {
                     return;
                 }
 
-                const input = document.querySelector("#study-abroad-search-input");
+                const input = document.querySelector(
+                    "#study-abroad-search-input"
+                );
+
                 if (!input) {
                     return;
                 }
 
                 event.preventDefault();
                 input.value = link.dataset.destinationQuery || "";
-                document
-                    .querySelector("#study-abroad-search-button")
-                    ?.click();
+
+                document.querySelector("#study-abroad-search-button")?.click();
             });
         } catch (error) {
-            console.error("Failed to load Study Abroad destinations:", error);
+            console.error(
+                "Failed to load Study Abroad destinations:",
+                error
+            );
+
             container.innerHTML = `
                 <div class="study-abroad-destination-empty">
                     <div class="study-abroad-destination-empty-icon">⚠️</div>

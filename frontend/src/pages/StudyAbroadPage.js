@@ -73,28 +73,7 @@ export default function StudyAbroadPage() {
 
             ${StudyAbroadDestinations()}
 
-            <section
-                class="study-abroad-featured-institutions"
-                id="study-abroad-institutions"
-                aria-labelledby="study-abroad-institutions-title"
-                hidden
-            >
-                <div class="study-abroad-featured-institutions-container">
-                    <div class="study-abroad-featured-institutions-heading">
-                        <p>EXPLORE INSTITUTIONS</p>
-                        <h2 id="study-abroad-institutions-title">
-                            Universities and Institutions by Destination
-                        </h2>
-                        <p class="study-abroad-featured-institutions-description">
-                            Browse the institutions currently listed for each destination. Program, fee, and official website details appear when available.
-                        </p>
-                    </div>
-                    <div
-                        class="study-abroad-country-groups"
-                        data-study-abroad-institutions
-                    ></div>
-                </div>
-            </section>
+
 
 
             <!-- =================================================

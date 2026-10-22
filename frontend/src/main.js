@@ -1,4 +1,3 @@
-
 import initPremiumCursor
     from "./assets/js/premiumCursor.js";
 import { initWebsiteAssistant } from "./components/WebsiteAssistant.js";
@@ -6,7 +5,6 @@ import { initCommunityPage } from "./assets/js/communityPage.js";
 
 import initScrollPlane
     from "./assets/js/scrollPlane.js";
-
 
 /* =========================================================
    GLOBAL CSS
@@ -21,13 +19,12 @@ import "./assets/css/header.css";
 import "./assets/css/navbar.css";
 import "./assets/css/community.css";
 
-
 /* =========================================================
    STUDY ABROAD — SEARCH
 ========================================================= */
 
 import "./assets/css/studyAbroadSearch.css";
-
+import "./assets/css/institutionSearch.css";
 
 /* =========================================================
    STUDY ABROAD — DESTINATIONS
@@ -35,19 +32,15 @@ import "./assets/css/studyAbroadSearch.css";
 
 import "./assets/css/study-abroad-destinations.css";
 
-
 /* =========================================================
    STUDY ABROAD — COUNTRY COMPARISON
 ========================================================= */
 
 import "./assets/css/study-abroad-country-comparison.css";
 
-
 /* =========================================================
    STUDY ABROAD — DEGREE EXPLORER
 ========================================================= */
-
-
 
 /* =========================================================
    STUDY ABROAD — COURSE EXPLORER
@@ -55,13 +48,11 @@ import "./assets/css/study-abroad-country-comparison.css";
 
 import "./assets/css/study-abroad-course-explorer.css";
 
-
 /* =========================================================
    STUDY ABROAD — TOP UNIVERSITIES
 ========================================================= */
 
 import "./assets/css/study-abroad-top-universities.css";
-
 
 /* =========================================================
    STUDY ABROAD — ADMISSION REQUIREMENTS
@@ -69,13 +60,11 @@ import "./assets/css/study-abroad-top-universities.css";
 
 import "./assets/css/study-abroad-admission-requirements.css";
 
-
 /* =========================================================
    STUDY ABROAD — APPLICATION PROCESS
 ========================================================= */
 
 import "./assets/css/study-abroad-application-process.css";
-
 
 /* =========================================================
    STUDY ABROAD — INTAKES
@@ -83,28 +72,14 @@ import "./assets/css/study-abroad-application-process.css";
 
 import "./assets/css/study-abroad-intakes.css";
 
-
 /* =========================================================
    STUDY ABROAD — GLOBAL CONTENT FOUNDATION
 ========================================================= */
 
 import "./assets/css/studyAbroad.css";
 
-
-/* =========================================================
-   STUDY ABROAD — ADDITIONAL SECTIONS
-   ---------------------------------------------------------
-   This stylesheet exists in the project and was previously
-   missing from main.js.
-========================================================= */
-
-
-
 /* =========================================================
    STUDY ABROAD — NAVBAR
-   ---------------------------------------------------------
-   KEEP THIS IMPORT.
-   DO NOT MODIFY THE NAVBAR DESIGN.
 ========================================================= */
 
 import "./assets/css/studyAbroadNavbar.css";
@@ -114,7 +89,6 @@ import "./assets/css/study-abroad-cost.css";
 import "./assets/css/study-abroad-student-reviews.css";
 import "./assets/css/study-abroad-faq.css";
 import "./assets/css/study-abroad-cta.css";
-
 
 /* =========================================================
    OTHER GLOBAL CSS
@@ -132,22 +106,39 @@ import "./assets/css/online-education-admin.css";
 import "./assets/css/institution-compare.css";
 import "./assets/css/education-loan-section.css";
 
-
 /* =========================================================
    ROUTER
 ========================================================= */
 
-import Router
-    from "./router/router.js";
-import { initOnlineEducationPage } from "./assets/js/onlineEducationPage.js";
-import { initOnlineEducationAdminPage } from "./pages/OnlineEducationAdminPage.js";
-import { initInstitutionCompareSection } from "./components/home/InstitutionCompareSection.js";
-import { initEducationLoanSection } from "./components/home/educationLoanSection.js";
+import Router from "./router/router.js";
 
-import { applyStudyAbroadSEO }
-    from "./utils/studyAbroadSEO.js";
-import { initStudyAbroadCountryMenu } from "./layouts/StudyAbroadNavbar.js";
+import {
+    initInstitutionSearch
+} from "./assets/js/institutionSearch.js";
 
+import {
+    initOnlineEducationPage
+} from "./assets/js/onlineEducationPage.js";
+
+import {
+    initOnlineEducationAdminPage
+} from "./pages/OnlineEducationAdminPage.js";
+
+import {
+    initInstitutionCompareSection
+} from "./components/home/InstitutionCompareSection.js";
+
+import {
+    initEducationLoanSection
+} from "./components/home/educationLoanSection.js";
+
+import {
+    applyStudyAbroadSEO
+} from "./utils/studyAbroadSEO.js";
+
+import {
+    initStudyAbroadCountryMenu
+} from "./layouts/StudyAbroadNavbar.js";
 
 /* =========================================================
    ONLINE EDUCATION CAROUSEL
@@ -157,7 +148,6 @@ import {
     initOnlineEducationCarousel
 } from "./assets/js/onlineEducation.js";
 
-
 /* =========================================================
    NEWS CAROUSEL
 ========================================================= */
@@ -165,7 +155,6 @@ import {
 import {
     initNewsCarousel
 } from "./assets/js/newsCarousel.js";
-
 
 /* =========================================================
    STUDY ABROAD CAROUSEL
@@ -175,8 +164,6 @@ import {
     initStudyAbroadCarousel
 } from "./assets/js/studyAbroadCarousel.js";
 
-
-
 /* =========================================================
    SCHOLARSHIP CAROUSEL
 ========================================================= */
@@ -184,7 +171,6 @@ import {
 import {
     initScholarshipCarousel
 } from "./assets/js/scholarshipCarousel.js";
-
 
 /* =========================================================
    RANKINGS CAROUSEL
@@ -194,7 +180,6 @@ import {
     initRankingsCarousel
 } from "./assets/js/rankingsCarousel.js";
 
-
 /* =========================================================
    STUDENT REVIEWS CAROUSEL
 ========================================================= */
@@ -202,7 +187,6 @@ import {
 import {
     initStudentReviewsCarousel
 } from "./assets/js/studentReviewsCarousel.js";
-
 
 /* =========================================================
    TOP LISTS CAROUSEL
@@ -212,7 +196,6 @@ import {
     initTopListsCarousel
 } from "./assets/js/topListsCarousel.js";
 
-
 /* =========================================================
    COMPARE COLLEGE CAROUSEL
 ========================================================= */
@@ -220,7 +203,6 @@ import {
 import {
     initCompareCollegeCarousel
 } from "./assets/js/compareCollegeCarousel.js";
-
 
 /* =========================================================
    AUTHENTICATION
@@ -232,7 +214,6 @@ import {
 
 import "./assets/css/auth.css";
 import "./assets/css/admin.css";
-
 
 /* =========================================================
    APPLICATION INITIALIZATION
@@ -249,7 +230,6 @@ document.addEventListener(
         const app =
             document.getElementById("app");
 
-
         /* =====================================================
            CHECK APP ROOT
         ====================================================== */
@@ -263,7 +243,6 @@ document.addEventListener(
             return;
         }
 
-
         /* =====================================================
            RENDER APPLICATION
         ====================================================== */
@@ -271,24 +250,68 @@ document.addEventListener(
         app.innerHTML =
             Router();
 
+        /* =====================================================
+           STUDY ABROAD SEARCH
+        ====================================================== */
+
+        initInstitutionSearch();
+
+        /* =====================================================
+           INSTITUTION COMPARISON
+        ====================================================== */
+
         initInstitutionCompareSection();
+
+        /* =====================================================
+           WEBSITE ASSISTANT
+        ====================================================== */
 
         initWebsiteAssistant();
 
+        /* =====================================================
+           STUDY ABROAD SEO
+        ====================================================== */
+
         applyStudyAbroadSEO();
 
-        if (document.querySelector("#edu-study-nav")) {
+        /* =====================================================
+           STUDY ABROAD COUNTRY MENU
+        ====================================================== */
+
+        if (
+            document.querySelector("#edu-study-nav")
+        ) {
             initStudyAbroadCountryMenu();
         }
 
-        if (document.querySelector("#online-education-page")) {
-            initOnlineEducationPage();
+        /* =====================================================
+           ONLINE EDUCATION PUBLIC PAGE
+        ====================================================== */
+
+        if (
+            document.querySelector("#online-education-page")
+        ) {
+
+            initOnlineEducationPage().catch((error) => {
+
+                console.error(
+                    "Online Education initialization failed:",
+                    error
+                );
+
+            });
+
         }
 
-        if (document.querySelector(".oe-admin-page")) {
+        /* =====================================================
+           ONLINE EDUCATION ADMIN PAGE
+        ====================================================== */
+
+        if (
+            document.querySelector(".oe-admin-page")
+        ) {
             initOnlineEducationAdminPage();
         }
-
 
         /* =====================================================
            AUTHENTICATION
@@ -296,40 +319,35 @@ document.addEventListener(
 
         initAuth();
 
-        if (document.querySelector("#community-page")) {
+        /* =====================================================
+           COMMUNITY PAGE
+        ====================================================== */
+
+        if (
+            document.querySelector("#community-page")
+        ) {
             initCommunityPage();
         }
-
 
         /* =====================================================
            ONLINE EDUCATION CAROUSEL
         ====================================================== */
 
         if (
-            document.querySelector(
-                "#online-education"
-            )
+            document.querySelector("#online-education")
         ) {
-
             initOnlineEducationCarousel();
-
         }
-
 
         /* =====================================================
            NEWS CAROUSEL
         ====================================================== */
 
         if (
-            document.querySelector(
-                "#news"
-            )
+            document.querySelector("#news")
         ) {
-
             initNewsCarousel();
-
         }
-
 
         /* =====================================================
            STUDY ABROAD CAROUSEL
@@ -340,96 +358,70 @@ document.addEventListener(
                 "#study-abroad, #study-abroad-page"
             )
         ) {
-
             initStudyAbroadCarousel();
-
         }
-
 
         /* =====================================================
            SCHOLARSHIP CAROUSEL
         ====================================================== */
 
         if (
-            document.querySelector(
-                "#scholarship"
-            )
+            document.querySelector("#scholarship")
         ) {
-
             initScholarshipCarousel();
-
         }
-
 
         /* =====================================================
            RANKINGS CAROUSEL
         ====================================================== */
 
         if (
-            document.querySelector(
-                "#rankings"
-            )
+            document.querySelector("#rankings")
         ) {
-
             initRankingsCarousel();
-
         }
-
 
         /* =====================================================
            STUDENT REVIEWS CAROUSEL
         ====================================================== */
 
         if (
-            document.querySelector(
-                "#student-reviews"
-            )
+            document.querySelector("#student-reviews")
         ) {
-
             initStudentReviewsCarousel();
-
         }
 
+        /* =====================================================
+           EDUCATION LOAN SECTION
+        ====================================================== */
 
         initEducationLoanSection();
-
 
         /* =====================================================
            TOP LISTS CAROUSEL
         ====================================================== */
 
         if (
-            document.querySelector(
-                "#top-lists"
-            )
+            document.querySelector("#top-lists")
         ) {
-
             initTopListsCarousel();
-
         }
-
 
         /* =====================================================
            COMPARE COLLEGE CAROUSEL
         ====================================================== */
 
         if (
-            document.querySelector(
-                "#compare-college"
-            )
+            document.querySelector("#compare-college")
         ) {
-
             initCompareCollegeCarousel();
-
         }
-
 
         /* =====================================================
            PREMIUM CURSOR
         ====================================================== */
 
         initPremiumCursor();
-
 
         /* =====================================================
            SCROLL PAPER PLANE
@@ -440,7 +432,6 @@ document.addEventListener(
 
         // initScrollPlane();
 
-
         /* =====================================================
            VIEW ALL / SHOW LESS
            BOARDING SCHOOLS
@@ -450,7 +441,6 @@ document.addEventListener(
             document.querySelector(
                 ".boarding-schools-section"
             );
-
 
         if (boardingSection) {
 
@@ -463,7 +453,6 @@ document.addEventListener(
                 boardingSection.querySelector(
                     ".boarding-schools-all"
                 );
-
 
             if (
                 boardingButton &&
@@ -478,66 +467,47 @@ document.addEventListener(
                             boardingSection.classList
                                 .toggle("is-expanded");
 
-
                         boardingAll.hidden =
                             !isExpanded;
-
 
                         const text =
                             boardingButton.querySelector(
                                 ".boarding-view-all-text"
                             );
 
-
                         const arrow =
                             boardingButton.querySelector(
                                 "span:last-child"
                             );
 
-
                         if (isExpanded) {
 
                             if (text) {
-
                                 text.textContent =
                                     "Show Less";
-
                             }
-
 
                             if (arrow) {
-
                                 arrow.textContent =
                                     "↑";
-
                             }
-
 
                             boardingAll.scrollIntoView({
                                 behavior: "smooth",
                                 block: "start"
                             });
 
-                        }
-
-
-                        else {
+                        } else {
 
                             if (text) {
-
                                 text.textContent =
                                     "View All Boarding Schools";
-
                             }
-
 
                             if (arrow) {
-
                                 arrow.textContent =
                                     "→";
-
                             }
-
 
                             boardingSection.scrollIntoView({
                                 behavior: "smooth",
@@ -553,7 +523,6 @@ document.addEventListener(
 
         }
 
-
         /* =====================================================
            VIEW ALL / SHOW LESS
            COMPANIES
@@ -563,7 +532,6 @@ document.addEventListener(
             document.querySelector(
                 ".top-companies-section"
             );
-
 
         if (companySection) {
 
@@ -576,7 +544,6 @@ document.addEventListener(
                 companySection.querySelector(
                     ".top-companies-all"
                 );
-
 
             if (
                 companyButton &&
@@ -591,66 +558,47 @@ document.addEventListener(
                             companySection.classList
                                 .toggle("is-expanded");
 
-
                         companyAll.hidden =
                             !isExpanded;
-
 
                         const text =
                             companyButton.querySelector(
                                 ".top-companies-view-all-text"
                             );
 
-
                         const arrow =
                             companyButton.querySelector(
                                 "span:last-child"
                             );
 
-
                         if (isExpanded) {
 
                             if (text) {
-
                                 text.textContent =
                                     "Show Less";
-
                             }
-
 
                             if (arrow) {
-
                                 arrow.textContent =
                                     "↑";
-
                             }
-
 
                             companyAll.scrollIntoView({
                                 behavior: "smooth",
                                 block: "start"
                             });
 
-                        }
-
-
-                        else {
+                        } else {
 
                             if (text) {
-
                                 text.textContent =
                                     "View All Companies";
-
                             }
-
 
                             if (arrow) {
-
                                 arrow.textContent =
                                     "→";
-
                             }
-
 
                             companySection.scrollIntoView({
                                 behavior: "smooth",
@@ -666,7 +614,6 @@ document.addEventListener(
 
         }
 
-
         /* =====================================================
            VIEW ALL / SHOW LESS
            UG + PG COLLEGES
@@ -676,7 +623,6 @@ document.addEventListener(
             document.querySelector(
                 ".ug-pg-section-wrapper"
             );
-
 
         if (collegeWrapper) {
 
@@ -689,7 +635,6 @@ document.addEventListener(
                 collegeWrapper.querySelector(
                     ".ug-pg-all"
                 );
-
 
             if (
                 collegeButton &&
@@ -704,66 +649,47 @@ document.addEventListener(
                             collegeWrapper.classList
                                 .toggle("is-expanded");
 
-
                         collegeAll.hidden =
                             !isExpanded;
-
 
                         const text =
                             collegeButton.querySelector(
                                 ".ug-pg-view-all-text"
                             );
 
-
                         const arrow =
                             collegeButton.querySelector(
                                 "span:last-child"
                             );
 
-
                         if (isExpanded) {
 
                             if (text) {
-
                                 text.textContent =
                                     "Show Less";
-
                             }
-
 
                             if (arrow) {
-
                                 arrow.textContent =
                                     "↑";
-
                             }
-
 
                             collegeAll.scrollIntoView({
                                 behavior: "smooth",
                                 block: "start"
                             });
 
-                        }
-
-
-                        else {
+                        } else {
 
                             if (text) {
-
                                 text.textContent =
                                     "View All Colleges";
-
                             }
-
 
                             if (arrow) {
-
                                 arrow.textContent =
                                     "→";
-
                             }
-
 
                             collegeWrapper.scrollIntoView({
                                 behavior: "smooth",
@@ -779,7 +705,6 @@ document.addEventListener(
 
         }
 
-
         /* =====================================================
            CAROUSEL PERFORMANCE OPTIMIZATION
 
@@ -793,7 +718,6 @@ document.addEventListener(
                 .top-companies-track,
                 #top-ug-pg-colleges .ug-pg-track
             `);
-
 
         if (
             animatedCarouselTracks.length &&
@@ -810,19 +734,13 @@ document.addEventListener(
                                 const track =
                                     entry.target;
 
-
-                                if (
-                                    entry.isIntersecting
-                                ) {
+                                if (entry.isIntersecting) {
 
                                     track.style
                                         .animationPlayState =
                                         "running";
 
-                                }
-
-
-                                else {
+                                } else {
 
                                     track.style
                                         .animationPlayState =
@@ -839,7 +757,6 @@ document.addEventListener(
                     }
                 );
 
-
             animatedCarouselTracks.forEach(
                 (track) => {
 
@@ -854,4 +771,3 @@ document.addEventListener(
 
     }
 );
-
