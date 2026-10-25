@@ -23,16 +23,17 @@ public class CommunityService {
     private final FriendshipRepository friendships;
     private final ConversationRepository conversations;
     private final CommunityMessageRepository messages;
+    private final CommunityGroupMessageRepository communityChatMessages;
     private final CommunityNotificationRepository notifications;
     private final UserBlockRepository blocks;
     private final CommunityReportRepository reports;
 
     public CommunityService(UserRepository users, StudentProfileRepository profiles,
             FriendshipRepository friendships, ConversationRepository conversations,
-            CommunityMessageRepository messages, CommunityNotificationRepository notifications,
+            CommunityMessageRepository messages, CommunityGroupMessageRepository communityChatMessages, CommunityNotificationRepository notifications,
             UserBlockRepository blocks, CommunityReportRepository reports) {
         this.users = users; this.profiles = profiles; this.friendships = friendships;
-        this.conversations = conversations; this.messages = messages; this.notifications = notifications;
+        this.conversations = conversations; this.messages = messages; this.communityChatMessages = communityChatMessages; this.notifications = notifications;
         this.blocks = blocks; this.reports = reports;
     }
 
@@ -191,6 +192,41 @@ public class CommunityService {
         User recipient = peer(c, sender.getId());
         notify(recipient, sender, "MESSAGE", "New message from " + sender.getFullName() + ".", c.getId());
         return messageView(message);
+    }
+
+    public List<CommunityChatMessageView> communityChatMessages(String email, Long afterId, Long beforeId) {
+        authenticatedUser(email);
+        List<CommunityGroupMessage> found;
+        if (beforeId != null && beforeId > 0) {
+            found = communityChatMessages.findByIdLessThanOrderByIdDesc(beforeId, PageRequest.of(0, 60));
+            Collections.reverse(found);
+        } else if (afterId != null && afterId > 0) {
+            found = communityChatMessages.findByIdGreaterThanOrderByIdAsc(afterId, PageRequest.of(0, 100));
+        } else {
+            found = communityChatMessages.findTop100ByOrderByIdDesc();
+            Collections.reverse(found);
+        }
+        return found.stream().map(this::communityChatMessageView).toList();
+    }
+
+    public CommunityChatMessageView sendCommunityChatMessage(String email, String content) {
+        User sender = authenticatedUser(email);
+        String body = content == null ? "" : content.trim();
+        if (body.isEmpty() || body.length() > 4000) throw new IllegalArgumentException("Message must be between 1 and 4,000 characters.");
+        if (communityChatMessages.countBySender_IdAndCreatedAtAfter(sender.getId(), LocalDateTime.now().minusMinutes(1)) >= 40)
+            throw new IllegalArgumentException("Please slow down and try again in a moment.");
+        CommunityGroupMessage message = new CommunityGroupMessage();
+        message.setSender(sender);
+        message.setContent(body);
+        return communityChatMessageView(communityChatMessages.save(message));
+    }
+
+    private User authenticatedUser(String email) {
+        return users.findByEmail(email).orElseThrow(() -> new EntityNotFoundException("Account not found."));
+    }
+
+    private CommunityChatMessageView communityChatMessageView(CommunityGroupMessage message) {
+        return new CommunityChatMessageView(message.getId(), message.getSender().getId(), message.getSender().getFullName(), message.getContent(), message.getCreatedAt());
     }
 
     public List<NotificationView> notificationList(String email) {

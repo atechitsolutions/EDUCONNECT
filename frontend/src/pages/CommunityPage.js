@@ -3,7 +3,7 @@ import { isAuthenticated } from "../services/authService.js";
 export function CommunityPage() {
     if (!isAuthenticated()) return `
         <main class="community-auth-wall"><section><span class="community-kicker">EDUCONNECT COMMUNITY</span><h1>Your Community. Your Connections.</h1>
-            <p>Sign in with your student account to discover peers and message your friends.</p>
+            <p>Sign in with your EduConnect account to join the community conversation and connect with other members.</p>
             <a class="community-button community-button-primary" href="/community" data-auth-required="true">Sign in to continue →</a>
         </section></main>`;
 
@@ -13,8 +13,8 @@ export function CommunityPage() {
             <div class="community-hero-copy"><span class="community-kicker">EDUCONNECT · STUDENT NETWORK</span>
                 <h1 id="community-title">Your Community.<br><span>Your Connections.</span></h1>
                 <p>Meet students, exchange ideas, find study partners, and build meaningful connections.</p>
-                <div class="community-hero-actions"><button class="community-button community-button-primary" data-community-tab-link="discover">Explore students <span>→</span></button>
-                    <button class="community-button community-button-glass" data-community-tab-link="messages">My messages <span>↗</span></button></div>
+                <div class="community-hero-actions"><button class="community-button community-button-primary" data-community-tab-link="community-chat">Community Chat <span>→</span></button>
+                    <button class="community-button community-button-glass" data-community-tab-link="community-chat">Open group chat <span>↗</span></button></div>
                 <div class="community-hero-stats" aria-live="polite">
                     <div><strong data-stat="friends">—</strong><span>Your connections</span></div>
                     <div><strong data-stat="requests">—</strong><span>New requests</span></div>
@@ -33,7 +33,8 @@ export function CommunityPage() {
             <aside class="community-sidebar">
                 <div class="community-side-profile"><span class="community-avatar community-avatar-large" data-my-avatar>EC</span><div><strong data-my-name>Student</strong><small data-my-course>Complete your profile</small></div><span class="community-presence-dot" aria-label="Signed in"></span></div>
                 <nav class="community-tabs" aria-label="Community sections">
-                    <button class="is-active" data-community-tab="discover"><span>✦</span> Discover students</button>
+                    <button class="is-active" data-community-tab="community-chat" aria-current="page"><span>✦</span> Community Chat</button>
+                    <button data-community-tab="discover"><span>⌕</span> Discover students</button>
                     <button data-community-tab="friends"><span>◉</span> My friends <b data-tab-count="friends">0</b></button>
                     <button data-community-tab="requests"><span>↗</span> Friend requests <b data-tab-count="requests">0</b></button>
                     <button data-community-tab="messages"><span>▤</span> Messages <b data-tab-count="messages">0</b></button>
@@ -44,7 +45,17 @@ export function CommunityPage() {
             </aside>
 
             <div class="community-content">
-                <section class="community-panel is-active" data-panel="discover" aria-labelledby="discover-title">
+                <section class="community-panel is-active community-group-panel" data-panel="community-chat" aria-labelledby="community-chat-title">
+                    <div class="community-section-heading"><div><span class="community-kicker">THE EDUCONNECT STUDENT LOUNGE</span><h2 id="community-chat-title">EduConnect Community Chat</h2><p>Connect, share ideas, and learn together.</p></div><span class="community-live-pill"><i></i> Shared group</span></div>
+                    <section class="community-group-chat" aria-label="Shared community chat">
+                        <header class="community-group-chat-header"><span class="community-group-chat-mark">EC</span><div><strong>EduConnect Community</strong><span>One open conversation for signed-in members</span></div><span class="community-group-online"><i></i> Live updates</span></header>
+                        <div class="community-group-message-list" data-community-chat-list aria-live="polite" aria-relevant="additions text"><div class="community-empty-state"><span>✦</span><h3>Loading community chat</h3><p>Getting the latest messages…</p></div></div>
+                        <form class="community-group-message-form" data-community-chat-form hidden><label><span class="visually-hidden">Write a message to the community</span><textarea name="content" rows="1" maxlength="4000" placeholder="Message the community…" required></textarea></label><small>Enter to send · Shift+Enter for a new line</small><button type="submit">Send <span aria-hidden="true">➤</span></button></form>
+                        <div class="community-group-signin" data-community-chat-signin hidden><p>Sign in or create an EduConnect account to join the conversation.</p><a class="community-button community-button-primary" href="/community" data-auth-required="true">Sign in / Register <span>→</span></a></div>
+                    </section>
+                </section>
+
+                <section class="community-panel" data-panel="discover" aria-labelledby="discover-title" hidden>
                     <div class="community-section-heading"><div><span class="community-kicker">BUILD YOUR CIRCLE</span><h2 id="discover-title">Discover students</h2><p>Search by name, course, university, country, or shared interests.</p></div><span class="community-panel-count" data-discovery-count></span></div>
                     <form class="community-search-form"><label class="community-search-main"><span aria-hidden="true">⌕</span><input name="q" type="search" placeholder="Search students by name or username" aria-label="Search students by name or username"></label>
                         <input name="university" placeholder="University" aria-label="Filter by university"><input name="country" placeholder="Country" aria-label="Filter by country"><input name="course" placeholder="Course" aria-label="Filter by course">

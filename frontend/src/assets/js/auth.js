@@ -11,6 +11,7 @@ import {
 let authModal = null;
 
 let pendingNavigation = null;
+let protectedLinkHandlerInstalled = false;
 
 
 /* =========================================================
@@ -330,7 +331,7 @@ function setupCloseEvents() {
             "click",
             () => {
 
-                closeAuthModal(true);
+                closeAuthModal(false);
 
             }
         );
@@ -910,51 +911,26 @@ function setupForgotPasswordForm() {
 ========================================================= */
 
 function setupProtectedLinks() {
+    if (protectedLinkHandlerInstalled) {
+        return;
+    }
 
-    const links =
-        document.querySelectorAll(
-            "[data-auth-required='true']"
-        );
+    protectedLinkHandlerInstalled = true;
 
+    // Delegate so protected links added after an API response are handled too.
+    document.addEventListener("click", (event) => {
+        const link = event.target.closest("[data-auth-required='true']");
+        if (!link) return;
 
-    links.forEach(
-        (link) => {
+        const mustReauthenticate = link.hasAttribute("data-auth-reauth");
+        if (isAuthenticated() && !mustReauthenticate) return;
 
-            link.addEventListener(
-                "click",
-                (event) => {
+        event.preventDefault();
+        event.stopPropagation();
 
-                    if (isAuthenticated()) {
-
-                        return;
-
-                    }
-
-
-                    /*
-                     * Remember exactly where the user
-                     * wanted to go.
-                     */
-
-                    pendingNavigation =
-                        link.getAttribute(
-                            "href"
-                        );
-
-
-                    event.preventDefault();
-
-                    event.stopPropagation();
-
-
-                    openLoginModal();
-
-                }
-            );
-
-        }
-    );
-
+        pendingNavigation = link.getAttribute("href") || window.location.href;
+        openLoginModal();
+    });
 }
 
 

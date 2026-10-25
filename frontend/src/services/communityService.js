@@ -33,6 +33,14 @@ export const communityApi = {
     respond: (id, action) => call(`/friend-requests/${id}`, json("PATCH", { action })),
     friends: () => call("/friends"),
     removeFriend: (id) => call(`/friends/${id}`, { method: "DELETE" }),
+    communityChatMessages: (afterId, beforeId) => {
+        const query = new URLSearchParams();
+        if (afterId) query.set("afterId", afterId);
+        if (beforeId) query.set("beforeId", beforeId);
+        const suffix = query.size ? `?${query.toString()}` : "";
+        return call(`/community-chat/messages${suffix}`);
+    },
+    sendCommunityChatMessage: (content) => call("/community-chat/messages", json("POST", { content })),
     conversations: () => call("/conversations"),
     openConversation: (userId) => call(`/conversations/${userId}`, { method: "POST" }),
     messages: (id, afterId, beforeId) => {

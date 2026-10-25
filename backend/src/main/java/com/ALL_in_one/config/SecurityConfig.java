@@ -108,6 +108,9 @@ public class SecurityConfig {
                                         .requestMatchers("/api/community/admin/**")
                                         .hasRole("ADMIN")
 
+                                        .requestMatchers("/api/community/community-chat/**")
+                                        .authenticated()
+
                                         .requestMatchers("/api/community/**")
                                         .hasRole("STUDENT")
 

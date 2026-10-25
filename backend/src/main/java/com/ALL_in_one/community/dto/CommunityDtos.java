@@ -19,6 +19,7 @@ public final class CommunityDtos {
     public record RelationshipView(Long id, ProfileView student, String status, String direction, LocalDateTime createdAt) {}
     public record ConversationView(Long id, ProfileView student, String lastMessage, LocalDateTime lastMessageAt, long unreadCount) {}
     public record MessageView(Long id, Long senderId, String content, LocalDateTime createdAt, LocalDateTime readAt) {}
+    public record CommunityChatMessageView(Long id, Long senderId, String senderName, String content, LocalDateTime createdAt) {}
     public record NotificationView(Long id, String type, String message, Long referenceId,
             String actorUsername, String actorDisplayName, LocalDateTime createdAt, boolean read) {}
     public record SendRequest(@jakarta.validation.constraints.NotNull Long userId) {}

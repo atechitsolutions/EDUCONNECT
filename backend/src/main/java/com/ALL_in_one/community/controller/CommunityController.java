@@ -43,6 +43,15 @@ public class CommunityController {
     }
     @PostMapping("/conversations/{id}/messages") @ResponseStatus(HttpStatus.CREATED) public MessageView sendMessage(Principal principal, @PathVariable Long id, @Valid @RequestBody MessageRequest body) { return service.sendMessage(principal.getName(), id, body.content()); }
 
+    @GetMapping("/community-chat/messages") public List<CommunityChatMessageView> communityChatMessages(Principal principal,
+            @RequestParam(required = false) Long afterId, @RequestParam(required = false) Long beforeId) {
+        return service.communityChatMessages(principal.getName(), afterId, beforeId);
+    }
+    @PostMapping("/community-chat/messages") @ResponseStatus(HttpStatus.CREATED)
+    public CommunityChatMessageView sendCommunityChatMessage(Principal principal, @Valid @RequestBody MessageRequest body) {
+        return service.sendCommunityChatMessage(principal.getName(), body.content());
+    }
+
     @GetMapping("/notifications") public List<NotificationView> notifications(Principal principal) { return service.notificationList(principal.getName()); }
     @GetMapping("/notifications/unread-count") public Map<String, Long> unreadCount(Principal principal) { return Map.of("count", service.unreadNotifications(principal.getName())); }
     @PatchMapping("/notifications/{id}/read") @ResponseStatus(HttpStatus.NO_CONTENT) public void markRead(Principal principal, @PathVariable Long id) { service.markNotificationRead(principal.getName(), id); }

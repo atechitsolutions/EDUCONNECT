@@ -249,6 +249,17 @@
     font-size: 13px;
 }
 
+.study-abroad-selection-note:not([hidden]) {
+    margin: -12px 0 20px;
+    padding: 12px 14px;
+    border: 1px solid #bfdbfe;
+    border-radius: 12px;
+    background: #eff6ff;
+    color: #174a83;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
 
 /* =========================================================
    FORM

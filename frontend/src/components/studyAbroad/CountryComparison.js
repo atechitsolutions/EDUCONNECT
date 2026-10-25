@@ -300,15 +300,6 @@ export default function CountryComparison() {
                                 Explore ${country.name}
                                 <span aria-hidden="true">→</span>
                             </a>
-                            ${country.id === "germany" ? `
-                                <div class="country-comparison-germany-note">
-                                    <strong>Study in Germany from India</strong>
-                                    <p>Check whether your qualification is recognised, confirm APS requirements, and compare course language and current university fees before applying.</p>
-                                    <a href="https://www.daad.de/en/studying-in-germany/requirements/overview/" target="_blank" rel="noopener noreferrer">DAAD Germany admission and language requirements</a>
-                                    <a href="https://india.diplo.de/in-en/service/2756350-2756350" target="_blank" rel="noopener noreferrer">German Missions in India: study visa and APS</a>
-                                    <a href="https://www.daad.de/en/studying-in-germany/living-in-germany/finances/" target="_blank" rel="noopener noreferrer">DAAD tuition and cost guidance</a>
-                                </div>
-                            ` : ""}
                         </article>
                     `).join("")}
                 </div>

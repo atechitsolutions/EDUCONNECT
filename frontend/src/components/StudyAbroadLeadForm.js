@@ -160,6 +160,8 @@ export default function StudyAbroadLeadForm() {
 
                         </div>
 
+                        <p class="study-abroad-selection-note" data-selected-institution-note role="status" hidden></p>
+
 
                         <form
                             id="study-abroad-lead-form-element"
@@ -194,7 +196,6 @@ export default function StudyAbroadLeadForm() {
                                 ></span>
 
                             </div>
-
 
                             <!-- ==================================================
                                  EMAIL
@@ -410,6 +411,19 @@ export default function StudyAbroadLeadForm() {
 
                                 </select>
 
+                            </div>
+
+                            <div class="study-abroad-form-field">
+                                <label for="study-abroad-institution">
+                                    Preferred university / institution
+                                </label>
+                                <input
+                                    id="study-abroad-institution"
+                                    name="institution"
+                                    type="text"
+                                    placeholder="Choose an institution or enter one"
+                                    autocomplete="organization"
+                                />
                             </div>
 
 

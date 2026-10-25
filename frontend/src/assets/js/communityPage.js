@@ -1,4 +1,5 @@
 import { communityApi as api } from "../../services/communityService.js";
+import { getCurrentUser } from "../../services/authService.js";
 
 const escapeHtml = (value = "") => String(value ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 const initials = (name = "Student") => String(name).trim().split(/\s+/).slice(0, 2).map(part => part[0] || "").join("").toUpperCase() || "S";
@@ -9,7 +10,7 @@ export function initCommunityPage() {
     if (!root || root.dataset.ready) return;
     root.dataset.ready = "true";
 
-    const state = { profile: null, students: [], friends: [], incoming: [], outgoing: [], conversations: [], notifications: [], activeConversation: null, messages: [], hasOlderMessages: false, page: 0, totalPages: 1, filters: {}, timer: null, toastTimer: null };
+    const state = { profile: null, communityMessages: [], communityHasOlder: false, communityLoading: false, students: [], friends: [], incoming: [], outgoing: [], conversations: [], notifications: [], activeConversation: null, messages: [], hasOlderMessages: false, page: 0, totalPages: 1, filters: {}, timer: null, toastTimer: null };
     const select = (selector) => root.querySelector(selector);
     const toast = (message, error = false) => {
         const node = select("[data-community-toast]");
@@ -23,7 +24,73 @@ export function initCommunityPage() {
         try { await action(); if (successMessage) toast(successMessage); return true; }
         catch (error) { toast(error.message || "Something went wrong. Please try again.", true); return false; }
     };
+    const signedInUser = getCurrentUser();
+    const currentUserId = Number(signedInUser?.userId) || null;
     const avatar = (person, large = false) => `<span class="community-avatar${large ? " community-avatar-large" : ""}${person.online ? " is-online" : ""}" aria-hidden="true">${escapeHtml(initials(person.displayName))}</span>`;
+
+    function renderCommunityMessages({ keepPosition = false } = {}) {
+        const list = select("[data-community-chat-list]");
+        if (!list) return;
+        const oldHeight = list.scrollHeight;
+        const oldTop = list.scrollTop;
+        const nearBottom = oldHeight - oldTop - list.clientHeight < 120;
+        const olderButton = state.communityHasOlder ? `<button class="community-load-older" data-community-chat-older ${state.communityLoading ? "disabled" : ""}>${state.communityLoading ? "Loading…" : "Load earlier messages"}</button>` : "";
+        const messages = state.communityMessages.map(message => {
+            const senderName = message.senderName || "Community member";
+            const own = currentUserId && Number(message.senderId) === currentUserId;
+            return `<article class="community-group-message${own ? " is-own" : ""}" data-message-id="${message.id}">
+                ${own ? "" : `<span class="community-avatar community-group-avatar" aria-hidden="true">${escapeHtml(initials(senderName))}</span>`}
+                <div class="community-group-message-body">${own ? "" : `<strong>${escapeHtml(senderName)}</strong>`}<div class="community-group-bubble"><p>${escapeHtml(message.content)}</p><time>${escapeHtml(dateLabel(message.createdAt))}</time></div></div>
+            </article>`;
+        }).join("");
+        list.innerHTML = `${olderButton}${messages || `<div class="community-empty-state"><span>✦</span><h3>Start the conversation</h3><p>Be the first to share a question, idea, or helpful study tip.</p></div>`}`;
+        if (!keepPosition || nearBottom) list.scrollTop = list.scrollHeight;
+        else list.scrollTop = list.scrollHeight - oldHeight + oldTop;
+    }
+
+    async function loadCommunityMessages({ beforeId = null, quiet = false } = {}) {
+        const list = select("[data-community-chat-list]");
+        if (!list || state.communityLoading) return;
+        state.communityLoading = true;
+        if (!quiet && !state.communityMessages.length) list.innerHTML = `<div class="community-empty-state"><span>✦</span><h3>Loading community chat</h3><p>Getting the latest messages…</p></div>`;
+        try {
+            const items = await api.communityChatMessages(null, beforeId);
+            if (beforeId) {
+                state.communityHasOlder = items.length >= 60;
+                state.communityMessages = [...items, ...state.communityMessages];
+                state.communityLoading = false;
+                renderCommunityMessages({ keepPosition: true });
+            } else {
+                state.communityHasOlder = items.length >= 100;
+                state.communityMessages = items;
+                renderCommunityMessages();
+            }
+            select("[data-community-chat-form]").hidden = false;
+            select("[data-community-chat-signin]").hidden = true;
+        } catch (error) {
+            if (!quiet) {
+                const needsSignIn = /\((401|403)\)/.test(error.message || "");
+                select("[data-community-chat-form]").hidden = true;
+                list.innerHTML = needsSignIn
+                    ? `<div class="community-empty-state is-error"><span>↗</span><h3>Sign in to join the chat</h3><p>Your session may have expired. Sign in with your EduConnect account to view and send community messages.</p><a class="community-button community-button-primary" href="/community" data-auth-required="true" data-auth-reauth>Sign in again →</a></div>`
+                    : `<div class="community-empty-state is-error"><span>!</span><h3>Community chat couldn’t connect</h3><p>${escapeHtml(error.message || "Please check your connection and try again.")}</p><button class="community-small-button is-primary" data-community-chat-retry>Try again</button></div>`;
+            }
+        } finally {
+            state.communityLoading = false;
+        }
+    }
+
+    async function refreshCommunityMessages() {
+        if (select('[data-panel="community-chat"]')?.hidden) return;
+        const lastId = state.communityMessages.at(-1)?.id || 0;
+        try {
+            const fresh = await api.communityChatMessages(lastId || null);
+            if (!fresh.length) return;
+            const known = new Set(state.communityMessages.map(message => message.id));
+            state.communityMessages.push(...fresh.filter(message => !known.has(message.id)));
+            renderCommunityMessages({ keepPosition: true });
+        } catch { /* Keep the shared chat readable during temporary network interruptions. */ }
+    }
 
     function relationshipFor(userId) {
         const incoming = state.incoming.find(r => r.student.userId === userId);
@@ -189,8 +256,30 @@ export function initCommunityPage() {
     }
 
     root.addEventListener("click", async (event) => {
+        const retryGroup = event.target.closest("[data-community-chat-retry]");
+        if (retryGroup) { await loadCommunityMessages(); return; }
+        const olderGroup = event.target.closest("[data-community-chat-older]");
+        if (olderGroup && state.communityMessages.length) {
+            olderGroup.disabled = true;
+            await loadCommunityMessages({ beforeId: state.communityMessages[0].id });
+            return;
+        }
         const tab = event.target.closest("[data-community-tab], [data-community-tab-link]");
-        if (tab) { setTab(tab.dataset.communityTab || tab.dataset.communityTabLink); return; }
+        if (tab) {
+            const name = tab.dataset.communityTab || tab.dataset.communityTabLink;
+            setTab(name);
+            if (name === "community-chat" && !state.communityMessages.length) await loadCommunityMessages();
+            if (name !== "community-chat" && !state.profile) {
+                try {
+                    await loadProfile();
+                    await Promise.allSettled([loadLists(), loadDiscovery()]);
+                    api.heartbeat().catch(() => {});
+                } catch {
+                    if (name === "discover") select("[data-student-results]").innerHTML = `<div class="community-empty-state"><span>✦</span><h3>Student discovery is unavailable</h3><p>Community Chat is open to all signed-in EduConnect members. Student discovery tools require a student profile.</p></div>`;
+                }
+            }
+            return;
+        }
         const add = event.target.closest("[data-add-friend]");
         if (add && await run(() => api.sendRequest(Number(add.dataset.addFriend)), "Friend request sent.")) { await loadLists(); await loadDiscovery(); return; }
         const accept = event.target.closest("[data-accept-request]");
@@ -271,6 +360,33 @@ export function initCommunityPage() {
         catch (error) { feedback.textContent = error.message; feedback.classList.remove("is-success"); }
     });
 
+    select("[data-community-chat-form]").addEventListener("submit", async event => {
+        event.preventDefault();
+        const form = event.currentTarget;
+        const textarea = form.elements.content;
+        const content = textarea.value.trim();
+        if (!content) return;
+        const send = form.querySelector("button[type=submit]");
+        send.disabled = true;
+        try {
+            const message = await api.sendCommunityChatMessage(content);
+            state.communityMessages.push(message);
+            renderCommunityMessages();
+            textarea.value = "";
+            textarea.focus();
+        } catch (error) {
+            toast(error.message || "Message could not be sent. Please try again.", true);
+        } finally {
+            send.disabled = false;
+        }
+    });
+    select("[data-community-chat-form]").addEventListener("keydown", event => {
+        if (event.target.matches("textarea") && event.key === "Enter" && !event.shiftKey) {
+            event.preventDefault();
+            event.target.closest("form").requestSubmit();
+        }
+    });
+
     select("[data-chat-window]").addEventListener("submit", async event => {
         if (!event.target.matches("[data-send-message]")) return;
         event.preventDefault(); const textarea = event.target.elements.content; const content = textarea.value.trim();
@@ -287,18 +403,21 @@ export function initCommunityPage() {
     });
 
     async function start() {
-        try {
-            await loadProfile();
-            await Promise.all([loadLists(), loadDiscovery()]);
-            await api.heartbeat().catch(() => {});
-            state.timer = window.setInterval(async () => {
-                api.heartbeat().catch(() => {});
-                try { await refreshMessages(); await loadLists(); } catch { /* Keep the current UI usable during temporary disconnects. */ }
-            }, 12000);
-        } catch (error) {
-            select("[data-student-results]").innerHTML = `<div class="community-empty-state is-error"><h3>Community couldn’t connect</h3><p>${escapeHtml(error.message)}</p><button class="community-small-button is-primary" data-community-retry>Try again</button></div>`;
-            root.addEventListener("click", async event => { if (event.target.closest("[data-community-retry]")) { try { await loadProfile(); await Promise.all([loadLists(), loadDiscovery()]); } catch (e) { toast(e.message, true); } } }, { once: true });
+        const user = signedInUser || {};
+        if (user.fullName) {
+            select("[data-my-name]").textContent = user.fullName;
+            select("[data-my-avatar]").textContent = initials(user.fullName);
         }
+        select("[data-my-course]").textContent = "Community member";
+        updateCounts();
+        await loadCommunityMessages();
+        state.timer = window.setInterval(async () => {
+            await refreshCommunityMessages();
+            if (state.profile) {
+                api.heartbeat().catch(() => {});
+                try { await refreshMessages(); await loadLists(); } catch { /* Preserve the chat if private tools are temporarily unavailable. */ }
+            }
+        }, 10000);
     }
     window.addEventListener("pagehide", () => clearInterval(state.timer), { once: true });
     start();

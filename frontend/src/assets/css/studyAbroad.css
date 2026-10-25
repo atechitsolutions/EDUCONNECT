@@ -1891,7 +1891,13 @@
      }
 
 /* Popular destinations: seamless automatic infinite carousel, isolated to the hero row. */
-.study-abroad-popular-destinations{overflow:hidden}
+.study-abroad-popular-destinations {
+    position: relative;
+    z-index: 12;
+    overflow: hidden;
+    padding: 18px 22px 24px;
+    background: #fff;
+}
 .study-abroad-destination-list{display:flex;flex-wrap:nowrap;align-items:stretch;justify-content:flex-start;gap:14px;width:max-content;min-width:max-content;grid-template-columns:none;padding:2px 0 8px;animation:none!important;will-change:transform}
 .study-abroad-destination-list>.study-abroad-destination-card{flex:0 0 clamp(245px,14.8vw,290px);width:clamp(245px,14.8vw,290px);min-height:74px}
 .study-abroad-destination-list>.study-abroad-destination-card[data-carousel-clone="true"]{pointer-events:auto}
@@ -1908,8 +1914,9 @@
     position: relative;
     isolation: isolate;
     min-height: 760px;
-    padding: 112px 0 58px !important;
+    padding: 8px 0 58px !important;
     overflow: hidden;
+    background-position: center top !important;
 }
 
 .study-abroad-page .study-abroad-hero .study-abroad-container {
@@ -1919,14 +1926,18 @@
 }
 
 .study-abroad-page .study-abroad-hero .study-abroad-hero-layout {
-    align-items: center;
+    align-items: flex-start;
 }
 
 .study-abroad-page .study-abroad-hero .study-abroad-hero-content {
     min-width: 0;
-    align-self: center;
+    align-self: flex-start;
     margin-top: 0;
     transform: none;
+}
+
+.study-abroad-page .study-abroad-hero .study-abroad-hero-visual {
+    align-self: flex-start;
 }
 
 .study-abroad-page .study-abroad-hero .study-abroad-hero-badge {
@@ -1939,8 +1950,9 @@
 @media (min-width: 1101px) {
     .study-abroad-page .study-abroad-hero {
         min-height: 760px;
-        padding-top: 112px !important;
+        padding-top: 8px !important;
         padding-bottom: 58px !important;
+        background-position: center top !important;
     }
 }
 
@@ -1948,8 +1960,9 @@
 @media (max-width: 1100px) {
     .study-abroad-page .study-abroad-hero {
         min-height: auto;
-        padding-top: 96px !important;
+        padding-top: 12px !important;
         padding-bottom: 56px !important;
+        background-position: center top !important;
     }
 
     .study-abroad-page .study-abroad-hero .study-abroad-hero-layout {
@@ -1961,7 +1974,8 @@
 @media (max-width: 700px) {
     .study-abroad-page .study-abroad-hero {
         min-height: auto;
-        padding: 76px 0 48px !important;
+        padding: 10px 0 48px !important;
+        background-position: center top !important;
     }
 
     .study-abroad-page .study-abroad-hero .study-abroad-hero-layout {
@@ -1971,6 +1985,76 @@
 
 @media (max-width: 430px) {
     .study-abroad-page .study-abroad-hero {
-        padding-top: 68px !important;
+        padding-top: 8px !important;
+    }
+}
+
+/* Small layout polish requested for the Study Abroad page. */
+.study-abroad-page .study-abroad-hero .study-abroad-hero-content {
+    transform: none;
+}
+
+.study-abroad-page .study-abroad-lead-section {
+    padding-bottom: 32px !important;
+}
+
+.study-abroad-page .study-abroad-country-comparison {
+    padding-top: 44px !important;
+}
+
+@media (max-width: 700px) {
+    .study-abroad-page .study-abroad-hero .study-abroad-hero-content {
+        transform: none;
+    }
+
+    .study-abroad-page .study-abroad-lead-section {
+        padding-bottom: 24px !important;
+    }
+
+    .study-abroad-page .study-abroad-country-comparison {
+        padding-top: 32px !important;
+    }
+}
+
+/* Consistent, tighter vertical rhythm across every Study Abroad section. */
+.study-abroad-page section,
+.study-abroad-page .study-abroad-section-padding {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+}
+
+.study-abroad-page .study-abroad-section-padding-sm {
+    padding-top: 32px !important;
+    padding-bottom: 32px !important;
+}
+
+.study-abroad-page .study-abroad-section-padding-lg {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+}
+
+.study-abroad-page .study-abroad-popular-destinations {
+    margin-top: 34px;
+}
+
+@media (max-width: 700px) {
+    .study-abroad-page section,
+    .study-abroad-page .study-abroad-section-padding {
+        padding-top: 28px !important;
+        padding-bottom: 28px !important;
+    }
+
+    .study-abroad-page .study-abroad-section-padding-sm {
+        padding-top: 24px !important;
+        padding-bottom: 24px !important;
+    }
+
+    .study-abroad-page .study-abroad-section-padding-lg {
+        padding-top: 36px !important;
+        padding-bottom: 36px !important;
+    }
+
+    .study-abroad-page .study-abroad-popular-destinations {
+        margin-top: 26px;
     }
 }
